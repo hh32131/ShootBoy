@@ -243,14 +243,14 @@
 					<option>중앙 공격수</option>
 					<option>세컨드 스트라이커</option>
 				</select> <br/>
-			<select id="locationId" name="locationId">
+		<select id="locationId" name="locationId">
 			<option>거주 지역을 선택하세요</option>
 			<c:forEach items="${location}" var="location">
 				<option value="${location.locationId}">${location.locationName}</option>
 		
 			</c:forEach>
 	 	</select>
-	<select name="leafCategory" id="leafCategory">
+		<select name="leafCategory" id="leafCategory">
 			<option> 상세 지역을 선택하세요 </option>
 		</select><br/>
 				<input type="button" id="signBtn" value="회원가입">
