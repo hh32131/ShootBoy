@@ -1,5 +1,15 @@
+<%@page import="net.Y5M2.category.vo.CategoryVO"%>
+<%@page import="java.util.List"%>
+<%@page import="net.Y5M2.category.dao.CategoryDaoImpl"%>
+<%@page import="net.Y5M2.category.dao.CategoryDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	CategoryDao dao = new CategoryDaoImpl();
+	
+	List<CategoryVO> categories	= dao.getCategories();
+	
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,6 +72,20 @@
 		<input type="password" id="password1" name="password1" placeholder="비밀번호를 입력하세요">
 		<input type="password" id="password2" name="password2" placeholder="비밀번호를 입력하세요">
 		<input type="text" id="phoneNumber" name="phoneNumber" placeholder="전화번호를 입력해주세요">
+		
+		<select name="categoryId">
+			<option>거주 지역을 선택하세요</option>
+			
+			<%
+				for( CategoryVO categoryVO : categories){
+			%>
+			<option value="<%= categoryVO.getCategoryId()%>"><%= categoryVO.getCategoryName()%></option>
+			<% } %>
+		</select>
+		<select name="leafCategory">
+			<option> 상세 지역을 선택하세요 </option>
+		</select>
+		
 		<input type="date" id="age" name="age" placeholder="나이름 선택하세요">
 		<select>
 			<option selected="selected">포지션을 선택하세요</option>
