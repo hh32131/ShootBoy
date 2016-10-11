@@ -115,6 +115,15 @@
   <servlet-mapping>
     <servlet-name>DoCheckLocation</servlet-name>
     <url-pattern>/checkLocation</url-pattern>
-
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewCreateTeamPageServlet</display-name>
+    <servlet-name>ViewCreateTeamPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.team.web.ViewCreateTeamPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewCreateTeamPageServlet</servlet-name>
+    <url-pattern>/createTeam</url-pattern>
   </servlet-mapping>
 </web-app>
