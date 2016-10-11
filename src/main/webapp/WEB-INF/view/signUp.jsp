@@ -1,13 +1,10 @@
 <%@page import="net.Y5M2.category.vo.CategoryVO"%>
 <%@page import="java.util.List"%>
-<%@page import="net.Y5M2.category.dao.CategoryDaoImpl"%>
-<%@page import="net.Y5M2.category.dao.CategoryDao"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	CategoryDao dao = new CategoryDaoImpl();
 	
-	List<CategoryVO> categories	= dao.getCategories();
 	
 %>
 <!DOCTYPE html>
@@ -77,10 +74,7 @@
 			<option>거주 지역을 선택하세요</option>
 			
 			<%
-				for( CategoryVO categoryVO : categories){
 			%>
-			<option value="<%= categoryVO.getCategoryId()%>"><%= categoryVO.getCategoryName()%></option>
-			<% } %>
 		</select>
 		<select name="leafCategory">
 			<option> 상세 지역을 선택하세요 </option>
