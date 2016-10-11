@@ -7,6 +7,15 @@ public class TeamVO {
 	private String teamId;
 	private int teamCount;
 	private String teamName;
+	private String teamInfo;
+	public String getTeamInfo() {
+		return teamInfo;
+	}
+
+	public void setTeamInfo(String teamInfo) {
+		this.teamInfo = teamInfo;
+	}
+
 	private String teamPhoto;
 	private String createDate;
 	private int teamPoint;

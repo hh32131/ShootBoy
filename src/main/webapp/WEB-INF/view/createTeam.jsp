@@ -46,21 +46,30 @@
 </script>
 </head>
 <body>
-	<div id="wrapper" style="width: 350px;">
+	<div id="wrapper" style="width: 350px;" >
+		<div><h1>CREATE TEAM</h1></div>
 		<form id="craeteTeamForm" name="createTeamForm"
 			enctype="multipart/form-data">
 			<div>
-				<input type="text"
-					style="width: 350px; height: 25px; border-radius: 10px;"
-					id="boardSubject" name="boardSubject" placeholder="팀명을 입력하세요." />
+				<div class="inline-block" style="border-style: groove; border-radius: 10px;">
+					<input type="text"
+						style=" width: 255px; height: 25px; border-radius: 10px;"
+						id="teamName" name="teamName" placeholder="팀명" />
+				</div>
+	
+				<div class="inline-block">
+					<input type="text"
+						style=" width: 75px; height: 30px; border-radius: 8px;"
+						id="teamCount" name="teamCount" placeholder="팀원 수" />
+				</div>
 			</div>
-			<div style="height: 10px;"></div>
+			<div style="height: 8px;"></div>
 			<div>
 				<textarea id="teamInfo" name="teamInfo"
 					style="width: 350px; height: 250px; border-radius: 10px;"
 					placeholder="소개글을 입력하세요."></textarea>
 			</div>
-			<input type="file" style="width: 150px;" /> <input type="button"
+			<input type="file" style="width: 220px;" /> <input type="button"
 				id="createBtn" name="createBtn" value="팀 생성" /> <input
 				type="button" id="backBtn" name="backBtn" value="취소" />
 		</form>

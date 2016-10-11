@@ -26,7 +26,7 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 				query.append(" 					,CRT_DT ");
 				query.append(" 					,TEAM_POINT ");
 				query.append(" 					,LTST_MODY_DT ");
-				query.append(" 					,LV_ID ) ");
+				query.append(" 					,TEAM_INFO )");
 				query.append(" VALUES		 ( ");
 				query.append(" 'TEAM-' || TO_CHAR(SYSDATE, 'YYYYMMDD') || '-' || LPAD(TEAM_ID_SEQ.NEXTVAL,6,0) ");
 				query.append(" , ?, ?, ?, SYSDATE, 0, SYSDATE, ? ) ");
@@ -35,7 +35,7 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 				pstmt.setInt(1, teamVO.getTeamCount());
 				pstmt.setString(2, teamVO.getTeamName());
 				pstmt.setString(3, teamVO.getTeamPhoto());
-				pstmt.setString(4, teamVO.getLevelId());
+				pstmt.setString(4, teamVO.getTeamInfo());
 				return pstmt;
 			}
 		});

@@ -1,11 +1,6 @@
 @CHARSET "UTF-8";
 
 #wrapper {
-
-<<<<<<< HEAD
-=======
-	
->>>>>>> 7a385f496eb3cdf930e529079ae124451a4cebcd
 	margin: 0 auto;
 }
 body {
@@ -41,4 +36,6 @@ li a:hover {
 	background-color: #555;
 	color: white;
 }
-
+.inline-block{
+	display: inline-block;
+}
