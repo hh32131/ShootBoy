@@ -1,10 +1,15 @@
-<%@page import="net.Y5M2.category.vo.CategoryVO"%>
+<%@page import="net.Y5M2.location.vo.LocationVO"%>
+<%@page import="net.Y5M2.location.dao.LocationDaoImpl"%>
+<%@page import="net.Y5M2.location.dao.LocationDao"%>
 <%@page import="java.util.List"%>
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+    
 <%
+	LocationDao dao = new LocationDaoImpl();
 	
+	List<LocationVO> locations	= dao.getLocations();
 	
 %>
 <!DOCTYPE html>
@@ -72,9 +77,14 @@
 		
 		<select name="categoryId">
 			<option>거주 지역을 선택하세요</option>
-			
-			<%
+		<%-- 			<%
+				for( LocationVO locationVO : locations){
 			%>
+			<option value="${location.locationId }"><%= categoryVO.getCategoryName()%></option>
+			<% } %> --%>
+			<c:forEach items="${location}" var="location">
+				<option value="${location.locationId}">${location.locationName}</option>
+			</c:forEach>
 		</select>
 		<select name="leafCategory">
 			<option> 상세 지역을 선택하세요 </option>

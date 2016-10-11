@@ -22,9 +22,9 @@ public class LocationDaoImpl extends DaoSupport implements LocationDao {
 			public PreparedStatement query(Connection conn) throws SQLException {
 				StringBuffer query = new StringBuffer();
 
-				query.append(" SELECT	LCTN_ID ");
+				query.append(" SELECT	LCTN_NM ");
+				query.append("  		,LCTN_ID ");
 				query.append("  		, PRNT_LCTN_ID ");
-				query.append("  		, LCTN_NM ");
 				query.append(" FROM		LCTN ");
 				query.append(" WHERE 	PRNT_LCTN_ID = 0 ");
 				
