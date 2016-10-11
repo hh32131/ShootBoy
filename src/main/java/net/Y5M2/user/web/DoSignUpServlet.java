@@ -38,7 +38,7 @@ public class DoSignUpServlet extends HttpServlet {
 		String phoneNumber= Param.getStringParam(request, "phoneNumber");
 		String age = Param.getStringParam(request, "age");
 		String position = Param.getStringParam(request, "position");
-		String detaillocation = Param.getStringParam(request, "detaillocation");
+		String leafCategory = Param.getStringParam(request, "leafCategory");
 		
 		
 		if (email == null) {
@@ -68,7 +68,7 @@ public class DoSignUpServlet extends HttpServlet {
 		if (position == null) {
 			response.sendRedirect("/ShootBoy/signUp?errorCode=10");
 		}
-		if(detaillocation==null){
+		if(leafCategory==null){
 			response.sendRedirect("/ShootBoy/signUp?errorCode=11");
 		}
 		
@@ -87,7 +87,7 @@ public class DoSignUpServlet extends HttpServlet {
 		userVO.setPhoneNumber(phoneNumber);
 		userVO.setAge(age);
 		userVO.setPosition(position);
-		userVO.setLocationId(detaillocation);
+		userVO.setLocationId(leafCategory);
 		
 		boolean isSuccess = userBiz.signUpUser(userVO);
 		if(isSuccess){

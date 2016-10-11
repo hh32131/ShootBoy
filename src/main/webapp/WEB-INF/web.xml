@@ -108,7 +108,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-<<<<<<< HEAD
     <display-name>DoCheckLocation</display-name>
     <servlet-name>DoCheckLocation</servlet-name>
     <servlet-class>net.Y5M2.location.web.ajax.DoCheckLocation</servlet-class>
@@ -116,14 +115,6 @@
   <servlet-mapping>
     <servlet-name>DoCheckLocation</servlet-name>
     <url-pattern>/checkLocation</url-pattern>
-=======
-    <display-name>ViewSignInPageServlet</display-name>
-    <servlet-name>ViewSignInPageServlet</servlet-name>
-    <servlet-class>net.Y5M2.user.web.ViewSignInPageServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ViewSignInPageServlet</servlet-name>
-    <url-pattern>/signIn</url-pattern>
->>>>>>> baa3f842cedf06e2d6187c19bb50ddccb76768f7
+
   </servlet-mapping>
 </web-app>
