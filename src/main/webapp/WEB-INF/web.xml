@@ -106,4 +106,14 @@
     <servlet-name>DoCheckEmail</servlet-name>
     <url-pattern>/doCheckEmail</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewSignInPageServlet</display-name>
+    <servlet-name>ViewSignInPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.user.web.ViewSignInPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewSignInPageServlet</servlet-name>
+    <url-pattern>/signIn</url-pattern>
+  </servlet-mapping>
 </web-app>

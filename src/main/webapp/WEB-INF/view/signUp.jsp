@@ -153,6 +153,19 @@
 			isVisibleButton();
 		});
 		
+		$("#detaillocation").change(function(){
+			if($(this).val()==""){
+				$(this).addClass("warning");
+				$(this).removeClass("pass");
+			}
+			else{
+				$(this).addClass("pass");
+				$(this).removeClass("warning");
+			}
+			isVisibleButton();
+		});
+		
+		
 		$("#signBtn").click(function() {
 			
 			$("#signUpForm").attr({
@@ -185,7 +198,7 @@
 	};
 	
 	function isVisibleButton(){
-		if($(".pass").length==9){
+		if($(".pass").length==10){
 			$("#signBtn").slideDown();
 		}
 		else{
@@ -236,20 +249,15 @@
 					<option>중앙 공격수</option>
 					<option>세컨드 스트라이커</option>
 				</select> <br/>
-						<select name="categoryId">
-			<option>거주 지역을 선택하세요</option>
-		<%-- 			<%
-				for( LocationVO locationVO : locations){
-			%>
-			<option value="${location.locationId }"><%= categoryVO.getCategoryName()%></option>
-			<% } %> --%>
-			<c:forEach items="${location}" var="location">
-				<option value="${location.locationId}">${location.locationName}</option>
-			</c:forEach>
-		</select>
-		<select name="leafCategory">
-			<option> 상세 지역을 선택하세요 </option>
-		</select><br/>
+				<select id="location" name="location">
+					<option>거주 지역을 선택하세요</option>
+					<c:forEach items="${location}" var="location">
+					<option value="${location.locationId}">${location.locationName}</option>
+					</c:forEach>
+				</select>
+				<select id="detaillocation"  name="detaillocation">
+					<option> 상세 지역을 선택하세요 </option>
+				</select><br/>
 				
 				<input type="button" id="signBtn" value="회원가입">
 				<input type="button" id="cancelBtn" value="취소">
