@@ -6,4 +6,6 @@ public interface UserBiz {
 
 	public boolean signUpUser(UserVO userVO);
 
+	public boolean isExsist(String email);
+
 }

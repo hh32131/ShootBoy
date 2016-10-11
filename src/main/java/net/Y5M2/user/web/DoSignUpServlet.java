@@ -33,7 +33,13 @@ public class DoSignUpServlet extends HttpServlet {
 		String userName = Param.getStringParam(request, "userName");
 		String password1 = Param.getStringParam(request, "password1");
 		String password2 = Param.getStringParam(request, "password2");
-
+		String passwordHintKey = Param.getStringParam(request, "passwordHintKey");
+		String passwordHintValue = Param.getStringParam(request, "passwordHintValue");
+		String phoneNumber= Param.getStringParam(request, "phoneNumber");
+		String age = Param.getStringParam(request, "age");
+		String position = Param.getStringParam(request, "position");
+		
+		
 		if (email == null) {
 			response.sendRedirect("/ShootBoy/signUp?errorCode=2");
 		}
@@ -46,14 +52,36 @@ public class DoSignUpServlet extends HttpServlet {
 		if (password2 == null) {
 			response.sendRedirect("/ShootBoy/signUp?errorCode=5");
 		}
-		if (password1 != password2) {
+		if (passwordHintKey == null) {
 			response.sendRedirect("/ShootBoy/signUp?errorCode=6");
 		}
+		if (passwordHintValue == null) {
+			response.sendRedirect("/ShootBoy/signUp?errorCode=7");
+		}
+		if (phoneNumber == null) {
+			response.sendRedirect("/ShootBoy/signUp?errorCode=8");
+		}
+		if (age == null) {
+			response.sendRedirect("/ShootBoy/signUp?errorCode=9");
+		}
+		if (position == null) {
+			response.sendRedirect("/ShootBoy/signUp?errorCode=10");
+		}
+		
+		if (password1 != password2) {
+			response.sendRedirect("/ShootBoy/signUp?errorCode=11");
+		}
+		
+		
 		
 		UserVO userVO = new UserVO();
 		userVO.setEmail(email);
 		userVO.setUserName(userName);
 		userVO.setPassword(password1);
+		userVO.setPasswordHint(passwordHintKey);
+		userVO.setPasswordAnswer(passwordHintValue);
+		userVO.setPhoneNumber(phoneNumber);
+		userVO.setAge(age);
 		
 		boolean isSuccess = userBiz.signUpUser(userVO);
 		if(isSuccess){

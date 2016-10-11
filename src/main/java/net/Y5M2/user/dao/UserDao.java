@@ -6,4 +6,6 @@ public interface UserDao {
 
 	public int signUpUser(UserVO userVO);
 
+	public int isExsist(String email);
+
 }
