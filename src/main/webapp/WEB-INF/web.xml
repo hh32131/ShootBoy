@@ -96,4 +96,14 @@
     <servlet-name>DoWriteServlet</servlet-name>
     <url-pattern>/doWrite</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewLocationPageServlet</display-name>
+    <servlet-name>ViewLocationPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.location.web.ViewLocationPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewLocationPageServlet</servlet-name>
+    <url-pattern>/location</url-pattern>
+  </servlet-mapping>
 </web-app>
