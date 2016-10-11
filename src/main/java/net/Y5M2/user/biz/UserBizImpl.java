@@ -17,4 +17,10 @@ public class UserBizImpl implements UserBiz {
 		
 		return userDao.signUpUser(userVO)>0;
 	}
+	
+	@Override
+	public boolean isExsist(String email) {
+		
+		return userDao.isExsist(email) > 0;
+	}
 }

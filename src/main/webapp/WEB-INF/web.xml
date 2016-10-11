@@ -98,6 +98,7 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+<<<<<<< HEAD
     <display-name>ViewLocationPageServlet</display-name>
     <servlet-name>ViewLocationPageServlet</servlet-name>
     <servlet-class>net.Y5M2.location.web.ViewLocationPageServlet</servlet-class>
@@ -105,5 +106,25 @@
   <servlet-mapping>
     <servlet-name>ViewLocationPageServlet</servlet-name>
     <url-pattern>/location</url-pattern>
+=======
+    <display-name>DoCheckEmail</display-name>
+    <servlet-name>DoCheckEmail</servlet-name>
+    <servlet-class>net.Y5M2.user.web.ajax.DoCheckEmail</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoCheckEmail</servlet-name>
+    <url-pattern>/doCheckEmail</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoCheckLocation</display-name>
+    <servlet-name>DoCheckLocation</servlet-name>
+    <servlet-class>net.Y5M2.location.web.ajax.DoCheckLocation</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoCheckLocation</servlet-name>
+    <url-pattern>/checkLocation</url-pattern>
+
+>>>>>>> b3425a329576442923f6b080470c8f50cff134b7
   </servlet-mapping>
 </web-app>

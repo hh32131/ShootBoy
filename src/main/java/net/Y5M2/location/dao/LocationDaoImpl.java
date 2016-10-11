@@ -15,17 +15,59 @@ import net.Y5M2.support.QueryAndResult;
 public class LocationDaoImpl extends DaoSupport implements LocationDao {
 
 	@Override
-	public List<LocationVO> getLocations() {
+	public List<LocationVO> getLocations(LocationVO locations) {
 		return selectList(new QueryAndResult() {
 			
 			@Override
 			public PreparedStatement query(Connection conn) throws SQLException {
 				StringBuffer query = new StringBuffer();
 
-				query.append(" SELECT	LCTN_ID ");
+				query.append(" SELECT	LCTN_NM ");
+				query.append("  		,LCTN_ID ");
 				query.append("  		, PRNT_LCTN_ID ");
-				query.append("  		, LCTN_NM ");
 				query.append(" FROM		LCTN ");
+				query.append(" WHERE 	PRNT_LCTN_ID = ? ");
+				
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				pstmt.setString(1, locations.getParentLocationId());
+				return pstmt;
+			}
+			
+			@Override
+			public Object makeObject(ResultSet rs) throws SQLException {
+				
+				List<LocationVO> locations = new ArrayList<LocationVO>();
+				LocationVO locationVO;
+				
+				while( rs.next() ) {
+					locationVO = new LocationVO();
+					
+					locationVO.setLocationId(rs.getString("LCTN_ID"));
+					locationVO.setParentLocationId(rs.getString("PRNT_LCTN_ID"));
+					locationVO.setLocationName(rs.getString("LCTN_NM"));
+					
+					locations.add(locationVO);
+					
+				}
+				
+				return locations;
+			}
+		});
+		
+	}
+
+/*	@Override
+	public List<LocationVO> getLeafLocations() {
+		return selectList(new QueryAndResult() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				StringBuffer query = new StringBuffer();
+
+				query.append(" SELECT	LCTN_NM ");
+				query.append("  		,LCTN_ID ");
+				query.append("  		,PRNT_LCTN_ID ");
+				query.append(" FROM		LCTN");
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				return pstmt;
@@ -50,8 +92,8 @@ public class LocationDaoImpl extends DaoSupport implements LocationDao {
 				
 				return locations;
 			}
-		});
-	}
+		});*/
+//	}
 
 	
 }
