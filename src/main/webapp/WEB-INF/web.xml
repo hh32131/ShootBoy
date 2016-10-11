@@ -96,4 +96,14 @@
     <servlet-name>DoWriteServlet</servlet-name>
     <url-pattern>/doWrite</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoCheckEmail</display-name>
+    <servlet-name>DoCheckEmail</servlet-name>
+    <servlet-class>net.Y5M2.user.web.ajax.DoCheckEmail</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoCheckEmail</servlet-name>
+    <url-pattern>/doCheckEmail</url-pattern>
+  </servlet-mapping>
 </web-app>

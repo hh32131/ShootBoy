@@ -11,9 +11,11 @@ public class UserVO {
 	private String password;
 	private String userName;
 	private String phoneNumber;
-	private int age;
+	private String age;
 	private String position;
-	private String photo;
+	private String createDate;
+	private String passwordHint;
+	private String passwordAnswer;
 	private String teamId;
 	private String levelId;
 	private String locationId;
@@ -80,12 +82,12 @@ public class UserVO {
 	}
 
 
-	public int getAge() {
+	public String getAge() {
 		return age;
 	}
 
 
-	public void setAge(int age) {
+	public void setAge(String age) {
 		this.age = age;
 	}
 
@@ -100,13 +102,33 @@ public class UserVO {
 	}
 
 
-	public String getPhoto() {
-		return photo;
+	public String getCreateDate() {
+		return createDate;
 	}
 
 
-	public void setPhoto(String photo) {
-		this.photo = photo;
+	public void setCreateDate(String createDate) {
+		this.createDate = createDate;
+	}
+
+
+	public String getPasswordHint() {
+		return passwordHint;
+	}
+
+
+	public void setPasswordHint(String passwordHint) {
+		this.passwordHint = passwordHint;
+	}
+
+
+	public String getPasswordAnswer() {
+		return passwordAnswer;
+	}
+
+
+	public void setPasswordAnswer(String passwordAnswer) {
+		this.passwordAnswer = passwordAnswer;
 	}
 
 
@@ -168,6 +190,6 @@ public class UserVO {
 	public void setLocationVO(LocationVO locationVO) {
 		this.locationVO = locationVO;
 	}
-	
-	
+
+
 }
