@@ -20,10 +20,26 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 			@Override
 			public PreparedStatement query(Connection conn) throws SQLException {
 				StringBuffer query = new StringBuffer();
-				query.append(" INSERT INTO ");
+				query.append(" INSERT INTO USR ( ");
+				query.append(" USR_ID, USR_EMAIL, USR_PWD, USR_NM, ");
+				query.append(" USR_PHN, USR_AGE, USR_POSIT, PWD_HINT, ");
+				query.append(" PWD_ANSER, TEAM_ID, LCTN_ID, LTST_MODY_DT, CRT_DT ) ");
+				query.append(" VALUES			(  ");
+				query.append(" 'UR-'||TO_CHAR(SYSDATE, 'YYYYMMDD')|| '-'|| LPAD(USR_ID_SEQ.NEXTVAL, 6, 0) ,  ");
+				query.append(" ?, ?, ?, ?, ?, ?, ?, ? , ?, ?, SYSDATE, SYSDATE )  ");
 				
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				pstmt.setString(1, userVO.getEmail());
+				pstmt.setString(2, userVO.getPassword());
+				pstmt.setString(3, userVO.getUserName());
+				pstmt.setString(4, userVO.getPhoneNumber());
+				pstmt.setString(5, userVO.getAge());
+				pstmt.setString(6, userVO.getPosition());
+				pstmt.setString(7, userVO.getPasswordHint());
+				pstmt.setString(8, userVO.getPasswordAnswer());
+				pstmt.setString(9, userVO.getTeamId());
+				pstmt.setString(10, userVO.getLocationId());
 				
 				return pstmt;
 			}
