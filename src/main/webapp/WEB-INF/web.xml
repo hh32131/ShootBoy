@@ -106,4 +106,14 @@
     <servlet-name>ViewSignInPageServlet</servlet-name>
     <url-pattern>/ViewSignInPageServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoSignInServlet</display-name>
+    <servlet-name>DoSignInServlet</servlet-name>
+    <servlet-class>net.Y5M2.user.web.DoSignInServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoSignInServlet</servlet-name>
+    <url-pattern>/doSignIn</url-pattern>
+  </servlet-mapping>
 </web-app>
