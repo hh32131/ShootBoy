@@ -12,21 +12,19 @@
 		<tr>
 			<th>board id</th>
 			<th>board subject</th>
-			<th>board content</th>
 			<th>hit count</th>
-			<th>recommend count</th>
 			<th>user id</th>
 			<th>category id</th>
 		</tr>
-		<c:forEach items="${board}" var="boards">
+		<c:forEach items="${boards}" var="boards">
 			<tr>
-				<td>${board.boradId}</td>
-				<td>${board.boardSubject}</td>
-				<td>${board.boardContent}</td>
-				<td>${board.hitCount}</td>
-				<td>${board.recommendCount}</td>
-				<td>${board.userId}</td>
-				<td>${board.categoryId}</td>
+				<td>${boards.boardId}</td>
+				<td>
+					<a href="/ShootBoy/board/detail?boardId=${boards.boardId}">${boards.boardSubject}</a>
+				</td>
+				<td>${boards.hitCount}</td>
+				<td>${boards.userId}</td>
+				<td>${boards.categoryId}</td>
 			</tr>
 		</c:forEach>
 	</table>
