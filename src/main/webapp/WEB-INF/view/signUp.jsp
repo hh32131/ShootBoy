@@ -21,7 +21,14 @@
 		$("#cancelBtn").click(function() {
 			location.href = "/ShootBoy/signUp";
 		});
-
+		
+		$("#locationId").change(function(){
+			$.post("/ShootBoy/checkLocation",{"locationId": $("#locationId").val()}, function(data) {
+				$("#leafCategory option").remove();
+				$("#leafCategory").html(data); 
+			});
+		});
+		
 		$("#email").keyup(function(){
 			$.post("/ShootBoy/doCheckEmail",{"email": $("#email").val()}, function(data){
 				if(data == "false") {
@@ -236,21 +243,16 @@
 					<option>중앙 공격수</option>
 					<option>세컨드 스트라이커</option>
 				</select> <br/>
-						<select name="categoryId">
+			<select id="locationId" name="locationId">
 			<option>거주 지역을 선택하세요</option>
-		<%-- 			<%
-				for( LocationVO locationVO : locations){
-			%>
-			<option value="${location.locationId }"><%= categoryVO.getCategoryName()%></option>
-			<% } %> --%>
 			<c:forEach items="${location}" var="location">
 				<option value="${location.locationId}">${location.locationName}</option>
+		
 			</c:forEach>
-		</select>
-		<select name="leafCategory">
+	 	</select>
+	<select name="leafCategory" id="leafCategory">
 			<option> 상세 지역을 선택하세요 </option>
 		</select><br/>
-				
 				<input type="button" id="signBtn" value="회원가입">
 				<input type="button" id="cancelBtn" value="취소">
 		</form>

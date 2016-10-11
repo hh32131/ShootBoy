@@ -8,5 +8,6 @@ import net.Y5M2.location.vo.LocationVO;
 
 public interface LocationDao {
 
-	public List<LocationVO> getLocations();
+	public List<LocationVO> getLocations(LocationVO locations);
+//	public List<LocationVO> getLeafLocations();
 }

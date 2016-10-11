@@ -13,10 +13,16 @@ public class LocationBizImpl implements LocationBiz{
 	public LocationBizImpl() {
 		locationDao = new LocationDaoImpl();
 	}
-	
+
 	@Override
-	public List<LocationVO> getLocations() {
-		return locationDao.getLocations();
+	public List<LocationVO> getLocations(LocationVO locations) {
+		return locationDao.getLocations(locations);
 	}
+	
+
+/*	@Override
+	public List<LocationVO> getLeafLocations() {
+		return locationDao.getLeafLocations();
+	}*/
 
 }

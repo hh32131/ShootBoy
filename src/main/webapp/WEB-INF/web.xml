@@ -106,4 +106,14 @@
     <servlet-name>DoCheckEmail</servlet-name>
     <url-pattern>/doCheckEmail</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoCheckLocation</display-name>
+    <servlet-name>DoCheckLocation</servlet-name>
+    <servlet-class>net.Y5M2.location.web.ajax.DoCheckLocation</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoCheckLocation</servlet-name>
+    <url-pattern>/checkLocation</url-pattern>
+  </servlet-mapping>
 </web-app>

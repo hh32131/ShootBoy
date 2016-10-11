@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import net.Y5M2.location.biz.LocationBiz;
 import net.Y5M2.location.biz.LocationBizImpl;
 import net.Y5M2.location.vo.LocationVO;
-import net.Y5M2.support.Param;
 
 public class ViewSignUpServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -28,17 +27,14 @@ public class ViewSignUpServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		String locationId = Param.getStringParam(request, "locationId");
-		if ( locationId == null ) {
-			response.sendRedirect("");
-		}
+		LocationVO locationVO = new LocationVO();
+		locationVO.setParentLocationId("0");
 		
-		List<LocationVO> locations = locationBiz.getLocations();
-
+		List<LocationVO> location = locationBiz.getLocations(locationVO);
 		
 		String viewPath = "/WEB-INF/view/signUp.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
-		request.setAttribute("location", locations);
+		request.setAttribute("location", location);
 		rd.forward(request, response);
 	}
 
