@@ -26,6 +26,7 @@ public class LocationDaoImpl extends DaoSupport implements LocationDao {
 				query.append("  		, PRNT_LCTN_ID ");
 				query.append("  		, LCTN_NM ");
 				query.append(" FROM		LCTN ");
+				query.append(" WHERE 	PRNT_LCTN_ID = 0 ");
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				return pstmt;
