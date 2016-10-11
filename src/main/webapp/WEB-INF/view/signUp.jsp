@@ -3,7 +3,6 @@
 <%@page import="net.Y5M2.location.dao.LocationDao"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 
 <!DOCTYPE html>
@@ -234,12 +233,13 @@
 				</select><br/>
 				<input type="text" id="passwordHintValue" name="passwordHintValue" placeholder="질문의 답을 입력하세요"><br/>
 				 <input type="text"	id="phoneNumber" name="phoneNumber" placeholder="전화번호를 입력해주세요"><br/>
-				<select id="age">
+				<select id="age" name="age">
 					<option>나이를선택해주세요</option>
-					<option>10 대</option>
-					<option>20 대</option>
-					<option>30 대</option>
-					<option>50 대</option>
+					<option>10대</option>
+					<option>20대</option>
+					<option>30대</option>
+					<option>40대</option>
+					<option>50대</option>
 				</select><br/>
 				 <select id="position" name="position">
 					<option selected="selected">포지션을 선택해주세요</option>

@@ -23,10 +23,10 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 				query.append(" INSERT INTO USR ( ");
 				query.append(" USR_ID, USR_EMAIL, USR_PWD, USR_NM, ");
 				query.append(" USR_PHN, USR_AGE, USR_POSIT, PWD_HINT, ");
-				query.append(" PWD_ANSER, TEAM_ID, LCTN_ID, LTST_MODY_DT, CRT_DT ) ");
+				query.append(" PWD_ANSER, TEAM_ID, LCTN_ID, LTST_MODY_DT, CRT_DT, LV_ID ) ");
 				query.append(" VALUES			(  ");
 				query.append(" 'UR-'||TO_CHAR(SYSDATE, 'YYYYMMDD')|| '-'|| LPAD(USR_ID_SEQ.NEXTVAL, 6, 0) ,  ");
-				query.append(" ?, ?, ?, ?, ?, ?, ?, ? , ?, ?, SYSDATE, SYSDATE )  ");
+				query.append(" ?, ?, ?, ?, ?, ?, ?, ? , ?, ?, SYSDATE, SYSDATE, '일반' )  ");
 				
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
