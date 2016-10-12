@@ -11,11 +11,11 @@ import net.Y5M2.article.vo.BoardVO;
 import net.Y5M2.support.DaoSupport;
 import net.Y5M2.support.Query;
 import net.Y5M2.support.QueryAndResult;
+import net.Y5M2.user.vo.UserVO;
+import oracle.jdbc.proxy.annotation.Pre;
 
 public class BoardDaoImpl extends DaoSupport implements BoardDao {
-
 	
-	/* join으로 userId와 categoryId 이름 변경이 필요함.*/
 	@Override
 	public List<BoardVO> selectBoards() {
 		
@@ -25,14 +25,17 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 			public PreparedStatement query(Connection conn) throws SQLException {
 				
 				StringBuffer query = new StringBuffer();
-				query.append(" SELECT	BOARD_ID ");
-				query.append(" 			, BOARD_SBJ ");
-				query.append(" 			, BOARD_CONT ");
-				query.append(" 			, HIT_CNT ");
-				query.append(" 			, RCMD_CNT ");
-				query.append(" 			, USR_ID ");
-				query.append(" 			, CTGR_ID ");
-				query.append(" FROM		BOARD ");
+				query.append(" SELECT	B.BOARD_ID ");
+				query.append(" 			, B.BOARD_SBJ ");
+				query.append(" 			, B.BOARD_CONT ");
+				query.append(" 			, B.HIT_CNT ");
+				query.append(" 			, U.USR_NM ");
+				query.append(" 			, B.CTGR_ID ");
+				query.append("			, TO_CHAR(B.CRT_DT, 'YYYY-DD-MM HH24:MI:SS') CRT_DT ");
+				query.append("   		, TO_CHAR(B.LTST_MDFY_DT, 'YYYY-DD-MM HH24:MI:SS') LTST_MDFY_DT ");
+				query.append(" FROM		BOARD B, USR U");
+				query.append(" WHERE 	B.USR_ID = U.USR_ID");
+				query.append(" ORDER BY BOARD_ID DESC");
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				
@@ -44,17 +47,19 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				
 				List<BoardVO> boards = new ArrayList<BoardVO>();
 				BoardVO board = null;
-				
+				UserVO user = null;
 				while( rs.next() ) {
 					board = new BoardVO();
 					board.setBoardId(rs.getString("BOARD_ID"));
 					board.setBoardSubject(rs.getString("BOARD_SBJ"));
 					board.setBoardContent(rs.getString("BOARD_CONT"));
 					board.setHitCount(rs.getInt("HIT_CNT"));
-					board.setRecommendCount(rs.getInt("RCMD_CNT"));
-					board.setUserId(rs.getString("USR_ID"));
 					board.setCategoryId(rs.getString("CTGR_ID"));
+					board.setCreateDate(rs.getString("CRT_DT"));
+					board.setModifyDate(rs.getString("LTST_MDFY_DT"));
 					
+					user = board.getUserVO();
+					user.setUserName(rs.getString("USR_NM"));
 					boards.add(board);
 				}
 				
@@ -75,20 +80,211 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				StringBuffer query = new StringBuffer();
 				
 				query.append(" INSERT INTO BOARD ( ");
-				query.append(" BOARD_ID, BOARD_SBJ, BOARD_CONT, ");
-				query.append(" CTGR_ID, HIT_CNT, RCMD_CNT, USR_ID, ");
-				query.append(" FILE_NM, CRT_DT, LTST_MDFY_DT ) ");
+				query.append(" 						BOARD_ID ");
+				query.append(" 						, BOARD_SBJ ");
+				query.append(" 						, BOARD_CONT ");
+				query.append(" 						, CTGR_ID ");
+				query.append(" 						, HIT_CNT ");
+				query.append(" 						, USR_ID ");
+				query.append(" 						, FILE_NM ");
+				query.append(" 						, CRT_DT ");
+				query.append(" 						, LTST_MDFY_DT ");
+				query.append(" 					) ");
 				query.append(" VALUES ( ");
 				query.append(" 'BO-' || TO_CHAR(SYSDATE, 'YYYYMMDD') || '-' || LPAD(BOARD_ID_SEQ.NEXTVAL,6,0) ");
-				query.append(" , ?, ?, 1, 1, 1, 12, 0, SYSDATE, SYSDATE) ");
-				
-				
+				query.append(" , ?, ?, 1, 0, ?, ?, SYSDATE, SYSDATE) ");
+
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				pstmt.setString(1, boardVO.getBoardSubject());
 				pstmt.setString(2, boardVO.getBoardContent());
-				//pstmt.setString(3, boardVO.getUserId());
-			//	pstmt.setString(3, boardVO.getFileName());
+				pstmt.setString(3, boardVO.getUserId());
+				pstmt.setString(4, boardVO.getFileName());
+				
+				return pstmt;
+			}
+		});
+	}
+
+	@Override
+	public BoardVO getBoardAt(String boardId) {
+		return (BoardVO) selectOne(new QueryAndResult() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				
+				StringBuffer query = new StringBuffer();
+				query.append(" SELECT	BOARD_ID ");
+				query.append(" 			, BOARD_SBJ ");
+				query.append(" 			, HIT_CNT ");
+				query.append(" 			, BOARD_CONT ");
+				query.append(" 			, USR_ID ");
+				query.append(" 			, CTGR_ID ");
+				query.append(" 			, FILE_NM ");
+				query.append(" 			, TO_CHAR(CRT_DT, 'YYYY-MM-DD HH24:MI:SS') CRT_DT ");
+				query.append(" 			, TO_CHAR(LTST_MDFY_DT, 'YYYY-MM-DD HH24:MI:SS') LTST_MDFY_DT ");
+				query.append(" FROM		BOARD ");
+				query.append(" WHERE	BOARD_ID = ? ");
+				
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				pstmt.setString(1, boardId);
+				
+				return pstmt;
+			}
+			
+			@Override
+			public Object makeObject(ResultSet rs) throws SQLException {
+				
+				BoardVO board = null;
+				if( rs.next() ) {
+
+					board = new BoardVO();
+					board.setBoardId(rs.getString("BOARD_ID"));
+					board.setBoardSubject(rs.getString("BOARD_SBJ"));
+					board.setHitCount(rs.getInt("HIT_CNT"));
+					board.setBoardContent(rs.getString("BOARD_CONT"));
+					board.setUserId(rs.getString("USR_ID"));
+					board.setCategoryId(rs.getString("CTGR_ID"));
+					board.setFileName(rs.getString("FILE_NM"));
+					board.setCreateDate(rs.getString("CRT_DT"));
+					board.setModifyDate(rs.getString("LTST_MDFY_DT"));
+					
+				}
+				
+				return board;
+			}
+		});
+	}
+	
+	@Override
+	public int hitCountUpdate(String boardId) {
+		return insert(new Query() {
+
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				
+				StringBuffer query = new StringBuffer();
+				query.append(" UPDATE	BOARD ");
+				query.append(" SET		HIT_CNT = HIT_CNT + 1 ");
+				query.append(" WHERE	BOARD_ID = ? ");
+
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				pstmt.setString(1, boardId);
+				
+				return pstmt;
+			}
+		});
+	}
+
+	@Override
+	public int deleteBoard(String boardId) {
+		return insert(new Query() {
+
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				
+				StringBuffer query = new StringBuffer();
+				query.append(" DELETE ");
+				query.append(" FROM		BOARD ");
+				query.append(" WHERE	BOARD_ID = ? ");
+				
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				pstmt.setString(1, boardId);
+				
+				return pstmt;
+			}
+		});
+	}
+
+	@Override
+	public BoardVO getBoardForModify(String boardId) {
+		return (BoardVO) selectOne(new QueryAndResult() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				
+				StringBuffer query = new StringBuffer();
+				query.append(" SELECT	BOARD_ID ");
+				query.append(" 			, BOARD_SBJ ");
+				query.append(" 			, BOARD_CONT ");
+				query.append(" 			, CTGR_ID ");
+				query.append(" 			, HIT_CNT ");
+				query.append(" 			, USR_ID ");
+				query.append(" 			, FILE_NM ");
+				query.append(" 			, CRT_DT ");
+				query.append(" 			, LTST_MDFY_DT ");
+				query.append(" FROM		BOARD ");
+				query.append(" WHERE	BOARD_ID = ? ");
+				
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				pstmt.setString(1, boardId);
+				
+				return pstmt;
+			}
+			
+			@Override
+			public Object makeObject(ResultSet rs) throws SQLException {
+				
+				BoardVO board = null;
+				
+				while ( rs.next() ) {
+					
+					board = new BoardVO();
+					board.setBoardId(rs.getString("BOARD_ID"));
+					board.setBoardSubject(rs.getString("BOARD_SBJ"));
+					board.setBoardContent(rs.getString("BOARD_CONT"));
+					board.setCategoryId(rs.getString("CTGR_ID"));
+					board.setHitCount(rs.getInt("HIT_CNT"));
+					board.setUserId(rs.getString("USR_ID"));
+					board.setFileName(rs.getString("FILE_NM"));
+					board.setCreateDate(rs.getString("CRT_DT"));
+					board.setModifyDate(rs.getString("LTST_MDFY_DT"));
+					
+				}
+				
+				return board;
+			}
+		});
+	}
+	
+	@Override
+	public int modifyBoard(BoardVO board) {
+		return insert(new Query() {
+
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				
+				StringBuffer query = new StringBuffer();
+				query.append(" UPDATE	BOARD ");
+				query.append(" SET		LTST_MDFY_DT = SYSDATE ");
+				
+				if ( board.getBoardSubject() != null ) {
+					query.append(" , BOARD_SBJ = ? ");
+				}
+				if ( board.getBoardSubject() != null ) {
+					query.append(" , BOARD_CONT ");
+				}
+				if ( board.getFileName() != null ) {
+					query.append(" , FILE_NM ");
+				}
+				
+				query.append(" WHERE	BOARD_ID = ? ");
+				
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				
+				int index = 1;
+				
+				if ( board.getBoardSubject() != null ) {
+					pstmt.setString(index++, board.getBoardSubject());
+				}
+				if ( board.getBoardSubject() != null ) {
+					pstmt.setString(index++, board.getBoardContent());
+				}
+				if ( board.getFileName() != null ) {
+					pstmt.setString(index++, board.getFileName());
+				}
+				
+				pstmt.setString(index++, board.getBoardId());
 				
 				return pstmt;
 			}

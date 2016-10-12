@@ -10,5 +10,14 @@ public interface BoardDao {
 	
 	public int writeBoard(BoardVO boardVO);
 
+	public BoardVO getBoardAt(String boardId);
 	
+	public int hitCountUpdate(String boardId);
+
+	public int deleteBoard(String boardId);
+
+	public BoardVO getBoardForModify(String boardId);
+
+	public int modifyBoard(BoardVO board);
+
 }

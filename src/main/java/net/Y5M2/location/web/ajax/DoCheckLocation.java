@@ -1,0 +1,48 @@
+package net.Y5M2.location.web.ajax;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import net.Y5M2.location.biz.LocationBiz;
+import net.Y5M2.location.biz.LocationBizImpl;
+import net.Y5M2.location.vo.LocationVO;
+import net.Y5M2.support.Param;
+
+public class DoCheckLocation extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private LocationBiz locationBiz;
+	public DoCheckLocation() {
+		super();
+		locationBiz = new LocationBizImpl();
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doPost(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String locationId = Param.getStringParam(request, "locationId");
+		LocationVO locationVO = new LocationVO();
+		locationVO.setParentLocationId(locationId);
+		List<LocationVO> locations = locationBiz.getLocations(locationVO);
+		
+		StringBuffer options = new StringBuffer();
+		for (LocationVO location : locations) {
+			options.append(String.format("<option value='%s'>%s</option>", location.getLocationId(), location.getLocationName() ));
+		}
+		
+		PrintWriter out = response.getWriter();
+		out.write(options.toString());
+		out.flush();
+		out.close();
+	}
+
+}

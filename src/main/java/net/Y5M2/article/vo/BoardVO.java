@@ -1,15 +1,48 @@
 package net.Y5M2.article.vo;
 
+import net.Y5M2.user.vo.UserVO;
+
 public class BoardVO {
 
 	private String boardId ;
 	private String boardSubject;
 	private int hitCount;
 	private String boardContent;
-	private int recommendCount;
 	private String userId;
 	private String categoryId;
 	private String fileName;
+	private String modifyDate;
+	private String createDate;
+	
+	private UserVO userVO;
+	
+	public UserVO getUserVO() {
+		return userVO;
+	}
+
+	public void setUserVO(UserVO userVO) {
+		this.userVO = userVO;
+	}
+
+	public BoardVO(){
+		userVO = new UserVO();
+	}
+
+	public String getModifyDate() {
+		return modifyDate;
+	}
+
+	public void setModifyDate(String modifyDate) {
+		this.modifyDate = modifyDate;
+	}
+
+	public String getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(String createDate) {
+		this.createDate = createDate;
+	}
 
 	public String getFileName() {
 		return fileName;
@@ -45,14 +78,6 @@ public class BoardVO {
 
 	public void setHitCount(int hitCount) {
 		this.hitCount = hitCount;
-	}
-
-	public int getRecommendCount() {
-		return recommendCount;
-	}
-
-	public void setRecommendCount(int recommendCount) {
-		this.recommendCount = recommendCount;
 	}
 
 	public String getBoardContent() {

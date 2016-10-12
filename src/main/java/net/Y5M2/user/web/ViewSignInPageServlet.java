@@ -1,7 +1,7 @@
 package net.Y5M2.user.web;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.Enumeration;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,16 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.Y5M2.location.biz.LocationBiz;
-import net.Y5M2.location.biz.LocationBizImpl;
-import net.Y5M2.location.vo.LocationVO;
-
-public class ViewSignUpServlet extends HttpServlet {
+public class ViewSignInPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private LocationBiz locationBiz;
-    public ViewSignUpServlet() {
+
+       
+    public ViewSignInPageServlet() {
         super();
-        locationBiz = new LocationBizImpl();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,15 +22,18 @@ public class ViewSignUpServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		LocationVO locationVO = new LocationVO();
-		locationVO.setParentLocationId("0");
+		Enumeration<String> headers = request.getHeaderNames();
+		String key = "";
+		while(headers.hasMoreElements()) {
+			key = headers.nextElement();
+			System.out.printf("%s, %s \n", key, request.getHeader(key));
+		}
 		
-		List<LocationVO> location = locationBiz.getLocations(locationVO);
-		
-		String viewPath = "/WEB-INF/view/signUp.jsp";
+		String Referer = request.getHeader("referer");
+		System.out.println("Referer = " + Referer);
+		String viewPath = "/WEB-INF/view/signIn.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
-		request.setAttribute("location", location);
+		request.setAttribute("Referer", Referer);
 		rd.forward(request, response);
 	}
 

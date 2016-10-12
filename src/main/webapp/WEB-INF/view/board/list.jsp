@@ -12,23 +12,27 @@
 		<tr>
 			<th>board id</th>
 			<th>board subject</th>
-			<th>board content</th>
 			<th>hit count</th>
-			<th>recommend count</th>
-			<th>user id</th>
+			<th>user name</th>
 			<th>category id</th>
+			<th>create date</th>
+			<th>modify date</th>
 		</tr>
-		<c:forEach items="${board}" var="boards">
+		<c:forEach items="${boards}" var="boards">
 			<tr>
-				<td>${board.boradId}</td>
-				<td>${board.boardSubject}</td>
-				<td>${board.boardContent}</td>
-				<td>${board.hitCount}</td>
-				<td>${board.recommendCount}</td>
-				<td>${board.userId}</td>
-				<td>${board.categoryId}</td>
+
+				<td>${boards.boardId}</td>
+				<td>
+					<a href="/ShootBoy/board/detail?boardId=${boards.boardId}">${boards.boardSubject}</a>
+				</td>
+				<td>${boards.hitCount}</td>
+				<td>${boards.userVO.userName}</td>
+				<td>${boards.categoryId}</td>
+				<td>${boards.createDate }</td>
+				<td>${boards.modifyDate }</td>
 			</tr>
 		</c:forEach>
 	</table>
+	<a href="<c:url value="/write"/>">글쓰기</a>
 </body>
 </html>

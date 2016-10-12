@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+
+
+.teamtd{
+	width: 200px;
+	height:200px;
+}
+.teamPhoto{
+	width: 100px;
+	height:100px;
+}
+
+.double{
+	border-style: solid;
+}
