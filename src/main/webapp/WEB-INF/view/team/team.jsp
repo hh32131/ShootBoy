@@ -42,7 +42,7 @@ $(document).ready(function () {
 		<table>
 			<c:forEach begin="1" end="5" step="1">
 				<tr>
-					<c:forEach items="${teams}" var="teams" >
+					<c:forEach items="${teams}" var="teams"  begin="0" end="4" step="1">
 					
 						<td align="center" class="teamtd">
 							<div class="teamPhoto double">사진</div>
