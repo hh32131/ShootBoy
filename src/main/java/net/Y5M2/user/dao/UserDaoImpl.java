@@ -26,7 +26,7 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 				query.append(" PWD_ANSER, TEAM_ID, LCTN_ID, LTST_MODY_DT, CRT_DT, LV_ID ) ");
 				query.append(" VALUES			(  ");
 				query.append(" 'UR-'||TO_CHAR(SYSDATE, 'YYYYMMDD')|| '-'|| LPAD(USR_ID_SEQ.NEXTVAL, 6, 0) ,  ");
-				query.append(" ?, ?, ?, ?, ?, ?, ?, ? , ?, ?, SYSDATE, SYSDATE, '일반' )  ");
+				query.append(" ?, ?, ?, ?, ?, ?, ?, ? , ?, ?, SYSDATE, SYSDATE, '2' )  ");
 				
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
