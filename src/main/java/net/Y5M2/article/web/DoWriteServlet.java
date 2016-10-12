@@ -56,9 +56,8 @@ public class DoWriteServlet extends HttpServlet {
 		boardContent = boardContent.replaceAll("\n", "<br/>").replaceAll("/r", "");
 		
 		BoardVO board = new BoardVO();
-		UserVO userVO = new UserVO();
-		//HttpSession session = request.getSession();
-		//UserVO userVO = (UserVO) session.getAttribute(Session.USER_INFO);
+		HttpSession session = request.getSession();
+		UserVO userVO = (UserVO) session.getAttribute(Session.USER_INFO);
 		
 		board.setBoardSubject(boardSubject);
 		board.setBoardContent(boardContent);
