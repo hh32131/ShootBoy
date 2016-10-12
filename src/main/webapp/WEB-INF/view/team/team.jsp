@@ -40,12 +40,12 @@ $(document).ready(function () {
 	<button onclick="openWin()">팀생성하기</button>
 	<div  id="wrapper" style="width: 700px;">
 		<table>
-			<c:forEach begin="1" end="5" step="1">
+			<c:forEach begin="1" end="4" step="1">
 				<tr>
 					<c:forEach items="${teams}" var="teams"  begin="0" end="4" step="1">
 					
 						<td align="center" class="teamtd">
-							<div class="teamPhoto double">사진</div>
+							<div class="teamPhoto double"><span><a href=""><img class="teamPhoto" src="/ShootBoy/img/soccer.png" /></a></span></div>
 							<div>${teams.teamName}</div>
 							<div>${teams.teamCount}</div>
 					 		<div>${teams.locationVO.locationName}-${teams.locationVO.parentLocationName}</div>
