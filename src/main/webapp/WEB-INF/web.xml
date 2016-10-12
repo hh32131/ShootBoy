@@ -165,7 +165,7 @@
   <servlet-mapping>
     <servlet-name>ViewTeamPageServlet</servlet-name>
     <url-pattern>/team</url-pattern>
-    </servlet-mapping>
+  </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>ViewSignInPageServlet</display-name>
@@ -185,7 +185,7 @@
   <servlet-mapping>
     <servlet-name>DoSignInServlet</servlet-name>
     <url-pattern>/doSignIn</url-pattern>
-      </servlet-mapping>
+  </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>DoModifyServlet</display-name>
@@ -215,5 +215,25 @@
   <servlet-mapping>
     <servlet-name>DoDownloadServlet</servlet-name>
     <url-pattern>/board/doDownload</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewPasswordFindPageServletTwo</display-name>
+    <servlet-name>ViewPasswordFindPageServletTwo</servlet-name>
+    <servlet-class>net.Y5M2.user.web.ViewPasswordFindPageServletTwo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewPasswordFindPageServletTwo</servlet-name>
+    <url-pattern>/passwordFindTwo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewPasswordFindPageServlet</display-name>
+    <servlet-name>ViewPasswordFindPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.user.web.ViewPasswordFindPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewPasswordFindPageServlet</servlet-name>
+    <url-pattern>/passwordFind</url-pattern>
   </servlet-mapping>
 </web-app>
