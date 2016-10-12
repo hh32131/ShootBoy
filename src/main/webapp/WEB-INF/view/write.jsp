@@ -64,7 +64,7 @@
 				<textarea id="boardContent" style="width:700px; height: 250px; border-radius: 10px;" name="boardContent" placeholder="내용을 입력하세요."></textarea>
 			</div>
 			<div>
-				<input type="file"/>
+				<input type="file" id="file" name="file"/>
 				<input type="button" id="goBackBtn" name="writeBtn" value="뒤로가기" />
 				<input type="button" id="writeBtn" name="goBackBtn" value="글쓰기" />
 			</div>
