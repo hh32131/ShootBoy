@@ -41,10 +41,25 @@ public interface BoardBiz {
 	public boolean deleteBoard(String boardId);
 	
 	/**
+	 * 게시판 글 수정을 위한 게시판의 글 가져오기
+	 * @param boardId
+	 * @return
+	 */
+	public BoardVO getBoardForModify(String boardId);
+	
+	/**
 	 * 게시판 글 수정
 	 * @param boardId
 	 * @return
 	 */
 	public boolean modifyBoard(BoardVO board);
+	
+	/**
+	 * 파일 다운로드
+	 * @param articlesId
+	 * @return
+	 */
+	public String getFileNmaeOfArticleBy(String articlesId);
+	
 	
 }
