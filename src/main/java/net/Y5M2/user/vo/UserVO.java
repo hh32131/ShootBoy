@@ -19,6 +19,7 @@ public class UserVO {
 	private String teamId;
 	private String levelId;
 	private String locationId;
+	private String latestModifyDate;
 	
 	private TeamVO teamVO;
 	private LevelVO levelVO;
@@ -190,6 +191,18 @@ public class UserVO {
 	public void setLocationVO(LocationVO locationVO) {
 		this.locationVO = locationVO;
 	}
+
+
+	public String getLatestModifyDate() {
+		return latestModifyDate;
+	}
+
+
+	public void setLatestModifyDate(String latestModifyDate) {
+		this.latestModifyDate = latestModifyDate;
+	}
+	
+	
 
 
 }

@@ -43,37 +43,48 @@ public class DoSignUpServlet extends HttpServlet {
 		
 		if (email == null) {
 			response.sendRedirect("/ShootBoy/signUp?errorCode=2");
+			return;
 		}
 		if (userName == null) {
 			response.sendRedirect("/ShootBoy/signUp?errorCode=3");
+			return;
 		}
 		if (password1 == null) {
 			response.sendRedirect("/ShootBoy/signUp?errorCode=4");
+			return;
 		}
 		if (password2 == null) {
 			response.sendRedirect("/ShootBoy/signUp?errorCode=5");
+			return;
 		}
 		if (passwordHintKey == null) {
 			response.sendRedirect("/ShootBoy/signUp?errorCode=6");
+			return;
 		}
 		if (passwordHintValue == null) {
 			response.sendRedirect("/ShootBoy/signUp?errorCode=7");
+			return;
 		}
 		if (phoneNumber == null) {
 			response.sendRedirect("/ShootBoy/signUp?errorCode=8");
+			return;
 		}
 		if (age == null) {
 			response.sendRedirect("/ShootBoy/signUp?errorCode=9");
+			return;
 		}
 		if (position == null) {
 			response.sendRedirect("/ShootBoy/signUp?errorCode=10");
+			return;
 		}
 		if(leafCategory==null){
 			response.sendRedirect("/ShootBoy/signUp?errorCode=11");
+			return;
 		}
 		
-		if (password1 != password2) {
+		if (!password1.equals(password2)) {
 			response.sendRedirect("/ShootBoy/signUp?errorCode=12");
+			return;
 		}
 		
 		
@@ -90,6 +101,7 @@ public class DoSignUpServlet extends HttpServlet {
 		userVO.setLocationId(leafCategory);
 		
 		boolean isSuccess = userBiz.signUpUser(userVO);
+		
 		if(isSuccess){
 			response.sendRedirect("/ShootBoy/signIn");
 		}
