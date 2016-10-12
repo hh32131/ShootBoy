@@ -256,11 +256,13 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				if ( board.getBoardSubject() != null ) {
 					query.append(" , BOARD_SBJ = ? ");
 				}
-				if ( board.getBoardSubject() != null ) {
-					query.append(" , BOARD_CONT = ?");
+				
+				if ( board.getBoardContent() != null ) {
+					query.append(" , BOARD_CONT = ? ");
 				}
+				
 				if ( board.getFileName() != null ) {
-					query.append(" , FILE_NM = ?");
+					query.append(" , FILE_NM = ? ");
 				}
 				
 				query.append(" WHERE	BOARD_ID = ? ");
@@ -272,9 +274,11 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				if ( board.getBoardSubject() != null ) {
 					pstmt.setString(index++, board.getBoardSubject());
 				}
+				
 				if ( board.getBoardContent() != null ) {
 					pstmt.setString(index++, board.getBoardContent());
 				}
+				
 				if ( board.getFileName() != null ) {
 					pstmt.setString(index++, board.getFileName());
 				}

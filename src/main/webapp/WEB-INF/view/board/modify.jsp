@@ -23,7 +23,7 @@
 				$("div.warning").slideDown();
 			}
 
-			$("#writeBtn").click(function() {
+			$("#modifyBtn").click(function() {
 
 				if ($("#boardSubject").val() == "") {
 					alert("제목을 입력해주세요.");
@@ -53,8 +53,7 @@
 		</div>
 		<div>
 			<textarea id="boardContent" name="boardContent"
-				placeholder="내용을 입력하세요.">${board.boardContent}
-				</textarea>
+				placeholder="내용을 입력하세요.">${board.boardContent}	</textarea>
 		</div>
 		<c:if test="${not empty board.fileName }">
 			<div style="padding-top: 10px; padding-bottom: 10px;">
@@ -72,7 +71,7 @@
 					<input type="button" id="goBackBtn" value="뒤로가기" />
 				</div>
 				<div class="inline">
-					<input type="button" id="writeBtn" value="글쓰기" />
+					<input type="button" id="modifyBtn" value="수정" />
 				</div>
 			</div>
 			<div class="clear"></div>

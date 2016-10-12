@@ -39,7 +39,8 @@ public class DoModifyServlet extends HttpServlet {
 		String content = multipartRequest.getParameter("boardContent");
 		String fileDeleteBtn = multipartRequest.getParameter("fileDeleteBtn");
 		
-		content = content.replaceAll("\n", "<br/>").replaceAll("\r", "");
+		content = content.replaceAll("\n", "<br/>")
+							.replaceAll("\r", "");
 		
 		BoardVO board = new BoardVO();
 		board.setBoardId(boardId);
@@ -69,6 +70,9 @@ public class DoModifyServlet extends HttpServlet {
 		boolean isSuccess = boardBiz.modifyBoard(board);
 		if ( isSuccess ) {
 			response.sendRedirect("/ShootBoy/board/detail?boardId=" + boardId);
+		}
+		else{
+			response.sendRedirect("/ShootBoy/board/detail?errorCode=1&&boardId=" + boardId);
 		}
 	}
 }

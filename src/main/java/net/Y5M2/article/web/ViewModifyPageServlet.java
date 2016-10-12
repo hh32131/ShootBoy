@@ -36,6 +36,7 @@ public class ViewModifyPageServlet extends HttpServlet {
 		
 		String content = board.getBoardContent();
 		content = content.replaceAll("<br/>", "\n");
+						 
 		board.setBoardContent(content);
 		
 		String viewPath = "/WEB-INF/view/board/modify.jsp";
