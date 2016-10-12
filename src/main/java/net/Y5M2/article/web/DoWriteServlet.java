@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import net.Y5M2.article.biz.BoardBiz;
 import net.Y5M2.article.biz.BoardBizImpl;
 import net.Y5M2.article.vo.BoardVO;
+import net.Y5M2.constants.Session;
 import net.Y5M2.support.MultipartHttpServletRequest;
 import net.Y5M2.support.MultipartHttpServletRequest.MultipartFile;
 import net.Y5M2.user.vo.UserVO;
@@ -56,7 +57,7 @@ public class DoWriteServlet extends HttpServlet {
 		
 		BoardVO board = new BoardVO();
 		HttpSession session = request.getSession();
-		UserVO userVO = session.getAttribute(Session.USER_INFO);
+		UserVO userVO = (UserVO) session.getAttribute(Session.USER_INFO);
 		
 		board.setBoardSubject(boardSubject);
 		board.setBoardContent(boardContent);

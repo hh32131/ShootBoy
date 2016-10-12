@@ -34,14 +34,9 @@ public class ViewModifyPageServlet extends HttpServlet {
 		String boardId = Param.getStringParam(request, "boardId");
 		BoardVO board = boardBiz.getBoardForModify(boardId);
 		
-		if(board==null){
-			response.sendRedirect("/ShootBoy/board/detail?errorCode=1");
-			return;
-		}
-		
-		/*String content = board.getBoardContent();
+		String content = board.getBoardContent();
 		content = content.replaceAll("<br/>", "\n");
-		board.setBoardContent(content);*/
+		board.setBoardContent(content);
 		
 		String viewPath = "/WEB-INF/view/board/modify.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);

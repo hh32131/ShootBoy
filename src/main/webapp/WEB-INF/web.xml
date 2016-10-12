@@ -158,9 +158,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     <display-name>ViewTeamPageServlet</display-name>
     <servlet-name>ViewTeamPageServlet</servlet-name>
     <servlet-class>net.Y5M2.team.web.ViewTeamPageServlet</servlet-class>
@@ -188,8 +185,9 @@
   <servlet-mapping>
     <servlet-name>DoSignInServlet</servlet-name>
     <url-pattern>/doSignIn</url-pattern>
-=======
->>>>>>> 4d30a403317fa837f6f9c9e181f99423dd935799
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>DoModifyServlet</display-name>
     <servlet-name>DoModifyServlet</servlet-name>
     <servlet-class>net.Y5M2.article.web.DoModifyServlet</servlet-class>
@@ -217,18 +215,6 @@
   <servlet-mapping>
     <servlet-name>DoDownloadServlet</servlet-name>
     <url-pattern>/board/doDownload</url-pattern>
-<<<<<<< HEAD
-=======
-    <display-name>ViewTeamPageServlet</display-name>
-    <servlet-name>ViewTeamPageServlet</servlet-name>
-    <servlet-class>net.Y5M2.team.web.ViewTeamPageServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ViewTeamPageServlet</servlet-name>
-    <url-pattern>/team</url-pattern>
->>>>>>> 4df133468148160c81faa03413aa340bd8044107
-=======
->>>>>>> c4fff1ca8980121eff48eecc0e13c9b374a0c4e9
->>>>>>> 4d30a403317fa837f6f9c9e181f99423dd935799
-  </servlet-mapping>
+      </servlet-mapping>
+
 </web-app>
