@@ -35,13 +35,14 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 				query.append(" 					,LCTN_ID )");
 				query.append(" VALUES		 ( ");
 				query.append(" 'TEAM-' || TO_CHAR(SYSDATE, 'YYYYMMDD') || '-' || LPAD(TEAM_ID_SEQ.NEXTVAL,6,0) ");
-				query.append(" , ?, ?, ?, SYSDATE, 0, SYSDATE, ?, 0 ) ");
+				query.append(" , ?, ?, ?, SYSDATE, 0, SYSDATE, ?, ? ) ");
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				pstmt.setInt(1, teamVO.getTeamCount());
 				pstmt.setString(2, teamVO.getTeamName());
 				pstmt.setString(3, teamVO.getTeamPhoto());
 				pstmt.setString(4, teamVO.getTeamInfo());
+				pstmt.setString(5, teamVO.getLocationId());
 				return pstmt;
 			}
 		});

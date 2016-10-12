@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +11,14 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		moveToCenter();
+		
+		$("#locationId").change(function(){
+			$.post("/ShootBoy/checkLocation",{"locationId": $("#locationId").val()}, function(data) {
+				$("#leafLocation option").remove();
+				$("#leafLocation").html(data); 
+			});
+		});
+		
 		$("#backBtn").click(function() {
 			if (confirm("정말 취소하시겠습니까?")) {
 				closeWin();
@@ -68,6 +77,15 @@
 						id="teamCount" name="teamCount" placeholder="팀원 수" />
 				</div>
 			</div>
+		<select id="locationId" name="locationId">
+			<option>거주 지역을 선택하세요</option>
+			<c:forEach items="${location}" var="location">
+				<option value="${location.locationId}">${location.locationName}</option>
+			</c:forEach>
+	 	</select>
+		<select name="leafLocation" id="leafLocation">
+			<option> 상세 지역을 선택하세요 </option>
+		</select>
 			<div style="height: 8px;"></div>
 			<div>
 				<textarea id="teamInfo" name="teamInfo"

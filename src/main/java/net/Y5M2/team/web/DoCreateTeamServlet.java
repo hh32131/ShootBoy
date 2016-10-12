@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.Y5M2.article.vo.BoardVO;
 import net.Y5M2.support.MultipartHttpServletRequest;
+import net.Y5M2.support.Param;
 import net.Y5M2.support.MultipartHttpServletRequest.MultipartFile;
 import net.Y5M2.team.biz.TeamBiz;
 import net.Y5M2.team.biz.TeamBizImpl;
@@ -37,6 +38,7 @@ public class DoCreateTeamServlet extends HttpServlet {
 		String teamName = multipartRequest.getParameter("teamName");
 		String teamInfo = multipartRequest.getParameter("teamInfo");
 		String teamCountParam = multipartRequest.getParameter("teamCount");
+		String leafLocation = multipartRequest.getParameter("leafLocation");
 		if (teamName == null || teamName.length() == 0) {
 			response.sendRedirect("/ShootBoy/createTeam?errorCode=2");
 			return;
@@ -61,6 +63,7 @@ public class DoCreateTeamServlet extends HttpServlet {
 		team.setTeamCount(teamCount);
 		team.setTeamInfo(teamInfo);
 		team.setTeamPhoto(teamPhoto);
+		team.setLocationId(leafLocation);
 
 		boolean isSuccess = teamBiz.addTeam(team);
 		PrintWriter out = response.getWriter();

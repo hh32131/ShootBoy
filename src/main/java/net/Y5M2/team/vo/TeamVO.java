@@ -13,6 +13,7 @@ public class TeamVO {
 	private String teamId;
 	private String teamInfo;
 	private String locationId;
+	
 
 	LocationVO locationVO;
 	

@@ -28,7 +28,7 @@ $(document).ready(function () {
  		};
 
 	function openWin() {
-		window.open("http://10.225.152.163:8080/ShootBoy/createTeam", "",
+		window.open("http://localhost:8080/ShootBoy/createTeam", "",
 				"width=900, height= 600");
 
 	}
