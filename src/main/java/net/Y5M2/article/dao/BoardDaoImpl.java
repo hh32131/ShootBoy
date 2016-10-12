@@ -33,6 +33,7 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				query.append("			, CRT_DT ");
 				query.append("   		, LTST_MDFY_DT ");
 				query.append(" FROM		BOARD ");
+				query.append(" ORDER BY BOARD_ID DESC");
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				
@@ -79,13 +80,9 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				query.append(" FILE_NM, CRT_DT, LTST_MDFY_DT ) ");
 				query.append(" VALUES ( ");
 				query.append(" 'BO-' || TO_CHAR(SYSDATE, 'YYYYMMDD') || '-' || LPAD(BOARD_ID_SEQ.NEXTVAL,6,0) ");
-<<<<<<< HEAD
-				query.append(" , ?, ?, 1, 1, 12, 0, SYSDATE, SYSDATE) ");
-				
-				
-=======
-				query.append(" , ?, ?, 0, 0, 0, 0, SYSDATE, SYSDATE) ");
->>>>>>> 3e2354bf103bbed4f6a1adcd6b26839a7d025d37
+
+				query.append(" , ?, ?, 1, 1, 123, 0, SYSDATE, SYSDATE) ");
+
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				pstmt.setString(1, boardVO.getBoardSubject());
@@ -139,7 +136,7 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 					board.setCategoryId(rs.getString("CTGR_ID"));
 					board.setFileName(rs.getString("FILE_NM"));
 					board.setCreateDate(rs.getString("CRT_DT"));
-					board.setLatestModifyDate(rs.getString("LTST_MDFY_DT"));
+					board.setModifyDate(rs.getString("LTST_MDFY_DT"));
 					
 				}
 				

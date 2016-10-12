@@ -23,9 +23,9 @@
 	${board.boardSubject}
 	${board.boardContent} 	
 	${board.hitCount} 
-	${board.recommendCount}
 	${board.userId} 
 	${board.categoryId}
+	${board.createDate}
 	
 	
 	<a href="javascript:void(0);" id="deleteBtn">삭제</a> 
