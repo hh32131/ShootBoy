@@ -8,10 +8,8 @@ public interface UserBiz {
 
 	public boolean signUpUser(UserVO userVO);
 
-<<<<<<< HEAD
+
 	public boolean isExsist(String email);
-=======
 	public boolean getUserBy(UserVO userVO, HttpServletRequest request);
->>>>>>> d448ce0edae533fd6ed89e0ec272981fa678b4f4
 
 }

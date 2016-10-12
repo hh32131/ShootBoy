@@ -23,11 +23,10 @@ public class UserBizImpl implements UserBiz {
 	}
 	
 	@Override
-<<<<<<< HEAD
 	public boolean isExsist(String email) {
 		
 		return userDao.isExsist(email) > 0;
-=======
+	}
 	public boolean getUserBy(UserVO userVO, HttpServletRequest request) {
 
 		HttpSession session = request.getSession();
@@ -38,6 +37,5 @@ public class UserBizImpl implements UserBiz {
 		}
 		
 		return false;
->>>>>>> d448ce0edae533fd6ed89e0ec272981fa678b4f4
 	}
 }
