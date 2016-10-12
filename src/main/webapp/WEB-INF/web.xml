@@ -98,7 +98,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-<<<<<<< HEAD
     <display-name>ViewUserInfoModifyPageServlet</display-name>
     <servlet-name>ViewUserInfoModifyPageServlet</servlet-name>
     <servlet-class>net.Y5M2.user.web.ViewUserInfoModifyPageServlet</servlet-class>
@@ -106,7 +105,9 @@
   <servlet-mapping>
     <servlet-name>ViewUserInfoModifyPageServlet</servlet-name>
     <url-pattern>/userModify</url-pattern>
-=======
+    </servlet-mapping>
+<servlet>
+    <description></description>
     <display-name>ViewDetailPageServlet</display-name>
     <servlet-name>ViewDetailPageServlet</servlet-name>
     <servlet-class>net.Y5M2.article.web.ViewDetailPageServlet</servlet-class>
@@ -224,6 +225,5 @@
   <servlet-mapping>
     <servlet-name>DoDownloadServlet</servlet-name>
     <url-pattern>/board/doDownload</url-pattern>
->>>>>>> 66475f8c6cbf7030dbe6b7a15093df37852ae707
   </servlet-mapping>
 </web-app>
