@@ -11,12 +11,15 @@ public class UserVO {
 	private String password;
 	private String userName;
 	private String phoneNumber;
-	private int age;
+	private String age;
 	private String position;
-	private String photo;
 	private String teamId;
 	private String levelId;
 	private String locationId;
+	private String latestModifyDate;
+	private String createDate;
+	private String passwordHint;
+	private String passwordAswer;
 	
 	private TeamVO teamVO;
 	private LevelVO levelVO;
@@ -80,12 +83,12 @@ public class UserVO {
 	}
 
 
-	public int getAge() {
+	public String getAge() {
 		return age;
 	}
 
 
-	public void setAge(int age) {
+	public void setAge(String age) {
 		this.age = age;
 	}
 
@@ -97,16 +100,6 @@ public class UserVO {
 
 	public void setPosition(String position) {
 		this.position = position;
-	}
-
-
-	public String getPhoto() {
-		return photo;
-	}
-
-
-	public void setPhoto(String photo) {
-		this.photo = photo;
 	}
 
 
@@ -140,6 +133,46 @@ public class UserVO {
 	}
 
 
+	public String getLatestModifyDate() {
+		return latestModifyDate;
+	}
+
+
+	public void setLatestModifyDate(String latestModifyDate) {
+		this.latestModifyDate = latestModifyDate;
+	}
+
+
+	public String getCreateDate() {
+		return createDate;
+	}
+
+
+	public void setCreateDate(String createDate) {
+		this.createDate = createDate;
+	}
+
+
+	public String getPasswordHint() {
+		return passwordHint;
+	}
+
+
+	public void setPasswordHint(String passwordHint) {
+		this.passwordHint = passwordHint;
+	}
+
+
+	public String getPasswordAswer() {
+		return passwordAswer;
+	}
+
+
+	public void setPasswordAswer(String passwordAswer) {
+		this.passwordAswer = passwordAswer;
+	}
+
+
 	public TeamVO getTeamVO() {
 		return teamVO;
 	}
@@ -168,6 +201,9 @@ public class UserVO {
 	public void setLocationVO(LocationVO locationVO) {
 		this.locationVO = locationVO;
 	}
+
+
+	
 	
 	
 }

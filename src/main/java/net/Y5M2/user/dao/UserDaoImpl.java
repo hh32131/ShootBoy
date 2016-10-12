@@ -45,18 +45,29 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 				query.append(" 			, USR_PHN ");
 				query.append(" 			, USR_AGE ");
 				query.append(" 			, USR_POSIT ");
-				query.append("  ");
-				query.append("  ");
+				query.append(" 			, TEAM_ID ");
+				query.append(" 			, LV_ID ");
+				query.append(" 			, LCTN_ID ");
+				query.append(" 			, TO_CAHR(LTST_MODY_DT, 'YYYY-MM-DD HH24:MI:SS') LTST_MODY_DT ");
+				query.append(" 			, TO_CAHR(CRT_DT, 'YYYY-MM-DD HH24:MI:SS') CRT_DT ");
+				query.append(" 			, PWD_HINT ");
+				query.append(" 			, PWD_ANSER ");
+				query.append(" FROM		USR ");
+				query.append(" WHERE	USR_EMAIL = ? ");
+				query.append(" AND		USR_PWD = ? ");
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				pstmt.setString(1, userVO.getEmail());
+				pstmt.setString(2, userVO.getPassword());
 				
-				
-				return null;
+				return pstmt;
 			}
 			
 			@Override
 			public Object makeObject(ResultSet rs) throws SQLException {
-
+				
+				
+				if(rs.next())
 				return null;
 			}
 		});
