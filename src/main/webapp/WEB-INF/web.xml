@@ -98,6 +98,7 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+<<<<<<< HEAD
     <display-name>DoCheckEmail</display-name>
     <servlet-name>DoCheckEmail</servlet-name>
     <servlet-class>net.Y5M2.user.web.ajax.DoCheckEmail</servlet-class>
@@ -135,5 +136,24 @@
   <servlet-mapping>
     <servlet-name>DoCreateTeamServlet</servlet-name>
     <url-pattern>/doCreateTeam</url-pattern>
+=======
+    <display-name>ViewDetailPageServlet</display-name>
+    <servlet-name>ViewDetailPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.article.web.ViewDetailPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewDetailPageServlet</servlet-name>
+    <url-pattern>/board/detail</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoDeleteServlet</display-name>
+    <servlet-name>DoDeleteServlet</servlet-name>
+    <servlet-class>net.Y5M2.article.web.DoDeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoDeleteServlet</servlet-name>
+    <url-pattern>/board/doDelete</url-pattern>
+>>>>>>> 3e2354bf103bbed4f6a1adcd6b26839a7d025d37
   </servlet-mapping>
 </web-app>

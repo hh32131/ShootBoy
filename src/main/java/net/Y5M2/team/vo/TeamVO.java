@@ -5,6 +5,7 @@ import net.Y5M2.level.vo.LevelVO;
 public class TeamVO {
 
 	private String teamId;
+<<<<<<< HEAD
 	private int teamCount;
 	private String teamName;
 	private String teamInfo;
@@ -36,6 +37,16 @@ public class TeamVO {
 		this.levelVO = levelVO;
 	}
 
+=======
+	private String teamName;
+	private String teamCount;
+	private String teamPhoto;
+	private String createDate;
+	private String teamPoint;
+	private String latestModifyDate;
+	private String levelId;
+
+>>>>>>> 3e2354bf103bbed4f6a1adcd6b26839a7d025d37
 	public String getTeamId() {
 		return teamId;
 	}
@@ -44,6 +55,7 @@ public class TeamVO {
 		this.teamId = teamId;
 	}
 
+<<<<<<< HEAD
 	public int getTeamCount() {
 		return teamCount;
 	}
@@ -52,6 +64,8 @@ public class TeamVO {
 		this.teamCount = teamCount;
 	}
 
+=======
+>>>>>>> 3e2354bf103bbed4f6a1adcd6b26839a7d025d37
 	public String getTeamName() {
 		return teamName;
 	}
@@ -60,6 +74,17 @@ public class TeamVO {
 		this.teamName = teamName;
 	}
 
+<<<<<<< HEAD
+=======
+	public String getTeamCount() {
+		return teamCount;
+	}
+
+	public void setTeamCount(String teamCount) {
+		this.teamCount = teamCount;
+	}
+
+>>>>>>> 3e2354bf103bbed4f6a1adcd6b26839a7d025d37
 	public String getTeamPhoto() {
 		return teamPhoto;
 	}
@@ -76,11 +101,19 @@ public class TeamVO {
 		this.createDate = createDate;
 	}
 
+<<<<<<< HEAD
 	public int getTeamPoint() {
 		return teamPoint;
 	}
 
 	public void setTeamPoint(int teamPoint) {
+=======
+	public String getTeamPoint() {
+		return teamPoint;
+	}
+
+	public void setTeamPoint(String teamPoint) {
+>>>>>>> 3e2354bf103bbed4f6a1adcd6b26839a7d025d37
 		this.teamPoint = teamPoint;
 	}
 

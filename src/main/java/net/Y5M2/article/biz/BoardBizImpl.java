@@ -24,4 +24,24 @@ public class BoardBizImpl implements BoardBiz{
 		return boardDao.writeBoard(boardVO)>0;
 	}
 
+	@Override
+	public BoardVO getBoardAt(String boardId) {
+		return boardDao.getBoardAt(boardId);
+	}
+	
+	@Override
+	public boolean hitCountUpdate(String boardId) {
+		return boardDao.hitCountUpdate(boardId) > 0;
+	}
+
+	@Override
+	public boolean deleteBoard(String boardId) {
+		return boardDao.deleteBoard(boardId) > 0;
+	}
+
+	@Override
+	public boolean modifyBoard(BoardVO board) {
+		return boardDao.modifyBoard(board) > 0;
+	}
+
 }
