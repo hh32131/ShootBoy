@@ -87,14 +87,14 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				query.append(" 					) ");
 				query.append(" VALUES ( ");
 				query.append(" 'BO-' || TO_CHAR(SYSDATE, 'YYYYMMDD') || '-' || LPAD(BOARD_ID_SEQ.NEXTVAL,6,0) ");
-				query.append(" , ?, ?, 1, 0, ?, ?, SYSDATE, SYSDATE) ");
+				query.append(" , ?, ?, 1, 0, 0, ?, SYSDATE, SYSDATE) ");
 
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				pstmt.setString(1, boardVO.getBoardSubject());
 				pstmt.setString(2, boardVO.getBoardContent());
-				pstmt.setString(3, boardVO.getUserId());
-				pstmt.setString(4, boardVO.getFileName());
+				//pstmt.setString(3, boardVO.getUserId());
+				pstmt.setString(3, boardVO.getFileName());
 				
 				return pstmt;
 			}
