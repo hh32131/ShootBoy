@@ -72,9 +72,16 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				StringBuffer query = new StringBuffer();
 				
 				query.append(" INSERT INTO BOARD ( ");
-				query.append(" BOARD_ID, BOARD_SBJ, BOARD_CONT, ");
-				query.append(" CTGR_ID, HIT_CNT, USR_ID, ");
-				query.append(" FILE_NM, CRT_DT, LTST_MDFY_DT ) ");
+				query.append(" 						BOARD_ID ");
+				query.append(" 						, BOARD_SBJ ");
+				query.append(" 						, BOARD_CONT ");
+				query.append(" 						, CTGR_ID ");
+				query.append(" 						, HIT_CNT ");
+				query.append(" 						, USR_ID ");
+				query.append(" 						, FILE_NM ");
+				query.append(" 						, CRT_DT ");
+				query.append(" 						, LTST_MDFY_DT ");
+				query.append(" 					) ");
 				query.append(" VALUES ( ");
 				query.append(" 'BO-' || TO_CHAR(SYSDATE, 'YYYYMMDD') || '-' || LPAD(BOARD_ID_SEQ.NEXTVAL,6,0) ");
 				query.append(" , ?, ?, 0, 0, 0, 0, SYSDATE, SYSDATE) ");
@@ -181,6 +188,57 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 	}
 
 	@Override
+	public BoardVO getBoardForModify(String boardId) {
+		return (BoardVO) selectOne(new QueryAndResult() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				
+				StringBuffer query = new StringBuffer();
+				query.append(" SELECT	BOARD_ID ");
+				query.append(" 			, BOARD_SBJ ");
+				query.append(" 			, BOARD_CONT ");
+				query.append(" 			, CTGR_ID ");
+				query.append(" 			, HIT_CNT ");
+				query.append(" 			, USR_ID ");
+				query.append(" 			, FILE_NM ");
+				query.append(" 			, CRT_DT ");
+				query.append(" 			, LTST_MDFY_DT ");
+				query.append(" FROM		BOARD ");
+				query.append(" WHERE	BOARD_ID = ? ");
+				
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				pstmt.setString(1, boardId);
+				
+				return pstmt;
+			}
+			
+			@Override
+			public Object makeObject(ResultSet rs) throws SQLException {
+				
+				BoardVO board = null;
+				
+				while ( rs.next() ) {
+					
+					board = new BoardVO();
+					board.setBoardId(rs.getString("BOARD_ID"));
+					board.setBoardSubject(rs.getString("BOARD_SBJ"));
+					board.setBoardContent(rs.getString("BOARD_CONT"));
+					board.setCategoryId(rs.getString("CTGR_ID"));
+					board.setHitCount(rs.getInt("HIT_CNT"));
+					board.setUserId(rs.getString("USR_ID"));
+					board.setFileName(rs.getString("FILE_NM"));
+					board.setCreateDate(rs.getString("CRT_DT"));
+					board.setLatestModifyDate(rs.getString("LTST_MDFY_DT"));
+					
+				}
+				
+				return board;
+			}
+		});
+	}
+	
+	@Override
 	public int modifyBoard(BoardVO board) {
 		return insert(new Query() {
 
@@ -195,16 +253,33 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 					query.append(" , BOARD_SBJ = ? ");
 				}
 				if ( board.getBoardSubject() != null ) {
-					
+					query.append(" , BOARD_CONT ");
 				}
 				if ( board.getFileName() != null ) {
-					
+					query.append(" , FILE_NM ");
 				}
 				
 				query.append(" WHERE	BOARD_ID = ? ");
 				
-				return null;
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				
+				int index = 1;
+				
+				if ( board.getBoardSubject() != null ) {
+					pstmt.setString(index++, board.getBoardSubject());
+				}
+				if ( board.getBoardSubject() != null ) {
+					pstmt.setString(index++, board.getBoardContent());
+				}
+				if ( board.getFileName() != null ) {
+					pstmt.setString(index++, board.getFileName());
+				}
+				
+				pstmt.setString(index++, board.getBoardId());
+				
+				return pstmt;
 			}
 		});
 	}
+
 }

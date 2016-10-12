@@ -29,7 +29,7 @@
 	
 	
 	<a href="javascript:void(0);" id="deleteBtn">삭제</a> 
-	<a href="/ShootBoy/board/modify">수정</a> 
+	<a href="/ShootBoy/board/modify?boardId=${board.boardId}">수정</a> 
 	<a href="/ShootBoy/list">목록보기</a>
 
 </body>

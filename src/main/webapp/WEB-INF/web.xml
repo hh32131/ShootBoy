@@ -116,4 +116,34 @@
     <servlet-name>DoDeleteServlet</servlet-name>
     <url-pattern>/board/doDelete</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoModifyServlet</display-name>
+    <servlet-name>DoModifyServlet</servlet-name>
+    <servlet-class>net.Y5M2.article.web.DoModifyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoModifyServlet</servlet-name>
+    <url-pattern>/board/doModify</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewModifyPageServlet</display-name>
+    <servlet-name>ViewModifyPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.article.web.ViewModifyPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewModifyPageServlet</servlet-name>
+    <url-pattern>/board/modify</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoDownloadServlet</display-name>
+    <servlet-name>DoDownloadServlet</servlet-name>
+    <servlet-class>net.Y5M2.article.web.DoDownloadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoDownloadServlet</servlet-name>
+    <url-pattern>/board/doDownload</url-pattern>
+  </servlet-mapping>
 </web-app>
