@@ -29,9 +29,10 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				query.append(" 			, BOARD_SBJ ");
 				query.append(" 			, BOARD_CONT ");
 				query.append(" 			, HIT_CNT ");
-				query.append(" 			, RCMD_CNT ");
 				query.append(" 			, USR_ID ");
 				query.append(" 			, CTGR_ID ");
+				query.append("			, CRT_DT ");
+				query.append("   		, LTST_MDFY_DT ");
 				query.append(" FROM		BOARD ");
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
@@ -51,7 +52,6 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 					board.setBoardSubject(rs.getString("BOARD_SBJ"));
 					board.setBoardContent(rs.getString("BOARD_CONT"));
 					board.setHitCount(rs.getInt("HIT_CNT"));
-					board.setRecommendCount(rs.getInt("RCMD_CNT"));
 					board.setUserId(rs.getString("USR_ID"));
 					board.setCategoryId(rs.getString("CTGR_ID"));
 					
@@ -76,11 +76,11 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				
 				query.append(" INSERT INTO BOARD ( ");
 				query.append(" BOARD_ID, BOARD_SBJ, BOARD_CONT, ");
-				query.append(" CTGR_ID, HIT_CNT, RCMD_CNT, USR_ID, ");
+				query.append(" CTGR_ID, HIT_CNT, USR_ID, ");
 				query.append(" FILE_NM, CRT_DT, LTST_MDFY_DT ) ");
 				query.append(" VALUES ( ");
 				query.append(" 'BO-' || TO_CHAR(SYSDATE, 'YYYYMMDD') || '-' || LPAD(BOARD_ID_SEQ.NEXTVAL,6,0) ");
-				query.append(" , ?, ?, 1, 1, 1, 12, 0, SYSDATE, SYSDATE) ");
+				query.append(" , ?, ?, 1, 1, 12, 0, SYSDATE, SYSDATE) ");
 				
 				
 				

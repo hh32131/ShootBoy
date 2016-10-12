@@ -14,7 +14,6 @@
 			<th>board subject</th>
 			<th>board content</th>
 			<th>hit count</th>
-			<th>recommend count</th>
 			<th>user id</th>
 			<th>category id</th>
 		</tr>
@@ -24,7 +23,6 @@
 				<td>${board.boardSubject}</td>
 				<td>${board.boardContent}</td>
 				<td>${board.hitCount}</td>
-				<td>${board.recommendCount}</td>
 				<td>${board.userId}</td>
 				<td>${board.categoryId}</td>
 			</tr>

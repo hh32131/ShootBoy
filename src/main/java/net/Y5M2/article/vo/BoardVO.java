@@ -6,7 +6,6 @@ public class BoardVO {
 	private String boardSubject;
 	private int hitCount;
 	private String boardContent;
-	private int recommendCount;
 	private String userId;
 	private String categoryId;
 	private String fileName;
@@ -45,14 +44,6 @@ public class BoardVO {
 
 	public void setHitCount(int hitCount) {
 		this.hitCount = hitCount;
-	}
-
-	public int getRecommendCount() {
-		return recommendCount;
-	}
-
-	public void setRecommendCount(int recommendCount) {
-		this.recommendCount = recommendCount;
 	}
 
 	public String getBoardContent() {
