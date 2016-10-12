@@ -48,8 +48,8 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 				query.append(" 			, TEAM_ID ");
 				query.append(" 			, LV_ID ");
 				query.append(" 			, LCTN_ID ");
-				query.append(" 			, TO_CAHR(LTST_MODY_DT, 'YYYY-MM-DD HH24:MI:SS') LTST_MODY_DT ");
-				query.append(" 			, TO_CAHR(CRT_DT, 'YYYY-MM-DD HH24:MI:SS') CRT_DT ");
+				query.append(" 			, TO_CHAR(LTST_MODY_DT, 'YYYY-MM-DD HH24:MI:SS') LTST_MODY_DT ");
+				query.append(" 			, TO_CHAR(CRT_DT, 'YYYY-MM-DD HH24:MI:SS') CRT_DT ");
 				query.append(" 			, PWD_HINT ");
 				query.append(" 			, PWD_ANSER ");
 				query.append(" FROM		USR ");
@@ -66,9 +66,27 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 			@Override
 			public Object makeObject(ResultSet rs) throws SQLException {
 				
-				
-				if(rs.next())
-				return null;
+				UserVO userVO = null;
+				if(rs.next()){
+					userVO = new UserVO();
+					userVO.setUserId(rs.getString("USR_ID"));
+					userVO.setEmail(rs.getString("USR_EMAIL"));
+					userVO.setPassword(rs.getString("USR_PWD"));
+					userVO.setUserName(rs.getString("USR_NM"));
+					userVO.setPhoneNumber(rs.getString("USR_PHN"));
+					userVO.setAge(rs.getString("USR_AGE"));
+					userVO.setPosition(rs.getString("USR_POSIT"));
+					userVO.setTeamId(rs.getString("TEAM_ID"));
+					userVO.setLevelId(rs.getString("LV_ID"));
+					userVO.setLocationId(rs.getString("LCTN_ID"));
+					userVO.setLatestModifyDate(rs.getString("LTST_MODY_DT"));
+					userVO.setCreateDate(rs.getString("CRT_DT"));
+					userVO.setPasswordHint(rs.getString("PWD_HINT"));
+					userVO.setPasswordAnswer(rs.getString("PWD_ANSER"));
+				}
+					
+					
+				return userVO;
 			}
 		});
 	}

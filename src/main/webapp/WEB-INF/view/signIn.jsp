@@ -13,7 +13,7 @@
 			location.href="/ShootBoy/signIn"
 		});
 		
-		$("#userId").keyup(function(){
+		$("#userEmail").keyup(function(){
 			if($(this).val()==null){
 				$(this).addClass("warning");
 				$(this).removeClass("pass");
@@ -47,7 +47,8 @@
 </head>
 <body>
 	<form id="signInForm" name="signInForm">
-		<input type="text" id="userId" name="userId" placeholder="아이디를 입력해주세요">
+		<input type="hidden" id="Referer" name="Referer" value="${Referer}">
+		<input type="text" id="userEmail" name="userEmail" placeholder="이메일를 입력해주세요">
 		<input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요">
 		<input type="button" id="signInBtn" name="signBtn" value="로그인">
 		<input type="button" id="cancelBtn" name="cancelBtn" value="취소">

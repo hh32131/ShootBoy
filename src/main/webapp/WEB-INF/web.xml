@@ -104,7 +104,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ViewSignInPageServlet</servlet-name>
-    <url-pattern>/ViewSignInPageServlet</url-pattern>
+    <url-pattern>/signIn</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>

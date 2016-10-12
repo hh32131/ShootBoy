@@ -29,10 +29,11 @@ public class DoSignInServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String userId = Param.getStringParam(request, "userId");
+		String userEmail = Param.getStringParam(request, "userEmail");
 		String password = Param.getStringParam(request, "password");
+		String Referer = Param.getStringParam(request, "Referer");
 		
-		if(userId==null){
+		if(userEmail==null){
 			response.sendRedirect("/ShootBoy/signIn?errorCode=2");
 		}
 		if(password==null){
@@ -40,11 +41,16 @@ public class DoSignInServlet extends HttpServlet {
 		}
 		
 		UserVO userVO = new UserVO();
-		userVO.setUserId(userId);
+		userVO.setEmail(userEmail);
 		userVO.setPassword(password);
 		
 		boolean isSuccess = userBiz.getUserBy(userVO, request);
-		
+		if(isSuccess){
+			response.sendRedirect(Referer);
+		}
+		else{
+			response.sendRedirect("/ShootBoy/signIn?errorCode=1");
+		}
 	}
 
 }

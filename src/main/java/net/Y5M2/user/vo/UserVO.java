@@ -19,7 +19,7 @@ public class UserVO {
 	private String latestModifyDate;
 	private String createDate;
 	private String passwordHint;
-	private String passwordAswer;
+	private String passwordAnswer;
 	
 	private TeamVO teamVO;
 	private LevelVO levelVO;
@@ -163,13 +163,13 @@ public class UserVO {
 	}
 
 
-	public String getPasswordAswer() {
-		return passwordAswer;
+	public String getPasswordAnswer() {
+		return passwordAnswer;
 	}
 
 
-	public void setPasswordAswer(String passwordAswer) {
-		this.passwordAswer = passwordAswer;
+	public void setPasswordAnswer(String passwordAnswer) {
+		this.passwordAnswer = passwordAnswer;
 	}
 
 
