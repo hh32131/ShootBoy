@@ -98,6 +98,7 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+<<<<<<< HEAD
     <display-name>ViewDetailPageServlet</display-name>
     <servlet-name>ViewDetailPageServlet</servlet-name>
     <servlet-class>net.Y5M2.article.web.ViewDetailPageServlet</servlet-class>
@@ -165,5 +166,24 @@
   <servlet-mapping>
     <servlet-name>ViewTeamPageServlet</servlet-name>
     <url-pattern>/team</url-pattern>
+=======
+    <display-name>ViewSignInPageServlet</display-name>
+    <servlet-name>ViewSignInPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.user.web.ViewSignInPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewSignInPageServlet</servlet-name>
+    <url-pattern>/signIn</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoSignInServlet</display-name>
+    <servlet-name>DoSignInServlet</servlet-name>
+    <servlet-class>net.Y5M2.user.web.DoSignInServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoSignInServlet</servlet-name>
+    <url-pattern>/doSignIn</url-pattern>
+>>>>>>> d448ce0edae533fd6ed89e0ec272981fa678b4f4
   </servlet-mapping>
 </web-app>

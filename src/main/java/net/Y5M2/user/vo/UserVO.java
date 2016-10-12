@@ -13,14 +13,24 @@ public class UserVO {
 	private String phoneNumber;
 	private String age;
 	private String position;
+<<<<<<< HEAD
 	private String createDate;
 	private String passwordHint;
 	private String passwordAnswer;
+=======
+>>>>>>> d448ce0edae533fd6ed89e0ec272981fa678b4f4
 	private String teamId;
 	private String levelId;
 	private String locationId;
 	private String latestModifyDate;
+<<<<<<< HEAD
 
+=======
+	private String createDate;
+	private String passwordHint;
+	private String passwordAnswer;
+	
+>>>>>>> d448ce0edae533fd6ed89e0ec272981fa678b4f4
 	private TeamVO teamVO;
 	private LevelVO levelVO;
 	private LocationVO locationVO;
@@ -71,10 +81,18 @@ public class UserVO {
 		this.phoneNumber = phoneNumber;
 	}
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> d448ce0edae533fd6ed89e0ec272981fa678b4f4
 	public String getAge() {
 		return age;
 	}
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> d448ce0edae533fd6ed89e0ec272981fa678b4f4
 	public void setAge(String age) {
 		this.age = age;
 	}
@@ -91,6 +109,7 @@ public class UserVO {
 		return createDate;
 	}
 
+<<<<<<< HEAD
 	public void setCreateDate(String createDate) {
 		this.createDate = createDate;
 	}
@@ -111,6 +130,8 @@ public class UserVO {
 		this.passwordAnswer = passwordAnswer;
 	}
 
+=======
+>>>>>>> d448ce0edae533fd6ed89e0ec272981fa678b4f4
 	public String getTeamId() {
 		return teamId;
 	}
@@ -143,6 +164,46 @@ public class UserVO {
 		this.latestModifyDate = latestModifyDate;
 	}
 
+	public String getLatestModifyDate() {
+		return latestModifyDate;
+	}
+
+
+	public void setLatestModifyDate(String latestModifyDate) {
+		this.latestModifyDate = latestModifyDate;
+	}
+
+
+	public String getCreateDate() {
+		return createDate;
+	}
+
+
+	public void setCreateDate(String createDate) {
+		this.createDate = createDate;
+	}
+
+
+	public String getPasswordHint() {
+		return passwordHint;
+	}
+
+
+	public void setPasswordHint(String passwordHint) {
+		this.passwordHint = passwordHint;
+	}
+
+
+	public String getPasswordAnswer() {
+		return passwordAnswer;
+	}
+
+
+	public void setPasswordAnswer(String passwordAnswer) {
+		this.passwordAnswer = passwordAnswer;
+	}
+
+
 	public TeamVO getTeamVO() {
 		return teamVO;
 	}
@@ -168,5 +229,11 @@ public class UserVO {
 	}
 
 
+<<<<<<< HEAD
 
+=======
+	
+	
+	
+>>>>>>> d448ce0edae533fd6ed89e0ec272981fa678b4f4
 }
