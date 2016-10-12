@@ -13,14 +13,17 @@ public class UserVO {
 	private String phoneNumber;
 	private String age;
 	private String position;
+
 	private String createDate;
 	private String passwordHint;
 	private String passwordAnswer;
+
 	private String teamId;
 	private String levelId;
 	private String locationId;
 	private String latestModifyDate;
 
+	
 	private TeamVO teamVO;
 	private LevelVO levelVO;
 	private LocationVO locationVO;
@@ -166,7 +169,5 @@ public class UserVO {
 	public void setLocationVO(LocationVO locationVO) {
 		this.locationVO = locationVO;
 	}
-
-
 
 }

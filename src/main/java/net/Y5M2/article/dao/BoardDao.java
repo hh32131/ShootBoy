@@ -16,6 +16,8 @@ public interface BoardDao {
 
 	public int deleteBoard(String boardId);
 
+	public BoardVO getBoardForModify(String boardId);
+
 	public int modifyBoard(BoardVO board);
 
 }

@@ -158,6 +158,7 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+<<<<<<< HEAD
     <display-name>ViewAdminPageServlet</display-name>
     <servlet-name>ViewAdminPageServlet</servlet-name>
     <servlet-class>net.Y5M2.admin.web.ViewAdminPageServlet</servlet-class>
@@ -165,5 +166,64 @@
   <servlet-mapping>
     <servlet-name>ViewAdminPageServlet</servlet-name>
     <url-pattern>/admin</url-pattern>
+=======
+    <display-name>ViewTeamPageServlet</display-name>
+    <servlet-name>ViewTeamPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.team.web.ViewTeamPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewTeamPageServlet</servlet-name>
+    <url-pattern>/team</url-pattern>
+    </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewSignInPageServlet</display-name>
+    <servlet-name>ViewSignInPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.user.web.ViewSignInPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewSignInPageServlet</servlet-name>
+    <url-pattern>/signIn</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoSignInServlet</display-name>
+    <servlet-name>DoSignInServlet</servlet-name>
+    <servlet-class>net.Y5M2.user.web.DoSignInServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoSignInServlet</servlet-name>
+    <url-pattern>/doSignIn</url-pattern>
+      </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoModifyServlet</display-name>
+    <servlet-name>DoModifyServlet</servlet-name>
+    <servlet-class>net.Y5M2.article.web.DoModifyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoModifyServlet</servlet-name>
+    <url-pattern>/board/doModify</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewModifyPageServlet</display-name>
+    <servlet-name>ViewModifyPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.article.web.ViewModifyPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewModifyPageServlet</servlet-name>
+    <url-pattern>/board/modify</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoDownloadServlet</display-name>
+    <servlet-name>DoDownloadServlet</servlet-name>
+    <servlet-class>net.Y5M2.article.web.DoDownloadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoDownloadServlet</servlet-name>
+    <url-pattern>/board/doDownload</url-pattern>
+>>>>>>> 6b4a11d428a6c563205da195989675d9e08af68e
   </servlet-mapping>
 </web-app>
