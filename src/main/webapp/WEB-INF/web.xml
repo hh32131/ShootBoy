@@ -98,7 +98,7 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>ViewDetailPageServlet</display-name>
+        <display-name>ViewDetailPageServlet</display-name>
     <servlet-name>ViewDetailPageServlet</servlet-name>
     <servlet-class>net.Y5M2.article.web.ViewDetailPageServlet</servlet-class>
   </servlet>
@@ -115,6 +115,46 @@
   <servlet-mapping>
     <servlet-name>DoDeleteServlet</servlet-name>
     <url-pattern>/board/doDelete</url-pattern>
+    </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoCheckEmail</display-name>
+    <servlet-name>DoCheckEmail</servlet-name>
+    <servlet-class>net.Y5M2.user.web.ajax.DoCheckEmail</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoCheckEmail</servlet-name>
+    <url-pattern>/doCheckEmail</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoCheckLocation</display-name>
+    <servlet-name>DoCheckLocation</servlet-name>
+    <servlet-class>net.Y5M2.location.web.ajax.DoCheckLocation</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoCheckLocation</servlet-name>
+    <url-pattern>/checkLocation</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewCreateTeamPageServlet</display-name>
+    <servlet-name>ViewCreateTeamPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.team.web.ViewCreateTeamPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewCreateTeamPageServlet</servlet-name>
+    <url-pattern>/createTeam</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoCreateTeamServlet</display-name>
+    <servlet-name>DoCreateTeamServlet</servlet-name>
+    <servlet-class>net.Y5M2.team.web.DoCreateTeamServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoCreateTeamServlet</servlet-name>
+    <url-pattern>/doCreateTeam</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>

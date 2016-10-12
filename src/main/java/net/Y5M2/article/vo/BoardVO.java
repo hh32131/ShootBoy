@@ -2,16 +2,24 @@ package net.Y5M2.article.vo;
 
 public class BoardVO {
 
-	private String boardId;
+	private String boardId ;
 	private String boardSubject;
 	private int hitCount;
 	private String boardContent;
-	private int recommendCount;
 	private String userId;
 	private String categoryId;
 	private String fileName;
+	private String modifyDate;
 	private String createDate;
-	private String latestModifyDate;
+	
+
+	public String getModifyDate() {
+		return modifyDate;
+	}
+
+	public void setModifyDate(String modifyDate) {
+		this.modifyDate = modifyDate;
+	}
 
 	public String getCreateDate() {
 		return createDate;
@@ -21,14 +29,6 @@ public class BoardVO {
 		this.createDate = createDate;
 	}
 
-	public String getLatestModifyDate() {
-		return latestModifyDate;
-	}
-
-	public void setLatestModifyDate(String latestModifyDate) {
-		this.latestModifyDate = latestModifyDate;
-	}
-
 	public String getFileName() {
 		return fileName;
 	}
@@ -36,6 +36,8 @@ public class BoardVO {
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
 	}
+
+
 
 	public String getBoardId() {
 		return boardId;
@@ -53,20 +55,14 @@ public class BoardVO {
 		this.boardSubject = boardSubject;
 	}
 
+
+
 	public int getHitCount() {
 		return hitCount;
 	}
 
 	public void setHitCount(int hitCount) {
 		this.hitCount = hitCount;
-	}
-
-	public int getRecommendCount() {
-		return recommendCount;
-	}
-
-	public void setRecommendCount(int recommendCount) {
-		this.recommendCount = recommendCount;
 	}
 
 	public String getBoardContent() {

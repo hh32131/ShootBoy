@@ -1,7 +1,6 @@
 @CHARSET "UTF-8";
 
 #wrapper {
-	width: 700px;
 	margin: 0 auto;
 }
 body {
@@ -37,4 +36,6 @@ li a:hover {
 	background-color: #555;
 	color: white;
 }
-
+.inline-block{
+	display: inline-block;
+}
