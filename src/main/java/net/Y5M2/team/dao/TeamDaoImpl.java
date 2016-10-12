@@ -67,6 +67,7 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 				query.append(" 			, L.LCTN_ID ");
 				query.append(" 			, L.LCTN_NM ");
 				query.append(" 			, L.PRNT_LCTN_ID ");
+				query.append(" 			, L.PRNT_LCTN_NM ");
 				query.append(" FROM		TEAM T ");
 				query.append(" 			, LCTN L ");
 				query.append(" WHERE	T.LCTN_ID = L.LCTN_ID ");
@@ -99,7 +100,7 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 					locationVO.setLocationId(rs.getString("LCTN_ID"));
 					locationVO.setLocationName(rs.getString("LCTN_NM"));
 					locationVO.setParentLocationId(rs.getString("PRNT_LCTN_ID"));
-					
+					locationVO.setParentLocationName(rs.getString("PRNT_LCTN_NM"));
 					teams.add(teamVO);
 				}
 				return teams;
