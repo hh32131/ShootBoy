@@ -8,16 +8,16 @@ public class TeamVO {
 	private int teamCount;
 	private String teamPhoto;
 	private String createDate;
-	private String teamPoint;
+	private int teamPoint;
 	private String latestModifyDate;
 	private String teamId;
 	private String teamInfo;
 	private String locationId;
 
-	LocationVO location;
-
+	LocationVO locationVO;
+	
 	public TeamVO() {
-		location = new LocationVO();
+		locationVO = new LocationVO();
 	}
 
 	public String getLocationId() {
@@ -28,12 +28,14 @@ public class TeamVO {
 		this.locationId = locationId;
 	}
 
-	public LocationVO getLocation() {
-		return location;
+
+
+	public LocationVO getLocationVO() {
+		return locationVO;
 	}
 
-	public void setLocation(LocationVO location) {
-		this.location = location;
+	public void setLocationVO(LocationVO locationVO) {
+		this.locationVO = locationVO;
 	}
 
 	public String getTeamName() {
@@ -68,11 +70,11 @@ public class TeamVO {
 		this.createDate = createDate;
 	}
 
-	public String getTeamPoint() {
+	public int getTeamPoint() {
 		return teamPoint;
 	}
 
-	public void setTeamPoint(String teamPoint) {
+	public void setTeamPoint(int teamPoint) {
 		this.teamPoint = teamPoint;
 	}
 

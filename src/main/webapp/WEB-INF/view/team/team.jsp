@@ -12,7 +12,7 @@
 <script type="text/javascript">
 $(document).ready(function () {
 	moveToCenter();
-}
+});
 
  	function moveToCenter() {
  		
@@ -36,36 +36,27 @@ $(document).ready(function () {
 </head>
 
 <body>
-<<<<<<< HEAD
-	<table>
-		<tr>
-			<td>
-				
-			</td>
-		</tr>
-	</table>
-	<button onclick="openWin()">팀생성하기 </button>
-=======
+
 	<button onclick="openWin()">팀생성하기</button>
 	<div  id="wrapper" style="width: 700px;">
 		<table>
 			<c:forEach begin="1" end="5" step="1">
 				<tr>
-					<c:forEach begin="1" end="5" step="1">
-
+					<c:forEach items="${teams}" var="teams" begin="1" end="5" step="1">
+					
 						<td align="center" class="teamtd">
 							<div class="teamPhoto double">사진</div>
-							<div>팀이름</div>
-							<div>지역</div>
-							<div>인원수</div> ${a}
-
+							<div>${teams.teamName}</div>
+							<div>${teams.teamCount}</div>
+					 		<div>${teams.locationVO.locationName}-${teams.locationVO.locationId}</div>
+						
 						</td>
-
+						
 					</c:forEach>
 				</tr>
 			</c:forEach>
 		</table>
 	</div>
->>>>>>> d1fd9bf9e787b5b189503ba1ef3ed4643b7306ab
+
 </body>
 </html>
