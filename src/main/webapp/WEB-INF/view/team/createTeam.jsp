@@ -17,10 +17,11 @@
 		});
 		$("#createBtn").click(function() {
 			if (confirm("생성하시겠습니까?")) {
-			$("#craeteTeamForm").attr({
-				"method" : "post",
-				"action" : "/ShootBoy/doCreateTeam"
-				}).submit();
+				$("#craeteTeamForm").attr({
+					"method" : "post",
+					"action" : "/ShootBoy/doCreateTeam"
+				}).submit(); 
+				
 			}
 		});
 
@@ -53,8 +54,7 @@
 <body>
 	<div id="wrapper" style="width: 350px;" >
 		<div><h1>CREATE TEAM</h1></div>
-		<form id="craeteTeamForm" name="createTeamForm"
-			enctype="multipart/form-data">
+		<form id="craeteTeamForm" name="createTeamForm"	enctype="multipart/form-data" >
 			<div>
 				<div class="inline-block" style="border-style: groove; border-radius: 10px;">
 					<input type="text"

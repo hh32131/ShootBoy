@@ -21,7 +21,13 @@
 </head>
 
 <body>
-	
+	<table>
+		<tr>
+			<td>
+				
+			</td>
+		</tr>
+	</table>
 	<button onclick="openWin()">팀생성하기 </button>
 </body>
 </html>

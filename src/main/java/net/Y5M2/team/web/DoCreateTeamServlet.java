@@ -1,6 +1,7 @@
 package net.Y5M2.team.web;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -62,8 +63,11 @@ public class DoCreateTeamServlet extends HttpServlet {
 		team.setTeamPhoto(teamPhoto);
 
 		boolean isSuccess = teamBiz.addTeam(team);
+		PrintWriter out = response.getWriter();
 		if (isSuccess) {
-			response.sendRedirect("/ShootBoy/main");
+			out.write("<script type='text/javascript'> window.close() </script>");
+			out.flush();
+			out.close();
 		}
 		else {
 			response.sendRedirect("/ShootBoy/createTeam?errorCode=1");

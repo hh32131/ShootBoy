@@ -261,7 +261,6 @@
 			<option>거주 지역을 선택하세요</option>
 			<c:forEach items="${location}" var="location">
 				<option value="${location.locationId}">${location.locationName}</option>
-		
 			</c:forEach>
 	 	</select>
 		<select name="leafCategory" id="leafCategory">
