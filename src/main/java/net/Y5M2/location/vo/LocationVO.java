@@ -5,6 +5,15 @@ public class LocationVO {
 	private String locationId;
 	private String parentLocationId;
 	private String locationName;
+	private String parentLocationName;
+
+	public String getParentLocationName() {
+		return parentLocationName;
+	}
+
+	public void setParentLocationName(String parentLocationName) {
+		this.parentLocationName = parentLocationName;
+	}
 
 	public String getLocationId() {
 		return locationId;

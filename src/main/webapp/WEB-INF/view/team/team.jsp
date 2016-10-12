@@ -42,13 +42,13 @@ $(document).ready(function () {
 		<table>
 			<c:forEach begin="1" end="5" step="1">
 				<tr>
-					<c:forEach items="${teams}" var="teams" begin="1" end="5" step="1">
+					<c:forEach items="${teams}" var="teams" >
 					
 						<td align="center" class="teamtd">
 							<div class="teamPhoto double">사진</div>
 							<div>${teams.teamName}</div>
 							<div>${teams.teamCount}</div>
-					 		<div>${teams.locationVO.locationName}-${teams.locationVO.locationId}</div>
+					 		<div>${teams.locationVO.locationName}-${teams.locationVO.parentLocationName}</div>
 						
 						</td>
 						
