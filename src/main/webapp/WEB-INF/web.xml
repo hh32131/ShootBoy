@@ -96,4 +96,14 @@
     <servlet-name>DoWriteServlet</servlet-name>
     <url-pattern>/doWrite</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewUserInfoModifyPageServlet</display-name>
+    <servlet-name>ViewUserInfoModifyPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.user.web.ViewUserInfoModifyPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewUserInfoModifyPageServlet</servlet-name>
+    <url-pattern>/userModify</url-pattern>
+  </servlet-mapping>
 </web-app>
