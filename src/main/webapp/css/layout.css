@@ -26,22 +26,41 @@ body {
 	scrollbar-track-color:#e1e3e3; scrollbar-arrow-color:#c2c2c2;
 }
 
+#mainHeader {
+	
+}
+
 .headerImg {
-	width: 50px;
-	height: 50px;
+	width: 70px;
+	height: 70px;
 	margin-left: 10px;
 	margin-top: 10px;
 }
 a {
 	text-decoration: none;
+	color: #666;
 }
 
-.mainImg {
+a:HOVER {
+	font-weight: bold;
+	color: #267418;
+}
+
+.mainImg{
 	width: 900px;
 	height: 247px;
 	border-radius: 4px 4px 4px 4px;
-	vertical-align:top;
 	display: inline-block;
+	vertical-align:top;
+	overflow: hidden;
+	position: relative;
+}
+
+.mainImgOne {
+	
+	
+	display:none;
+	width:100%
 	
 }
 
@@ -59,11 +78,11 @@ h1 {
 }
 
 .warning {
-	background-color: #f3297a;
+	background-color: #feabab;
 }
 
 .pass {
-	background-color: #55bc3f;
+	background-color: #b0e1a6;
 }
 
 /* 메인화면 상단 네비 */
@@ -170,34 +189,126 @@ h1 {
 }
 
 /* 메인화면 게시판 네비 */
+#naviList {
+	height: 160px;
+}
+
 #naviList ul{
-	list-style-type: none;
+	
+	position:relative;
 	margin: 0;
 	padding: 0;
-	overflow: hidden;
+	list-style-type: none;
+	font-family: "나눔고딕";
+	font-size:12px;
+	*zoom:1
+}
 
+#naviList ul:AFTER {
+	content: "";
+	display: block;
+	clear: both;
 }
 
 #naviList li {
 	float: left;
-	border-right: 1px solid #bbb;
+	margin-bottom:-1px;
 }
 
 #naviList li a {
-	display:block;
+	position:relative;
+	float:left;
+	text-decoration: none;
+	border: 1px solid #eee;
+	border-bottom-color: #ccc;
+	background-color: #bc6f10;
 	color: #fff;
 	text-align: center;
-	padding: 20px 26px;
-	text-decoration: none;
-	background-color: #bc6f10;
 	font-family: "나눔고딕";
 }
 
+#naviList li a span {
+	display:inline-block;
+	padding:6px 25px 6px 25px;
+	letter-spacing:-1px;
+	cursor:pointer
+}
+
+#naviList li ul {
+	width:100%;
+	position:absolute;
+	top:40px;
+	left:0;
+	list-style:none;
+	border:0;
+	margin:0;
+	padding:0;
+	*zoom:1
+}
+
+#naviList  active a{
+	border-bottom-color: #fff;
+}
+
+#naviList li ul:AFTER {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+#naviList li li {
+	float:none;
+	position:relative;
+	margin:0 0 8px 0;
+	color:#999;
+	width: 435px;
+}
+
+#naviList li li a {
+	float:none;
+	padding:0;
+	margin:0;
+	border:0 !important;
+	color:#666 !important;
+	font-weight:normal;
+	background:transparent;
+	letter-spacing:normal
+	
+}
 #naviList li a:HOVER {
-	background-color: #d6b783;
+	background-color: #ecd091;
 	width:150px;
 	height:50x;
 }
+
+#naviList li li a:HOVER, #naviList li li a:ACTIVE, #naviList li li a:FOCUS {
+	color: #000 !important;
+	text-decoration: none;
+}
+
+#naviList li li time, #naviList li li .time {
+	position: absolute;
+	top: 0;
+	right: 0;
+	color: #767676;
+}
+
+#naviList li li .more {
+	position: absolute;
+	right: 0;
+	border: 0 !important;
+	background: transparent;
+}
+
+#naviList li .active a{
+	
+	border: 1px solid #ccc;
+	border-bottom: 1px solid #fff;
+	margin-top: -1px;
+	background: transparent;
+	color: #ff8000;
+}
+
 
 .tableAndLogin {
 	display: inline-block;
@@ -210,23 +321,54 @@ h1 {
 
 .login {
 	display: inline-block;
-	margin-right:100px;
+	margin-right:110px;
 	float: right;
 }
 
-.userEmail, .userPassword {
-	width: 50px;
+#userEmail, #userPassword {
+	margin-bottom:10px;
+	width: 100%;
 }
 
 .loginContent {
 	display: inline-block;
 }
 
-.signButton {
+.loginHeader {
+	padding-bottom: 10px;	
+}
+
+.joinButton {
 	display: inline-block;
-	padding-bottom:100px;
+	vertical-align: top;
+	height: 52px;
+}
+
+#signInBtn {
+	height: 52px;
 }
 
 .sublogin {
 	display: inline-block;
+	padding-bottom: 10px;
+}
+
+#footerContainer {
+	text-align: center;
+	margin-top: 20px;
+}
+
+#footer {
+	margin-top: 800px;
+	margin-bottom: 50px;
+}
+.footerOne, .footerTwo, .footerThree, .footerFour, .footerFive, .footerSix {
+	letter-spacing: 5px;
+}
+
+#bannerImg {
+	margin-right:120px;
+	margin-bottom:100px;
+	float: right;
+	height: 30px;
 }
