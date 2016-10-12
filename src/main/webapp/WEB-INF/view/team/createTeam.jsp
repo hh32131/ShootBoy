@@ -12,7 +12,7 @@
 		moveToCenter();
 		$("#backBtn").click(function() {
 			if (confirm("정말 취소하시겠습니까?")) {
-				location.href = "/ShootBoy/main";
+				closeWin();
 			}
 		});
 		$("#createBtn").click(function() {
@@ -20,9 +20,10 @@
 			$("#craeteTeamForm").attr({
 				"method" : "post",
 				"action" : "/ShootBoy/doCreateTeam"
-			}).submit();
+				}).submit();
 			}
 		});
+
 	});
 
 	$(window).resize(function() {
@@ -43,6 +44,10 @@
 		});
 
 	};
+	
+	function closeWin() {
+		close();
+	}
 </script>
 </head>
 <body>
@@ -69,9 +74,9 @@
 					style="width: 350px; height: 250px; border-radius: 10px;"
 					placeholder="소개글을 입력하세요."></textarea>
 			</div>
-			<input type="file" style="width: 220px;" /> <input type="button"
-				id="createBtn" name="createBtn" value="팀 생성" /> <input
-				type="button" id="backBtn" name="backBtn" value="취소" />
+			<input type="file" style="width: 220px;" /> 
+			<input type="button" id="createBtn" name="createBtn" value="팀 생성" /> 
+			<input type="button" id="backBtn" name="backBtn" value="취소" />
 		</form>
 	</div>
 </body>

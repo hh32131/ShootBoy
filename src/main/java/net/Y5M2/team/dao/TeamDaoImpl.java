@@ -26,10 +26,11 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 				query.append(" 					,CRT_DT ");
 				query.append(" 					,TEAM_POINT ");
 				query.append(" 					,LTST_MODY_DT ");
-				query.append(" 					,TEAM_INFO )");
+				query.append(" 					,TEAM_INFO ");
+				query.append(" 					,LCTN_ID )");
 				query.append(" VALUES		 ( ");
 				query.append(" 'TEAM-' || TO_CHAR(SYSDATE, 'YYYYMMDD') || '-' || LPAD(TEAM_ID_SEQ.NEXTVAL,6,0) ");
-				query.append(" , ?, ?, ?, SYSDATE, 0, SYSDATE, ? ) ");
+				query.append(" , ?, ?, ?, SYSDATE, 0, SYSDATE, ?, 0 ) ");
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				pstmt.setInt(1, teamVO.getTeamCount());
