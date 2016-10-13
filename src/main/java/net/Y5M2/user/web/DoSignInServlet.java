@@ -35,9 +35,11 @@ public class DoSignInServlet extends HttpServlet {
 		
 		if(userEmail==null){
 			response.sendRedirect("/ShootBoy/signIn?errorCode=2");
+			return;
 		}
 		if(password==null){
 			response.sendRedirect("/ShootBoy/signIn?errorCode=2");
+			return;
 		}
 		
 		UserVO userVO = new UserVO();
@@ -46,7 +48,12 @@ public class DoSignInServlet extends HttpServlet {
 		
 		boolean isSuccess = userBiz.getUserBy(userVO, request);
 		if(isSuccess){
-			response.sendRedirect(Referer);
+			if(Referer.equals("")){
+				response.sendRedirect("/ShootBoy/main");
+			}
+			else{
+				response.sendRedirect(Referer);
+			}
 		}
 		else{
 			response.sendRedirect("/ShootBoy/signIn?errorCode=1");

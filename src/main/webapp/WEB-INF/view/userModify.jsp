@@ -6,14 +6,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript"></script>
 </head>
 <body>
 	<div id="wrapper">
 		<form id="userModifyForm" name="userModifyForm" >
-				<input type="password"	id="password1" name="password" placeholder="비밀번호를 입력하세요"> <br/>
-				 <input type="text"	id="phoneNumber" name="phoneNumber" placeholder="전화번호를 입력해주세요"><br/>
+				<input type="password"	id="password" name="password" value="${userInfo.password}"> <br/>
+				 <input type="text"	id="phoneNumber" name="phoneNumber" value="${userInfo.phoneNumber}"><br/>
 				<select id="age" name="age">
-					<option>나이를선택해주세요</option>
+					<option selected="selected" >${userInfo.age}</option>
 					<option>10대</option>
 					<option>20대</option>
 					<option>30대</option>
@@ -21,7 +22,7 @@
 					<option>50대</option>
 				</select><br/>
 				 <select id="position" name="position">
-					<option selected="selected">포지션을 선택해주세요</option>
+					<option selected="selected">${userInfo.position}</option>
 					<option>골키퍼</option>
 					<option>왼쪽 풀백</option>
 					<option>오른쪽 풀백</option>
@@ -37,16 +38,15 @@
 				</select> <br/>
 
 		<select id="locationId" name="locationId">
-			<option>거주 지역을 선택하세요</option>
+			<option>${userInfo.locationVO.parentLocationName}</option>
 			<c:forEach items="${location}" var="location">
 				<option value="${location.locationId}">${location.locationName}</option>
 			</c:forEach>
 	 	</select>
 		<select name="leafCategory" id="leafCategory">
-			<option> 상세 지역을 선택하세요 </option>
+			<option> ${userInfo.locationVO.locationName} </option>
 		</select><br/>
-
-				<input type="button" id="signBtn" value="회원가입">
+				<input type="button" id="signBtn" value="수정">
 				<input type="button" id="cancelBtn" value="취소">
 		</form>
 	</div>
