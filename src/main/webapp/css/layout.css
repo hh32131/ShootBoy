@@ -1,9 +1,7 @@
 @CHARSET "UTF-8";
 
 #wrapper {
-
 	padding-top: 50px;
-
 }
 
 body, textarea, p, dt, dd, li, select, div {
@@ -58,11 +56,8 @@ a:HOVER {
 }
 
 .mainImgOne {
-	
-	
 	display:none;
 	width:100%
-	
 }
 
 #headwrapper {
@@ -83,7 +78,7 @@ h1 {
 }
 
 .pass {
-	background-color: #b0e1a6;
+	background-color: #d2fecf;
 }
 
 /* 메인화면 상단 네비 */
@@ -315,7 +310,6 @@ h1 {
 	color: #ff8000;
 }
 
-
 .tableAndLogin {
 	display: inline-block;
 } 
@@ -334,6 +328,12 @@ h1 {
 #userEmail, #password {
 	margin-bottom:10px;
 	width: 100%;
+	border-color:#fff;
+	border-radius: 4px 4px 4px 4px;
+}
+
+#userEmail:FOCUS, #password:FOCUS{
+	border-color: #e7fa98;
 }
 
 .loginContent {
@@ -356,6 +356,11 @@ h1 {
 
 #signInBtn {
 	height: 52px;
+	background-color: #eadcd7;
+}
+
+#signInBtn:HOVER {
+	background-color: #c48d8c;
 }
 
 .sublogin {
@@ -377,7 +382,7 @@ h1 {
 }
 
 #footer {
-	margin-top: 800px;
+	margin-top: 100px;
 	margin-bottom: 50px;
 }
 .footerOne, .footerTwo, .footerThree, .footerFour, .footerFive, .footerSix {

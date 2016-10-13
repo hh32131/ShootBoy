@@ -1,0 +1,104 @@
+@CHARSET "UTF-8";
+
+#signUpText {
+	float: left;
+	margin-left: 150px;
+	width: 900px;
+	color: #bc7412;
+	margin-bottom: 30px;
+	margin-top: 10px;
+}
+
+#signUpForm {
+	padding: 100px;
+	margin-left: 300px;
+}
+
+#signUpText #signUpClauseOne, #signUpClauseTwo {
+	letter-spacing: 3px;
+	font-size: 20px;
+	color: #000000;
+	padding-top: 10px;
+	margin-left: 20px;
+}
+
+#signUpText #clauseOne, #clauseTwo {
+	margin-left: 70px;
+	margin-top: 20px;
+	width:750px;	
+	height: 200px;
+}
+
+#checkbox {
+	margin-left: 70px;
+}
+
+.line {
+	border: 1px solid #000;
+}
+
+.lineTwo {
+	margin-top: 30px;
+	margin-left: 75px;
+	margin-right: 75px;	
+}
+
+.signText {
+	font-size: 30px;
+	
+}
+
+#email, #userName, #password1, #password2, #passwordHintKey 
+	  , #passwordHintValue, #phoneNumber, #age, #position
+	  , #locationId, #leafCategory, #signBtn {
+	margin: 10px;
+	width: 300px;
+}
+
+#email {
+	margin-left: 50px;
+}
+
+#userName {
+	margin-left: 63px;
+}
+
+#password1 {
+	margin-left: 38px;
+}
+
+#passwordHintKey, #passwordHintValue {
+	margin-left: 92px;
+}
+
+#phoneNumber {
+	margin-left: 40px;
+}
+
+#age {
+	margin-left: 65px;
+}
+
+#position {
+	margin-left: 53px;
+}
+
+#locationId, #leafCategory {
+	margin-left: 37px;
+}
+
+#signBtn {
+	margin-right: 30px;
+	background-color: #eadcd7;
+	border-radius: 4px 4px 4px 4px;
+}
+
+#signBtn:HOVER, #cancelBtn:HOVER {
+	background-color: #c48d8c;
+	border-radius: 4px 4px 4px 4px;
+}
+
+#cancelBtn {
+	background-color: #eadcd7;
+	border-radius: 4px 4px 4px 4px;
+}

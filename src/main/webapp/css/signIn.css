@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+
+#signInWrapper {
+	width: 500px;
+}
+
+.signInTitle {
+	text-align: center;
+	font-size: 50px;
+}
