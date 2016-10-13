@@ -29,6 +29,7 @@
 			</tr>
 
 		</table>
+
 	<a href="<c:url value="/signIn"/>">Login</a>
 	<a href="<c:url value="/list"/>">list</a>
 	<a href="<c:url value="/team"/>">team</a>

@@ -9,4 +9,6 @@ public interface UserDao {
 	public int isExsist(String email);
 	public UserVO getUserBy(UserVO userVO);
 
+	public UserVO findPassword(UserVO userVO);
+
 }
