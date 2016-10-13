@@ -11,7 +11,7 @@
 	$(document).ready(function () {
 		moveToCenter();
 		$("#goBackBtn").click(function() {
-			location.href="/ShootBoy/articles/list";
+			location.href="/ShootBoy/list";
 			
 		});
 		
@@ -30,9 +30,7 @@
 				"method": "post",
 				"action": "/ShootBoy/doWrite"
 			}).submit();
-			
 		});
-
 	});
  	function moveToCenter() {
  		
