@@ -39,8 +39,8 @@
 			}
 		});
 		
-		$("#signInBtn").click(function(){
-			$("#signInForm").attr({
+		$("#signBtn").click(function(){
+			$("#signForm").attr({
 				"method": "post",
 				"action": "/ShootBoy/doSignIn"
 			}).submit();
@@ -69,12 +69,12 @@
 <body>
 	
 	<div id="signInWrapper">
-		<h3 class="signInTitle">Shoot Boy</h3>
+		<a href="/ShootBoy/main" class="signInTitle">Shoot Boy</a>
 	<form id="signForm" name="signForm">
 		<input type="hidden" id="Referer" name="Referer" value="${Referer}">
-		<input type="text" id="userEmail" name="userEmail" placeholder="이메일를 입력해주세요">
-		<input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요">
-		<input type="button" id="signInBtn" name="signBtn" value="로그인">
+		<input type="text" id="userEmail" name="userEmail" placeholder="Id">
+		<input type="password" id="password" name="password" placeholder="password">
+		<input type="button" id="signBtn" name="signBtn" value="로그인">
 		<input type="button" id="cancelBtn" name="cancelBtn" value="취소">
 	</form>
 	</div>
