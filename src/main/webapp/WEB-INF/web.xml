@@ -158,15 +158,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-<<<<<<< HEAD
-    <display-name>ViewAdminPageServlet</display-name>
-    <servlet-name>ViewAdminPageServlet</servlet-name>
-    <servlet-class>net.Y5M2.admin.web.ViewAdminPageServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ViewAdminPageServlet</servlet-name>
-    <url-pattern>/admin</url-pattern>
-=======
     <display-name>ViewTeamPageServlet</display-name>
     <servlet-name>ViewTeamPageServlet</servlet-name>
     <servlet-class>net.Y5M2.team.web.ViewTeamPageServlet</servlet-class>
@@ -174,7 +165,7 @@
   <servlet-mapping>
     <servlet-name>ViewTeamPageServlet</servlet-name>
     <url-pattern>/team</url-pattern>
-    </servlet-mapping>
+  </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>ViewSignInPageServlet</display-name>
@@ -194,7 +185,7 @@
   <servlet-mapping>
     <servlet-name>DoSignInServlet</servlet-name>
     <url-pattern>/doSignIn</url-pattern>
-      </servlet-mapping>
+  </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>DoModifyServlet</display-name>
@@ -224,6 +215,15 @@
   <servlet-mapping>
     <servlet-name>DoDownloadServlet</servlet-name>
     <url-pattern>/board/doDownload</url-pattern>
->>>>>>> 6b4a11d428a6c563205da195989675d9e08af68e
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewAdminPageServlet</display-name>
+    <servlet-name>ViewAdminPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.ViewAdminPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewAdminPageServlet</servlet-name>
+    <url-pattern>/admin</url-pattern>
   </servlet-mapping>
 </web-app>

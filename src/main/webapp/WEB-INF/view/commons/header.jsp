@@ -5,6 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/layout.css" />
+<link rel="stylesheet" type="text/css" href="/ShootBoy/css/grid.css" />
+<script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <title>Header</title>
 </head>
 <body>
