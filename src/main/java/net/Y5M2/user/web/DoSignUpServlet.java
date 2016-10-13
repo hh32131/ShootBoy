@@ -103,7 +103,7 @@ public class DoSignUpServlet extends HttpServlet {
 		boolean isSuccess = userBiz.signUpUser(userVO);
 		
 		if(isSuccess){
-			response.sendRedirect("/ShootBoy/signIn");
+			response.sendRedirect("/ShootBoy/main");
 		}
 		else{
 			response.sendRedirect("/ShootBoy/signUp?errorCode=1");
