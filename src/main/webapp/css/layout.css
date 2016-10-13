@@ -1,8 +1,7 @@
 @CHARSET "UTF-8";
 
 #wrapper {
-<<<<<<< HEAD
-=======
+
 	padding-top: 50px;
 
 }
@@ -21,7 +20,6 @@ body, textarea, p, dt, dd, li, select, div {
 body { 
 	width: 1150px;
 	padding-top: 20px;
->>>>>>> 50cb03329521604b4a30ea01d57a49b306103cd4
 	margin: 0 auto;
 	scrollbar-face-color:#f6f6f6; scrollbar-highlight-color:#ffffff; 
 	scrollbar-3dlight-color:#c2c2c2;
@@ -129,11 +127,11 @@ h1 {
 	background-color: #555;
 	color: white;
 }
-<<<<<<< HEAD
+
 .inline-block{
 	display: inline-block;
 }
-=======
+
 
 #navi > ul li:FIRST-CHILD > a {
 	border-radius: 4px 4px 0 0;
@@ -380,4 +378,4 @@ h1 {
 	float: right;
 	height: 30px;
 }
->>>>>>> 50cb03329521604b4a30ea01d57a49b306103cd4
+
