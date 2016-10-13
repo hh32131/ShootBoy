@@ -1,6 +1,7 @@
 @CHARSET "UTF-8";
 
 #signInWrapper {
+	height:300px;
 	width: 500px;
 }
 
@@ -11,6 +12,7 @@
 
 #signForm {
 	margin-top: 20px;
+	padding: 10px;
 }
 
 #signBtn, #cancelBtn {
@@ -26,4 +28,8 @@
 #signBtn:HOVER, #cancelBtn:HOVER {
 	background-color: #c48d8c;
 	border-radius: 4px 4px 4px 4px;
+}
+
+.subSignForm {
+	margin-top: 30px;
 }

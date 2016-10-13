@@ -119,8 +119,8 @@
 						</div>
 					</div>
 					<div>
-						<a href="/ShootBoy/signUp">회원가입</a> | <a
-							href="/ShootBoy/passwordFind">비밀번호 찾기</a>
+						<a href="/ShootBoy/signUp">회원가입</a> | 
+						<a href="/ShootBoy/passwordFind">비밀번호 찾기</a>
 					</div>
 				</div>
 			</c:when>

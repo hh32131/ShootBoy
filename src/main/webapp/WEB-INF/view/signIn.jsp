@@ -76,6 +76,10 @@
 		<input type="password" id="password" name="password" placeholder="password">
 		<input type="button" id="signBtn" name="signBtn" value="로그인">
 		<input type="button" id="cancelBtn" name="cancelBtn" value="취소">
+	<div class="subSignForm">
+		<a href="/ShootBoy/signUp">회원가입</a> | 
+		<a href="/ShootBoy/passwordFind">비밀번호 찾기</a>
+	</div>
 	</form>
 	</div>
 </body>

@@ -34,17 +34,19 @@
 }
 
 .line {
+	margin-top: 20px;
 	border: 1px solid #000;
 }
 
 .lineTwo {
-	margin-top: 30px;
+	margin-top: 50px;
 	margin-left: 75px;
 	margin-right: 75px;	
 }
 
 .signText {
 	font-size: 30px;
+	margin-bottom: 30px;
 	
 }
 
