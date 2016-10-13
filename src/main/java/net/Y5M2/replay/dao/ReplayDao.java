@@ -11,4 +11,6 @@ public interface ReplayDao {
 	public List<ReplayVO> getListReplays(String boardId);
 	
 	public int replayHitCount();
+	
+	public int deletAllReplay(String boardId);
 }

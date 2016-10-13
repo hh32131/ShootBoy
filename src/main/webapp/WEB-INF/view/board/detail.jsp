@@ -45,7 +45,7 @@
 		<div style="display: inline-block; width: 400px;">${replay.replayContent}</div>
 		<div style="display: inline-block;">${replay.userVO.userName}</div>
 		<div style="display: inline-block;">${replay.createDate}</div>
-		
+		<a href="javascripte:void(0);" id="deleteBtn" style="font-size: 5px;" >삭제</a>
 	</c:forEach>
 	<form id="replayId">
 		<input type="hidden" id="boardId" name="boardId" value="${board.boardId}" >

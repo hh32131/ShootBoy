@@ -7,7 +7,7 @@
 
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
-
+	
 	jQuery(function($) {
 		// List Tab Navigation
 		var $tab_list = $('#naviList');
@@ -56,8 +56,11 @@
 				"action" : "/ShootBoy/doSignIn"
 			}).submit();
 		});
-
 	});
+	function openWin() {
+		window.open("http://localhost:8080/ShootBoy/createTeam", "",
+				"width=900, height= 600");
+	}
 </script>
 
 <div id="wrapper">
@@ -137,7 +140,7 @@
 							</div>
 						</form>
 						<div class="teamCreateButton">
-							<input type="button" id="teamCreateBtn" value="팀 생성" />
+							<button onclick="openWin()">팀생성</button>
 						</div>
 						<div class="OutButton">
 							<input type="button" id="signOutBtn" value="로그아웃" onclick="location.href='/ShootBoy/logout'"/>

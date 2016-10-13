@@ -56,7 +56,9 @@
 						<c:set var="number" value="${fn:split(boards.boardId,'-')[2]}"/>
                         <fmt:parseNumber var="number" type="number" value="${number}" />
                         <td>${number}</td>
-						<td><a href="/ShootBoy/board/detail?boardId=${boards.boardId}">${boards.boardSubject}[${boards.replayHitCount}]</a></td>
+						<td><a href="/ShootBoy/board/detail?boardId=${boards.boardId}">
+							${boards.boardSubject} [${boards.replayHitCount}]
+						</a></td>
 						<td>${boards.userVO.userName}</td>
 						<td>${boards.createDate}</td>
 						<td>${boards.hitCount}</td>
