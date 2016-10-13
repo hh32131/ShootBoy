@@ -218,7 +218,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-<<<<<<< HEAD
     <display-name>ViewAdminPageServlet</display-name>
     <servlet-name>ViewAdminPageServlet</servlet-name>
     <servlet-class>net.Y5M2.admin.web.ViewAdminPageServlet</servlet-class>
@@ -226,7 +225,9 @@
   <servlet-mapping>
     <servlet-name>ViewAdminPageServlet</servlet-name>
     <url-pattern>/admin</url-pattern>
-=======
+    </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>ViewPasswordFindPageServletTwo</display-name>
     <servlet-name>ViewPasswordFindPageServletTwo</servlet-name>
     <servlet-class>net.Y5M2.user.web.ViewPasswordFindPageServletTwo</servlet-class>
@@ -244,6 +245,5 @@
   <servlet-mapping>
     <servlet-name>ViewPasswordFindPageServlet</servlet-name>
     <url-pattern>/passwordFind</url-pattern>
->>>>>>> 48813ca6a8b22e57334f6e52bb3bdcf88b3d42af
   </servlet-mapping>
 </web-app>

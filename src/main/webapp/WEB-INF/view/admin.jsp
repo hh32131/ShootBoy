@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<link rel="stylesheet" type="text/css" href="/ShootBoy/css/layout.css" />
-<link rel="stylesheet" type="text/css" href="/ShootBoy/css/grid.css" />
+<link rel="stylesheet" type="text/css" href="/ShootBoy/css/admin.css" />
+
 	
 	<jsp:include page="/WEB-INF/view/commons/adminHeader.jsp" />
 
