@@ -14,23 +14,45 @@
 				location.href="/ShootBoy/board/doDelete?boardId=${board.boardId}";
 			}
 		});
+		
+		$("#replayWriteBtn").click(function () {
+			$("#replayId").attr({
+				"mothod":	"post",
+				"action":	"/ShootBoy/replayList"
+			}).submit();
+		})
 	});
 </script>
 </head>
 <body>
-	
-	${board.boardId} 
-	${board.boardSubject}
+	 
+	<h1>${board.boardSubject}</h1>
+	<hr/>
 	${board.boardContent} 	
 	${board.hitCount} 
-	${board.userId} 
+	${board.userVO.userName} 
 	${board.categoryId}
 	${board.createDate}
+	
 	<a href="/ShootBoy/board/doDownload?boardId=${board.boardId}">${board.fileName}</a>
-
+	<br/>
 	<a href="javascript:void(0);" id="deleteBtn">삭제</a> 
 	<a href="/ShootBoy/board/modify?boardId=${board.boardId}">수정</a> 
 	<a href="/ShootBoy/list">목록보기</a>
+	<div></div>
+	<c:forEach items="${replays}" var="replay" >
+		<div></div>
+		<div style="display: inline-block; width: 400px;">${replay.replayContent}</div>
+		<div style="display: inline-block;">${replay.userVO.userName}</div>
+		<div style="display: inline-block;">${replay.createDate}</div>
+		
+	</c:forEach>
+	<form id="replayId">
+		<input type="hidden" id="boardId" name="boardId" value="${board.boardId}" >
+		<textarea id="replayContent" name="replayContent" style="width: 600px; height: 25px;" placeholder="댓글을 입력해 주세요..."></textarea>
+		<input type="button" id="replayWriteBtn" name="replayWriteBtn" style="height: 25px;" value="작성하기" />
+	</form>
+	
 
 </body>
 </html>
