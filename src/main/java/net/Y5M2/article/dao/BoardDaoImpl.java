@@ -13,7 +13,6 @@ import net.Y5M2.support.DaoSupport;
 import net.Y5M2.support.Query;
 import net.Y5M2.support.QueryAndResult;
 import net.Y5M2.user.vo.UserVO;
-import oracle.jdbc.proxy.annotation.Pre;
 
 public class BoardDaoImpl extends DaoSupport implements BoardDao {
 	
@@ -26,18 +25,20 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 			public PreparedStatement query(Connection conn) throws SQLException {
 				
 				StringBuffer query = new StringBuffer();
+
+				
 				query.append(" SELECT	B.BOARD_ID ");
 				query.append(" 			, B.BOARD_SBJ ");
 				query.append(" 			, B.BOARD_CONT ");
 				query.append(" 			, B.HIT_CNT ");
 				query.append(" 			, U.USR_NM ");
 				query.append(" 			, B.CTGR_ID ");
-				query.append("			, TO_CHAR(B.CRT_DT, 'YYYY-DD-MM HH24:MI:SS') CRT_DT ");
-				query.append("   		, TO_CHAR(B.LTST_MDFY_DT, 'YYYY-DD-MM HH24:MI:SS') LTST_MDFY_DT ");
-				query.append(" FROM		BOARD B, USR U");
-				query.append(" WHERE 	B.USR_ID = U.USR_ID");
-				query.append(" ORDER BY BOARD_ID DESC");
-
+				query.append(" 			, B.FILE_NM ");
+				query.append("			, TO_CHAR(B.CRT_DT, 'YYYY-MM-DD HH24:MI:SS' ) CRT_DT ");
+				query.append("   		, TO_CHAR(B.LTST_MDFY_DT, 'YYYY-DD-MM HH24:MI:SS') LTST_MDFY_DT  ");
+				query.append(" FROM		BOARD B ");
+				query.append(" 			, USR U ");
+				query.append(" WHERE	B.USR_ID = U.USR_ID ");
 				
 				if ( searchBoard.getSearchType() == 1 ) {
 					query.append(" AND	( B.BOARD_SBJ LIKE '%'|| ?|| '%' ");

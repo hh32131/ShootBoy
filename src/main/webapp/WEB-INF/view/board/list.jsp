@@ -21,34 +21,7 @@
 </script>
 </head>
 <body>
-<<<<<<< HEAD
-	<table>
-		<tr>
-			<th>board id</th>
-			<th>board subject</th>
-			<th>hit count</th>
-			<th>user name</th>
-			<th>category id</th>
-			<th>create date</th>
-			<th>modify date</th>
-		</tr>
-		<c:forEach items="${boards}" var="boards">
-			<tr>
 
-				<td>${boards.boardId}</td>
-				<td>
-					<a href="/ShootBoy/board/detail?boardId=${boards.boardId}">${boards.boardSubject}</a>
-				</td>
-				<td>${boards.hitCount}</td>
-				<td>${boards.userVO.userName}</td>
-				<td>${boards.categoryId}</td>
-				<td>${boards.createDate }</td>
-				<td>${boards.modifyDate }</td>
-			</tr>
-		</c:forEach>
-	</table>
-	<a href="<c:url value="/write"/>">글쓰기</a>
-=======
 	<div id="wrapper">
 		<div id="header">
 			<h1>Page Title</h1>
@@ -117,6 +90,5 @@
 			<h1>Footer</h1>
 		</div>
 	</div>
->>>>>>> f262f547a2221f8416aed0e6d4dbd690f5b00c15
 </body>
 </html>
