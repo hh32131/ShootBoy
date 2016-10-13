@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,19 +33,30 @@
 		  	setTimeout(carousel, 2000);
 
 		}
-		
+
 	});
 </script>
-<body onload="do_move();">
+<body>
 	<h1>
 		<a href="/ShootBoy/main"><img class="headerImg"
 			src="/ShootBoy/img/팀로고.png" /></a> Shoot Boy
 	</h1>
 
 	<div id="mainHeader">
-		<div class="mainRight">
-			<a href="/ShootBoy/main">홈</a> | <a href="/ShootBoy/signUp">회원가입</a> | <a href="/ShootBoy/signIn">로그인</a>
-		</div>
+		<c:choose>
+			<c:when test="${empty sessionScope._USER_INFO_}">
+				<div class="mainRight">
+					<a href="/ShootBoy/main">홈</a> | <a href="/ShootBoy/signUp">회원가입</a> | <a href="/ShootBoy/signIn">로그인</a>
+				</div>
+			</c:when>
+			
+			<c:otherwise>
+				<div class="mainRight">
+					<a href="/ShootBoy/main">홈</a> | <a href="/ShootBoy/logout">로그아웃</a>
+				</div>
+			</c:otherwise>
+		
+		</c:choose>
 
 		<div id="headwrapper">
 			<div id="navi" class="inline">

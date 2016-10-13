@@ -139,7 +139,7 @@
 							<input type="button" id="teamCreateBtn" value="팀 생성" />
 						</div>
 						<div class="OutButton">
-							<input type="button" id="signOutBtn" value="로그아웃" />
+							<input type="button" id="signOutBtn" value="로그아웃" onclick="location.href='/ShootBoy/logout'"/>
 						</div>
 					</div>
 				</div>
