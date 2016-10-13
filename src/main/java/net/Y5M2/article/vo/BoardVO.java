@@ -4,7 +4,7 @@ import net.Y5M2.user.vo.UserVO;
 
 public class BoardVO {
 
-	private String boardId ;
+	private String boardId;
 	private String boardSubject;
 	private int hitCount;
 	private String boardContent;
@@ -13,9 +13,19 @@ public class BoardVO {
 	private String fileName;
 	private String modifyDate;
 	private String createDate;
+<<<<<<< HEAD
 	
 	private UserVO userVO;
 	
+=======
+
+	private UserVO userVO;
+
+	public BoardVO() {
+		userVO = new UserVO();
+	}
+
+>>>>>>> f262f547a2221f8416aed0e6d4dbd690f5b00c15
 	public UserVO getUserVO() {
 		return userVO;
 	}
@@ -23,10 +33,13 @@ public class BoardVO {
 	public void setUserVO(UserVO userVO) {
 		this.userVO = userVO;
 	}
+<<<<<<< HEAD
 
 	public BoardVO(){
 		userVO = new UserVO();
 	}
+=======
+>>>>>>> f262f547a2221f8416aed0e6d4dbd690f5b00c15
 
 	public String getModifyDate() {
 		return modifyDate;
@@ -52,8 +65,6 @@ public class BoardVO {
 		this.fileName = fileName;
 	}
 
-
-
 	public String getBoardId() {
 		return boardId;
 	}
@@ -69,8 +80,6 @@ public class BoardVO {
 	public void setBoardSubject(String boardSubject) {
 		this.boardSubject = boardSubject;
 	}
-
-
 
 	public int getHitCount() {
 		return hitCount;

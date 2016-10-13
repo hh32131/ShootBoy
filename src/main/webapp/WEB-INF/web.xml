@@ -218,6 +218,7 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+<<<<<<< HEAD
     <display-name>ViewPasswordFindPageServletTwo</display-name>
     <servlet-name>ViewPasswordFindPageServletTwo</servlet-name>
     <servlet-class>net.Y5M2.user.web.ViewPasswordFindPageServletTwo</servlet-class>
@@ -235,5 +236,14 @@
   <servlet-mapping>
     <servlet-name>ViewPasswordFindPageServlet</servlet-name>
     <url-pattern>/passwordFind</url-pattern>
+=======
+    <display-name>SearchInitiateServlet</display-name>
+    <servlet-name>SearchInitiateServlet</servlet-name>
+    <servlet-class>net.Y5M2.article.web.SearchInitiateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchInitiateServlet</servlet-name>
+    <url-pattern>/list/init</url-pattern>
+>>>>>>> f262f547a2221f8416aed0e6d4dbd690f5b00c15
   </servlet-mapping>
 </web-app>

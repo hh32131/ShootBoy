@@ -4,7 +4,11 @@ import java.util.List;
 
 import net.Y5M2.article.dao.BoardDao;
 import net.Y5M2.article.dao.BoardDaoImpl;
+import net.Y5M2.article.vo.BoardListVO;
 import net.Y5M2.article.vo.BoardVO;
+import net.Y5M2.article.vo.SearchBoardVO;
+import net.Y5M2.support.pager.Pager;
+import net.Y5M2.support.pager.PagerFactory;
 
 public class BoardBizImpl implements BoardBiz{
 
@@ -15,8 +19,23 @@ public class BoardBizImpl implements BoardBiz{
 	}
 	
 	@Override
-	public List<BoardVO> getBoardOf() {
-		return boardDao.selectBoards();
+	public BoardListVO getAllBoards(SearchBoardVO searchBoard) {
+		
+		int totalCount = boardDao.getCountOfBoards(searchBoard);
+		Pager pager = PagerFactory.getPager(true);
+		pager.setTotalArticleCount(totalCount);
+		pager.setPageNumber(searchBoard.getPageNo());
+		
+		searchBoard.setStartRowNumber(pager.getStartArticleNumber());
+		searchBoard.setEndRowNumber(pager.getEndArticleNumber());
+		
+		List<BoardVO> boards = boardDao.getAllBoards(searchBoard);
+		
+		BoardListVO boardList = new BoardListVO();
+		boardList.setPager(pager);
+		boardList.setBoards(boards);
+		
+		return boardList;
 	}
 
 	@Override
