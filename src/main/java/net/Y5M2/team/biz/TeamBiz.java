@@ -9,4 +9,9 @@ public interface TeamBiz {
 	public boolean addTeam(TeamVO teamVO);
 
 	public List<TeamVO> getAllTeam();
+	
+	public TeamVO getTeamAt(String teamId);
+	
+	public String getFileNmaeOfTeamBy(String teamId);
+
 }
