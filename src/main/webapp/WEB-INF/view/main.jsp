@@ -6,6 +6,7 @@
 
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
+
 	jQuery(function($){
 		// List Tab Navigation
 		var $tab_list = $('#naviList');
