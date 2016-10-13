@@ -38,4 +38,10 @@ public class UserBizImpl implements UserBiz {
 		
 		return false;
 	}
+	
+	@Override
+	public UserVO findPassword(UserVO userVO) {
+		
+		return userDao.findPassword(userVO);
+	}
 }
