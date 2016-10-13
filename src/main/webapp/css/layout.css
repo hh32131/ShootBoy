@@ -331,7 +331,7 @@ h1 {
 	float: right;
 }
 
-#userEmail, #userPassword {
+#userEmail, #password {
 	margin-bottom:10px;
 	width: 100%;
 }
@@ -342,6 +342,10 @@ h1 {
 
 .loginHeader {
 	padding-bottom: 10px;	
+}
+
+#signInForm {
+	display: inline-block;
 }
 
 .joinButton {

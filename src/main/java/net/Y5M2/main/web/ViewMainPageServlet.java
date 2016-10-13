@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class ViewMainPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
 	public ViewMainPageServlet() {
 		super();
 	}
@@ -22,6 +22,8 @@ public class ViewMainPageServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		
 		String viewPath = "/WEB-INF/view/main.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 		rd.forward(request, response);

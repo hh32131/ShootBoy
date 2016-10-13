@@ -32,6 +32,7 @@
 		  	setTimeout(carousel, 2000);
 
 		}
+		
 	});
 </script>
 <body onload="do_move();">
@@ -42,7 +43,7 @@
 
 	<div id="mainHeader">
 		<div class="mainRight">
-			<a href="">홈</a> | <a href="">회원가입</a> | <a href="">로그인</a>
+			<a href="/ShootBoy/main">홈</a> | <a href="/ShootBoy/signUp">회원가입</a> | <a href="/ShootBoy/signIn">로그인</a>
 		</div>
 
 		<div id="headwrapper">
