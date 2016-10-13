@@ -10,6 +10,11 @@ public interface UserBiz {
 
 
 	public boolean isExsist(String email);
+	
 	public boolean getUserBy(UserVO userVO, HttpServletRequest request);
+
+
+	public UserVO findPassword(UserVO userVO);
+
 
 }

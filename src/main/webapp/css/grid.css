@@ -1,0 +1,40 @@
+@CHARSET "UTF-8";
+
+.grid {
+	width: 90%;
+	border-collapse: collapse;
+	background-color: #FFFFFF;
+	color:#000000;
+	margin-bottom: 30px;
+	font-family: "나눔고딕";
+}
+
+.grid td {
+	padding: 7px;
+}
+
+.grid tr, td {
+	border: none;
+	font-size: 12px;
+}
+
+.One {
+	text-align: center;
+}
+
+.grid th, td {
+	border-left: none;
+	border-right: none;
+}
+
+.one {
+	background-color: #2fb024;
+}
+
+.two {
+	background-color: #2fb024;
+}
+
+.containerOne, .containerTwo {
+	background-color: #dddddd;	
+}
