@@ -15,10 +15,12 @@
 	padding: 10px;
 }
 
-#signBtn, #cancelBtn {
-	width: 80px;
-	background-color: #eadcd7;
+#signBtn {
+	float:right;
+	background-color: #55aaff;
 	border-radius: 4px 4px 4px 4px;
+	margin-top: 20px;
+	font-size: 20px;
 }
 
 #cancelBtn {
@@ -26,10 +28,80 @@
 }
 
 #signBtn:HOVER, #cancelBtn:HOVER {
-	background-color: #c48d8c;
+	background-color: #88c4ff;
 	border-radius: 4px 4px 4px 4px;
 }
 
 .subSignForm {
-	margin-top: 30px;
+	margin-top: 50px;
+	font-size: 20px;
+}
+
+#userEmail, #password {
+	font-size: 25px;
+}
+
+.signInTitle {
+	color: #0080ff;
+}
+
+.signInTitle:HOVER {
+	color: #68b4ff;
+}
+
+#findPasswordWrapper {
+	height:400px;
+	width: 500px;
+	margin: 0 auto;
+}
+
+.passwordFind {
+	width: 500px;
+	font-size: 50px;
+	color: #0080ff;
+}
+
+.passwordText {
+	width: 1100px;
+}
+
+#email {
+	margin-top: 20px;
+	width: 300px;
+	font-size: 30px;
+}
+
+.findBtn {
+	margin-left:500px;
+	margin-top: 20px;
+}
+
+#nextBtn {
+	height:30px;
+	width:100px;
+	float:right;
+	background-color: #55aaff;
+	border-radius: 4px 4px 4px 4px;
+}
+
+#nextBtn:HOVER {
+	height:30px;
+	width:100px;
+	float:right;
+	background-color: #88c4ff;
+	border-radius: 4px 4px 4px 4px;
+}
+
+.passwordText {
+	font-size: 20px;	
+}
+
+#passwordHome {
+	float: right;
+}
+
+#findTwoWrapper {
+
+	width: 500px;
+	margin: 0 auto;
 }

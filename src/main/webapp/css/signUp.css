@@ -89,18 +89,23 @@
 	margin-left: 37px;
 }
 
+#btn{
+	margin-top: 20px;	
+}
+
 #signBtn {
-	margin-right: 30px;
-	background-color: #eadcd7;
+	margin-right: 50px;
+	background-color: #d7ba31;
 	border-radius: 4px 4px 4px 4px;
 }
 
 #signBtn:HOVER, #cancelBtn:HOVER {
-	background-color: #c48d8c;
-	border-radius: 4px 4px 4px 4px;
+	margin-right: 50px;
+	background-color: #eadb95;
+	border-radius: 4px 4px 4px 4px;	
 }
 
 #cancelBtn {
-	background-color: #eadcd7;
+	background-color: #d7ba31;
 	border-radius: 4px 4px 4px 4px;
 }

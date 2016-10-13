@@ -352,11 +352,13 @@ h1 {
 
 #signInBtn {
 	height: 52px;
-	background-color: #eadcd7;
+	background-color: #d7ba31;
+	border-radius: 4px 4px 4px 4px;
 }
 
 #signInBtn:HOVER {
-	background-color: #c48d8c;
+	background-color: #eadb95;
+	border-radius: 4px 4px 4px 4px;	
 }
 
 .sublogin {
@@ -392,3 +394,12 @@ h1 {
 	height: 30px;
 }
 
+#teamCreateBtn, #signOutBtn {
+	background-color: #d7ba31;
+	border-radius: 4px 4px 4px 4px;
+}
+
+#teamCreateBtn:HOVER, #signOutBtn:HOVER {
+	background-color: #eadb95;
+	border-radius: 4px 4px 4px 4px;	
+}
