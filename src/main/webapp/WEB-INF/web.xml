@@ -256,4 +256,14 @@
     <servlet-name>DoShowImage</servlet-name>
     <url-pattern>/showImage</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewTeamDetailPageServlet</display-name>
+    <servlet-name>ViewTeamDetailPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.team.web.ViewTeamDetailPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewTeamDetailPageServlet</servlet-name>
+    <url-pattern>/teamDetail</url-pattern>
+  </servlet-mapping>
 </web-app>

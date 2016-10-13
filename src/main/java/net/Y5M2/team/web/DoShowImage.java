@@ -36,8 +36,12 @@ public class DoShowImage extends HttpServlet {
 		String teamPhoto = teamBiz.getFileNmaeOfTeamBy(teamId);
 			
 			DownloadUtil downloadUtil = DownloadUtil.getInstance("D:\\board\\uploadfiles");
-			downloadUtil.download(request, response, teamPhoto , teamPhoto);
-		
+			if(teamPhoto == null){
+				downloadUtil.download(request, response, "soccer.png" , "soccer.png");
+			}
+			else{
+				downloadUtil.download(request, response, teamPhoto , teamPhoto);
+			}
 	}
 
 }
