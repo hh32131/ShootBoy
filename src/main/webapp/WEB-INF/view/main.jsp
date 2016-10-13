@@ -128,24 +128,19 @@
 					<div class="loginHeader"
 						style="font-weight: bold; font-size: 20px;">환영합니다</div>
 					<div class="sublogin">
-						<form id="signInForm" name="signInForm">
+						<form id="informForm" name="informForm">
 							<div class="loginContent">
-								<div>
-									${sessionScope._USER_INFO_.userName} 님
-								</div>
-								<div>
-									<input type="password" id="password" name="password"
-										placeholder="password" />
-								</div>
+								<div>${sessionScope._USER_INFO_.userName} 님</div>
+								<div>${sessionScope._USER_INFO_.age}</div>
+								<div>${sessionScope._USER_INFO_.position}</div>
 							</div>
 						</form>
-						<div class="joinButton">
-							<input type="button" id="signInBtn" value="로그인" />
+						<div class="teamCreateButton">
+							<input type="button" id="teamCreateBtn" value="팀 생성" />
 						</div>
-					</div>
-					<div>
-						<a href="/ShootBoy/signUp">회원가입</a> | <a
-							href="/ShootBoy/passwordFind">비밀번호 찾기</a>
+						<div class="OutButton">
+							<input type="button" id="signOutBtn" value="로그아웃" />
+						</div>
 					</div>
 				</div>
 

@@ -363,6 +363,14 @@ h1 {
 	padding-bottom: 10px;
 }
 
+.teamCreateButton {
+	display: inline-block;
+}
+
+.OutButton {
+	display: inline-block;
+}
+
 #footerContainer {
 	text-align: center;
 	margin-top: 20px;
