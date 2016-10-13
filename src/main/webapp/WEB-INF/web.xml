@@ -248,6 +248,7 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+<<<<<<< HEAD
     <display-name>ViewReplayPageServlet</display-name>
     <servlet-name>ViewReplayPageServlet</servlet-name>
     <servlet-class>net.Y5M2.replay.ViewReplayPageServlet</servlet-class>
@@ -265,5 +266,14 @@
   <servlet-mapping>
     <servlet-name>CheckReplayList</servlet-name>
     <url-pattern>/replayList</url-pattern>
+=======
+    <display-name>DoLogOutServlet</display-name>
+    <servlet-name>DoLogOutServlet</servlet-name>
+    <servlet-class>net.Y5M2.user.web.DoLogOutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoLogOutServlet</servlet-name>
+    <url-pattern>/logout</url-pattern>
+>>>>>>> 4322425a500041dce4c610efecf858e1ab15b887
   </servlet-mapping>
 </web-app>

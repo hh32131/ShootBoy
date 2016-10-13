@@ -1,6 +1,7 @@
 </html><%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <jsp:include page="/WEB-INF/view/commons/header.jsp"></jsp:include>
 
 
@@ -118,8 +119,8 @@
 						</div>
 					</div>
 					<div>
-						<a href="/ShootBoy/signUp">회원가입</a> | <a
-							href="/ShootBoy/passwordFind">비밀번호 찾기</a>
+						<a href="/ShootBoy/signUp">회원가입</a> | 
+						<a href="/ShootBoy/passwordFind">비밀번호 찾기</a>
 					</div>
 				</div>
 			</c:when>
@@ -128,24 +129,19 @@
 					<div class="loginHeader"
 						style="font-weight: bold; font-size: 20px;">환영합니다</div>
 					<div class="sublogin">
-						<form id="signInForm" name="signInForm">
+						<form id="informForm" name="informForm">
 							<div class="loginContent">
-								<div>
-									${sessionScope._USER_INFO_.userName} 님
-								</div>
-								<div>
-									<input type="password" id="password" name="password"
-										placeholder="password" />
-								</div>
+								<div>${sessionScope._USER_INFO_.userName} 님</div>
+								<div>${sessionScope._USER_INFO_.age}</div>
+								<div>${sessionScope._USER_INFO_.position}</div>
 							</div>
 						</form>
-						<div class="joinButton">
-							<input type="button" id="signInBtn" value="로그인" />
+						<div class="teamCreateButton">
+							<input type="button" id="teamCreateBtn" value="팀 생성" />
 						</div>
-					</div>
-					<div>
-						<a href="/ShootBoy/signUp">회원가입</a> | <a
-							href="/ShootBoy/passwordFind">비밀번호 찾기</a>
+						<div class="OutButton">
+							<input type="button" id="signOutBtn" value="로그아웃" onclick="location.href='/ShootBoy/logout'"/>
+						</div>
 					</div>
 				</div>
 
@@ -204,7 +200,10 @@
 				</ul></li>
 		</ul>
 	</div>
-
-	<jsp:include page="/WEB-INF/view/commons/footer.jsp"></jsp:include>
 </div>
+<div style="margin-top: 600px;">
+</div>
+	<div>
+		<jsp:include page="/WEB-INF/view/commons/footer.jsp"></jsp:include>
+	</div>
 
