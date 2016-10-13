@@ -1,5 +1,7 @@
 package net.Y5M2.article.vo;
 
+import net.Y5M2.user.vo.UserVO;
+
 public class BoardVO {
 
 	private String boardId ;
@@ -12,6 +14,19 @@ public class BoardVO {
 	private String modifyDate;
 	private String createDate;
 	
+	private UserVO userVO;
+	
+	public UserVO getUserVO() {
+		return userVO;
+	}
+
+	public void setUserVO(UserVO userVO) {
+		this.userVO = userVO;
+	}
+
+	public BoardVO(){
+		userVO = new UserVO();
+	}
 
 	public String getModifyDate() {
 		return modifyDate;
