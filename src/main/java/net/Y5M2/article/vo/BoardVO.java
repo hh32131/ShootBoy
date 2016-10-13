@@ -13,11 +13,6 @@ public class BoardVO {
 	private String fileName;
 	private String modifyDate;
 	private String createDate;
-<<<<<<< HEAD
-	
-	private UserVO userVO;
-	
-=======
 
 	private UserVO userVO;
 
@@ -25,7 +20,6 @@ public class BoardVO {
 		userVO = new UserVO();
 	}
 
->>>>>>> f262f547a2221f8416aed0e6d4dbd690f5b00c15
 	public UserVO getUserVO() {
 		return userVO;
 	}
@@ -33,13 +27,7 @@ public class BoardVO {
 	public void setUserVO(UserVO userVO) {
 		this.userVO = userVO;
 	}
-<<<<<<< HEAD
 
-	public BoardVO(){
-		userVO = new UserVO();
-	}
-=======
->>>>>>> f262f547a2221f8416aed0e6d4dbd690f5b00c15
 
 	public String getModifyDate() {
 		return modifyDate;

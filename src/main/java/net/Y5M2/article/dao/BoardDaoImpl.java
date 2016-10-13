@@ -13,10 +13,7 @@ import net.Y5M2.support.DaoSupport;
 import net.Y5M2.support.Query;
 import net.Y5M2.support.QueryAndResult;
 import net.Y5M2.user.vo.UserVO;
-<<<<<<< HEAD
 import oracle.jdbc.proxy.annotation.Pre;
-=======
->>>>>>> f262f547a2221f8416aed0e6d4dbd690f5b00c15
 
 public class BoardDaoImpl extends DaoSupport implements BoardDao {
 	
@@ -29,7 +26,6 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 			public PreparedStatement query(Connection conn) throws SQLException {
 				
 				StringBuffer query = new StringBuffer();
-<<<<<<< HEAD
 				query.append(" SELECT	B.BOARD_ID ");
 				query.append(" 			, B.BOARD_SBJ ");
 				query.append(" 			, B.BOARD_CONT ");
@@ -41,21 +37,7 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				query.append(" FROM		BOARD B, USR U");
 				query.append(" WHERE 	B.USR_ID = U.USR_ID");
 				query.append(" ORDER BY BOARD_ID DESC");
-=======
->>>>>>> f262f547a2221f8416aed0e6d4dbd690f5b00c15
-				
-				query.append(" SELECT	B.BOARD_ID ");
-				query.append(" 			, B.BOARD_SBJ ");
-				query.append(" 			, B.BOARD_CONT ");
-				query.append(" 			, B.HIT_CNT ");
-				query.append(" 			, U.USR_NM ");
-				query.append(" 			, B.CTGR_ID ");
-				query.append(" 			, B.FILE_NM ");
-				query.append("			, TO_CHAR(B.CRT_DT, 'YYYY-MM-DD HH24:MI:SS' ) CRT_DT ");
-				query.append("   		, B.LTST_MDFY_DT ");
-				query.append(" FROM		BOARD B ");
-				query.append(" 			, USR U ");
-				query.append(" WHERE	B.USR_ID = U.USR_ID ");
+
 				
 				if ( searchBoard.getSearchType() == 1 ) {
 					query.append(" AND	( B.BOARD_SBJ LIKE '%'|| ?|| '%' ");
@@ -102,23 +84,7 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				
 				BoardVO boardVO = null;
 				List<BoardVO> boards = new ArrayList<BoardVO>();
-<<<<<<< HEAD
-				BoardVO board = null;
-				UserVO user = null;
-				while( rs.next() ) {
-					board = new BoardVO();
-					board.setBoardId(rs.getString("BOARD_ID"));
-					board.setBoardSubject(rs.getString("BOARD_SBJ"));
-					board.setBoardContent(rs.getString("BOARD_CONT"));
-					board.setHitCount(rs.getInt("HIT_CNT"));
-					board.setCategoryId(rs.getString("CTGR_ID"));
-					board.setCreateDate(rs.getString("CRT_DT"));
-					board.setModifyDate(rs.getString("LTST_MDFY_DT"));
-					
-					user = board.getUserVO();
-					user.setUserName(rs.getString("USR_NM"));
-					boards.add(board);
-=======
+
 				UserVO userVO = null;	
 				
 				while( rs.next() ) {
@@ -138,7 +104,6 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 					
 					boards.add(boardVO);
 					
->>>>>>> f262f547a2221f8416aed0e6d4dbd690f5b00c15
 				}
 				
 				return boards;
