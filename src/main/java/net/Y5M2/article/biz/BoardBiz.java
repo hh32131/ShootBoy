@@ -1,17 +1,18 @@
 package net.Y5M2.article.biz;
 
-import java.util.List;
-
+import net.Y5M2.article.vo.BoardListVO;
 import net.Y5M2.article.vo.BoardVO;
+import net.Y5M2.article.vo.SearchBoardVO;
 
 public interface BoardBiz {
 
 	/**
-	 * 게시판 리스트
+	 * 검색기능을 넣은 게시판 리스트
 	 * 
+	 * @param searchBoard
 	 * @return
 	 */
-	public List<BoardVO> getBoardOf();
+	public BoardListVO getAllBoards(SearchBoardVO searchBoard);
 
 	/**
 	 * 게시판 글쓰기

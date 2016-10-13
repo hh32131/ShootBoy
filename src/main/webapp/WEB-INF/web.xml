@@ -165,7 +165,7 @@
   <servlet-mapping>
     <servlet-name>ViewTeamPageServlet</servlet-name>
     <url-pattern>/team</url-pattern>
-    </servlet-mapping>
+  </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>ViewSignInPageServlet</display-name>
@@ -215,6 +215,15 @@
   <servlet-mapping>
     <servlet-name>DoDownloadServlet</servlet-name>
     <url-pattern>/board/doDownload</url-pattern>
-      </servlet-mapping>
-
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchInitiateServlet</display-name>
+    <servlet-name>SearchInitiateServlet</servlet-name>
+    <servlet-class>net.Y5M2.article.web.SearchInitiateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchInitiateServlet</servlet-name>
+    <url-pattern>/list/init</url-pattern>
+  </servlet-mapping>
 </web-app>

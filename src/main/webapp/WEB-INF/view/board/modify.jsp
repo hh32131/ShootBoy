@@ -57,9 +57,9 @@
 		</div>
 		<c:if test="${not empty board.fileName }">
 			<div style="padding-top: 10px; padding-bottom: 10px;">
-				<input type="checkbox" id="fileDeleteBtn" name="fileDeleteBtn"
-					value="delete" /> <img src="/Board/img/text-file-3-xxl.png"
-					style="width: 12px;" /> ${board.fileName}
+				<input type="checkbox" id="fileDeleteBtn" name="fileDeleteBtn" value="delete" /> 
+				<img src="/Board/img/text-file-3-xxl.png" style="width: 12px;" /> 
+				${board.fileName}
 			</div>
 		</c:if>
 		<div>
