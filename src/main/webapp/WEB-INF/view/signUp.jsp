@@ -219,7 +219,7 @@
 
 	<div id="wrapper">
 		<form id="signUpForm" name="signUpForm" >
-				<input type="text" id="email" name="email" placeholder="아이디를 입력하세요"><br/>
+				<input type="text" id="email" name="email" value="${userInfo.email}"><br/>
 				<input type="text" id="userName" name="userName"placeholder="이름을 입력하세요"> <br/>
 				<input type="password"	id="password1" name="password1" placeholder="비밀번호를 입력하세요"> <br/>
 				<input	type="password" id="password2" name="password2"	placeholder="비밀번호를 입력하세요"><br/>
@@ -267,7 +267,7 @@
 			<option> 상세 지역을 선택하세요 </option>
 		</select><br/>
 
-				<input type="button" id="signBtn" value="회원가입">
+				<input type="button" id="modifyBtn" value="수정">
 				<input type="button" id="cancelBtn" value="취소">
 		</form>
 	</div>
