@@ -15,6 +15,7 @@ public interface UserBiz {
 
 
 	public UserVO findPassword(UserVO userVO);
-
+	
+	
 
 }

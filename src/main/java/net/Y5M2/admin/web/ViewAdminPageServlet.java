@@ -8,11 +8,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.Y5M2.support.Param;
+import net.Y5M2.user.biz.UserBiz;
+import net.Y5M2.user.biz.UserBizImpl;
+import net.Y5M2.user.vo.UserVO;
+
 public class ViewAdminPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	private UserBiz userBiz;
+	private UserVO userVO;
+	
     public ViewAdminPageServlet() {
         super();
+        userBiz = new UserBizImpl();
 
     }
 
@@ -21,11 +30,11 @@ public class ViewAdminPageServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String user = Param.getStringParam(request, "user");
 		
 		String viewPath = "/WEB-INF/view/admin.jsp";
-		
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
-		
+		request.setAttribute("user", );
 		rd.forward(request, response);
 	}
 

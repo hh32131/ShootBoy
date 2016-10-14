@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/admin.css" />
 
 	<jsp:include page="/WEB-INF/view/commons/adminHeader.jsp" />
@@ -27,43 +28,17 @@
 							
 						</tr>
 					</thead>
+					<c:forEach var="user" items="${user} begin=0 end=4 step=1" >
 					<tbody>
 						<tr>
-							<td class="td_userId"> n2350 </td>
-							<td class="td_userName"> 남재현 </td>
-							<td class="td_userAge"> 30 </td>
-							<td class="td_userPhone"> 010-1234-5678 </td>
-							<td class="td_userGrade"> 회원 </td>
-						</tr>
-						<tr>
-							<td class="td_id"> hsb </td>
-							<td class="td_name"> 황수빈 </td>
-							<td class="td_age"> 26 </td>
-							<td class="td_phone"> 010-4854-1564 </td>
-							<td class="td_grade"> 회원 </td>
-						</tr>
-						<tr>
-							<td class="td_id"> wogudnn </td>
-							<td class="td_name"> 이재형 </td>
-							<td class="td_age"> 28 </td>
-							<td class="td_phone"> 010-4653-1234 </td>
-							<td class="td_grade"> 회원 </td>	
-						</tr>
-						<tr>
-							<td class="td_id"> hong </td>
-							<td class="td_name"> 홍석훈 </td>
-							<td class="td_age"> 27 </td>
-							<td class="td_phone"> 010-7987-1245 </td>
-							<td class="td_grade"> 회원 </td>
-						</tr>
-						<tr>
-							<td class="td_id"> mindol </td>
-							<td class="td_name"> 김민석 </td>
-							<td class="td_age"> 26 </td>
-							<td class="td_phone"> 010-7896-8451 </td>
-							<td class="td_grade"> 관리자 </td>
+							<td class="td_userId"> ${user.userId } </td>
+							<td class="td_userName"> ${user.userName } </td>
+							<td class="td_userAge"> ${user.userAge } </td>
+							<td class="td_userPhone"> ${user.userPhone } </td>
+							<td class="td_userGrade"> ${user.userGrade } </td>
 						</tr>
 					</tbody>	
+					</c:forEach>
 				</table>
 				<div class="member-view">
 					<button class="viewbtn" a href="#">회원 전체보기</button>

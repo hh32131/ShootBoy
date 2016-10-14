@@ -44,4 +44,5 @@ public class UserBizImpl implements UserBiz {
 		
 		return userDao.findPassword(userVO);
 	}
+
 }
