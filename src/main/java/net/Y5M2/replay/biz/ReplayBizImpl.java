@@ -37,4 +37,9 @@ public class ReplayBizImpl implements ReplayBiz {
 		return replayDao.deleteOneReplay(replayId) > 0 ;
 	}
 
+	@Override
+	public boolean replayModify(ReplayVO replays) {
+		return replayDao.replayModify(replays) > 0;
+	}
+
 }

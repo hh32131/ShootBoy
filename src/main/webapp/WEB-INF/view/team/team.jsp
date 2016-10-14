@@ -30,7 +30,6 @@ $(document).ready(function () {
 	function openWin() {
 		window.open("http://localhost:8080/ShootBoy/createTeam", "",
 				"width=900, height= 600");
-
 	}
 </script>
 </head>

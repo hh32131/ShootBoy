@@ -22,6 +22,13 @@
 			}
 		});
 		
+		$(".replayMoodifyBtn").click(function() {
+			var replyId = $(this).data("modify");
+			window.open("http://localhost:8080/ShootBoy/doModify", "",
+						"width=900, height= 600");
+			
+		});
+		
 		$("#replayWriteBtn").click(function () {
 			$("#replayId").attr({
 				"mothod":	"post",

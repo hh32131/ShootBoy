@@ -15,4 +15,6 @@ public interface ReplayDao {
 	public int deletAllReplay(String boardId);
 	
 	public int deleteOneReplay(String replayId);
+	
+	public int replayModify(ReplayVO replays);
 }

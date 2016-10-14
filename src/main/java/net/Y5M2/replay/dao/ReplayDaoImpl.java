@@ -161,4 +161,26 @@ public class ReplayDaoImpl extends DaoSupport implements ReplayDao{
 		});
 	}
 
+	@Override
+	public int replayModify(ReplayVO replays) {
+		return insert(new Query() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				
+				StringBuffer query = new StringBuffer();
+				
+				query.append(" UPDATE 	REPLY ");
+				query.append(" SET		LTST_MODY_DT = SYSDATE ");
+				query.append(" 			, REPLY_CONT = ? ");
+				query.append(" WHERE	REPLY_ID = ? ");
+				
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				pstmt.setString(1, replays.getReplayContent());
+				pstmt.setString(2, replays.getReplayId());
+				return pstmt;
+			}
+		});
+	}
+
 }
