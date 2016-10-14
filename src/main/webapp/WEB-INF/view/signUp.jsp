@@ -289,7 +289,6 @@
 			</c:forEach>
 		</select><br/>
 		상세 지역 <select name="leafCategory" id="leafCategory">
-			<option>상세 지역을 선택하세요</option>
 		</select>
 		<div id="btn">
 			<input type="button" id="signBtn" value="회원가입"> <input

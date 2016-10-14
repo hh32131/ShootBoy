@@ -266,4 +266,14 @@
     <servlet-name>ViewUserModifyPageServlet</servlet-name>
     <url-pattern>/userModify</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoUserModifyServlet</display-name>
+    <servlet-name>DoUserModifyServlet</servlet-name>
+    <servlet-class>net.Y5M2.user.web.DoUserModifyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoUserModifyServlet</servlet-name>
+    <url-pattern>/doUserModify</url-pattern>
+  </servlet-mapping>
 </web-app>
