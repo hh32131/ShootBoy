@@ -24,20 +24,18 @@
 							<th scope="col"> 이름 </th>
 							<th scope="col"> 나이 </th>
 							<th scope="col"> 핸드폰 번호 </th>
-							<th scope="col"> 권한 </th>
 							
 						</tr>
 					</thead>
-					<c:forEach var="user" items="${user} begin=0 end=4 step=1" >
-					<tbody>
-						<tr>
-							<td class="td_userId"> ${user.userId } </td>
-							<td class="td_userName"> ${user.userName } </td>
-							<td class="td_userAge"> ${user.userAge } </td>
-							<td class="td_userPhone"> ${user.userPhone } </td>
-							<td class="td_userGrade"> ${user.userGrade } </td>
-						</tr>
-					</tbody>	
+					<c:forEach var="users" items="${users}" begin="0" end="4" step="1">
+						<tbody>
+							<tr>
+								<td class="td_userEmail"> ${users.email } </td>
+								<td class="td_userName"> ${users.userName } </td>
+								<td class="td_userAge"> ${users.age } </td>
+								<td class="td_userPhone"> ${users.phoneNumber } </td>
+							</tr>
+						</tbody>	
 					</c:forEach>
 				</table>
 				<div class="member-view">
