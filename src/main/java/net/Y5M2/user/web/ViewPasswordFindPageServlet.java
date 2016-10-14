@@ -21,7 +21,7 @@ public class ViewPasswordFindPageServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		String viewPath = "/WEB-INF/view/passwordFind.jsp";
+		String viewPath = "/WEB-INF/view/user/passwordFind.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 		rd.forward(request, response);
 	}

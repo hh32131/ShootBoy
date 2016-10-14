@@ -44,4 +44,11 @@ public class UserBizImpl implements UserBiz {
 		
 		return userDao.findPassword(userVO);
 	}
+	
+	@Override
+	public boolean userInfoModify(UserVO userInfo) {
+		
+		return false;
+	}
+	
 }
