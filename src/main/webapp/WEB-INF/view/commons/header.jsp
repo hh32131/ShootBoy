@@ -6,13 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/grid.css" />
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/layout.css" />
-<<<<<<< HEAD
-<link rel="stylesheet" type="text/css" href="/ShootBoy/css/grid.css" />
-<script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
-<title>Header</title>
-=======
+
 <title>Shoot Boy</title>
->>>>>>> 48813ca6a8b22e57334f6e52bb3bdcf88b3d42af
 </head>
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">

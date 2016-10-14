@@ -11,10 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 public class ViewAdminPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    
-	public ViewAdminPageServlet() {
+    public ViewAdminPageServlet() {
         super();
-    
+
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,6 +25,8 @@ public class ViewAdminPageServlet extends HttpServlet {
 		String viewPath = "/WEB-INF/view/admin.jsp";
 		
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
+		
 		rd.forward(request, response);
 	}
+
 }

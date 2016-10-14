@@ -5,24 +5,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/admin.css" />
-<link rel="stylesheet" type="text/css" href="/ShootBoy/css/grid.css" />
+
 <title>Administrator</title>
 
 <body>
 
 	<div class="header">
 		<div class="top">
-			<div>
-				<br/>
-			</div>
 
 			<div class="admin-logo">
 				ADMINISTRATOR
 			</div>
 			
 			<div class="top-right">
-				<a > 관리자 정보 </a> | <a > 로그인 </a>
-				  
+				<a > 관리자 정보 </a>  |  <a>기본 환경</a>  |  <a> ShootBoy </a>  |  <a style="color: red"> 로그인 </a>
 			</div>
 		</div>
 		
