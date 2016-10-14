@@ -44,15 +44,7 @@ public class DoUserModifyServlet extends HttpServlet {
 		if(phoneNumber == null){
 			response.sendRedirect("/ShootBoy/userModify?errorCode=4");
 		}
-		if(age == null){
-			response.sendRedirect("/ShootBoy/userModify?errorCode=5");
-		}
-		if(position == null){
-			response.sendRedirect("/ShootBoy/userModify?errorCode=6");
-		}
-		if(leafCategory == null){
-			response.sendRedirect("/ShootBoy/userModify?errorCode=7");
-		}
+
 		
 		UserVO userInfo = new UserVO();
 		userInfo.setUserName(userName);
