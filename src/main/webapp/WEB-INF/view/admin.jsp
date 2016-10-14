@@ -24,7 +24,6 @@
 							<th scope="col"> 나이 </th>
 							<th scope="col"> 핸드폰 번호 </th>
 							<th scope="col"> 권한 </th>
-							
 						</tr>
 					</thead>
 					<tbody>
