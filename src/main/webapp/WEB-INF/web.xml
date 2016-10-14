@@ -256,4 +256,14 @@
     <servlet-name>DoLogOutServlet</servlet-name>
     <url-pattern>/logout</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewUserInfoPageServlet</display-name>
+    <servlet-name>ViewUserInfoPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.user.web.ViewUserInfoPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewUserInfoPageServlet</servlet-name>
+    <url-pattern>/userInfo</url-pattern>
+  </servlet-mapping>
 </web-app>

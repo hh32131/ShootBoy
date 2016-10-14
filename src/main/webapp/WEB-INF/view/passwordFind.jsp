@@ -18,8 +18,7 @@
 			$.post("/ShootBoy/doCheckEmail",{"email" : $("#email").val()},
 					function(data){
 						if(data=="false"){
-							alert("존재하지 않는 아이디입니다.");
-							
+							$("div.findWarning").html("<p>이메일이 존재하지않습니다. 다시 입력하세요.</p>");
 						}
 						else{
 							$("#findForm").attr({
@@ -62,6 +61,7 @@
 			<div class="passwordText"><span>비밀번호를 찾고자 하는 아이디를 입력해 주세요.</span></div>
 			<div>
 				<input type="text" id="email" name="email" placeholder="Id" >
+				<div class="findWarning"></div>
 			</div>
 			<div class="findBtn">
 				<input type="button" id="nextBtn" value="다음">

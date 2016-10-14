@@ -82,6 +82,7 @@
 	float:right;
 	background-color: #55aaff;
 	border-radius: 4px 4px 4px 4px;
+	font-size: 15px;
 }
 
 #nextBtn:HOVER {
@@ -101,7 +102,54 @@
 }
 
 #findTwoWrapper {
-
+	height:300px;
 	width: 500px;
 	margin: 0 auto;
+}
+
+.findTextOne {
+	font-size: 20px;
+	padding-bottom: 10px;
+}
+
+.findTextTwo {
+	font-size: 20px;
+	padding-bottom: 10px;
+}
+
+#answer {
+	width: 400px;
+	margin-left: 60px;
+	font-size: 20px;
+}
+
+#nextBtn {
+	margin-top: 20px;
+}
+
+.alert {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+
+.findWarning {
+	margin-top: 10px;
+	background-color: #e888ba;
+	color: #e888ba;
 }

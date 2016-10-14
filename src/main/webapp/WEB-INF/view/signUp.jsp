@@ -161,6 +161,10 @@
 
 		$("#signBtn").click(function() {
 
+			if($("#checkbox").checked == false) {
+				alert("가입약관에 동의하세요!");
+			}
+			
 			$("#signUpForm").attr({
 				"method" : "post",
 				"action" : "/ShootBoy/doSignUp"
@@ -289,7 +293,6 @@
 			</c:forEach>
 		</select><br/>
 		상세 지역 <select name="leafCategory" id="leafCategory">
-			<option>상세 지역을 선택하세요</option>
 		</select>
 		<div id="btn">
 			<input type="button" id="signBtn" value="회원가입"> <input

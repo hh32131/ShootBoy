@@ -49,12 +49,14 @@
 		<a href="/ShootBoy/main" >홈</a> | <a href="/ShootBoy/signIn" >로그인</a>
 	</div>
 	<div id="findTwoWrapper">
-		<form>
-			<span>비밀번호 찾기 힌트입니다.</span>
-			<span>${userInfo.passwordHint}</span>
-			<input type="text" id="answer" name="answer" placeholder="비밀번호 답을 입력하세요">
-			<input type="button" id="nextBtn" name="nextBtn" value="다음">
-			<input type="button" id="cancelBtn" name="cancelBtn" value="취소">
+		<form id="findForm">
+			<div class="passwordFind"><span>비밀번호 찾기</span>
+				<hr style="border: 1px solid">
+			</div>
+			<div class="findTextOne"><span>비밀번호 찾기 힌트입니다</span></div>
+			<div class="findTextTwo"><span>힌트 : ${userInfo.passwordHint}</span></div>
+			<input type="text" id="answer" name="answer" placeholder="비밀번호 힌트의 답을 입력하세요">
+			<div><input type="button" id="nextBtn" name="nextBtnTwo" value="다음"></div>
 		</form>
 	</div>
 </body>

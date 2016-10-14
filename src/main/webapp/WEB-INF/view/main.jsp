@@ -61,8 +61,9 @@
 </script>
 
 <div id="wrapper">
-	<div class="tableAndLogin">
-		<div class="table">
+	<div id="wrapperOne">
+		<div class="tableOne">
+			<div class="textOne">RECENT MATCH SCHEDULE</div>
 			<table class="grid">
 				<tr class="one">
 					<th colspan="4">최근 성사된 경기일정</th>
@@ -73,86 +74,114 @@
 					<td>날짜</td>
 					<td>시간</td>
 				</tr>
-				<tr>
+				<tr class="contents">
 					<td>팀이름팀이름</td>
 					<td>서울시 강남구</td>
 					<td>2016-10-10</td>
 					<td>13:10</td>
 				</tr>
-
+				<tr class="contents">
+					<td>팀이름팀이름</td>
+					<td>서울시 강남구</td>
+					<td>2016-10-10</td>
+					<td>13:10</td>
+				</tr>
+				<tr class="contents">
+					<td>팀이름팀이름</td>
+					<td>서울시 강남구</td>
+					<td>2016-10-10</td>
+					<td>13:10</td>
+				</tr>
+				<tr class="contents">
+					<td>팀이름팀이름</td>
+					<td>서울시 강남구</td>
+					<td>2016-10-10</td>
+					<td>13:10</td>
+				</tr>
+				<tr class="contents">
+					<td>팀이름팀이름</td>
+					<td>서울시 강남구</td>
+					<td>2016-10-10</td>
+					<td>13:10</td>
+				</tr>
+				<tr class="contents">
+					<td>팀이름팀이름</td>
+					<td>서울시 강남구</td>
+					<td>2016-10-10</td>
+					<td>13:10</td>
+				</tr>
+				<tr class="contents">
+					<td>팀이름팀이름</td>
+					<td>서울시 강남구</td>
+					<td>2016-10-10</td>
+					<td>13:10</td>
+				</tr>
+				<tr class="contents">
+					<td>팀이름팀이름</td>
+					<td>서울시 강남구</td>
+					<td>2016-10-10</td>
+					<td>13:10</td>
+				</tr>
+				<tr class="contents">
+					<td>팀이름팀이름</td>
+					<td>서울시 강남구</td>
+					<td>2016-10-10</td>
+					<td>13:10</td>
+				</tr>
+				<tr class="contents">
+					<td>팀이름팀이름</td>
+					<td>서울시 강남구</td>
+					<td>2016-10-10</td>
+					<td>13:10</td>
+				</tr>
+				<tr class="contents">
+					<td>팀이름팀이름</td>
+					<td>서울시 강남구</td>
+					<td>2016-10-10</td>
+					<td>13:10</td>
+				</tr>
+				<tr class="contents">
+					<td>팀이름팀이름</td>
+					<td>서울시 강남구</td>
+					<td>2016-10-10</td>
+					<td>13:10</td>
+				</tr>
+				<tr class="contents">
+					<td>팀이름팀이름</td>
+					<td>서울시 강남구</td>
+					<td>2016-10-10</td>
+					<td>13:10</td>
+				</tr>
+				<tr class="contents">
+					<td>팀이름팀이름</td>
+					<td>서울시 강남구</td>
+					<td>2016-10-10</td>
+					<td>13:10</td>
+				</tr>
+				<tr class="contents">
+					<td>팀이름팀이름</td>
+					<td>서울시 강남구</td>
+					<td>2016-10-10</td>
+					<td>13:10</td>
+				</tr>
 			</table>
+		</div>		
+		
+	
+	<div class="tableTwo">
+	<div class="textTwo">RECENT MATCH RESULT</div>
 			<table class="grid">
 				<tr class="two">
 					<th colspan="4">최근 경기 결과</th>
 				</tr>
 				<tr class="containerTwo">
-					<td colspan="4"></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td colspan="4">adfasdfasdfasdfsfda<br/>adfasdfasdfasdf</td>
 				</tr>
 			</table>
-		</div>
-		<c:choose>
-			<c:when test="${empty sessionScope._USER_INFO_}">
-				<div class="login">
-					<div class="loginHeader"
-						style="font-weight: bold; font-size: 20px;">로그인</div>
-					<div class="sublogin">
-						<form id="signInForm" name="signInForm">
-							<div class="loginContent">
-								<div>
-									<input type="text" id="userEmail" name="userEmail"
-										placeholder="Id" />
-								</div>
-								<div>
-									<input type="password" id="password" name="password"
-										placeholder="password" />
-								</div>
-							</div>
-						</form>
-						<div class="joinButton">
-							<input type="button" id="signInBtn" value="로그인" />
-						</div>
-					</div>
-					<div>
-						<a href="/ShootBoy/signUp">회원가입</a> | 
-						<a href="/ShootBoy/passwordFind">비밀번호 찾기</a>
-					</div>
-				</div>
-			</c:when>
-			<c:otherwise>
-				<div class="login">
-					<div class="loginHeader"
-						style="font-weight: bold; font-size: 20px;">환영합니다</div>
-					<div class="sublogin">
-						<form id="informForm" name="informForm">
-							<div class="loginContent">
-								<div>${sessionScope._USER_INFO_.userName} 님</div>
-								<div>${sessionScope._USER_INFO_.age}</div>
-								<div>${sessionScope._USER_INFO_.position}</div>
-							</div>
-						</form>
-						<div class="teamCreateButton">
-							<input type="button" id="teamCreateBtn" value="팀 생성" />
-						</div>
-						<div class="OutButton">
-							<input type="button" id="signOutBtn" value="로그아웃" onclick="location.href='/ShootBoy/logout'"/>
-						</div>
-					</div>
-				</div>
-
-
-				
-			</c:otherwise>
-		</c:choose>
 	</div>
-
-	<jsp:include page="/WEB-INF/view/commons/banner.jsp"></jsp:include>
-
+	
+	<div id="naviBoard">
+	<div class="textThree">BOARD</div>
 	<div id="naviList">
 		<ul>
 			<li class="active"><a href="#"><span>공지사항</span></a>
@@ -198,12 +227,68 @@
 						class="time">2010.12.24</span></li>
 					<li class="more"><a href="#">해외축구소식 더보기</a></li>
 				</ul></li>
-		</ul>
+			</ul>	
+		</div>
 	</div>
 </div>
-<div style="margin-top: 600px;">
+	
+	<div id="wrapperTwo">
+	<c:choose>
+			<c:when test="${empty sessionScope._USER_INFO_}">
+				<div class="login">
+					<div class="loginHeader"
+						style="font-weight: bold; font-size: 20px;">로그인</div>
+					<div class="sublogin">
+						<form id="signInForm" name="signInForm">
+							<div class="loginContent">
+								<div>
+									<input type="text" id="userEmail" name="userEmail"
+										placeholder="Id" />
+								</div>
+								<div>
+									<input type="password" id="password" name="password"
+										placeholder="password" />
+								</div>
+							</div>
+						</form>
+						<div class="joinButton">
+							<input type="button" id="signInBtn" value="로그인" />
+						</div>
+					</div>
+					<div>
+						<a href="/ShootBoy/signUp">회원가입</a> | 
+						<a href="/ShootBoy/passwordFind">비밀번호 찾기</a>
+					</div>
+				</div>				
+			</c:when>
+			<c:otherwise>
+				<div class="loginTwo">
+					<div class="loginHeader"
+						style="font-weight: bold; font-size: 20px;">환영합니다</div>
+					<div class="sublogin">
+						<form id="informForm" name="informForm">
+							<div class="loginContent">
+								<div>${sessionScope._USER_INFO_.userName} 님</div>
+								<div>${sessionScope._USER_INFO_.age}</div>
+								<div>${sessionScope._USER_INFO_.position}</div>
+							</div>
+						</form>
+						<div class="teamCreateButton">
+							<input type="button" id="teamCreateBtn" value="팀 생성" />
+						</div>
+						<div class="OutButton">
+							<input type="button" id="signOutBtn" value="로그아웃" onclick="location.href='/ShootBoy/logout'"/>
+						</div>
+					</div>
+				</div>
+			</c:otherwise>
+		</c:choose>
+		<jsp:include page="/WEB-INF/view/commons/banner.jsp"></jsp:include>
+	</div>
 </div>
+	<div class="clear">
 	<div>
 		<jsp:include page="/WEB-INF/view/commons/footer.jsp"></jsp:include>
+	</div>
 	</div>
 
