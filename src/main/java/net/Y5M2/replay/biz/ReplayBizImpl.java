@@ -21,7 +21,7 @@ public class ReplayBizImpl implements ReplayBiz {
 	@Override
 	public boolean writeReplay(ReplayVO replays) {
 		replayDao.replayHitCount(1);
-		boardDao.hitCountUpdate("",-1);
+		
 		return replayDao.writeReplay(replays) > 0;
 	}
 
@@ -33,7 +33,7 @@ public class ReplayBizImpl implements ReplayBiz {
 	@Override
 	public boolean deleteOneReplay(String replayId) {
 		replayDao.replayHitCount(-1);
-		boardDao.hitCountUpdate("",-1);
+		
 		return replayDao.deleteOneReplay(replayId) > 0 ;
 	}
 

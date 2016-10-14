@@ -254,7 +254,7 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 	}
 	
 	@Override
-	public int hitCountUpdate(String boardId, int hitCount) {
+	public int hitCountUpdate(String boardId) {
 		return insert(new Query() {
 
 			@Override
@@ -262,12 +262,11 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				
 				StringBuffer query = new StringBuffer();
 				query.append(" UPDATE	BOARD ");
-				query.append(" SET		HIT_CNT = HIT_CNT = ? ");
+				query.append(" SET		HIT_CNT = HIT_CNT + 1 ");
 				query.append(" WHERE	BOARD_ID = ? ");
 
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				pstmt.setString(1, boardId);
-				pstmt.setInt(2, hitCount);
 				
 				return pstmt;
 			}

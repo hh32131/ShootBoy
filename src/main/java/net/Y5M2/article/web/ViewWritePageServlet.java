@@ -22,11 +22,9 @@ public class ViewWritePageServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-<<<<<<< HEAD
-		String viewPath = "/WEB-INF/view/user/write.jsp";
-=======
+
 		String viewPath = "/WEB-INF/view/board/write.jsp";
->>>>>>> 503ffe3beb6a6457f0f3fd5440dcb701fe60e860
+
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 		
 		rd.forward(request, response);

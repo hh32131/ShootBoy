@@ -55,6 +55,7 @@
 			<div style="display: inline-block;">${replay.userVO.userName}</div>
 			<div style="display: inline-block;">${replay.createDate}</div>
 			<a href="javascript:void(0);" class="replayDeleteBtn" data-replyid="${replay.replayId}" style="font-size: 11px;" >삭제</a>
+			<a href="javascript:void(0);" class="replayMoodifyBtn" data-modify="${replay.replayId}" style="font-size: 11px;" >수정</a>
 	</c:forEach>
 	<form id="replayId">
 		<input type="hidden" id="boardId" name="boardId" value="${board.boardId}" >

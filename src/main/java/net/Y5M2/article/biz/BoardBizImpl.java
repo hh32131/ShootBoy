@@ -54,7 +54,7 @@ public class BoardBizImpl implements BoardBiz{
 	
 	@Override
 	public boolean hitCountUpdate(String boardId) {
-		return boardDao.hitCountUpdate(boardId, 1) > 0;
+		return boardDao.hitCountUpdate(boardId) > 0;
 	}
 
 	@Override

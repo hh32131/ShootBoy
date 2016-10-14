@@ -15,7 +15,7 @@ public interface BoardDao {
 
 	public BoardVO getBoardAt(String boardId);
 	
-	public int hitCountUpdate(String boardId, int hitCount);
+	public int hitCountUpdate(String boardId);
 
 	public int deleteBoard(String boardId);
 
