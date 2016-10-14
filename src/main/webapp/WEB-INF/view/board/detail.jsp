@@ -15,6 +15,12 @@
 			}
 		});
 		
+		$("#replayDeleteBtn").click(function() {
+			if (confirm("정말로  삭제하시겠습니까?")) {
+				location.href="/ShootBoy/replayDelete?replayId=${replay.replayId}";
+			}
+		});
+		
 		$("#replayWriteBtn").click(function () {
 			$("#replayId").attr({
 				"mothod":	"post",
@@ -27,25 +33,27 @@
 <body>
 	 
 	<h1>${board.boardSubject}</h1>
-	<hr/>
-	${board.boardContent} 	
-	${board.hitCount} 
+	${board.hitCount}
 	${board.userVO.userName} 
 	${board.categoryId}
 	${board.createDate}
+	<hr/>
+	${board.boardContent} 
+	
+
 	
 	<a href="/ShootBoy/board/doDownload?boardId=${board.boardId}">${board.fileName}</a>
 	<br/>
 	<a href="javascript:void(0);" id="deleteBtn">삭제</a> 
 	<a href="/ShootBoy/board/modify?boardId=${board.boardId}">수정</a> 
 	<a href="/ShootBoy/list">목록보기</a>
-	<div></div>
+	<div></div>	<hr/>
 	<c:forEach items="${replays}" var="replay" >
 		<div></div>
 		<div style="display: inline-block; width: 400px;">${replay.replayContent}</div>
 		<div style="display: inline-block;">${replay.userVO.userName}</div>
 		<div style="display: inline-block;">${replay.createDate}</div>
-		<a href="javascripte:void(0);" id="deleteBtn" style="font-size: 5px;" >삭제</a>
+		<a href="javascript:void(0);" id="replayDeleteBtn" style="font-size: 11px;" >삭제</a>
 	</c:forEach>
 	<form id="replayId">
 		<input type="hidden" id="boardId" name="boardId" value="${board.boardId}" >
