@@ -103,7 +103,7 @@ public class ReplayDaoImpl extends DaoSupport implements ReplayDao{
 	}
 
 	@Override
-	public int replayHitCount() {
+	public int replayHitCount(int hitCount) {
 		return insert(new Query() {
 			
 			@Override
@@ -111,9 +111,10 @@ public class ReplayDaoImpl extends DaoSupport implements ReplayDao{
 				StringBuffer query = new StringBuffer();
 				
 				query.append(" UPDATE	BOARD ");
-				query.append(" SET		REPLY_HIT_CNT = REPLY_HIT_CNT + 1 ");
+				query.append(" SET		REPLY_HIT_CNT = REPLY_HIT_CNT + ? ");
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				pstmt.setInt(1, hitCount);
 				return pstmt;
 			}
 		});

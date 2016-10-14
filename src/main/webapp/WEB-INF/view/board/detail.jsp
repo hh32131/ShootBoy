@@ -15,9 +15,10 @@
 			}
 		});
 		
-		$("#replayDeleteBtn").click(function() {
+		$(".replayDeleteBtn").click(function() {
+			var replyId = $(this).data("replyid");
 			if (confirm("정말로  삭제하시겠습니까?")) {
-				location.href="/ShootBoy/replayDelete?replayId=${replay.replayId}";
+				location.href="/ShootBoy/replayDelete?replayId=" + replyId;
 			}
 		});
 		
@@ -50,10 +51,10 @@
 	<div></div>	<hr/>
 	<c:forEach items="${replays}" var="replay" >
 		<div></div>
-		<div style="display: inline-block; width: 400px;">${replay.replayContent}</div>
-		<div style="display: inline-block;">${replay.userVO.userName}</div>
-		<div style="display: inline-block;">${replay.createDate}</div>
-		<a href="javascript:void(0);" id="replayDeleteBtn" style="font-size: 11px;" >삭제</a>
+			<div style="display: inline-block; width: 400px;">${replay.replayContent}</div>
+			<div style="display: inline-block;">${replay.userVO.userName}</div>
+			<div style="display: inline-block;">${replay.createDate}</div>
+			<a href="javascript:void(0);" class="replayDeleteBtn" data-replyid="${replay.replayId}" style="font-size: 11px;" >삭제</a>
 	</c:forEach>
 	<form id="replayId">
 		<input type="hidden" id="boardId" name="boardId" value="${board.boardId}" >

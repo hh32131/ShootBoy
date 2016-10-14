@@ -31,7 +31,7 @@ public class ViewSignInPageServlet extends HttpServlet {
 		
 		String Referer = request.getHeader("referer");
 		System.out.println("Referer = " + Referer);
-		String viewPath = "/WEB-INF/view/signIn.jsp";
+		String viewPath = "/WEB-INF/view/user/signIn.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 		request.setAttribute("Referer", Referer);
 		rd.forward(request, response);
