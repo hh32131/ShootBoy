@@ -18,4 +18,7 @@ public interface UserBiz {
 	
 	
 
+	public boolean userInfoModify(UserVO userInfo);
+
+
 }

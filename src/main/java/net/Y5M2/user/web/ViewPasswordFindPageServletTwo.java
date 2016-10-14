@@ -34,7 +34,7 @@ public class ViewPasswordFindPageServletTwo extends HttpServlet {
 		userVO.setEmail(email);
 		UserVO userInfo = userBiz.findPassword(userVO);
 		
-		String viewPath = "/WEB-INF/view/passwordFindTwo.jsp";
+		String viewPath = "/WEB-INF/view/user/passwordFindTwo.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 		request.setAttribute("userInfo", userInfo);
 		rd.forward(request, response);
