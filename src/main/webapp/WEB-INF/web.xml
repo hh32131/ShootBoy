@@ -278,9 +278,7 @@
 	<servlet-mapping>
 		<servlet-name>DoLogOutServlet</servlet-name>
 		<url-pattern>/logout</url-pattern>
-
 	</servlet-mapping>
-
   <servlet>
     <description></description>
     <display-name>ViewAdminPageServlet</display-name>
