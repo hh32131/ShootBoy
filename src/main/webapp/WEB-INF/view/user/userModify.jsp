@@ -16,6 +16,11 @@
 			}, function(data) {
 				$("#leafCategory option").remove();
 				$("#leafCategory").html(data);
+				
+				var locationId = "${userInfo.locationId}";
+				if ( $("#leafCategory > option[value='"+locationId+"'").text() != "" ) {
+					$("#leafCategory").val(locationId);
+				}
 			});
 		});
 		
@@ -24,14 +29,9 @@
 		
 		
 		$("#position").val("${userInfo.position}")
-		$("#position").change();
 				
 		
 		$("#age").val("${userInfo.age}")
-		$("#age").change();
-		
-		$("#leafCategory").val("${userInfo.locationId}")
-		$("#leafCategory").change();
 		
 		$("#userName").keyup(function() {
 			if ($(this).val() == "") {
@@ -70,6 +70,7 @@
 <body>
 	<div id="wrapper">
 		<form id="userModifyForm" name="userModifyForm">
+			<input type="hidden" id="email" name="email" value="${userInfo.email}">
 			이름 <input type="text" id="userName" name="userName" value="${userInfo.userName}"> <br />
 			비밀번호 <input type="text" id="password" name="password" value="${userInfo.password}"> <br />
 			전화번호 <input type="text" id="phoneNumber" name="phoneNumber" value="${userInfo.phoneNumber}"><br /> 

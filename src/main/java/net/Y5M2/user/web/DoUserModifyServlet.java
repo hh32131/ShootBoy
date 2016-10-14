@@ -28,6 +28,7 @@ public class DoUserModifyServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String email = Param.getStringParam(request, "email");
 		String userName = Param.getStringParam(request, "userName");
 		String password = Param.getStringParam(request, "password");
 		String phoneNumber = Param.getStringParam(request, "phoneNumber");
@@ -44,9 +45,11 @@ public class DoUserModifyServlet extends HttpServlet {
 		if(phoneNumber == null){
 			response.sendRedirect("/ShootBoy/userModify?errorCode=4");
 		}
-
+		
+		
 		
 		UserVO userInfo = new UserVO();
+		userInfo.setEmail(email);
 		userInfo.setUserName(userName);
 		userInfo.setPassword(password);
 		userInfo.setPhoneNumber(phoneNumber);
