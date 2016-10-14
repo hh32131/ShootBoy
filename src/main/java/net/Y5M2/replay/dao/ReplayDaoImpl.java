@@ -32,7 +32,7 @@ public class ReplayDaoImpl extends DaoSupport implements ReplayDao{
 				query.append(" 					, BOARD_ID ");
 				query.append(" 					, USR_ID ) ");
 				query.append(" VALUES			( ");
-				query.append(" 'REPLY-' || TO_CHAR(SYSDATE, 'YYYYMMDD') || '-' || LPAD(REPLY_ID_SEQ.NEXTVAL,6,0) ");
+				query.append(" 'RE-' || TO_CHAR(SYSDATE, 'YYYYMMDD') || '-' || LPAD(REPLY_ID_SEQ.NEXTVAL,6,0) ");
 				query.append(" , ?, SYSDATE, SYSDATE, ?, ? ) ");
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
@@ -66,6 +66,7 @@ public class ReplayDaoImpl extends DaoSupport implements ReplayDao{
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				pstmt.setString(1, boardId);
+			
 				return pstmt;
 			}
 			
@@ -134,6 +135,26 @@ public class ReplayDaoImpl extends DaoSupport implements ReplayDao{
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				pstmt.setString(1, boardId);
 				
+				return pstmt;
+			}
+		});
+	}
+
+	@Override
+	public int deleteOneReplay(String replayId) {
+		return insert(new Query() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+
+				StringBuffer query = new StringBuffer();
+				
+				query.append(" DELETE ");
+				query.append(" FROM		REPLY ");
+				query.append(" WHERE	REPLY_ID = ? ");
+				
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				pstmt.setString(1, replayId);
 				return pstmt;
 			}
 		});

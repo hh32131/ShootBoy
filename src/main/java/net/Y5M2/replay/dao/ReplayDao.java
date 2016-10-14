@@ -13,4 +13,6 @@ public interface ReplayDao {
 	public int replayHitCount();
 	
 	public int deletAllReplay(String boardId);
+	
+	public int deleteOneReplay(String replayId);
 }
