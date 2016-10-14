@@ -7,7 +7,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/grid.css" />
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/layout.css" />
+<<<<<<< HEAD
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/signUp.css">
+=======
+
+>>>>>>> f53e7156af14a1faf6c8a0e1f9bc1437469524f4
 <title>Shoot Boy</title>
 </head>
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
