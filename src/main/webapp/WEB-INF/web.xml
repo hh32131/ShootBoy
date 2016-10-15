@@ -276,4 +276,34 @@
     <servlet-name>DoUserModifyServlet</servlet-name>
     <url-pattern>/doUserModify</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewDetailUserInfo</display-name>
+    <servlet-name>ViewDetailUserInfo</servlet-name>
+    <servlet-class>net.Y5M2.user.web.ViewDetailUserInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewDetailUserInfo</servlet-name>
+    <url-pattern>/detailUserInfo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewDetailTeamInfo</display-name>
+    <servlet-name>ViewDetailTeamInfo</servlet-name>
+    <servlet-class>net.Y5M2.team.web.ViewDetailTeamInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewDetailTeamInfo</servlet-name>
+    <url-pattern>/detailTeamInfo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewTeamInfoModify</display-name>
+    <servlet-name>ViewTeamInfoModify</servlet-name>
+    <servlet-class>net.Y5M2.team.web.ViewTeamInfoModify</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewTeamInfoModify</servlet-name>
+    <url-pattern>/teamModify</url-pattern>
+  </servlet-mapping>
 </web-app>
