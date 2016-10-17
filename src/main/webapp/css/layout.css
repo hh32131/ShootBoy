@@ -402,6 +402,16 @@ h1 {
 	border-radius: 4px 4px 4px 4px;	
 }
 
+#backBtn {
+	background-color: #c0c0c0;
+	border-radius: 4px 4px 4px 4px;
+}
+
+#backBtn:HOVER {
+	background-color: #939393;
+	border-radius: 4px 4px 4px 4px;	
+}
+
 .clear {
 	clear: both;
 }

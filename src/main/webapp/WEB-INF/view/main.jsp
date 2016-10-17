@@ -61,7 +61,7 @@
 	
 	function openWin() {
 		window.open("http://localhost:8080/ShootBoy/createTeam", "",
-				"width=900, height= 600");
+				"width=500, height= 600");
 	}
 </script>
 
@@ -292,7 +292,7 @@
 	</div>
 </div>
 	<div class="clear">
-	<div>
+	<div style="padding-top: 60px;">
 		<jsp:include page="/WEB-INF/view/commons/footer.jsp"></jsp:include>
 	</div>
 	</div>

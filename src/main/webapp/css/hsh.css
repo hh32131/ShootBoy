@@ -1,15 +1,16 @@
 @CHARSET "UTF-8";
 
 
-.teamtd{
+.teamtd {
 	width: 200px;
 	height:200px;
 }
-.teamPhoto{
+
+.teamPhoto {
 	width: 100px;
 	height:100px;
 }
 
-.double{
+.double {
 	border-style: solid;
 }

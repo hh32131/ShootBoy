@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/layout.css" >
+
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
 	$().ready(function(){
@@ -26,10 +27,10 @@
 </script>
 </head>
 <body>
-	<div id="wrapper" >
+	<div id="teamDetailwrapper" >
 		<c:if test="${!empty userInfo.teamId}">
 		<img src="/ShootBoy/showImge?teamPhoto=${userInfo.temaId}">
-		팀명 : ${userInfo.teamVO.teamName}
+		<h3>${userInfo.teamVO.teamName}</h3>
 		팀원수 : ${userInfo.temaVO.teamCount}
 		팀 포인트 : ${userInfo.teamVO.teamPoint}
 		팀 생성일 : ${userInfo.teamVO.createDate}

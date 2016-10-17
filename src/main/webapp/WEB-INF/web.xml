@@ -278,7 +278,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-<<<<<<< HEAD
     <display-name>ViewUserInfoPageServlet</display-name>
     <servlet-name>ViewUserInfoPageServlet</servlet-name>
     <servlet-class>net.Y5M2.user.web.ViewUserInfoPageServlet</servlet-class>
@@ -316,7 +315,9 @@
   <servlet-mapping>
     <servlet-name>ViewMessagePageServlet</servlet-name>
     <url-pattern>/message</url-pattern>
-=======
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>ViewUserModifyPageServlet</display-name>
     <servlet-name>ViewUserModifyPageServlet</servlet-name>
     <servlet-class>net.Y5M2.user.web.ViewUserModifyPageServlet</servlet-class>
@@ -364,6 +365,5 @@
   <servlet-mapping>
     <servlet-name>ViewTeamInfoModify</servlet-name>
     <url-pattern>/teamModify</url-pattern>
->>>>>>> be6d1e2bc9790da65c4641f3f12c74b61718efd8
   </servlet-mapping>
 </web-app>

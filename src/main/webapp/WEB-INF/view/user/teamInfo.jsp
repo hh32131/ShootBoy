@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <jsp:include page="/WEB-INF/view/commons/header.jsp"></jsp:include>
-<link rel="stylesheet" type="text/css" href="/ShootBoy/css/myPage.css">
+<link rel="stylesheet" type="text/css" href="/ShootBoy/css/page.css">
 
 <body>
 	

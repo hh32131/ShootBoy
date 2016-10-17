@@ -4,7 +4,6 @@
 	font-size: 30px;
 	padding:30px;
 	width: 200px;
-	
 }
 
 #myPageLeftMenuTwo {
@@ -47,4 +46,52 @@
 .myPageline {
 	width: 750px;
 	border: 1px solid;
+}
+
+#allTeamLeftMenu {
+	font-size: 30px;
+	padding:30px;
+	width: 200px;
+}
+
+#allTeamLeftMenuTwo {
+	border-top: none;
+	border-right:4px solid #1377c8;
+	border-left:4px solid #1377c8;
+	border-bottom:4px solid #1377c8;
+	border-radius: 0 0 4px 4px;
+}
+
+.allTeamTitle {
+	text-align:left;
+	color:#f0eeec;
+	font-size: 30px;
+	background-color: #1377c8;
+	border-radius: 4px 4px 0 0;
+}
+
+.allTeamOne {
+	font-size: 20px;
+	padding: 10px;
+}
+
+#allTeamLeftMenu, .allTeamText {
+	display: inline-block;
+}
+
+.allTeamText {
+	vertical-align:top;
+	margin-top:30px;
+	font-size: 30px;
+	color: #000000;
+}
+
+.teamline {
+	width: 750px;
+	border: 1px solid;
+}
+
+#createBtn:HOVER {
+	background-color: #9e9e9e;
+	border-radius: 4px 4px 4px 4px;	
 }

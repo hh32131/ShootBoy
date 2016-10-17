@@ -36,12 +36,7 @@ public class DoCheckLocation extends HttpServlet {
 		locationVO.setParentLocationId(locationId);
 		List<LocationVO> locations = locationBiz.getLocations(locationVO);
 		
-<<<<<<< HEAD
-		StringBuffer options = new StringBuffer();
 		options.append("<option>상세 지역을 선택하세요</option>");
-=======
-			options.append("<option>상세 지역을 선택하세요</option>");
->>>>>>> be6d1e2bc9790da65c4641f3f12c74b61718efd8
 		for (LocationVO location : locations) {
 			options.append(String.format("<option value='%s'>%s</option>", location.getLocationId(), location.getLocationName() ));
 		}
