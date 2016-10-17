@@ -338,16 +338,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>ViewDetailUserInfo</display-name>
-    <servlet-name>ViewDetailUserInfo</servlet-name>
-    <servlet-class>net.Y5M2.user.web.ViewDetailUserInfo</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ViewDetailUserInfo</servlet-name>
-    <url-pattern>/detailUserInfo</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>ViewDetailTeamInfo</display-name>
     <servlet-name>ViewDetailTeamInfo</servlet-name>
     <servlet-class>net.Y5M2.team.web.ViewDetailTeamInfo</servlet-class>

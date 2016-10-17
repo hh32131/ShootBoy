@@ -32,23 +32,20 @@
 <body>
 	<div id="teamDetailwrapper" >
 		<c:if test="${!empty userInfo.teamId}">
-<<<<<<< HEAD
+
 		<img src="/ShootBoy/showImge?teamPhoto=${userInfo.temaId}">
 		<h3>${userInfo.teamVO.teamName}</h3>
-=======
-		<img src="/ShootBoy/showImge?teamId=${userInfo.temaId}">
-		팀명 : ${userInfo.teamVO.teamName}
->>>>>>> 083cde69746971674917d41bf594ca21bd912fe9
+
 		팀원수 : ${userInfo.temaVO.teamCount}
 		팀 포인트 : ${userInfo.teamVO.teamPoint}
 		팀 생성일 : ${userInfo.teamVO.createDate}
 		팀 지역 : ${userInfo.teamVO.locationVO.parentLocationName}-${userInfo.teamVO.locationVO.locationName}
 		팀 설명 : ${userInfo.teamVO.teamInfo}
-		</c:if>
 		<input type="button" id="modifyBtn" name="modifyBtn" value="수정" >
 		<input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요">
 		<input type="button" id="passwordConfirm" name="passwordConfirm" value="비밀번호 확인">
 		<div class="warning"></div>
+		</c:if>
 	</div>
 
 </body>

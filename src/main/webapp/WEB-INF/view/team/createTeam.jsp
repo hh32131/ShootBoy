@@ -45,7 +45,7 @@
 </head>
 <body>
 	<div id="createTeamWrapper" style= "margin: 70px;">
-		<div class="createTeamText"><h1>CREATE TEAM</h1></div>
+		<div class="createTeamText" style="color: #518cf0;"><h1>CREATE TEAM</h1></div>
 		<form id="craeteTeamForm" name="createTeamForm"	enctype="multipart/form-data" >
 			<div>
 				<div class="inline-block" style="border-radius: 8px;">
@@ -75,7 +75,7 @@
 					style="width: 350px; height: 250px; border-radius: 10px; font-size: 15px;"
 					placeholder="소개글을 입력하세요."></textarea>
 			</div>
-			<input type="file" id="file" name="file" style="width: 220px;" /> 
+			<input type="file" id="file" name="file" style="width: 220px; back" /> 
 			<input type="button" id="teamCreateBtn" name="teamCreateBtn" value="팀 생성"/>			  
 			<input type="button" id="backBtn" name="backBtn" value="취소"/>
 		</form>

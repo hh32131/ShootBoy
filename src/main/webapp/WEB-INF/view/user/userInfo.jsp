@@ -9,16 +9,23 @@
 <script type="text/javascript">
 	$().ready(function(){
 		$("#password").hide();
+		$("#passwordConfirm").hide();
 		
 		$("#modifyBtn").click(function(){
 			$("#password").show();
+			$("#passwordConfirm").show();
 			
-			if($("#password").val() == ${userInfo.password}) {
-				location.href="/ShootBoy/userModify";
-			}
-			else {
-			$("div.warning").html("<p>비밀번호가 틀렸습니다.</p>").slideDown();
-			}
+			$("#passwordConfirm").click(function(){
+					
+				if($("#password").val()==${userInfo.password}){
+					window.open("/ShootBoy/userModify","","width=600px,height=700px");
+				}
+				else{
+					$("div.warning").html("<p>비밀번호가 틀렸습니다.</p>")
+				}
+			});
+			
+			
 			
 		});
 	});
@@ -38,21 +45,25 @@
 	
 	<div class="myInfoText"><h1>내 정보</h1>
 		<hr class="myPageline">
+			<div id="userInfoWrapper">
+				<div class="name" style="font-size: 20px; margin-bottom: 15px;">이름 : ${userInfo.userName}</div>
+				<div class="phone" style="font-size: 20px; margin-bottom: 15px;">전화번호 : ${userInfo.phoneNumber}</div>
+				<div class="age" style="font-size: 20px; margin-bottom: 15px;">나이 : ${userInfo.age}</div>
+				<div class="position" style="font-size: 20px; margin-bottom: 15px;">포지션 : ${userInfo.position}</div>
+				<div class="joinDate" style="font-size: 20px; margin-bottom: 15px;">가입일: ${userInfo.createDate}</div>
+				<div class="location" style="font-size: 20px; margin-bottom: 15px;">지역 : ${userInfo.locationVO.parentLocationName} - ${userInfo.locationVO.locationName}</div>
+				<c:if test="${!empty userInfo.teamId}">
+				<div class="team" style="font-size: 20px; margin-bottom: 15px;">팀 : ${userInfo.teamVO.teamName}</div>
+				</c:if>
+				<div><input type="button" id="modifyBtn" name="modifyBtn" value="수정" ></div>
+				<div id="inline"><input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요"></div>
+				<div id="inline"><input type="button" id="passwordConfirm" name="passwordConfirm" value="비밀번호 확인"></div>
+				<div class="warning"></div>
+			</div>
 	</div>
 	
-	<div id="userInfo" >
-		이름 : ${userInfo.userName}
-		전화번호 : ${userInfo.phoneNumber}
-		나이 : ${userInfo.age}
-		포지션 : ${userInfo.position}
-		가입일: ${userInfo.createDate}
-		지역 : ${userInfo.locationVO.parentLocationName}-${userInfo.locationVO.locationName}
-		<c:if test="${!empty userInfo.teamId}">
-		팀 : ${userInfo.teamVO.teamName}
-		</c:if>
-		<input type="button" id="modifyBtn" name="modifyBtn" value="수정" >
-		<input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요">
-		<div class="warning"></div>
+<div class="clear">
+	<div style="padding-top: 50px;">
+		<jsp:include page="/WEB-INF/view/commons/footer.jsp"></jsp:include>
 	</div>
-</body>
-</html>
+</div>

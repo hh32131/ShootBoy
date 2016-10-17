@@ -49,16 +49,6 @@
 						<div>${teams.locationVO.parentLocationName}-${teams.locationVO.locationName}</div>
 					</td>
 				</c:forEach>
-			<%-- 	<c:if test="${i % 5 gt 0}">
-				<c:set var="i" value=${team.size()}/>
-					<c:forEach var="number" begin="1" end="${ 5 - (i % 5)}">
-						<td align="center" class="teamtd"><div class="teamPhoto double">팀 없음</div>
-						<div>&nbsp;</div>
-						<div>&nbsp;</div>
-						<div>&nbsp; </div>
-						</td>
-					</c:forEach>
-				</c:if> --%>
 			</tr>
 		</table>
 		<button id="teamCreateBtn"  onclick="openWin()" style="float: right;">팀생성하기</button>
