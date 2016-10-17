@@ -7,7 +7,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/grid.css" />
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/layout.css" />
+<link rel="stylesheet" type="text/css" href="/ShootBoy/css/hsh.css" />
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/signUp.css">
+<link rel="stylesheet" type="text/css" href="/ShootBoy/css/page.css">
 <title>Shoot Boy</title>
 </head>
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
@@ -49,7 +51,7 @@ $(document).ready(function(){
 					<li class="active"><a href="#">My page</a>
 						<ul>
 							<li><a href="/ShootBoy/userInfo">내 정보</a></li>
-							<li><a href="/ShootBoy/teamInfo">팀 정보</a></li>
+							<li><a href="/ShootBoy/detailTeamInfo">팀 정보</a></li>
 							<li><a href="/ShootBoy/teamMatchInfo">팀 매치 정보</a></li>
 							<li><a href="/ShootBoy/message">메시지함</a></li>
 						</ul></li>

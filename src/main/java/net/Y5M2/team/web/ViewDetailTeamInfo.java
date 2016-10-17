@@ -29,7 +29,7 @@ public class ViewDetailTeamInfo extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		UserVO userInfo = (UserVO) session.getAttribute(Session.USER_INFO);
-		String viewPath = "/ShootBoy/view/team/detailTeamInfo.jsp";
+		String viewPath = "/WEB-INF/view/team/detailTeamInfo.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 		request.setAttribute("userInfo", userInfo);
 		rd.forward(request, response);
