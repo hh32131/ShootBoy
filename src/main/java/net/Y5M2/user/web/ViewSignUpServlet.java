@@ -32,7 +32,7 @@ public class ViewSignUpServlet extends HttpServlet {
 		
 		List<LocationVO> location = locationBiz.getLocations(locationVO);
 		
-		String viewPath = "/WEB-INF/view/signUp.jsp";
+		String viewPath = "/WEB-INF/view/user/signUp.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 		request.setAttribute("location", location);
 		rd.forward(request, response);

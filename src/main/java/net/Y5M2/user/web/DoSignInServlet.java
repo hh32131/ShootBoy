@@ -46,7 +46,12 @@ public class DoSignInServlet extends HttpServlet {
 		
 		boolean isSuccess = userBiz.getUserBy(userVO, request);
 		if(isSuccess){
-			response.sendRedirect(Referer);
+			if(Referer.equals("")){
+				response.sendRedirect("/ShootBoy/main");
+			}
+			else {
+				response.sendRedirect(Referer);
+			}
 		}
 		else{
 			response.sendRedirect("/ShootBoy/signIn?errorCode=1");

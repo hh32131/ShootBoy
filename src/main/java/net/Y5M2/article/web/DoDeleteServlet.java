@@ -34,6 +34,7 @@ public class DoDeleteServlet extends HttpServlet {
 		
 		boolean isSuccess = boardBiz.deleteBoard(boardId);
 		if ( isSuccess ) {
+		
 			response.sendRedirect("/ShootBoy/list");
 		}
 		else {

@@ -10,4 +10,8 @@ public interface TeamDao {
 	
 	public List<TeamVO> getAllTeam();
 	
+	public TeamVO getTeamAt(String teamId);
+
+	public TeamVO getTeamInfoForUpdate(String teamName);
+	
 }

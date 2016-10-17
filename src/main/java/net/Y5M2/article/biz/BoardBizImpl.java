@@ -4,19 +4,42 @@ import java.util.List;
 
 import net.Y5M2.article.dao.BoardDao;
 import net.Y5M2.article.dao.BoardDaoImpl;
+import net.Y5M2.article.vo.BoardListVO;
 import net.Y5M2.article.vo.BoardVO;
+import net.Y5M2.article.vo.SearchBoardVO;
+import net.Y5M2.replay.dao.ReplayDao;
+import net.Y5M2.replay.dao.ReplayDaoImpl;
+import net.Y5M2.support.pager.Pager;
+import net.Y5M2.support.pager.PagerFactory;
 
 public class BoardBizImpl implements BoardBiz{
 
 	private BoardDao boardDao;
+	private ReplayDao replayDao;
 	
 	public BoardBizImpl() {
 		boardDao = new BoardDaoImpl();
+		replayDao = new ReplayDaoImpl();
 	}
 	
 	@Override
-	public List<BoardVO> getBoardOf() {
-		return boardDao.selectBoards();
+	public BoardListVO getAllBoards(SearchBoardVO searchBoard) {
+		
+		int totalCount = boardDao.getCountOfBoards(searchBoard);
+		Pager pager = PagerFactory.getPager(true);
+		pager.setTotalArticleCount(totalCount);
+		pager.setPageNumber(searchBoard.getPageNo());
+		
+		searchBoard.setStartRowNumber(pager.getStartArticleNumber());
+		searchBoard.setEndRowNumber(pager.getEndArticleNumber());
+		
+		List<BoardVO> boards = boardDao.getAllBoards(searchBoard);
+		
+		BoardListVO boardList = new BoardListVO();
+		boardList.setPager(pager);
+		boardList.setBoards(boards);
+		
+		return boardList;
 	}
 
 	@Override
@@ -26,16 +49,14 @@ public class BoardBizImpl implements BoardBiz{
 
 	@Override
 	public BoardVO getBoardAt(String boardId) {
+		boardDao.hitCountUpdate(boardId);
 		return boardDao.getBoardAt(boardId);
 	}
 	
-	@Override
-	public boolean hitCountUpdate(String boardId) {
-		return boardDao.hitCountUpdate(boardId) > 0;
-	}
 
 	@Override
 	public boolean deleteBoard(String boardId) {
+		replayDao.deletAllReplay(boardId);
 		return boardDao.deleteBoard(boardId) > 0;
 	}
 	
