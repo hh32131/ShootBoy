@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="/ShootBoy/css/admin.css" />
+<link rel="stylesheet" type="text/css" href="/ShootBoy/css/adminMain.css" />
 
 <title>Administrator</title>
 
@@ -14,7 +14,7 @@
 		<div class="top">
 
 			<div class="admin-logo">
-				ADMINISTRATOR
+				<a class="adminMain"; href="/ShootBoy/admin">ADMINISTRATOR</a>
 			</div>
 			
 			<div class="top-right">
@@ -27,27 +27,30 @@
 				<div class="blank"></div>
 			</li>
 			<li class="dropdown">
-			  	<a href="#member" class="dropbtn">회원 관리</a>
+			  	<a href="/ShootBoy/adminMember" class="dropbtn">회원 관리</a>
 			  		<div class="dropdown-content">
-				  		<a href="#">회원 관리 </a>
-				  		<a href="#2">2</a>
-				  		<a href="#3">3</a>
+				  		<a href="/ShootBoy/adminMember">회원 관리 </a>
 				  	</div>
 			</li>
+				
 			<li class="dropdown">
-			  	<a href="#game" class="dropbtn">경기 관리</a>
+			  	<a href="/ShootBoy/adminTeam" class="dropbtn">팀 관리</a>
 			  		<div class="dropdown-content">
-			  			<a href="#">경기 관리 </a>
-			  			<a href="#">2</a>
-			  			<a href="#">3</a>
+				  		<a href="/ShootBoy/adminTeam">팀 관리 </a>
+				  	</div>
+			</li>
+			
+			<li class="dropdown">
+			  	<a href="/ShootBoy/adminGame" class="dropbtn">경기 관리</a>
+			  		<div class="dropdown-content">
+			  			<a href="/ShootBoy/adminGame">경기 관리 </a>
 			  		</div>
 			</li>
+			
 			<li class="dropdown">
-			    <a href="#article" class="dropbtn">게시판 관리</a>
+			    <a href="/ShootBoy/adminArticle" class="dropbtn">게시판 관리</a>
 				    <div class="dropdown-content">
-				      <a href="#">게시판 관리</a>
-				      <a href="#2">2</a>
-				      <a href="#3">3</a>
+				      <a href="/ShootBoy/adminArticle">게시판 관리</a>
 				    </div>
 			</li>
 		</div>

@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import net.Y5M2.location.vo.LocationVO;
 import net.Y5M2.support.DaoSupport;
@@ -227,6 +229,7 @@ public int signUpUser(UserVO userVO) {
 			}
 		});
 	}
+<<<<<<< HEAD
 	
 	@Override
 	public int UpdateUserInfo(UserVO userInfo) {
@@ -290,6 +293,13 @@ public int signUpUser(UserVO userVO) {
 	@Override
 	public UserVO getUserInfoForModify(UserVO userInfo) {
 return (UserVO) selectOne(new QueryAndResult() {
+=======
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<UserVO> getUserListOf() {
+		return selectList(new QueryAndResult() {
+>>>>>>> 9b8888493957e4f1cc3743ff0b646ae9d4272ae3
 			
 			@Override
 			public PreparedStatement query(Connection conn) throws SQLException {
@@ -324,22 +334,39 @@ return (UserVO) selectOne(new QueryAndResult() {
 				query.append(" 			, TEAM T ");
 				query.append(" WHERE	U.LCTN_ID = L.LCTN_ID ");
 				query.append(" AND		U.TEAM_ID = T.TEAM_ID(+) ");
+<<<<<<< HEAD
 				query.append(" AND		U.USR_EMAIL = ? ");
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				pstmt.setString(1, userInfo.getEmail());
 				
 				return pstmt;
+=======
+				query.append(" ORDER	BY USR_ID DESC ");
+				
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				
+				return pstmt;
+				
+>>>>>>> 9b8888493957e4f1cc3743ff0b646ae9d4272ae3
 			}
 			
 			@Override
 			public Object makeObject(ResultSet rs) throws SQLException {
+<<<<<<< HEAD
 				
 				UserVO userVO = null;
 				LocationVO locationVO = null;
 				TeamVO teamVO = null;
 				
 				if(rs.next()){
+=======
+				List<UserVO> users = new ArrayList<UserVO>();
+				UserVO userVO = null;
+				LocationVO locationVO = null;
+				TeamVO teamVO = null;
+				while(rs.next()){
+>>>>>>> 9b8888493957e4f1cc3743ff0b646ae9d4272ae3
 					userVO = new UserVO();
 					userVO.setUserId(rs.getString("USR_ID"));
 					userVO.setEmail(rs.getString("USR_EMAIL"));
@@ -371,6 +398,7 @@ return (UserVO) selectOne(new QueryAndResult() {
 					teamVO.setTeamInfo(rs.getString("TEAM_INFO"));
 					teamVO.setLocationId(rs.getString("LCTN_ID"));
 					
+<<<<<<< HEAD
 				}
 					
 					
@@ -399,4 +427,13 @@ return (UserVO) selectOne(new QueryAndResult() {
 		});
 	}
 	
+=======
+					users.add(userVO);
+				}
+				
+				return users;
+			}
+		});
+	}
+>>>>>>> 9b8888493957e4f1cc3743ff0b646ae9d4272ae3
 }
