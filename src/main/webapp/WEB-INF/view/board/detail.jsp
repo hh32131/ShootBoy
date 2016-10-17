@@ -21,7 +21,7 @@
 				location.href="/ShootBoy/replayDelete?replayId=" + replyId;
 			}
 		});
-		
+	 	
 		$(".replayMoodifyBtn").click(function() {
 			var replyId = $(this).data("modify");
 			window.open("http://localhost:8080/ShootBoy/doModify", "",
