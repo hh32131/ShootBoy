@@ -280,6 +280,7 @@
 	</servlet-mapping>
 	<servlet>
 		<description></description>
+
 		<display-name>ViewAdminPageServlet</display-name>
 		<servlet-name>ViewAdminPageServlet</servlet-name>
 		<servlet-class>net.Y5M2.admin.web.ViewAdminPageServlet</servlet-class>
@@ -317,6 +318,7 @@
 	<servlet-mapping>
 		<servlet-name>DoUserModifyServlet</servlet-name>
 		<url-pattern>/doUserModify</url-pattern>
+
 	</servlet-mapping>
 	<servlet>
 		<description></description>
@@ -366,6 +368,5 @@
 	<servlet-mapping>
 		<servlet-name>ViewAdminArticlePageServlet</servlet-name>
 		<url-pattern>/adminArticle</url-pattern>
-
 	</servlet-mapping>
 </web-app>
