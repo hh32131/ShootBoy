@@ -1,11 +1,8 @@
 package net.Y5M2.user.dao;
 
-<<<<<<< HEAD
 import net.Y5M2.team.vo.TeamVO;
-=======
 import java.util.List;
 
->>>>>>> 9b8888493957e4f1cc3743ff0b646ae9d4272ae3
 import net.Y5M2.user.vo.UserVO;
 
 public interface UserDao {
@@ -25,6 +22,8 @@ public interface UserDao {
 	public UserVO getUserInfoForModify(UserVO userInfo);
 
 	public int UserTemaIdUpdate(TeamVO teamVO, UserVO userInfo);
+
+
 
 
 }

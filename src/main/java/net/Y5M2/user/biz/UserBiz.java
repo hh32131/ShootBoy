@@ -15,14 +15,10 @@ public interface UserBiz {
 	public boolean getUserBy(UserVO userVO, HttpServletRequest request);
 
 	public UserVO findPassword(UserVO userVO);
-<<<<<<< HEAD
 
 
 	public boolean userInfoModify(UserVO userInfo, ServletRequest request);
-=======
-	
-	public boolean userInfoModify(UserVO userInfo);
->>>>>>> 9b8888493957e4f1cc3743ff0b646ae9d4272ae3
+
 
 
 }

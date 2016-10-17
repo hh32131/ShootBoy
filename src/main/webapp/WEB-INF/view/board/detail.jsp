@@ -21,17 +21,10 @@
 				location.href="/ShootBoy/replayDelete?replayId=" + replyId;
 			}
 		});
-<<<<<<< HEAD
 		
 		$(".replayModifyBtn").click(function() {
 			var modify = $(this).data("modify");
 			window.open("/ShootBoy/modifyReply?replyId="+modify, "",
-=======
-	 	
-		$(".replayMoodifyBtn").click(function() {
-			var replyId = $(this).data("modify");
-			window.open("http://localhost:8080/ShootBoy/doModify", "",
->>>>>>> 9b8888493957e4f1cc3743ff0b646ae9d4272ae3
 						"width=900, height= 600");
 			
 		});
