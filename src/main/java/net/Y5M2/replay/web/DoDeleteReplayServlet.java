@@ -1,4 +1,4 @@
-package net.Y5M2.article.web;
+package net.Y5M2.replay.web;
 
 import java.io.IOException;
 
@@ -7,19 +7,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.Y5M2.article.biz.BoardBiz;
-import net.Y5M2.article.biz.BoardBizImpl;
+import net.Y5M2.replay.biz.ReplayBiz;
+import net.Y5M2.replay.biz.ReplayBizImpl;
+
 import net.Y5M2.support.Param;
 
-public class DoDeleteServlet extends HttpServlet {
+public class DoDeleteReplayServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	private BoardBiz boardBiz;
 	
-	public DoDeleteServlet() {
+	private ReplayBiz replayBiz;
+	public DoDeleteReplayServlet() {
 		super();
-		boardBiz = new BoardBizImpl();
-
+		replayBiz = new ReplayBizImpl();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -29,16 +28,15 @@ public class DoDeleteServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String Referer = request.getHeader("referer");
+		String replayId = Param.getStringParam(request, "replayId");
 		
-		String boardId = Param.getStringParam(request, "boardId");
+		boolean isSuccess = replayBiz.deleteOneReplay(replayId);
 		
-		boolean isSuccess = boardBiz.deleteBoard(boardId);
-		if ( isSuccess ) {
-		
-			response.sendRedirect("/ShootBoy/list");
+		if( isSuccess ) {
+			response.sendRedirect(Referer);
 		}
-		else {
-			response.sendRedirect("/ShootBoy/board/detail?boardId="+boardId);
-		}
+		
 	}
+
 }

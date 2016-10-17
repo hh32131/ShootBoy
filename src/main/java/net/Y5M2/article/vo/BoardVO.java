@@ -13,11 +13,20 @@ public class BoardVO {
 	private String fileName;
 	private String modifyDate;
 	private String createDate;
+	private int replayHitCount;
 
 	private UserVO userVO;
 
 	public BoardVO() {
 		userVO = new UserVO();
+	}
+
+	public int getReplayHitCount() {
+		return replayHitCount;
+	}
+
+	public void setReplayHitCount(int replayHitCount) {
+		this.replayHitCount = replayHitCount;
 	}
 
 	public UserVO getUserVO() {
@@ -27,7 +36,6 @@ public class BoardVO {
 	public void setUserVO(UserVO userVO) {
 		this.userVO = userVO;
 	}
-
 
 	public String getModifyDate() {
 		return modifyDate;

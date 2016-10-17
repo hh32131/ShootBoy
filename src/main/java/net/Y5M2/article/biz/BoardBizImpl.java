@@ -7,15 +7,19 @@ import net.Y5M2.article.dao.BoardDaoImpl;
 import net.Y5M2.article.vo.BoardListVO;
 import net.Y5M2.article.vo.BoardVO;
 import net.Y5M2.article.vo.SearchBoardVO;
+import net.Y5M2.replay.dao.ReplayDao;
+import net.Y5M2.replay.dao.ReplayDaoImpl;
 import net.Y5M2.support.pager.Pager;
 import net.Y5M2.support.pager.PagerFactory;
 
 public class BoardBizImpl implements BoardBiz{
 
 	private BoardDao boardDao;
+	private ReplayDao replayDao;
 	
 	public BoardBizImpl() {
 		boardDao = new BoardDaoImpl();
+		replayDao = new ReplayDaoImpl();
 	}
 	
 	@Override
@@ -45,16 +49,14 @@ public class BoardBizImpl implements BoardBiz{
 
 	@Override
 	public BoardVO getBoardAt(String boardId) {
+		boardDao.hitCountUpdate(boardId);
 		return boardDao.getBoardAt(boardId);
 	}
 	
-	@Override
-	public boolean hitCountUpdate(String boardId) {
-		return boardDao.hitCountUpdate(boardId) > 0;
-	}
 
 	@Override
 	public boolean deleteBoard(String boardId) {
+		replayDao.deletAllReplay(boardId);
 		return boardDao.deleteBoard(boardId) > 0;
 	}
 	

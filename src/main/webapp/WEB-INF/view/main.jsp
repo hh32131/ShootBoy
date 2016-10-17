@@ -7,7 +7,7 @@
 
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
-
+	
 	jQuery(function($) {
 		// List Tab Navigation
 		var $tab_list = $('#naviList');
@@ -56,9 +56,8 @@
 				"action" : "/ShootBoy/doSignIn"
 			}).submit();
 		});
-
 	});
-	
+
 	function openWin() {
 		window.open("http://localhost:8080/ShootBoy/createTeam", "",
 				"width=500, height= 600");
@@ -183,6 +182,7 @@
 					<td colspan="4">adfasdfasdfasdfsfda<br/>adfasdfasdfasdf</td>
 				</tr>
 			</table>
+
 	</div>
 	
 	<div id="naviBoard">

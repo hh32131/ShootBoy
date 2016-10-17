@@ -23,6 +23,7 @@
 			else{
 				$("div.warning").html("<p>비밀번호가 틀렸습니다.</p>")
 			}
+
 			});
 	});
 </script>
@@ -47,6 +48,7 @@
 	</div>
 	<div id="teamDetailwrapper" >
 		<c:if test="${!empty userInfo.teamId}">
+
 
 		<img src="/ShootBoy/showImge?teamPhoto=${userInfo.temaId}">
 		<h3>${userInfo.teamVO.teamName}</h3>

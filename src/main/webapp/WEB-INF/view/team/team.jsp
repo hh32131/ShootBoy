@@ -10,8 +10,11 @@
 
 	$().ready(function(){
 		$(".imgBtn").click(function(){
-			window.open("/ShootBoy/teamDetail?teamId="+$(".url").val(),"","width=400, height= 400");
-		});	
+			var teamid = $(this).data("teamid");
+			
+		window.open("/ShootBoy/teamDetail?teamId="+ teamid,"","width=400, height= 400"); 
+		});
+		
 	});
 
 	function openWin() {
@@ -20,6 +23,7 @@
 	}
 	
 </script>
+
 <div id="allTeamLeftMenu">
 		<div class="allTeamTitle">Team</div>
 		<div id="allTeamLeftMenuTwo">
@@ -32,17 +36,17 @@
 	<div id="allTeamWrapper" style="width: 700px; margin-left: 250px;">
 		<table>
 			<tr>
-				<c:forEach items="${teams}" var="teams" varStatus="j">
+				<c:forEach items="${team}" var="team" varStatus="j">
 					<c:if test="${ j.index gt 0 && j.index % 5 eq 0 }"><tr></tr></c:if>
 			
 					<td align="center" class="teamtd">
 						<div class="teamPhoto double">
-							<input type="hidden" class="url" name="url" value="${teams.teamId}" >
-							<span><a href="javascript:void(0);" class="imgBtn"><img class="teamPhoto" src="/ShootBoy/showImage?teamId=${teams.teamId}" /></a></span>
+							<input type="hidden" class="url" name="url" value="${team.teamId}" >
+							<span><a href="javascript:void(0);" class="imgBtn" data-teamid="${team.teamId}"><img class="teamPhoto"	src="/ShootBoy/showImage?teamId=${team.teamId}" /></a></span>
 						</div>
-						<div>${teams.teamName}</div>
-						<div>${teams.teamCount}</div>
-						<div>${teams.locationVO.parentLocationName}-${teams.locationVO.locationName}</div>
+						<div>${team.teamName}</div>
+						<div>${team.teamCount}</div>
+						<div>${team.locationVO.parentLocationName}-${team.locationVO.locationName}</div>
 					</td>
 				</c:forEach>
 			</tr>
