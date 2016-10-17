@@ -44,7 +44,10 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				query.append(" 			, CTGR C ");
 				query.append(" WHERE	B.USR_ID = U.USR_ID ");
 				query.append(" AND		B.CTGR_ID = C.CTGR_ID ");
-				query.append(" AND		B.CTGR_ID = ? ");
+				
+				if(categoryVO.getCategoryId() != null){
+					query.append(" AND		B.CTGR_ID = ? ");
+				}
 				
 				
 				if ( searchBoard.getSearchType() == 1 ) {
@@ -68,8 +71,9 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				
 				int index = 1;
 				
-				pstmt.setString(index++, categoryVO.getCategoryId());
-				
+				if(categoryVO.getCategoryId() != null){
+					pstmt.setString(index++, categoryVO.getCategoryId());
+				}
 				if ( searchBoard.getSearchType() == 1 ) {
 					pstmt.setString(index++, searchBoard.getSearchKeyword());
 					pstmt.setString(index++, searchBoard.getSearchKeyword());

@@ -1,5 +1,6 @@
 package net.Y5M2.admin.vo;
 
+import net.Y5M2.category.vo.CategoryVO;
 import net.Y5M2.user.vo.UserVO;
 
 public class BoardVO {
@@ -15,6 +16,7 @@ public class BoardVO {
 	private String createDate;
 	
 	private UserVO userVO;
+	private CategoryVO categoryVO;
 	
 	public UserVO getUserVO() {
 		return userVO;
@@ -26,6 +28,15 @@ public class BoardVO {
 
 	public BoardVO(){
 		userVO = new UserVO();
+		categoryVO = new CategoryVO();
+	}
+	
+	public CategoryVO getCategoryVO() {
+		return categoryVO;
+	}
+
+	public void setCategoryVO(CategoryVO categoryVO) {
+		this.categoryVO = categoryVO;
 	}
 
 	public String getModifyDate() {
