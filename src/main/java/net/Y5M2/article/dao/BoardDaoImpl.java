@@ -18,7 +18,7 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<BoardVO> getAllBoards(SearchBoardVO searchBoard, int categoryId) {
+	public List<BoardVO> getAllBoards(SearchBoardVO searchBoard) {
 		return selectList(new QueryAndResult() {
 			
 			@Override
@@ -39,7 +39,6 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				query.append(" FROM		BOARD B ");
 				query.append(" 			, USR U ");
 				query.append(" WHERE	B.USR_ID = U.USR_ID ");
-				query.append(" AND		, B.CTGR_ID = ? ");
 				
 				if ( searchBoard.getSearchType() == 1 ) {
 					query.append(" AND	( B.BOARD_SBJ LIKE '%'|| ?|| '%' ");
@@ -60,8 +59,7 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				String pagingQuery = appendPagingQueryFormat(query.toString());
 				PreparedStatement pstmt = conn.prepareStatement(pagingQuery);
 				
-				pstmt.setInt(1, categoryId);
-				int index = 2;
+				int index = 1;
 				if ( searchBoard.getSearchType() == 1 ) {
 					pstmt.setString(index++, searchBoard.getSearchKeyword());
 					pstmt.setString(index++, searchBoard.getSearchKeyword());
@@ -190,15 +188,14 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				query.append(" 					) ");
 				query.append(" VALUES ( ");
 				query.append(" 'BO-' || TO_CHAR(SYSDATE, 'YYYYMMDD') || '-' || LPAD(BOARD_ID_SEQ.NEXTVAL,6,0) ");
-				query.append(" , ?, ?, ?, 0, ?, ?, SYSDATE, SYSDATE) ");
+				query.append(" , ?, ?, 0, 0, ?, ?, SYSDATE, SYSDATE) ");
 
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				pstmt.setString(1, boardVO.getBoardSubject());
 				pstmt.setString(2, boardVO.getBoardContent());
-				pstmt.setString(3, boardVO.getCategoryId());
-				pstmt.setString(4, boardVO.getUserId());
-				pstmt.setString(5, boardVO.getFileName());
+				pstmt.setString(3, boardVO.getUserId());
+				pstmt.setString(4, boardVO.getFileName());
 				
 				return pstmt;
 			}

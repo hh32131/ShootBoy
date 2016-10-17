@@ -12,7 +12,7 @@ public interface BoardBiz {
 	 * @param searchBoard
 	 * @return
 	 */
-	public BoardListVO getAllBoards(SearchBoardVO searchBoard, int categoryId);
+	public BoardListVO getAllBoards(SearchBoardVO searchBoard);
 
 	/**
 	 * 게시판 글쓰기

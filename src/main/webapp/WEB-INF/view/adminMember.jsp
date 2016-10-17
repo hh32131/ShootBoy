@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/adminPage.css" />
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/checkbox.css" />
 	<jsp:include page="/WEB-INF/view/commons/adminHeader.jsp" />
@@ -48,9 +49,8 @@
 									<label for="select-check"></label>
 								</div>
 							</th>
-							<th>회원 아이디</th>
+							<th>회원 이메일</th>
 							<th>이름 </th>
-							<th>이메일</th>
 							<th>휴대폰</th>
 							<th>나이</th>
 							<th>포지션</th>
@@ -60,26 +60,27 @@
 							<th>가입일</th>
 						</tr>	
 					</thead>
-					<tbody>
-						<tr>	
-							<td class="td_check">
-								<div class="checks">
-									<input type="checkbox" id="select-check">
-									<label for="select-check"></label>
-								</div>
-							</td>
-							<td class="td_userId"> n2350 </td>
-							<td class="td_userName"> 남재현 </td>
-							<td class="td_userEmail"> n2350@naver.com </td>
-							<td class="td_userPhone"> 010-1234-5678 </td>
-							<td class="td_userAge"> 30 </td>
-							<td class="td_userPosition"> 골기퍼 </td>
-							<td class="td_userLocation"> 경기 </td>
-							<td class="td_userTeam"> 코스모스 </td>
-							<td class="td_userGrade"> 회원 </td>
-							<td class="td_userJoindate"> 2016-10-17 </td>
-						</tr>
-					</tbody>
+					<c:forEach var="users" items="${users}">
+						<tbody>
+							<tr>	
+								<td class="td_check">
+									<div class="checks">
+										<input type="checkbox" id="select-check">
+										<label for="select-check"></label>
+									</div>
+								</td>
+								<td class="td_userEmail"> ${users.email } </td>
+								<td class="td_userName"> ${users.userName } </td>
+								<td class="td_userPhone"> ${users.phoneNumber } </td>
+								<td class="td_userAge"> ${users.age } </td>
+								<td class="td_userPosition"> ${users.position } </td>
+								<td class="td_userLocation"> ${users.locationId } </td>
+								<td class="td_userTeam"> ${users.teamId } </td>
+								<td class="td_userGrade"> ${users.levelId } </td>
+								<td class="td_userJoindate"> ${users.createDate } </td>
+							</tr>
+						</tbody>
+					</c:forEach>
 				</table>
 			</div>
 			
