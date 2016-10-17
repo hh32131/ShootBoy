@@ -63,37 +63,37 @@
 		<div id="headwrapper">
 			<div id="navi" class="inline">
 				<ul>
-					<li class="active"><a href="#">My page</a>
+					<li class="active"><a href="#?categoryId=${category.getCategoryId}">My page</a>
 						<ul>
-							<li><a href="#">내 정보</a></li>
-							<li><a href="#">팀 정보</a></li>
-							<li><a href="#">팀 매치 정보</a></li>
-							<li><a href="#">메시지함</a></li>
+							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">내 정보</a></li>
+							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">팀 정보</a></li>
+							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">팀 매치 정보</a></li>
+							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">메시지함</a></li>
 						</ul></li>
 
-					<li><a href="#">Match</a>
+					<li><a href="#?categoryId=${category.getCategoryId}">Match</a>
 						<ul>
-							<li><a href="#">매치보드</a></li>
-							<li><a href="#">매치신청</a></li>
-							<li><a href="#">매치 신청 관리</a></li>
+							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">매치보드</a></li>
+							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">매치신청</a></li>
+							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">매치 신청 관리</a></li>
 						</ul></li>
 
-					<li><a href="#">Team</a>
+					<li><a href="#?categoryId=${category.getCategoryId}">Team</a>
 						<ul>
-							<li><a href="#">전체 팀 보기</a></li>
+							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentCategoryId}">전체 팀 보기</a></li>
 						</ul></li>
 
-					<li><a href="#">Community</a>
+					<li><a href="#?categoryId=${category.getCategoryId}">Community</a>
 						<ul>
-							<li><a href="#">공지사항</a></li>
-							<li><a href="#">가입인사</a></li>
-							<li><a href="#">자유게시판</a></li>
-							<li><a href="#">국내축구소식</a></li>
-							<li><a href="#">해외축구소식</a></li>
-							<li><a href="#">축구동영상</a></li>
-							<li><a href="#">축구갤러리</a></li>
-							<li><a href="#">매치경기후기</a></li>
-							<li><a href="#">모집게시판</a></li>
+							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">공지사항</a></li>
+							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">가입인사</a></li>
+							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">자유게시판</a></li>
+							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">국내축구소식</a></li>
+							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">해외축구소식</a></li>
+							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">축구동영상</a></li>
+							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">축구갤러리</a></li>
+							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">매치경기후기</a></li>
+							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">모집게시판</a></li>
 						</ul></li>
 				</ul>
 			</div>

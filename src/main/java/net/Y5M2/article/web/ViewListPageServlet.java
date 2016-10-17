@@ -1,6 +1,7 @@
 package net.Y5M2.article.web;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,9 +14,8 @@ import net.Y5M2.article.biz.BoardBiz;
 import net.Y5M2.article.biz.BoardBizImpl;
 import net.Y5M2.article.vo.BoardListVO;
 import net.Y5M2.article.vo.SearchBoardVO;
+import net.Y5M2.category.vo.CategoryVO;
 import net.Y5M2.constants.Session;
-import net.Y5M2.replay.biz.ReplayBiz;
-import net.Y5M2.replay.biz.ReplayBizImpl;
 import net.Y5M2.support.Param;
 import net.Y5M2.support.pager.ClassicPageExplorer;
 import net.Y5M2.support.pager.PageExplorer;
@@ -24,13 +24,11 @@ public class ViewListPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private BoardBiz boardBiz;
-	private ReplayBiz replayBiz;
 	
 
 	public ViewListPageServlet() {
 		super();
 		boardBiz = new BoardBizImpl();
-		replayBiz = new ReplayBizImpl();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -41,6 +39,22 @@ public class ViewListPageServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		String categoryIdParam = request.getParameter("categoryId");
+		String parentsCategoryIdParam = request.getParameter("parentsCategoryId");
+		
+		if(categoryIdParam == null) {
+			categoryIdParam = "0";		
+		}
+		if(parentsCategoryIdParam == null) {
+			parentsCategoryIdParam = "0";
+		}
+		
+		int categoryId = Integer.parseInt(categoryIdParam);
+		int parentsCategoryId = Integer.parseInt(parentsCategoryIdParam);
+		
+		List<CategoryVO> categoryList = null;
+		
+		
 		HttpSession session = request.getSession();
 		int pageNo = Param.getIntParam(request, "pageNo", -1);
 		int searchType = Param.getIntParam(request, "searchType");
