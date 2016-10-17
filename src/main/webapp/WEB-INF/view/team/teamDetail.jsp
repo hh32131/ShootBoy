@@ -18,6 +18,5 @@
 	<div>팀 지역 : ${team.locationVO.parentLocationName} - ${team.locationVO.locationName}</div>
 	<div><b>팀 소개글 :</b></div>
 	<div class="double">${team.teamInfo}</div> 
-
 </body>
 </html>

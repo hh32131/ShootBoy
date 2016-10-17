@@ -9,11 +9,8 @@
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/layout.css" />
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/hsh.css" />
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/signUp.css">
-<<<<<<< HEAD
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/page.css">
-=======
 
->>>>>>> 5d6fcbc397f476ed64ca7358a37b136017c42bc4
 <title>Shoot Boy</title>
 </head>
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
