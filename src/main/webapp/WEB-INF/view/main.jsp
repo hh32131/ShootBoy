@@ -58,6 +58,11 @@
 		});
 
 	});
+	
+	function openWin() {
+		window.open("http://localhost:8080/ShootBoy/createTeam", "",
+				"width=900, height= 600");
+	}
 </script>
 
 <div id="wrapper">
@@ -274,7 +279,7 @@
 							</div>
 						</form>
 						<div class="teamCreateButton">
-							<input type="button" id="teamCreateBtn" value="팀 생성" />
+							<input type="button" id="teamCreateBtn" value="팀 생성"  onclick="openWin()"/>
 						</div>
 						<div class="OutButton">
 							<input type="button" id="signOutBtn" value="로그아웃" onclick="location.href='/ShootBoy/logout'"/>
