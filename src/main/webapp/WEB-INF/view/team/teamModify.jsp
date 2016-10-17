@@ -41,7 +41,8 @@
 		<img src="/ShootBoy/showImage?teamId=${teamInfo.teamId}">
 		<input type="checkbox" id="fileDeleteBtn" name="fileDeleteBtn" value="delete" />
 		<input type="file" id="file" name="file">
-		팀 이름<input type="text" id ="temaName" name="teamName" value="${teamInfo.teamName}">
+		<input type = "hidden" id="teamId" name="teamId" value="${teamInfo.teamId}" >
+		팀 이름<input type="text" id ="teamName" name="teamName" value="${teamInfo.teamName}">
 		팀원 수<input type="text" id = "teamCount" name="teamCount" value="${teamInfo.teamCount}">
 		거주 지역 <select id="locationId" name="locationId">
 					<c:forEach items="${location}" var="location">
