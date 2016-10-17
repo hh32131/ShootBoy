@@ -15,7 +15,7 @@ public class TeamVO {
 	private String locationId;
 	
 
-	LocationVO locationVO;
+	private LocationVO locationVO;
 	
 	public TeamVO() {
 		locationVO = new LocationVO();

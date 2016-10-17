@@ -394,5 +394,15 @@
   <servlet-mapping>
     <servlet-name>ViewModifyReply</servlet-name>
     <url-pattern>/modifyReply</url-pattern>
+      </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoModifyTeamInfo</display-name>
+    <servlet-name>DoModifyTeamInfo</servlet-name>
+    <servlet-class>net.Y5M2.team.web.DoModifyTeamInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoModifyTeamInfo</servlet-name>
+    <url-pattern>/doModifyTeamInfo</url-pattern>
   </servlet-mapping>
 </web-app>

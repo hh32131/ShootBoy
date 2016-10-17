@@ -27,17 +27,21 @@ public class TeamBizImpl implements TeamBiz {
 	@Override
 	public boolean addTeam(TeamVO teamVO, UserVO userInfo, ServletRequest request) {
 		
-		boolean isSuccess = userDao.UserTemaIdUpdate(teamVO, userInfo)>0;
-		if(isSuccess) {
-			HttpSession session = ((HttpServletRequest)request).getSession();
-			session.removeAttribute(Session.USER_INFO);
-			
-			UserVO userVO = userDao.getUserBy(userInfo);
-			session.setAttribute(Session.USER_INFO, userVO);
-			
-			return teamDao.addTeam(teamVO) > 0;
-		}
 		
+		boolean isSuccess =  teamDao.addTeam(teamVO)>0;
+		
+		
+		if(isSuccess) {
+			TeamVO teamInfo = teamDao.getTeamInfoForUpdate(teamVO.getTeamName());
+			boolean isUpdateSuccess = userDao.UserTemaIdUpdate(teamInfo, userInfo)>0;
+			if(isUpdateSuccess){
+				HttpSession session = ((HttpServletRequest)request).getSession();
+				session.removeAttribute(Session.USER_INFO);
+				UserVO userVO = userDao.getUserBy(userInfo);
+				session.setAttribute(Session.USER_INFO, userVO);
+				return true;
+			}
+		}
 		return false;
 	}
 

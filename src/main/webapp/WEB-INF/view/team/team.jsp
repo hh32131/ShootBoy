@@ -18,8 +18,9 @@
 	});
 
 	function openWin() {
-		window.open("http://localhost:8080/ShootBoy/createTeam", "",
-				"width=500px, height= 600");
+
+		window.open("/ShootBoy/createTeam", "",
+				"width=900, height= 600");
 	}
 	
 </script>
@@ -34,6 +35,7 @@
 		<hr class="teamline">
 	</div>
 	<div id="allTeamWrapper" style="width: 700px; margin-left: 250px;">
+
 		<table>
 			<tr>
 				<c:forEach items="${team}" var="team" varStatus="j">
@@ -50,6 +52,7 @@
 					</td>
 				</c:forEach>
 			</tr>
+	<button onclick="openWin()">팀생성하기</button>
 		</table>
 		<button id="teamCreateBtn"  onclick="openWin()" style="float: right;">팀생성하기</button>
 	</div>
