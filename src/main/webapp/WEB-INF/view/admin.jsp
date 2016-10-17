@@ -1,11 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<<<<<<< HEAD
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/admin.css" />
-=======
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/adminMain.css" />
->>>>>>> 4bd2750d751a25eec6674f3b7966c0d7f850a8fe
 
 	<jsp:include page="/WEB-INF/view/commons/adminHeader.jsp" />
 

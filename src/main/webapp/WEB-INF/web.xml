@@ -280,10 +280,7 @@
 	</servlet-mapping>
 	<servlet>
 		<description></description>
-<<<<<<< HEAD
 
-=======
->>>>>>> 4bd2750d751a25eec6674f3b7966c0d7f850a8fe
 		<display-name>ViewAdminPageServlet</display-name>
 		<servlet-name>ViewAdminPageServlet</servlet-name>
 		<servlet-class>net.Y5M2.admin.web.ViewAdminPageServlet</servlet-class>
@@ -294,10 +291,7 @@
 	</servlet-mapping>
 	<servlet>
 		<description></description>
-<<<<<<< HEAD
-=======
 
->>>>>>> 4bd2750d751a25eec6674f3b7966c0d7f850a8fe
 		<display-name>DoDeleteReplayServlet</display-name>
 		<servlet-name>DoDeleteReplayServlet</servlet-name>
 		<servlet-class>net.Y5M2.replay.web.DoDeleteReplayServlet</servlet-class>
@@ -324,8 +318,7 @@
 	<servlet-mapping>
 		<servlet-name>DoUserModifyServlet</servlet-name>
 		<url-pattern>/doUserModify</url-pattern>
-<<<<<<< HEAD
-=======
+
 	</servlet-mapping>
 	<servlet>
 		<description></description>
@@ -375,7 +368,6 @@
 	<servlet-mapping>
 		<servlet-name>ViewAdminArticlePageServlet</servlet-name>
 		<url-pattern>/adminArticle</url-pattern>
->>>>>>> 4bd2750d751a25eec6674f3b7966c0d7f850a8fe
 
 	</servlet-mapping>
 </web-app>
