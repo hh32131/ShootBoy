@@ -31,6 +31,7 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				query.append(" 			, B.BOARD_SBJ ");
 				query.append(" 			, B.BOARD_CONT ");
 				query.append(" 			, B.HIT_CNT ");
+				query.append(" 			, B.REPLY_HIT_CNT ");
 				query.append(" 			, U.USR_NM ");
 				query.append(" 			, B.CTGR_ID ");
 				query.append(" 			, B.FILE_NM ");
@@ -99,6 +100,7 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 					boardVO.setFileName(rs.getString("FILE_NM"));
 					boardVO.setCreateDate(rs.getString("CRT_DT"));
 					boardVO.setModifyDate(rs.getString("LTST_MDFY_DT"));
+					boardVO.setReplayHitCount(rs.getInt("REPLY_HIT_CNT"));
 					
 					userVO = boardVO.getUserVO();
 					userVO.setUserName(rs.getString("USR_NM"));

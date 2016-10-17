@@ -1,4 +1,4 @@
-package net.Y5M2.article.web;
+package net.Y5M2.replay.web;
 
 import java.io.IOException;
 
@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ViewWritePageServlet extends HttpServlet {
+public class ViewReplayPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public ViewWritePageServlet() {
+	public ViewReplayPageServlet() {
 		super();
 	}
 
@@ -22,11 +22,10 @@ public class ViewWritePageServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		String viewPath = "/WEB-INF/view/board/write.jsp";
-
-		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
+	
+		String viewPath = "/WEB-INF/view/commons/replay.jsp";
 		
+		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 		rd.forward(request, response);
 	}
 

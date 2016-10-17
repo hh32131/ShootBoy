@@ -8,6 +8,7 @@
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/grid.css" />
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/layout.css" />
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/signUp.css">
+
 <title>Shoot Boy</title>
 </head>
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>

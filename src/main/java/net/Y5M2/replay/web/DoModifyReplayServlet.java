@@ -1,7 +1,6 @@
-package net.Y5M2.article.web;
+package net.Y5M2.replay.web;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,23 +8,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.Y5M2.article.biz.BoardBiz;
-import net.Y5M2.article.biz.BoardBizImpl;
-import net.Y5M2.article.vo.BoardVO;
 import net.Y5M2.replay.biz.ReplayBiz;
 import net.Y5M2.replay.biz.ReplayBizImpl;
 import net.Y5M2.replay.vo.ReplayVO;
 import net.Y5M2.support.Param;
 
-public class ViewDetailPageServlet extends HttpServlet {
+public class DoModifyReplayServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private BoardBiz boardBiz;
 	private ReplayBiz replayBiz;
-	
-	public ViewDetailPageServlet() {
+	public DoModifyReplayServlet() {
 		super();
-		boardBiz = new BoardBizImpl();
 		replayBiz = new ReplayBizImpl();
 	}
 
@@ -36,19 +29,23 @@ public class ViewDetailPageServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
+		String Referer = request.getHeader("referer");
+		String replayId = Param.getStringParam(request, "replayId");
+		String replayContent = Param.getStringParam(request, "replayContent");
 		
-		String boardId = Param.getStringParam(request, "boardId");
+		ReplayVO replays = new ReplayVO();
+		replays.setReplayId(replayId);
+		replays.setReplayContent(replayContent);
 		
-		boardBiz.hitCountUpdate(boardId);
-		BoardVO board = boardBiz.getBoardAt(boardId);
-		
-		List<ReplayVO> replays = replayBiz.getListReplays(boardId);
-		
-		String viewPath = "/WEB-INF/view/board/detail.jsp";
-		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
-		request.setAttribute("board", board);
-		request.setAttribute("replays", replays);
+		String veiwPath = "/WEB-INF/view/board/replyModify.jsp";
+		RequestDispatcher rd = request.getRequestDispatcher(veiwPath);
 		rd.forward(request, response);
+		
+		boolean isSuccess = replayBiz.replayModify(replays);
+		if( isSuccess ) {
+			response.sendRedirect(Referer);
+		}
 		
 	}
 

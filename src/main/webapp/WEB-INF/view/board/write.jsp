@@ -63,8 +63,8 @@
 			</div>
 			<div>
 				<input type="file" id="file" name="file"/>
-				<input type="button" id="goBackBtn" name="writeBtn" value="뒤로가기" />
-				<input type="button" id="writeBtn" name="goBackBtn" value="글쓰기" />
+				<input type="button" id="goBackBtn" name="goBackBtn" value="뒤로가기" />
+				<input type="button" id="writeBtn" name="writeBtn" value="글쓰기" />
 			</div>
 		</form>
 	</div>

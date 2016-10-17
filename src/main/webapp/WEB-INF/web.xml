@@ -248,6 +248,7 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+<<<<<<< HEAD
     <display-name>DoShowImage</display-name>
     <servlet-name>DoShowImage</servlet-name>
     <servlet-class>net.Y5M2.team.web.DoShowImage</servlet-class>
@@ -268,6 +269,27 @@
       </servlet-mapping>
   <servlet>
     <description></description>
+=======
+    <display-name>ViewReplayPageServlet</display-name>
+    <servlet-name>ViewReplayPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.replay.ViewReplayPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewReplayPageServlet</servlet-name>
+    <url-pattern>/replay</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CheckReplayList</display-name>
+    <servlet-name>CheckReplayList</servlet-name>
+    <servlet-class>net.Y5M2.replay.web.ajax.CheckReplayList</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckReplayList</servlet-name>
+    <url-pattern>/replayList</url-pattern>
+  </servlet-mapping>
+  <servlet>
+>>>>>>> 69f7d6ac6ab611ec1e2b720841b171e422727ec6
     <display-name>DoLogOutServlet</display-name>
     <servlet-name>DoLogOutServlet</servlet-name>
     <servlet-class>net.Y5M2.user.web.DoLogOutServlet</servlet-class>
@@ -278,6 +300,25 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>ViewAdminPageServlet</display-name>
+    <servlet-name>ViewAdminPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.ViewAdminPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewAdminPageServlet</servlet-name>
+    <url-pattern>/admin</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoDeleteReplayServlet</display-name>
+    <servlet-name>DoDeleteReplayServlet</servlet-name>
+    <servlet-class>net.Y5M2.replay.web.DoDeleteReplayServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoDeleteReplayServlet</servlet-name>
+    <url-pattern>/replayDelete</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <display-name>ViewUserModifyPageServlet</display-name>
     <servlet-name>ViewUserModifyPageServlet</servlet-name>
     <servlet-class>net.Y5M2.user.web.ViewUserModifyPageServlet</servlet-class>
@@ -298,6 +339,7 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+<<<<<<< HEAD
     <display-name>ViewDetailUserInfo</display-name>
     <servlet-name>ViewDetailUserInfo</servlet-name>
     <servlet-class>net.Y5M2.user.web.ViewDetailUserInfo</servlet-class>
@@ -325,5 +367,14 @@
   <servlet-mapping>
     <servlet-name>ViewTeamInfoModify</servlet-name>
     <url-pattern>/teamModify</url-pattern>
+=======
+    <display-name>DoModifyReplayServlet</display-name>
+    <servlet-name>DoModifyReplayServlet</servlet-name>
+    <servlet-class>net.Y5M2.replay.web.DoModifyReplayServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoModifyReplayServlet</servlet-name>
+    <url-pattern>/doModify</url-pattern>
+>>>>>>> 69f7d6ac6ab611ec1e2b720841b171e422727ec6
   </servlet-mapping>
 </web-app>
