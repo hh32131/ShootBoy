@@ -1,5 +1,6 @@
 package net.Y5M2.user.dao;
 
+import net.Y5M2.team.vo.TeamVO;
 import net.Y5M2.user.vo.UserVO;
 
 public interface UserDao {
@@ -15,5 +16,8 @@ public interface UserDao {
 	public int UpdateUserInfo(UserVO userInfo);
 
 	public UserVO getUserInfoForModify(UserVO userInfo);
+
+	public int UserTemaIdUpdate(TeamVO teamVO, UserVO userInfo);
+
 
 }

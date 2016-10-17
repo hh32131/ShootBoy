@@ -81,8 +81,10 @@ public class DoCreateTeamServlet extends HttpServlet {
 		team.setTeamInfo(teamInfo);
 		team.setTeamPhoto(teamPhoto);
 		team.setLocationId(leafLocation);
+		HttpSession session = request.getSession();
+		UserVO userInfo = (UserVO) session.getAttribute(Session.USER_INFO);
 
-		boolean isSuccess = teamBiz.addTeam(team);
+		boolean isSuccess = teamBiz.addTeam(team, userInfo, request);
 		PrintWriter out = response.getWriter();
 		if (isSuccess) {
 			out.write("<script type='text/javascript'> window.close() </script>");

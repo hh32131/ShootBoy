@@ -81,8 +81,8 @@ public class UserBizImpl implements UserBiz {
 		boolean isSuccess = userDao.UpdateUserInfo(userInfo)>0;
 		if(isSuccess){
 			HttpSession session = ((HttpServletRequest)request).getSession();
-			session.removeAttribute(Session.USER_INFO); 
-			UserVO UserVO = userDao.getUserBy(userInfo);
+			session.removeAttribute(Session.USER_INFO);
+			UserVO UserVO = userDao.getUserInfoForModify(userInfo);
 			session.setAttribute(Session.USER_INFO, UserVO);
 			
 			return true;
@@ -91,6 +91,7 @@ public class UserBizImpl implements UserBiz {
 			return false;
 		}
 		
+		/*return userDao.UpdateUserInfo(userInfo)>0;*/
 	}
 	
 }

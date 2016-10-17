@@ -11,26 +11,34 @@
 <script type="text/javascript">
 	$().ready(function(){
 		$("#password").hide();
+		$("#passwordConfirm").hide();
 		
 		$("#modifyBtn").click(function(){
 			$("#password").show();
+			$("#passwordConfirm").show();
 			
+			$("#passwordConfirm").click(function(){
+				
 			if($("#password").val()==${userInfo.password}){
 				location.href="/ShootBoy/teamModify";
 			}
 			else{
-			$("div.warning").html("<p>비밀번호가 틀렸습니다.</p>").slideDown();
+				$("div.warning").html("<p>비밀번호가 틀렸습니다.</p>")
 			}
-			
-		});
+			});
 	});
 </script>
 </head>
 <body>
 	<div id="teamDetailwrapper" >
 		<c:if test="${!empty userInfo.teamId}">
+<<<<<<< HEAD
 		<img src="/ShootBoy/showImge?teamPhoto=${userInfo.temaId}">
 		<h3>${userInfo.teamVO.teamName}</h3>
+=======
+		<img src="/ShootBoy/showImge?teamId=${userInfo.temaId}">
+		팀명 : ${userInfo.teamVO.teamName}
+>>>>>>> 083cde69746971674917d41bf594ca21bd912fe9
 		팀원수 : ${userInfo.temaVO.teamCount}
 		팀 포인트 : ${userInfo.teamVO.teamPoint}
 		팀 생성일 : ${userInfo.teamVO.createDate}
@@ -39,6 +47,7 @@
 		</c:if>
 		<input type="button" id="modifyBtn" name="modifyBtn" value="수정" >
 		<input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요">
+		<input type="button" id="passwordConfirm" name="passwordConfirm" value="비밀번호 확인">
 		<div class="warning"></div>
 	</div>
 

@@ -30,7 +30,7 @@ public class ViewDetailUserInfo extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		UserVO userInfo = (UserVO) session.getAttribute(Session.USER_INFO);
-		String viewPath = "/ShootBoy/view/user/detailUserInfo.jsp";
+		String viewPath = "/WEB-INF/view/user/detailUserInfo.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 		request.setAttribute("userInfo", userInfo);
 		rd.forward(request, response);

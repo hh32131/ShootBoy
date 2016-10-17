@@ -10,23 +10,56 @@
 <script type="text/javascript">
 	$().ready(function(){
 		$("#password").hide();
+		$("#passwordConfirm").hide();
 		
 		$("#modifyBtn").click(function(){
 			$("#password").show();
+			$("#passwordConfirm").show();
 			
+<<<<<<< HEAD
 			if($("#password").val() == ${userInfo.password}) {
 				location.href="/ShootBoy/userModify";
 			}
 			else {
 			$("div.warning").html("<p>비밀번호가 틀렸습니다.</p>").slideDown();
+=======
+			$("#passwordConfirm").click(function(){
+				
+			if($("#password").val()==${userInfo.password}){
+				location.href="/ShootBoy/userModify";
 			}
+			else{
+				$("div.warning").html("<p>비밀번호가 틀렸습니다.</p>")
+>>>>>>> 083cde69746971674917d41bf594ca21bd912fe9
+			}
+			});
+			
+			
 			
 		});
 	});
 </script>
 </head>
 <body>
+<<<<<<< HEAD
 	
+=======
+	<div id="wrapper" >
+		이름 : ${userInfo.userName}
+		전화번호 : ${userInfo.phoneNumber}
+		나이 : ${userInfo.age}
+		포지션 : ${userInfo.position}
+		가입일: ${userInfo.createDate}
+		지역 : ${userInfo.locationVO.parentLocationName}-${userInfo.locationVO.locationName}
+		<c:if test="${!empty userInfo.teamId}">
+		팀 : ${userInfo.teamVO.teamName}
+		</c:if>
+		<input type="button" id="modifyBtn" name="modifyBtn" value="수정" >
+		<input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요">
+		<input type="button" id="passwordConfirm" name="passwordConfirm" value="비밀번호 확인">
+		<div class="warning"></div>
+	</div>
+>>>>>>> 083cde69746971674917d41bf594ca21bd912fe9
 	
 
 </body>
