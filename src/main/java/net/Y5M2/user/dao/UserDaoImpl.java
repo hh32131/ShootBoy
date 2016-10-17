@@ -378,4 +378,24 @@ return (UserVO) selectOne(new QueryAndResult() {
 			}
 		});
 	}
+	@Override
+	public int UserTemaIdUpdate(TeamVO teamVO, UserVO userInfo) {
+
+		return insert(new Query() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				StringBuffer query = new StringBuffer();
+				query.append(" UPDATE	USR ");
+				query.append(" SET		TEAM_ID = ? ");
+				query.append(" WHERE	USR_ID = ? ");
+				
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				pstmt.setString(1, teamVO.getTeamId());
+				pstmt.setString(2, userInfo.getUserId());
+				return null;
+			}
+		});
+	}
+	
 }

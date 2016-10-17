@@ -10,16 +10,23 @@
 <script type="text/javascript">
 	$().ready(function(){
 		$("#password").hide();
+		$("#passwordConfirm").hide();
 		
 		$("#modifyBtn").click(function(){
 			$("#password").show();
+			$("#passwordConfirm").show();
 			
+			$("#passwordConfirm").click(function(){
+				
 			if($("#password").val()==${userInfo.password}){
 				location.href="/ShootBoy/userModify";
 			}
 			else{
-			$("div.warning").html("<p>비밀번호가 틀렸습니다.</p>").slideDown();
+				$("div.warning").html("<p>비밀번호가 틀렸습니다.</p>")
 			}
+			});
+			
+			
 			
 		});
 	});
@@ -38,6 +45,7 @@
 		</c:if>
 		<input type="button" id="modifyBtn" name="modifyBtn" value="수정" >
 		<input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요">
+		<input type="button" id="passwordConfirm" name="passwordConfirm" value="비밀번호 확인">
 		<div class="warning"></div>
 	</div>
 	
