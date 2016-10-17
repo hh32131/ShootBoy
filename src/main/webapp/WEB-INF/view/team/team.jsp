@@ -52,7 +52,6 @@
 					</td>
 				</c:forEach>
 			</tr>
-	<button onclick="openWin()">팀생성하기</button>
 		</table>
 		<button id="teamCreateBtn"  onclick="openWin()" style="float: right;">팀생성하기</button>
 	</div>

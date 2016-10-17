@@ -28,12 +28,6 @@
 	});
 		
 </script>
-</head>
-<body>
-
-
-<body>
-	
 	<div id="myPageLeftMenu">
 		<div class="mplmTitle">My Page</div>
 		<div id="myPageLeftMenuTwo">
@@ -44,25 +38,41 @@
 		</div>
 	</div>
 	
-	<div class="myInfoText"><h1>팀 정보</h1>
+	<div class="myInfoText" style="display: inline-block; width: 800px;"><h1>팀 정보</h1>
 		<hr class="myPageline">
-	</div>
-	<div id="teamDetailwrapper" >
+	
+	<div id="teamDetailwrapper">
 		<c:if test="${!empty userInfo.teamId}">
 
-		<img src="/ShootBoy/showImage?teamId=${userInfo.teamId}">
-			팀명 : ${userInfo.teamVO.teamName}
-			팀원수 : ${userInfo.teamVO.teamCount}
-			팀 포인트 : ${userInfo.teamVO.teamPoint}
-			팀 생성일 : ${userInfo.teamVO.createDate}
-			팀 지역 : ${teamInfo.locationVO.parentLocationName}-${teamInfo.locationVO.locationName}
-			팀 설명 : ${userInfo.teamVO.teamInfo}
-		<input type="button" id="modifyBtn" name="modifyBtn" value="수정" >
-		<input type="password" id="password" name="password" placeholder=" 회원 비밀번호를 입력해주세요">
-		<input type="button" id="passwordConfirm" name="passwordConfirm" value="비밀번호 확인">
+		<div id="teamImg" style="display: inline-block;">
+			<img src="/ShootBoy/showImage?teamId=${userInfo.teamId}" 
+					style="width: 300px; height: 300px; padding-top: 20px;
+					border-radius: 150px;">
+		</div>	
+		<div id="teamDetailContainer" style="display: inline-block; width: 400px; 
+				vertical-align: top; margin-left: 50px; padding-top: 20px;">
+			<div class="teamName" style="font-size: 20px; padding-bottom: 10px">팀명 : ${userInfo.teamVO.teamName}</div>
+			<div class="teamCount" style="font-size: 20px; padding-bottom: 10px">팀원수 : ${userInfo.teamVO.teamCount}</div>
+			<div class="teamPoints" style="font-size: 20px; padding-bottom: 10px">팀 포인트 : ${userInfo.teamVO.teamPoint}</div>
+			<div class="teamCreatedDate" style="font-size: 20px; padding-bottom: 10px">팀 생성일 : ${userInfo.teamVO.createDate}</div>
+			<div class="teamLocation" style="font-size: 20px; padding-bottom: 10px">팀 지역 : ${teamInfo.locationVO.parentLocationName} - ${teamInfo.locationVO.locationName}</div>
+			<div class="teamInfo" style="font-size: 20px; padding-bottom: 10px">팀 설명 : ${userInfo.teamVO.teamInfo}</div>
+		</div>
+		<div id="teamModify" style=" float: right; margin-right: 100px;"><input type="button" id="modifyBtn" name="modifyBtn" value="수정" 
+				style="margin-top: 20px; width: 200px;" >
+		<div><input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요">
+			<input type="button" id="passwordConfirm" name="passwordConfirm" value="비밀번호 확인" style="margin-left: 30px;">
+		</div>
+		</div>
 		<div class="warning"></div>
 		</c:if>
+		<c:if test="${empty userInfo.teamId}">
+		<p style="font-size: 30px;">팀에 가입하지 않았습니다!</p>
+		</c:if>
 	</div>
-
-</body>
-</html>
+</div>
+	<div class="clear">
+	<div style="padding-top: 60px;">
+		<jsp:include page="/WEB-INF/view/commons/footer.jsp"></jsp:include>
+	</div>
+	</div>
