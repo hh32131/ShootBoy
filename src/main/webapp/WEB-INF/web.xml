@@ -246,4 +246,44 @@
     <servlet-name>ViewAdminPageServlet</servlet-name>
     <url-pattern>/admin</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewAdminMemberPageServlet</display-name>
+    <servlet-name>ViewAdminMemberPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.ViewAdminMemberPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewAdminMemberPageServlet</servlet-name>
+    <url-pattern>/adminMember</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewAdminTeamPageServlet</display-name>
+    <servlet-name>ViewAdminTeamPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.ViewAdminTeamPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewAdminTeamPageServlet</servlet-name>
+    <url-pattern>/adminTeam</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewAdminGamePageServlet</display-name>
+    <servlet-name>ViewAdminGamePageServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.ViewAdminGamePageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewAdminGamePageServlet</servlet-name>
+    <url-pattern>/adminGame</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewAdminArticlePageServlet</display-name>
+    <servlet-name>ViewAdminArticlePageServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.ViewAdminArticlePageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewAdminArticlePageServlet</servlet-name>
+    <url-pattern>/adminArticle</url-pattern>
+  </servlet-mapping>
 </web-app>
