@@ -1,7 +1,6 @@
 package net.Y5M2.admin.web;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,17 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.Y5M2.admin.biz.AdminBiz;
-import net.Y5M2.admin.biz.AdminBizImpl;
-import net.Y5M2.user.vo.UserVO;
-
-public class ViewAdminPageServlet extends HttpServlet {
+public class ViewAdminArticlePageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private AdminBiz adminBiz;
 
-	public ViewAdminPageServlet() {
-		super();
-		adminBiz = new AdminBizImpl();
+	public ViewAdminArticlePageServlet() {
 
 	}
 
@@ -31,11 +23,10 @@ public class ViewAdminPageServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String viewPath = "/WEB-INF/view/admin.jsp";
-		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
-		List<UserVO> users = adminBiz.getAllUser();
+		String viewPath = "/WEB-INF/view/adminArticle.jsp";
 
-		request.setAttribute("users", users);
+		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
+
 		rd.forward(request, response);
 	}
 
