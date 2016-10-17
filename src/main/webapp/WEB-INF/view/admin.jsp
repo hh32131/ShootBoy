@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<link rel="stylesheet" type="text/css" href="/ShootBoy/css/admin.css" />
+<link rel="stylesheet" type="text/css" href="/ShootBoy/css/adminMain.css" />
 
 	<jsp:include page="/WEB-INF/view/commons/adminHeader.jsp" />
 
@@ -8,7 +8,9 @@
 		<div class="page-title">
 			관리자 메인
 		</div>
+
 		<hr/>
+
 		<div class="container">
 			
 			<div class="sub-title">
@@ -66,7 +68,7 @@
 					</tbody>	
 				</table>
 				<div class="member-view">
-					<button class="viewbtn" a href="#">회원 전체보기</button>
+					<button class="viewbtn" onclick="location.href='/ShootBoy/adminMember'">회원 전체보기</button>
 					<br/>
 					<br/>
 				</div>
@@ -105,7 +107,7 @@
 					</tbody>	
 				</table>
 				<div class="game-view">
-					<button class="viewbtn" a href="#">팀 전체보기</button>
+					<button class="viewbtn" onclick="location.href='/ShootBoy/adminTeam'">팀 전체보기</button>
 					<br/>
 					<br/>
 				</div>
@@ -144,7 +146,7 @@
 					</tbody>	
 				</table>
 				<div class="game-view">
-					<button class="viewbtn" a href="#">경기 전체보기</button>
+					<button class="viewbtn" onclick="location.href='/ShootBoy/adminGame'">경기 전체보기</button>
 					<br/>
 					<br/>
 				</div>
@@ -178,7 +180,7 @@
 					</tbody>	
 				</table>
 				<div class="article-view">
-					<button class="viewbtn" a href="#">게시글 전체보기</button>
+					<button class="viewbtn" onclick="location.href='/ShootBoy/adminArticle'">게시글 전체보기</button>
 					<br/>
 				</div>
 			</div>
