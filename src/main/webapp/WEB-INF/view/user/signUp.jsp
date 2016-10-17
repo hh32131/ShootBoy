@@ -161,6 +161,10 @@
 
 		$("#signBtn").click(function() {
 
+			if($("#checkbox").checked == false) {
+				alert("가입약관에 동의하세요!");
+			}
+			
 			$("#signUpForm").attr({
 				"method" : "post",
 				"action" : "/ShootBoy/doSignUp"

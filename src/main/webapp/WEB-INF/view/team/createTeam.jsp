@@ -7,10 +7,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/layout.css">
+<link rel="stylesheet" type="text/css" href="/ShootBoy/css/page.css">
+
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		moveToCenter();
 		
 		$("#locationId").change(function(){
 			$.post("/ShootBoy/checkLocation",{"locationId": $("#locationId").val()}, function(data) {
@@ -24,7 +25,7 @@
 				closeWin();
 			}
 		});
-		$("#createBtn").click(function() {
+		$("#teamCreateBtn").click(function() {
 			if (confirm("생성하시겠습니까?")) {
 				$("#craeteTeamForm").attr({
 					"method" : "post",
@@ -36,24 +37,6 @@
 
 	});
 
-	$(window).resize(function() {
-		moveToCenter();
-	});
-
-
-	function moveToCenter() {
-
-		var windowHeight = $(window).height();
-		var wrapperHeight = $("#wrapper").height();
-		var middlePosition = (parseInt(windowHeight) / 2)
-				- (parseInt(wrapperHeight) / 2);
-
-		$("#wrapper").css({
-			"position" : "relative",
-			"top" : middlePosition + "px"
-		});
-
-	};
 	
 	function closeWin() {
 		close();
@@ -61,13 +44,13 @@
 </script>
 </head>
 <body>
-	<div id="wrapper" style="width: 350px;" >
-		<div><h1>CREATE TEAM</h1></div>
+	<div id="createTeamWrapper" style= "margin: 70px;">
+		<div class="createTeamText" style="color: #518cf0;"><h1>CREATE TEAM</h1></div>
 		<form id="craeteTeamForm" name="createTeamForm"	enctype="multipart/form-data" >
 			<div>
-				<div class="inline-block" style="border-style: groove; border-radius: 10px;">
+				<div class="inline-block" style="border-radius: 8px;">
 					<input type="text"
-						style=" width: 255px; height: 25px; border-radius: 10px;"
+						style=" width: 255px; height: 25px; border-radius: 8px;"
 						id="teamName" name="teamName" placeholder="팀명" />
 				</div>
 	
@@ -77,24 +60,24 @@
 						id="teamCount" name="teamCount" placeholder="팀원 수" />
 				</div>
 			</div>
-		<select id="locationId" name="locationId">
+		<select id="locationId" name="locationId" style="border-radius: 5px">
 			<option>거주 지역을 선택하세요</option>
 			<c:forEach items="${location}" var="location">
 				<option value="${location.locationId}">${location.locationName}</option>
 			</c:forEach>
 	 	</select>
-		<select name="leafLocation" id="leafLocation">
+		<select name="leafLocation" id="leafLocation" style="border-radius: 5px">
 			<option> 상세 지역을 선택하세요 </option>
 		</select>
 			<div style="height: 8px;"></div>
 			<div>
 				<textarea id="teamInfo" name="teamInfo"
-					style="width: 350px; height: 250px; border-radius: 10px;"
+					style="width: 350px; height: 250px; border-radius: 10px; font-size: 15px;"
 					placeholder="소개글을 입력하세요."></textarea>
 			</div>
-			<input type="file" id="file" name="file" style="width: 220px;" /> 
-			<input type="button" id="createBtn" name="createBtn" value="팀 생성" /> 
-			<input type="button" id="backBtn" name="backBtn" value="취소" />
+			<input type="file" id="file" name="file" style="width: 220px; back" /> 
+			<input type="button" id="teamCreateBtn" name="teamCreateBtn" value="팀 생성"/>			  
+			<input type="button" id="backBtn" name="backBtn" value="취소"/>
 		</form>
 	</div>
 </body>
