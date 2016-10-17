@@ -6,7 +6,7 @@ body {
 
 .header .top {
 	
-	background-color: #282828;
+	background-color: #222326;
 	
 }
 
@@ -173,4 +173,9 @@ li.dropdown {
 
 .viewbtn:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.home {
+	text-decoration: none;
+	color: black;
 }
