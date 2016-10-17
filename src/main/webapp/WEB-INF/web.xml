@@ -248,6 +248,7 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+<<<<<<< HEAD
     <display-name>DoShowImage</display-name>
     <servlet-name>DoShowImage</servlet-name>
     <servlet-class>net.Y5M2.team.web.DoShowImage</servlet-class>
@@ -265,5 +266,64 @@
   <servlet-mapping>
     <servlet-name>ViewTeamDetailPageServlet</servlet-name>
     <url-pattern>/teamDetail</url-pattern>
+=======
+    <display-name>DoLogOutServlet</display-name>
+    <servlet-name>DoLogOutServlet</servlet-name>
+    <servlet-class>net.Y5M2.user.web.DoLogOutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoLogOutServlet</servlet-name>
+    <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewUserModifyPageServlet</display-name>
+    <servlet-name>ViewUserModifyPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.user.web.ViewUserModifyPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewUserModifyPageServlet</servlet-name>
+    <url-pattern>/userModify</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoUserModifyServlet</display-name>
+    <servlet-name>DoUserModifyServlet</servlet-name>
+    <servlet-class>net.Y5M2.user.web.DoUserModifyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoUserModifyServlet</servlet-name>
+    <url-pattern>/doUserModify</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewDetailUserInfo</display-name>
+    <servlet-name>ViewDetailUserInfo</servlet-name>
+    <servlet-class>net.Y5M2.user.web.ViewDetailUserInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewDetailUserInfo</servlet-name>
+    <url-pattern>/detailUserInfo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewDetailTeamInfo</display-name>
+    <servlet-name>ViewDetailTeamInfo</servlet-name>
+    <servlet-class>net.Y5M2.team.web.ViewDetailTeamInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewDetailTeamInfo</servlet-name>
+    <url-pattern>/detailTeamInfo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewTeamInfoModify</display-name>
+    <servlet-name>ViewTeamInfoModify</servlet-name>
+    <servlet-class>net.Y5M2.team.web.ViewTeamInfoModify</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewTeamInfoModify</servlet-name>
+    <url-pattern>/teamModify</url-pattern>
+>>>>>>> bb807f7ab899674d008ea61ae9ab3c54b1d3b282
   </servlet-mapping>
 </web-app>

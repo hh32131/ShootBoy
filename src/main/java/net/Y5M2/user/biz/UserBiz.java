@@ -17,4 +17,7 @@ public interface UserBiz {
 	public UserVO findPassword(UserVO userVO);
 
 
+	public boolean userInfoModify(UserVO userInfo);
+
+
 }

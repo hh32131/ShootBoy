@@ -44,4 +44,41 @@ public class UserBizImpl implements UserBiz {
 		
 		return userDao.findPassword(userVO);
 	}
+	
+	@Override
+	public boolean userInfoModify(UserVO userInfo) {
+		UserVO originalUserInfo = userDao.getUserInfoForModify(userInfo);
+		
+		int modiUserCount = 6;
+		if(originalUserInfo.getPassword().equals(userInfo.getPassword())){
+			userInfo.setPassword(null);
+			modiUserCount--;
+		}
+		if(originalUserInfo.getUserName().equals(userInfo.getUserName())){
+			userInfo.setUserName(null);
+			modiUserCount--;
+		}
+		if(originalUserInfo.getPhoneNumber().equals(userInfo.getPhoneNumber())){
+			userInfo.setPhoneNumber(null);
+			modiUserCount--;
+		}
+		if(originalUserInfo.getAge().equals(userInfo.getAge())){
+			userInfo.setAge(null);
+			modiUserCount--;
+		}
+		if(originalUserInfo.getPosition().equals(userInfo.getPosition())){
+			userInfo.setPosition(null);
+			modiUserCount--;
+		}
+		if(originalUserInfo.getLocationId().equals(userInfo.getLocationId())){
+			userInfo.setLocationId(null);
+			modiUserCount--;
+		}
+		if(modiUserCount==0){
+			return true;
+		}
+		
+		return userDao.UpdateUserInfo(userInfo)>0;
+	}
+	
 }
