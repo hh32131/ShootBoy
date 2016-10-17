@@ -397,6 +397,7 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+<<<<<<< HEAD
     <display-name>DoModifyReplayServlet</display-name>
     <servlet-name>DoModifyReplayServlet</servlet-name>
     <servlet-class>net.Y5M2.replay.web.DoModifyReplayServlet</servlet-class>
@@ -414,5 +415,14 @@
   <servlet-mapping>
     <servlet-name>ViewModifyReply</servlet-name>
     <url-pattern>/modifyReply</url-pattern>
+=======
+    <display-name>DoModifyTeamInfo</display-name>
+    <servlet-name>DoModifyTeamInfo</servlet-name>
+    <servlet-class>net.Y5M2.team.web.DoModifyTeamInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoModifyTeamInfo</servlet-name>
+    <url-pattern>/doModifyTeamInfo</url-pattern>
+>>>>>>> ce1f537572787785d92cc312646ec82faa1850a7
   </servlet-mapping>
 </web-app>

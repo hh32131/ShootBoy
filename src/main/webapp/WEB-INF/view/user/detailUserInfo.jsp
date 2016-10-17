@@ -6,62 +6,49 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/layout.css" >
-
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
 	$().ready(function(){
 		$("#password").hide();
 		$("#passwordConfirm").hide();
 		
-		$("#modifyBtn").click(function(){ 
+		$("#modifyBtn").click(function(){
 			$("#password").show();
 			$("#passwordConfirm").show();
 			
 			$("#passwordConfirm").click(function(){
 				
 			if($("#password").val()=="${userInfo.password}"){
-				location.href="/ShootBoy/teamModify";
+				location.href="/ShootBoy/userModify";
 			}
 			else{
 				$("div.warning").html("<p>비밀번호가 틀렸습니다.</p>")
 			}
-
 			});
+			
+			
+			
 		});
 	});
-		
 </script>
 </head>
 <body>
-	<div id="teamDetailwrapper" >
+	<div id="wrapper" >
+		이름 : ${userInfo.userName}
+		전화번호 : ${userInfo.phoneNumber}
+		나이 : ${userInfo.age}
+		포지션 : ${userInfo.position}
+		가입일: ${userInfo.createDate}
+		지역 : ${userInfo.locationVO.parentLocationName}-${userInfo.locationVO.locationName}
 		<c:if test="${!empty userInfo.teamId}">
-<<<<<<< HEAD
-
-
-		<img src="/ShootBoy/showImge?teamPhoto=${userInfo.temaId}">
-		<h3>${userInfo.teamVO.teamName}</h3>
-
-		팀원수 : ${userInfo.temaVO.teamCount}
-		팀 포인트 : ${userInfo.teamVO.teamPoint}
-		팀 생성일 : ${userInfo.teamVO.createDate}
-		팀 지역 : ${userInfo.teamVO.locationVO.parentLocationName}-${userInfo.teamVO.locationVO.locationName}
-		팀 설명 : ${userInfo.teamVO.teamInfo}
-=======
-		<img src="/ShootBoy/showImage?teamId=${userInfo.teamId}">
-			팀명 : ${userInfo.teamVO.teamName}
-			팀원수 : ${userInfo.teamVO.teamCount}
-			팀 포인트 : ${userInfo.teamVO.teamPoint}
-			팀 생성일 : ${userInfo.teamVO.createDate}
-			팀 지역 : ${teamInfo.locationVO.parentLocationName}-${teamInfo.locationVO.locationName}
-			팀 설명 : ${userInfo.teamVO.teamInfo}
+		팀 : ${userInfo.teamVO.teamName}
 		</c:if>
->>>>>>> ce1f537572787785d92cc312646ec82faa1850a7
 		<input type="button" id="modifyBtn" name="modifyBtn" value="수정" >
-		<input type="password" id="password" name="password" placeholder=" 회원 비밀번호를 입력해주세요">
+		<input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요">
 		<input type="button" id="passwordConfirm" name="passwordConfirm" value="비밀번호 확인">
 		<div class="warning"></div>
-		</c:if>
 	</div>
+	
 
 </body>
 </html>

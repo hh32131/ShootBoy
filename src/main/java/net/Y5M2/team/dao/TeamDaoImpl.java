@@ -167,5 +167,66 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 			}
 		});
 	}
+	
+	@Override
+	public TeamVO getTeamInfoForUpdate(String teamName) {
 
+		return (TeamVO) selectOne(new QueryAndResult() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				StringBuffer query = new StringBuffer();
+				query.append(" SELECT	T.TEAM_ID ");
+				query.append(" 			, T.TEAM_CNT ");
+				query.append(" 			, T.TEAM_NM ");
+				query.append(" 			, T.TEAM_PHOTO ");
+				query.append(" 			, T.CRT_DT ");
+				query.append(" 			, T.TEAM_POINT ");
+				query.append(" 			, T.LTST_MODY_DT ");
+				query.append(" 			, T.TEAM_INFO ");
+				query.append(" 			, L.LCTN_ID ");
+				query.append(" 			, L.LCTN_NM ");
+				query.append(" 			, L.PRNT_LCTN_ID ");
+				query.append(" 			, L.PRNT_LCTN_NM ");
+				query.append(" FROM		TEAM T ");
+				query.append(" 			, LCTN L ");
+				query.append(" WHERE	T.LCTN_ID = L.LCTN_ID ");
+				query.append(" AND	T.TEAM_NM = ? ");
+				
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				pstmt.setString(1, teamName);
+				
+				return pstmt;
+				
+			}
+			
+			@Override
+			public Object makeObject(ResultSet rs) throws SQLException {
+				TeamVO team = null;
+				LocationVO location = null;
+				if( rs.next() ) {
+
+					team = new TeamVO();
+					team.setTeamId(rs.getString("TEAM_ID"));	
+					team.setTeamCount(rs.getInt("TEAM_CNT"));	
+					team.setTeamName(rs.getString("TEAM_NM"));
+					team.setTeamPhoto(rs.getString("TEAM_PHOTO"));
+					team.setCreateDate(rs.getString("CRT_DT"));
+					team.setTeamPoint(rs.getInt("TEAM_POINT"));
+					team.setLatestModifyDate(rs.getString("LTST_MODY_DT"));
+					team.setTeamInfo(rs.getString("TEAM_INFO"));
+					
+					location = team.getLocationVO();
+					location.setLocationId(rs.getString("LCTN_ID"));
+					location.setLocationName(rs.getString("LCTN_NM"));
+					location.setParentLocationId(rs.getString("PRNT_LCTN_ID"));
+					location.setParentLocationName(rs.getString("PRNT_LCTN_NM"));
+					
+				}
+				
+				return team;
+			}
+		});
+	}
+	
 }
