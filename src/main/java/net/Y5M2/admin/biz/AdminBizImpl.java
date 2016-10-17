@@ -1,5 +1,6 @@
 package net.Y5M2.admin.biz;
 
+<<<<<<< HEAD
 import java.util.List;
 
 import net.Y5M2.user.dao.UserDao;
@@ -19,4 +20,8 @@ public class AdminBizImpl implements AdminBiz {
 		
 		return userDao.getUserListOf();
 	}
+=======
+public class AdminBizImpl implements AdimBiz {
+
+>>>>>>> 4bd2750d751a25eec6674f3b7966c0d7f850a8fe
 }

@@ -103,7 +103,7 @@ public class ReplayDaoImpl extends DaoSupport implements ReplayDao{
 	}
 
 	@Override
-	public int replayHitCount() {
+	public int replayHitCount(int hitCount) {
 		return insert(new Query() {
 			
 			@Override
@@ -111,9 +111,10 @@ public class ReplayDaoImpl extends DaoSupport implements ReplayDao{
 				StringBuffer query = new StringBuffer();
 				
 				query.append(" UPDATE	BOARD ");
-				query.append(" SET		REPLY_HIT_CNT = REPLY_HIT_CNT + 1 ");
+				query.append(" SET		REPLY_HIT_CNT = REPLY_HIT_CNT + ? ");
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				pstmt.setInt(1, hitCount);
 				return pstmt;
 			}
 		});
@@ -155,6 +156,28 @@ public class ReplayDaoImpl extends DaoSupport implements ReplayDao{
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				pstmt.setString(1, replayId);
+				return pstmt;
+			}
+		});
+	}
+
+	@Override
+	public int replayModify(ReplayVO replays) {
+		return insert(new Query() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				
+				StringBuffer query = new StringBuffer();
+				
+				query.append(" UPDATE 	REPLY ");
+				query.append(" SET		LTST_MODY_DT = SYSDATE ");
+				query.append(" 			, REPLY_CONT = ? ");
+				query.append(" WHERE	REPLY_ID = ? ");
+				
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				pstmt.setString(1, replays.getReplayContent());
+				pstmt.setString(2, replays.getReplayId());
 				return pstmt;
 			}
 		});

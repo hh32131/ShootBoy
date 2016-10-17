@@ -280,7 +280,10 @@
 	</servlet-mapping>
 	<servlet>
 		<description></description>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4bd2750d751a25eec6674f3b7966c0d7f850a8fe
 		<display-name>ViewAdminPageServlet</display-name>
 		<servlet-name>ViewAdminPageServlet</servlet-name>
 		<servlet-class>net.Y5M2.admin.web.ViewAdminPageServlet</servlet-class>
@@ -291,6 +294,10 @@
 	</servlet-mapping>
 	<servlet>
 		<description></description>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4bd2750d751a25eec6674f3b7966c0d7f850a8fe
 		<display-name>DoDeleteReplayServlet</display-name>
 		<servlet-name>DoDeleteReplayServlet</servlet-name>
 		<servlet-class>net.Y5M2.replay.web.DoDeleteReplayServlet</servlet-class>
@@ -317,6 +324,58 @@
 	<servlet-mapping>
 		<servlet-name>DoUserModifyServlet</servlet-name>
 		<url-pattern>/doUserModify</url-pattern>
+<<<<<<< HEAD
+=======
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>DoModifyReplayServlet</display-name>
+		<servlet-name>DoModifyReplayServlet</servlet-name>
+		<servlet-class>net.Y5M2.replay.web.DoModifyReplayServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DoModifyReplayServlet</servlet-name>
+		<url-pattern>/doModify</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<display-name>ViewAdminMemberPageServlet</display-name>
+		<servlet-name>ViewAdminMemberPageServlet</servlet-name>
+		<servlet-class>net.Y5M2.admin.web.ViewAdminMemberPageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ViewAdminMemberPageServlet</servlet-name>
+		<url-pattern>/adminMember</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>ViewAdminTeamPageServlet</display-name>
+		<servlet-name>ViewAdminTeamPageServlet</servlet-name>
+		<servlet-class>net.Y5M2.admin.web.ViewAdminTeamPageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ViewAdminTeamPageServlet</servlet-name>
+		<url-pattern>/adminTeam</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>ViewAdminGamePageServlet</display-name>
+		<servlet-name>ViewAdminGamePageServlet</servlet-name>
+		<servlet-class>net.Y5M2.admin.web.ViewAdminGamePageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ViewAdminGamePageServlet</servlet-name>
+		<url-pattern>/adminGame</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>ViewAdminArticlePageServlet</display-name>
+		<servlet-name>ViewAdminArticlePageServlet</servlet-name>
+		<servlet-class>net.Y5M2.admin.web.ViewAdminArticlePageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ViewAdminArticlePageServlet</servlet-name>
+		<url-pattern>/adminArticle</url-pattern>
+>>>>>>> 4bd2750d751a25eec6674f3b7966c0d7f850a8fe
 
 	</servlet-mapping>
 </web-app>

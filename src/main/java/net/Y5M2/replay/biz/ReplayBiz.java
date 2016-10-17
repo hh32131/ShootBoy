@@ -11,4 +11,6 @@ public interface ReplayBiz {
 	public List<ReplayVO> getListReplays(String boardId);
 	
 	public boolean deleteOneReplay(String replayId);
+	
+	public boolean replayModify(ReplayVO replays);
 }

@@ -1,4 +1,4 @@
-@CHARSET "EUC-KR";
+@CHARSET "UTF-8";
 
 body {
 	margin: 0 auto;
@@ -37,6 +37,13 @@ body {
 	padding-top: 1%;
 	display: inline-block;
 }
+
+.adminMain{
+	text-decoration: none;
+	color: #ebebeb;
+}
+
+
 
 .bottom {
 	font-size: 13px;
@@ -127,7 +134,7 @@ li.dropdown {
 .list-table table{
 	
 	border-collapse:collapse;
-	border:ridge 1px;
+	border: solid 1px lightgray;
 	width: 97%;
 	text-align: center;
 	margin: auto;
@@ -140,8 +147,9 @@ li.dropdown {
 	font-size: 14px;
 	font-weight: bold;
 }
+
 .list-table td  {
-	border: ridge 1px;
+	border: solid 1px lightgray;
 	
 }
 
@@ -161,7 +169,6 @@ li.dropdown {
     margin-right: 30px;
     margin-top: 15px;
     margin-bottom: 20px;
-    
 }
 
 .viewbtn:hover {
