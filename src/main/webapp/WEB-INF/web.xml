@@ -368,6 +368,5 @@
 	<servlet-mapping>
 		<servlet-name>ViewAdminArticlePageServlet</servlet-name>
 		<url-pattern>/adminArticle</url-pattern>
-
 	</servlet-mapping>
 </web-app>

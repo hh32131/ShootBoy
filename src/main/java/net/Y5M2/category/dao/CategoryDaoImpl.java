@@ -33,6 +33,7 @@ public class CategoryDaoImpl extends DaoSupport implements CategoryDao {
 				return pstmt;
 			}
 			
+			@SuppressWarnings("null")
 			@Override
 			public Object makeObject(ResultSet rs) throws SQLException {
 				
@@ -40,9 +41,9 @@ public class CategoryDaoImpl extends DaoSupport implements CategoryDao {
 				List<CategoryVO> categoryList = new ArrayList<CategoryVO>();
 				
 				while ( rs.next() ) {
-					category.setCategoryId(rs.getString(""));
-					category.setCategoryName(rs.getString(""));
-					category.setParentsCategoryId(rs.getString(""));
+					category.setCategoryId(rs.getString("CTGR_ID"));
+					category.setCategoryName(rs.getString("CTGR_NM"));
+					category.setParentsCategoryId(rs.getString("PRNT_CTGR_ID"));
 					
 					categoryList.add(category);
 				}

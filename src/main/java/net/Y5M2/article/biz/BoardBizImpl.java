@@ -23,7 +23,7 @@ public class BoardBizImpl implements BoardBiz{
 	}
 	
 	@Override
-	public BoardListVO getAllBoards(SearchBoardVO searchBoard) {
+	public BoardListVO getAllBoards(SearchBoardVO searchBoard, int categoryId) {
 		
 		int totalCount = boardDao.getCountOfBoards(searchBoard);
 		Pager pager = PagerFactory.getPager(true);
@@ -33,7 +33,7 @@ public class BoardBizImpl implements BoardBiz{
 		searchBoard.setStartRowNumber(pager.getStartArticleNumber());
 		searchBoard.setEndRowNumber(pager.getEndArticleNumber());
 		
-		List<BoardVO> boards = boardDao.getAllBoards(searchBoard);
+		List<BoardVO> boards = boardDao.getAllBoards(searchBoard, categoryId);
 		
 		BoardListVO boardList = new BoardListVO();
 		boardList.setPager(pager);

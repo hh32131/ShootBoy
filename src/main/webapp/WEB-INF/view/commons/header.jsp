@@ -63,27 +63,27 @@
 		<div id="headwrapper">
 			<div id="navi" class="inline">
 				<ul>
-					<li class="active"><a href="#?categoryId=${category.getCategoryId}">My page</a>
+					<li class="active"><a href="#">My page</a>
 						<ul>
-							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">내 정보</a></li>
-							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">팀 정보</a></li>
-							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">팀 매치 정보</a></li>
-							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">메시지함</a></li>
+							<li><a href="#">내 정보</a></li>
+							<li><a href="#">팀 정보</a></li>
+							<li><a href="#">팀 매치 정보</a></li>
+							<li><a href="#">메시지함</a></li>
 						</ul></li>
 
-					<li><a href="#?categoryId=${category.getCategoryId}">Match</a>
+					<li><a href="#">Match</a>
 						<ul>
-							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">매치보드</a></li>
-							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">매치신청</a></li>
-							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">매치 신청 관리</a></li>
+							<li><a href="#">매치보드</a></li>
+							<li><a href="#">매치신청</a></li>
+							<li><a href="#">매치 신청 관리</a></li>
 						</ul></li>
 
-					<li><a href="#?categoryId=${category.getCategoryId}">Team</a>
+					<li><a href="#">Team</a>
 						<ul>
-							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentCategoryId}">전체 팀 보기</a></li>
+							<li><a href="#">전체 팀 보기</a></li>
 						</ul></li>
 
-					<li><a href="#?categoryId=${category.getCategoryId}">Community</a>
+					<li><a href="#">Community</a>
 						<ul>
 							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">공지사항</a></li>
 							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">가입인사</a></li>

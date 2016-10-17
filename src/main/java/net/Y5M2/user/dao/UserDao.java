@@ -9,11 +9,11 @@ public interface UserDao {
 	public int signUpUser(UserVO userVO);
 
 	public int isExsist(String email);
+	
 	public UserVO getUserBy(UserVO userVO);
 
 	public UserVO findPassword(UserVO userVO);
 	
 	public List<UserVO> getUserListOf();
-
 
 }
