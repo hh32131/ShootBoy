@@ -393,7 +393,8 @@ return (UserVO) selectOne(new QueryAndResult() {
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				pstmt.setString(1, teamVO.getTeamId());
 				pstmt.setString(2, userInfo.getUserId());
-				return null;
+				
+				return pstmt;
 			}
 		});
 	}

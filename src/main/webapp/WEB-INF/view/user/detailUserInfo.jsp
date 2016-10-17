@@ -18,7 +18,7 @@
 			
 			$("#passwordConfirm").click(function(){
 				
-			if($("#password").val()==${userInfo.password}){
+			if($("#password").val()=="${userInfo.password}"){
 				location.href="/ShootBoy/userModify";
 			}
 			else{

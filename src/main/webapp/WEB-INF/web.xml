@@ -326,4 +326,14 @@
     <servlet-name>ViewTeamInfoModify</servlet-name>
     <url-pattern>/teamModify</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoModifyTeamInfo</display-name>
+    <servlet-name>DoModifyTeamInfo</servlet-name>
+    <servlet-class>net.Y5M2.team.web.DoModifyTeamInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoModifyTeamInfo</servlet-name>
+    <url-pattern>/doModifyTeamInfo</url-pattern>
+  </servlet-mapping>
 </web-app>

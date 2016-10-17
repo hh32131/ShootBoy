@@ -12,35 +12,37 @@
 		$("#password").hide();
 		$("#passwordConfirm").hide();
 		
-		$("#modifyBtn").click(function(){
+		$("#modifyBtn").click(function(){ 
 			$("#password").show();
 			$("#passwordConfirm").show();
 			
 			$("#passwordConfirm").click(function(){
 				
-			if($("#password").val()==${userInfo.password}){
+			if($("#password").val()=="${userInfo.password}"){
 				location.href="/ShootBoy/teamModify";
 			}
 			else{
 				$("div.warning").html("<p>비밀번호가 틀렸습니다.</p>")
 			}
 			});
+		});
 	});
+		
 </script>
 </head>
 <body>
 	<div id="wrapper" >
 		<c:if test="${!empty userInfo.teamId}">
-		<img src="/ShootBoy/showImge?teamId=${userInfo.temaId}">
-		팀명 : ${userInfo.teamVO.teamName}
-		팀원수 : ${userInfo.temaVO.teamCount}
-		팀 포인트 : ${userInfo.teamVO.teamPoint}
-		팀 생성일 : ${userInfo.teamVO.createDate}
-		팀 지역 : ${userInfo.teamVO.locationVO.parentLocationName}-${userInfo.teamVO.locationVO.locationName}
-		팀 설명 : ${userInfo.teamVO.teamInfo}
+		<img src="/ShootBoy/showImage?teamId=${userInfo.teamId}">
+			팀명 : ${userInfo.teamVO.teamName}
+			팀원수 : ${userInfo.teamVO.teamCount}
+			팀 포인트 : ${userInfo.teamVO.teamPoint}
+			팀 생성일 : ${userInfo.teamVO.createDate}
+			팀 지역 : ${teamInfo.locationVO.parentLocationName}-${teamInfo.locationVO.locationName}
+			팀 설명 : ${userInfo.teamVO.teamInfo}
 		</c:if>
 		<input type="button" id="modifyBtn" name="modifyBtn" value="수정" >
-		<input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요">
+		<input type="password" id="password" name="password" placeholder=" 회원 비밀번호를 입력해주세요">
 		<input type="button" id="passwordConfirm" name="passwordConfirm" value="비밀번호 확인">
 		<div class="warning"></div>
 	</div>

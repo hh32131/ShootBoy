@@ -33,7 +33,7 @@
 	};
 
 	function openWin() {
-		window.open("http://localhost:8080/ShootBoy/createTeam", "",
+		window.open("/ShootBoy/createTeam", "",
 				"width=900, height= 600");
 	}
 </script>
@@ -41,7 +41,6 @@
 
 <body>
 
-	<button onclick="openWin()">팀생성하기</button>
 	<div id="wrapper" style="width: 700px;">
 		<table>
 			<tr>
@@ -71,6 +70,7 @@
 					</c:forEach>
 				</c:if> --%>
 			</tr>
+	<button onclick="openWin()">팀생성하기</button>
 		</table>
 	</div>
 
