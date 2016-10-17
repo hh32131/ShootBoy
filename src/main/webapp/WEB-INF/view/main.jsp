@@ -57,16 +57,10 @@
 			}).submit();
 		});
 	});
-<<<<<<< HEAD
-	function openWin() {
-		window.open("http://localhost:8080/ShootBoy/createTeam", "",
-				"width=900, height= 600");
-=======
-	
+
 	function openWin() {
 		window.open("http://localhost:8080/ShootBoy/createTeam", "",
 				"width=500, height= 600");
->>>>>>> 51c86f315232a44220670953122bbed50b630bff
 	}
 </script>
 
@@ -188,63 +182,7 @@
 					<td colspan="4">adfasdfasdfasdfsfda<br/>adfasdfasdfasdf</td>
 				</tr>
 			</table>
-<<<<<<< HEAD
-		</div>
-		<c:choose>
-			<c:when test="${empty sessionScope._USER_INFO_}">
-				<div class="login">
-					<div class="loginHeader"
-						style="font-weight: bold; font-size: 20px;">로그인</div>
-					<div class="sublogin">
-						<form id="signInForm" name="signInForm">
-							<div class="loginContent">
-								<div>
-									<input type="text" id="userEmail" name="userEmail"
-										placeholder="Id" />
-								</div>
-								<div>
-									<input type="password" id="password" name="password"
-										placeholder="password" />
-								</div>
-							</div>
-						</form>
-						<div class="joinButton">
-							<input type="button" id="signInBtn" value="로그인" />
-						</div>
-					</div>
-					<div>
-						<a href="/ShootBoy/signUp">회원가입</a> | 
-						<a href="/ShootBoy/passwordFind">비밀번호 찾기</a>
-					</div>
-				</div>
-			</c:when>
-			<c:otherwise>
-				<div class="login">
-					<div class="loginHeader"
-						style="font-weight: bold; font-size: 20px;">환영합니다</div>
-					<div class="sublogin">
-						<form id="informForm" name="informForm">
-							<div class="loginContent">
-								<div>${sessionScope._USER_INFO_.userName} 님</div>
-								<div>${sessionScope._USER_INFO_.age}</div>
-								<div>${sessionScope._USER_INFO_.position}</div>
-							</div>
-						</form>
-						<div class="teamCreateButton">
-							<button onclick="openWin()">팀생성</button>
-						</div>
-						<div class="OutButton">
-							<input type="button" id="signOutBtn" value="로그아웃" onclick="location.href='/ShootBoy/logout'"/>
-						</div>
-					</div>
-				</div>
 
-
-				
-			</c:otherwise>
-		</c:choose>
-=======
->>>>>>> 51c86f315232a44220670953122bbed50b630bff
 	</div>
 	
 	<div id="naviBoard">

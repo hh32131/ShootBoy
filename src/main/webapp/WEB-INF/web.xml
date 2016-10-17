@@ -266,7 +266,6 @@
     <servlet-name>ViewTeamDetailPageServlet</servlet-name>
     <url-pattern>/teamDetail</url-pattern>
   </servlet-mapping>
-<<<<<<< HEAD
   <servlet>
     <description></description>
     <display-name>ViewReplayPageServlet</display-name>
@@ -277,8 +276,6 @@
     <servlet-name>ViewReplayPageServlet</servlet-name>
     <url-pattern>/replay</url-pattern>
   </servlet-mapping>
-=======
->>>>>>> 51c86f315232a44220670953122bbed50b630bff
   <servlet>
     <description></description>
     <display-name>CheckReplayList</display-name>
@@ -300,7 +297,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-<<<<<<< HEAD
     <display-name>ViewAdminPageServlet</display-name>
     <servlet-name>ViewAdminPageServlet</servlet-name>
     <servlet-class>net.Y5M2.admin.web.ViewAdminPageServlet</servlet-class>
@@ -320,7 +316,7 @@
     <url-pattern>/replayDelete</url-pattern>
   </servlet-mapping>
   <servlet>
-=======
+    <description></description>
     <display-name>ViewUserInfoPageServlet</display-name>
     <servlet-name>ViewUserInfoPageServlet</servlet-name>
     <servlet-class>net.Y5M2.user.web.ViewUserInfoPageServlet</servlet-class>
@@ -361,7 +357,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
->>>>>>> 51c86f315232a44220670953122bbed50b630bff
     <display-name>ViewUserModifyPageServlet</display-name>
     <servlet-name>ViewUserModifyPageServlet</servlet-name>
     <servlet-class>net.Y5M2.user.web.ViewUserModifyPageServlet</servlet-class>

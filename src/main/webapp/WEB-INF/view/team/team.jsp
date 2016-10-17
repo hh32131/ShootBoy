@@ -14,7 +14,6 @@
 
 	$().ready(function(){
 		$(".imgBtn").click(function(){
-<<<<<<< HEAD
 			var teamid = $(this).data("teamid");
 			
 		window.open("/ShootBoy/teamDetail?teamId="+ teamid,"","width=400, height= 400"); 
@@ -22,48 +21,13 @@
 		
 	});
 
-	function moveToCenter() {
-
-		var windowHeight = $(window).height();
-		var wrapperHeight = $("#wrapper").height();
-		var middlePosition = (parseInt(windowHeight) / 2)
-				- (parseInt(wrapperHeight) / 2);
-		$("#wrapper").css({
-			"position" : "relative",
-			"top" : middlePosition + "px"
-		});
-	};
-
-=======
-			window.open("/ShootBoy/teamDetail?teamId="+$(".url").val(),"","width=400, height= 400");
-		});	
-	});
-
->>>>>>> 51c86f315232a44220670953122bbed50b630bff
 	function openWin() {
 		window.open("http://localhost:8080/ShootBoy/createTeam", "",
 				"width=500px, height= 600");
 	}
 	
 </script>
-<<<<<<< HEAD
-</head>
 
-<body>
-
-	<div id="wrapper" style="width: 700px;">
-	<div><button onclick="openWin()">팀생성하기</button></div>
-		<table>
-			<tr>
-				<c:forEach items="${team}" var="team" varStatus="j">
-					<c:if test="${ j.index gt 0 && j.index % 5 eq 0 }">
-						</tr><tr>
-					</c:if>
-					
-					<td align="center" class="teamtd">
-						<div class="teamPhoto double">
-							<span><a href="javascript:void(0);" class="imgBtn" data-teamid="${team.teamId}"><img class="teamPhoto"	src="/ShootBoy/showImage?teamId=${team.teamId}" /></a></span>
-=======
 <div id="allTeamLeftMenu">
 		<div class="allTeamTitle">Team</div>
 		<div id="allTeamLeftMenuTwo">
@@ -76,14 +40,13 @@
 	<div id="allTeamWrapper" style="width: 700px; margin-left: 250px;">
 		<table>
 			<tr>
-				<c:forEach items="${teams}" var="teams" varStatus="j">
+				<c:forEach items="${team}" var="team" varStatus="j">
 					<c:if test="${ j.index gt 0 && j.index % 5 eq 0 }"><tr></tr></c:if>
 			
 					<td align="center" class="teamtd">
 						<div class="teamPhoto double">
-							<input type="hidden" class="url" name="url" value="${teams.teamId}" >
-							<span><a href="javascript:void(0);" class="imgBtn"><img class="teamPhoto" src="/ShootBoy/showImage?teamId=${teams.teamId}" /></a></span>
->>>>>>> 51c86f315232a44220670953122bbed50b630bff
+							<input type="hidden" class="url" name="url" value="${team.teamId}" >
+							<span><a href="javascript:void(0);" class="imgBtn" data-teamid="${team.teamId}"><img class="teamPhoto"	src="/ShootBoy/showImage?teamId=${team.teamId}" /></a></span>
 						</div>
 						<div>${team.teamName}</div>
 						<div>${team.teamCount}</div>
