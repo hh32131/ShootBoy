@@ -19,10 +19,6 @@ body {
 	width: 1150px;
 	padding-top: 20px;
 	margin: 0 auto;
-	scrollbar-face-color:#f6f6f6; scrollbar-highlight-color:#ffffff; 
-	scrollbar-3dlight-color:#c2c2c2;
-	scrollbar-shadow-color:#f6f6f6; scrollbar-darkshadow-color:#c2c2c2; 
-	scrollbar-track-color:#e1e3e3; scrollbar-arrow-color:#c2c2c2;
 }
 
 .headerImg {
@@ -41,19 +37,17 @@ a:HOVER {
 	color: #4e6bf8;
 }
 
-.mainImg{
+.cycle-slideshow {
 	width: 900px;
-	height: 247px;
+	height: 299px;
 	border-radius: 4px 4px 4px 4px;
 	display: inline-block;
 	vertical-align:top;
 	overflow: hidden;
-	position: relative;
-}
-
-.mainImgOne {
-	display:none;
-	width:100%
+	margin-left: 3px;
+	position:relative;
+	z-index: 1;
+	
 }
 
 #headwrapper {
@@ -79,13 +73,15 @@ h1 {
 
 /* 메인화면 상단 네비 */
 #navi {
+	position:relative;
 	display: inline-block;
+	z-index: 2;
 }
 
 #navi, #navi ul, #navi ul li, #navi ul li a {
 	margin: 0;
 	padding: 0;
-	line-height: 3;
+	line-height: 4;
 }
 
 #navi > ul {
@@ -114,22 +110,17 @@ h1 {
 	background: #0080ff;
 }
 
-#navi li a:hover {
-	background-color: #555;
-	color: white;
-}
-
 .inline-block{
 	display: inline-block;
 }
 
 
 #navi > ul li:FIRST-CHILD > a {
-	border-radius: 4px 4px 4px 4px;
+	border-radius: 4px 4px 0 0;
 }
 
 #navi > ul li:LAST-CHILD > a {
-	border-radius: 4px 4px 4px 4px;
+	border-radius: 0 0 4px 4px;
 	border-bottom: 0;
 }
 
@@ -171,7 +162,7 @@ h1 {
 	top: -10000px;
 	padding-left: 5px;
 	opacity: 0;
-	width: 150px;
+	width: 130px;
 	list-style: none;
 	transition : opacity 0.3s ease-in;
 	transition : opacity 0.3s ease-in;

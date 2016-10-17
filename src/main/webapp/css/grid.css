@@ -82,37 +82,3 @@
 	margin-left: 50px;
 	float: right;
 }
-
-#myPageLeftMenu {
-	font-size: 30px;
-	padding:30px;
-	width: 150px;
-	
-}
-
-#myPageLeftMenuTwo {
-	border-top: none;
-	border-right:4px solid #1377c8;
-	border-left:4px solid #1377c8;
-	border-bottom:4px solid #1377c8;
-	border-radius: 0 0 4px 4px;
-}
-
-.mplmTitle {
-	text-align:left;
-	color:#f0eeec;
-	font-size: 30px;
-	background-color: #1377c8;
-	border-radius: 4px 4px 0 0;
-}
-
-.mplmOne, .mplmTwo, .mplmThree, .mplmFour {
-	font-size: 20px;
-	padding: 10px;
-}
-
-.arrow {
-	vertical-align:middle;
-	width: 40px;
-	height: 30px;
-}
