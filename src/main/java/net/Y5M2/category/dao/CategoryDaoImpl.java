@@ -27,6 +27,7 @@ public class CategoryDaoImpl extends DaoSupport implements CategoryDao {
 				query.append(" 			, CTGR_NM ");
 				query.append(" 			, PRNT_CTGR_ID ");
 				query.append(" FROM		CTGR ");
+				query.append(" WHERE	PRNT_CTGR_ID = 0 ");
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				
@@ -41,6 +42,7 @@ public class CategoryDaoImpl extends DaoSupport implements CategoryDao {
 				List<CategoryVO> categoryList = new ArrayList<CategoryVO>();
 				
 				while ( rs.next() ) {
+					
 					category.setCategoryId(rs.getString("CTGR_ID"));
 					category.setCategoryName(rs.getString("CTGR_NM"));
 					category.setParentsCategoryId(rs.getString("PRNT_CTGR_ID"));
