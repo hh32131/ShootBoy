@@ -248,7 +248,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-<<<<<<< HEAD
     <display-name>DoShowImage</display-name>
     <servlet-name>DoShowImage</servlet-name>
     <servlet-class>net.Y5M2.team.web.DoShowImage</servlet-class>
@@ -266,7 +265,9 @@
   <servlet-mapping>
     <servlet-name>ViewTeamDetailPageServlet</servlet-name>
     <url-pattern>/teamDetail</url-pattern>
-=======
+      </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>DoLogOutServlet</display-name>
     <servlet-name>DoLogOutServlet</servlet-name>
     <servlet-class>net.Y5M2.user.web.DoLogOutServlet</servlet-class>
@@ -324,6 +325,5 @@
   <servlet-mapping>
     <servlet-name>ViewTeamInfoModify</servlet-name>
     <url-pattern>/teamModify</url-pattern>
->>>>>>> bb807f7ab899674d008ea61ae9ab3c54b1d3b282
   </servlet-mapping>
 </web-app>
