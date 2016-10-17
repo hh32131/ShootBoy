@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/adminPage.css" />
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/checkbox.css" />
 	<jsp:include page="/WEB-INF/view/commons/adminHeader.jsp" />
@@ -61,6 +62,7 @@
 						</tr>	
 					</thead>
 					<tbody>
+							<c:forEach items="${users}" var="users">
 						<tr>	
 							<td class="td_check">
 								<div class="checks">
@@ -68,17 +70,18 @@
 									<label for="select-check"></label>
 								</div>
 							</td>
-							<td class="td_userId"> n2350 </td>
+							<td class="td_userId"> ${users.userName} </td>
 							<td class="td_userName"> 남재현 </td>
 							<td class="td_userEmail"> n2350@naver.com </td>
-							<td class="td_userPhone"> 010-1234-5678 </td>
-							<td class="td_userAge"> 30 </td>
-							<td class="td_userPosition"> 골기퍼 </td>
-							<td class="td_userLocation"> 경기 </td>
-							<td class="td_userTeam"> 코스모스 </td>
-							<td class="td_userGrade"> 회원 </td>
-							<td class="td_userJoindate"> 2016-10-17 </td>
+							<td class="td_userPhone"> ${users.phoneNumber}
+							<td class="td_userPosition"> ${users.position} </td>
+							<td class="td_userLocation"> ${users.locationVO.parentLocationName} </td>
+							<td class="td_userTeam"> ${users.teamVO.teamName} </td>
+							<td class="td_userGrade"> ${users.levelVO.levelName} </td>
+							<td class="td_userJoindate"> ${users.createDate} </td>
+						
 						</tr>
+							</c:forEach>
 					</tbody>
 				</table>
 			</div>

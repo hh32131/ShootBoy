@@ -58,7 +58,7 @@ public class ViewListPageServlet extends HttpServlet {
 		}
 
 		session.setAttribute(Session.SEARCH_INFO, searchBoard);
-		BoardListVO boards = boardBiz.getAllBoards(searchBoard, categoryId);
+		BoardListVO boards = boardBiz.getAllBoards(searchBoard);
 
 		String viewPath = "/WEB-INF/view/board/list.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);

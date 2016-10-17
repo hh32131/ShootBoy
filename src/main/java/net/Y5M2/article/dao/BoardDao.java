@@ -7,7 +7,7 @@ import net.Y5M2.article.vo.SearchBoardVO;
 
 public interface BoardDao {
 
-	public List<BoardVO> getAllBoards(SearchBoardVO searchBoard, int categoryId);
+	public List<BoardVO> getAllBoards(SearchBoardVO searchBoard);
 	
 	public int getCountOfBoards(SearchBoardVO searchBoard);
 	

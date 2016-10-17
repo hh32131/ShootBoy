@@ -18,7 +18,7 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<BoardVO> getAllBoards(SearchBoardVO searchBoard, int categoryId) {
+	public List<BoardVO> getAllBoards(SearchBoardVO searchBoard) {
 		return selectList(new QueryAndResult() {
 			
 			@Override
@@ -39,7 +39,6 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				query.append(" FROM		BOARD B ");
 				query.append(" 			, USR U ");
 				query.append(" WHERE	B.USR_ID = U.USR_ID ");
-				query.append(" AND		, B.CTGR_ID = ? ");
 				
 				if ( searchBoard.getSearchType() == 1 ) {
 					query.append(" AND	( B.BOARD_SBJ LIKE '%'|| ?|| '%' ");
@@ -60,7 +59,6 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				String pagingQuery = appendPagingQueryFormat(query.toString());
 				PreparedStatement pstmt = conn.prepareStatement(pagingQuery);
 				
-				pstmt.setInt(1, categoryId);
 				int index = 2;
 				if ( searchBoard.getSearchType() == 1 ) {
 					pstmt.setString(index++, searchBoard.getSearchKeyword());
