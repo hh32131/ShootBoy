@@ -14,7 +14,9 @@
 	$(document).ready(function() {
 		moveToCenter();
 		$(".imgBtn").click(function(){
-			window.open("/ShootBoy/teamDetail?teamId="+$(".url").val(),"","width=400, height= 400");
+			var teamid = $(this).data("teamid");
+			
+		window.open("/ShootBoy/teamDetail?teamId="+ teamid,"","width=400, height= 400"); 
 		});
 		
 	});
@@ -25,7 +27,6 @@
 		var wrapperHeight = $("#wrapper").height();
 		var middlePosition = (parseInt(windowHeight) / 2)
 				- (parseInt(wrapperHeight) / 2);
-
 		$("#wrapper").css({
 			"position" : "relative",
 			"top" : middlePosition + "px"
@@ -41,23 +42,22 @@
 
 <body>
 
-	<button onclick="openWin()">팀생성하기</button>
 	<div id="wrapper" style="width: 700px;">
+	<div><button onclick="openWin()">팀생성하기</button></div>
 		<table>
 			<tr>
-				<c:forEach items="${teams}" var="teams" varStatus="j">
+				<c:forEach items="${team}" var="team" varStatus="j">
 					<c:if test="${ j.index gt 0 && j.index % 5 eq 0 }">
 						</tr><tr>
 					</c:if>
 					
 					<td align="center" class="teamtd">
 						<div class="teamPhoto double">
-							<input type="hidden" class="url" name="url" value="${teams.teamId}" >
-							<span><a href="javascript:void(0);" class="imgBtn"><img class="teamPhoto"	src="/ShootBoy/showImage?teamId=${teams.teamId}" /></a></span>
+							<span><a href="javascript:void(0);" class="imgBtn" data-teamid="${team.teamId}"><img class="teamPhoto"	src="/ShootBoy/showImage?teamId=${team.teamId}" /></a></span>
 						</div>
-						<div>${teams.teamName}</div>
-						<div>${teams.teamCount}</div>
-						<div>${teams.locationVO.parentLocationName}-${teams.locationVO.locationName}</div>
+						<div>${team.teamName}</div>
+						<div>${team.teamCount}</div>
+						<div>${team.locationVO.parentLocationName}-${team.locationVO.locationName}</div>
 					</td>
 				</c:forEach>
 			<%-- 	<c:if test="${i % 5 gt 0}">

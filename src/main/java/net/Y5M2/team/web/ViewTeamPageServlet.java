@@ -30,13 +30,11 @@ public class ViewTeamPageServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		List<TeamVO> teams = teamBiz.getAllTeam();
 		List<TeamVO> team = teamBiz.getAllTeam();
 		
 		
 		String viewPath = "/WEB-INF/view/team/team.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
-		request.setAttribute("teams", teams);
 		request.setAttribute("team", team);
 		rd.forward(request, response);
 		

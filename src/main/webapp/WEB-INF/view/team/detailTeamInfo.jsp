@@ -21,14 +21,14 @@
 			$("div.warning").html("<p>비밀번호가 틀렸습니다.</p>").slideDown();
 			}
 			
-		});
+		})
 	});
 </script>
 </head>
 <body>
 	<div id="wrapper" >
 		<c:if test="${!empty userInfo.teamId}">
-		<img src="/ShootBoy/showImge?teamPhoto=${userInfo.temaId}">
+		<img src="/ShootBoy/showImge?teamPhoto=${userInfo.teamId}">
 		팀명 : ${userInfo.teamVO.teamName}
 		팀원수 : ${userInfo.temaVO.teamCount}
 		팀 포인트 : ${userInfo.teamVO.teamPoint}
