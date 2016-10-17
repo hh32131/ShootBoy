@@ -13,4 +13,6 @@ public interface ReplayBiz {
 	public boolean deleteOneReplay(String replayId);
 	
 	public boolean replayModify(ReplayVO replays);
+
+	public ReplayVO getReplyAt(String replyId);
 }

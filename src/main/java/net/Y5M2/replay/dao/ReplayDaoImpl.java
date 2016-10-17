@@ -63,6 +63,7 @@ public class ReplayDaoImpl extends DaoSupport implements ReplayDao{
 				query.append(" 			, USR U ");
 				query.append(" WHERE	R.USR_ID = U.USR_ID ");
 				query.append(" AND		BOARD_ID = ? ");
+				query.append(" ORDER BY CRT_DT");
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				pstmt.setString(1, boardId);
@@ -172,13 +173,75 @@ public class ReplayDaoImpl extends DaoSupport implements ReplayDao{
 				
 				query.append(" UPDATE 	REPLY ");
 				query.append(" SET		LTST_MODY_DT = SYSDATE ");
-				query.append(" 			, REPLY_CONT = ? ");
+				if(replays.getReplayContent() != null){
+					query.append(" 			, REPLY_CONT = ? ");
+				}
 				query.append(" WHERE	REPLY_ID = ? ");
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
-				pstmt.setString(1, replays.getReplayContent());
-				pstmt.setString(2, replays.getReplayId());
+				int index = 1;
+				if(replays.getReplayContent() != null){
+					pstmt.setString(index++, replays.getReplayContent());
+				}
+				
+				pstmt.setString(index++, replays.getReplayId());
 				return pstmt;
+			}
+		});
+	}
+	
+	@Override
+	public ReplayVO getReplyAt(String replyId) {
+
+		return (ReplayVO) selectOne(new QueryAndResult() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				StringBuffer query = new StringBuffer();
+				query.append(" SELECT	R.REPLY_ID ");
+				query.append(" 			, R.REPLY_CONT ");
+				query.append(" 			, R.BOARD_ID ");
+				query.append(" 			, R.USR_ID ");
+				query.append(" 			, U.USR_NM ");
+				query.append(" 			, TO_CHAR(R.CRT_DT, 'YYYY-MM-DD HH24:MI:SS') CRT_DT ");
+				query.append(" 			, TO_CHAR(R.LTST_MODY_DT, 'YYYY-MM-DD HH24:MI:SS') LTST_MODY_DT ");
+				query.append(" FROM		REPLY R ");
+				query.append(" 			, USR U ");
+				query.append(" WHERE	R.USR_ID = U.USR_ID ");
+				query.append(" AND		REPLY_ID = ? ");
+				query.append(" ORDER BY CRT_DT");
+				
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				pstmt.setString(1, replyId);
+			
+				return pstmt;
+			}
+			
+			@Override
+			public Object makeObject(ResultSet rs) throws SQLException {
+				ReplayVO replayVO = null;
+				BoardVO boardVO = null;
+				UserVO userVO = null;
+				
+				while( rs.next() ) {
+					replayVO = new ReplayVO();
+					
+					replayVO.setReplayId(rs.getString("REPLY_ID"));
+					replayVO.setReplayContent(rs.getString("REPLY_CONT"));
+					replayVO.setCreateDate(rs.getString("CRT_DT"));
+					replayVO.setLeastModifyDate(rs.getString("LTST_MODY_DT"));
+					
+					boardVO = replayVO.getBoardVO();
+					boardVO.setBoardId(rs.getString("BOARD_ID"));
+					
+					userVO = replayVO.getUserVO();
+					userVO.setUserId(rs.getString("USR_ID"));
+					userVO.setUserName(rs.getString("USR_NM"));
+					
+					
+				}
+				
+				return replayVO;
 			}
 		});
 	}

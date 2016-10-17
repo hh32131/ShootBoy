@@ -22,9 +22,9 @@
 			}
 		});
 		
-		$(".replayMoodifyBtn").click(function() {
-			var replyId = $(this).data("modify");
-			window.open("http://localhost:8080/ShootBoy/doModify", "",
+		$(".replayModifyBtn").click(function() {
+			var modify = $(this).data("modify");
+			window.open("/ShootBoy/modifyReply?replyId="+modify, "",
 						"width=900, height= 600");
 			
 		});
@@ -61,8 +61,10 @@
 			<div style="display: inline-block; width: 400px;">${replay.replayContent}</div>
 			<div style="display: inline-block;">${replay.userVO.userName}</div>
 			<div style="display: inline-block;">${replay.createDate}</div>
+				<c:if test="${sessionScope._USER_INFO_.userId eq replay.userVO.userId}">
 			<a href="javascript:void(0);" class="replayDeleteBtn" data-replyid="${replay.replayId}" style="font-size: 11px;" >삭제</a>
-			<a href="javascript:void(0);" class="replayMoodifyBtn" data-modify="${replay.replayId}" style="font-size: 11px;" >수정</a>
+			<a href="javascript:void(0);" class="replayModifyBtn" data-modify="${replay.replayId}" style="font-size: 11px;" >수정</a>
+			</c:if>
 	</c:forEach>
 	<form id="replayId">
 		<input type="hidden" id="boardId" name="boardId" value="${board.boardId}" >

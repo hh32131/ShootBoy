@@ -1,7 +1,6 @@
-package net.Y5M2.article.web;
+package net.Y5M2.replay.web;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,24 +8,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.Y5M2.article.biz.BoardBiz;
-import net.Y5M2.article.biz.BoardBizImpl;
-import net.Y5M2.article.vo.BoardVO;
 import net.Y5M2.replay.biz.ReplayBiz;
 import net.Y5M2.replay.biz.ReplayBizImpl;
 import net.Y5M2.replay.vo.ReplayVO;
 import net.Y5M2.support.Param;
 
-public class ViewDetailPageServlet extends HttpServlet {
+public class ViewModifyReply extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	private BoardBiz boardBiz;
 	private ReplayBiz replayBiz;
-	
-	public ViewDetailPageServlet() {
+
+	public ViewModifyReply() {
 		super();
-		boardBiz = new BoardBizImpl();
 		replayBiz = new ReplayBizImpl();
+
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -36,20 +30,12 @@ public class ViewDetailPageServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		String boardId = Param.getStringParam(request, "boardId");
-		
-		
-		BoardVO board = boardBiz.getBoardAt(boardId);
-		
-		List<ReplayVO> replays = replayBiz.getListReplays(boardId);
-		
-		String viewPath = "/WEB-INF/view/board/detail.jsp";
+		String replyId = Param.getStringParam(request, "replyId");
+		String viewPath="/WEB-INF/view/board/replyModify.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
-		request.setAttribute("board", board);
-		request.setAttribute("replays", replays);
+		ReplayVO replayVO = replayBiz.getReplyAt(replyId);
+		request.setAttribute("replayVO", replayVO);
 		rd.forward(request, response);
-		
 	}
 
 }
