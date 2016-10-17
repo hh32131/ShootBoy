@@ -21,7 +21,7 @@
 </script>
 </head>
 <body>
-
+	${boards.categoryVO.categoryName}
 	<div id="wrapper">
 		<div id="header">
 			<h1>Page Title</h1>
@@ -70,7 +70,7 @@
 			${paging}
 			<div style="padding-top: 5px;">
 				<div class="left">
-					<a href="/ShootBoy/write">글쓰기</a>
+					<a href="/ShootBoy/write?categoryId=${boards.categoryId}">글쓰기</a>
 				</div>
 				<div class="right">
 						<select id="searchType" name="searchType">

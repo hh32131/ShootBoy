@@ -85,16 +85,17 @@
 
 					<li><a href="#">Community</a>
 						<ul>
-							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">공지사항</a></li>
-							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">가입인사</a></li>
-							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">자유게시판</a></li>
-							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">국내축구소식</a></li>
-							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">해외축구소식</a></li>
-							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">축구동영상</a></li>
-							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">축구갤러리</a></li>
-							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">매치경기후기</a></li>
-							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">모집게시판</a></li>
-						</ul></li>
+							<li><a href="#?categoryId=${categories.categoryId}&?parentCategoryId=${categories.parentsCategoryId}">공지사항</a></li>
+							<li><a href="#?categoryId=${categories.categoryId}&?parentCategoryId=${categories.parentsCategoryId}">가입인사</a></li>
+							<li><a href="#?categoryId=${categories.categoryId}&?parentCategoryId=${categories.parentsCategoryId}">자유게시판</a></li>
+							<li><a href="#?categoryId=${categories.categoryId}&?parentCategoryId=${categories.parentsCategoryId}">국내축구소식</a></li>
+							<li><a href="#?categoryId=${categories.categoryId}&?parentCategoryId=${categories.parentsCategoryId}">해외축구소식</a></li>
+							<li><a href="#?categoryId=${categories.categoryId}&?parentCategoryId=${categories.parentsCategoryId}">축구동영상</a></li>
+							<li><a href="#?categoryId=${categories.categoryId}&?parentCategoryId=${categories.parentsCategoryId}">축구갤러리</a></li>
+							<li><a href="#?categoryId=${categories.categoryId}&?parentCategoryId=${categories.parentsCategoryId}">매치경기후기</a></li>
+							<li><a href="#?categoryId=${categories.categoryId}&?parentCategoryId=${categories.parentsCategoryId}">모집게시판</a></li>
+						</ul>
+						</li>
 				</ul>
 			</div>
 			<div class="mainImg">

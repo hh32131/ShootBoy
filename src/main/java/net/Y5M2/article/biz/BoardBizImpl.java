@@ -7,6 +7,7 @@ import net.Y5M2.article.dao.BoardDaoImpl;
 import net.Y5M2.article.vo.BoardListVO;
 import net.Y5M2.article.vo.BoardVO;
 import net.Y5M2.article.vo.SearchBoardVO;
+import net.Y5M2.category.vo.CategoryVO;
 import net.Y5M2.replay.dao.ReplayDao;
 import net.Y5M2.replay.dao.ReplayDaoImpl;
 import net.Y5M2.support.pager.Pager;
@@ -23,7 +24,7 @@ public class BoardBizImpl implements BoardBiz{
 	}
 	
 	@Override
-	public BoardListVO getAllBoards(SearchBoardVO searchBoard) {
+	public BoardListVO getAllBoards(SearchBoardVO searchBoard, CategoryVO categoryVO) {
 		
 		int totalCount = boardDao.getCountOfBoards(searchBoard);
 		Pager pager = PagerFactory.getPager(true);
@@ -33,7 +34,7 @@ public class BoardBizImpl implements BoardBiz{
 		searchBoard.setStartRowNumber(pager.getStartArticleNumber());
 		searchBoard.setEndRowNumber(pager.getEndArticleNumber());
 		
-		List<BoardVO> boards = boardDao.getAllBoards(searchBoard);
+		List<BoardVO> boards = boardDao.getAllBoards(searchBoard, categoryVO);
 		
 		BoardListVO boardList = new BoardListVO();
 		boardList.setPager(pager);

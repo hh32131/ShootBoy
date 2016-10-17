@@ -1,5 +1,6 @@
 package net.Y5M2.article.vo;
 
+import net.Y5M2.category.vo.CategoryVO;
 import net.Y5M2.user.vo.UserVO;
 
 public class BoardVO {
@@ -16,10 +17,26 @@ public class BoardVO {
 	private int replayHitCount;
 
 	private UserVO userVO;
-
+	private CategoryVO categoryVO;
+	
 	public BoardVO() {
 		userVO = new UserVO();
+		categoryVO = new CategoryVO();
 	}
+
+	
+	
+	public CategoryVO getCategoryVO() {
+		return categoryVO;
+	}
+
+
+
+	public void setCategoryVO(CategoryVO categoryVO) {
+		this.categoryVO = categoryVO;
+	}
+
+
 
 	public int getReplayHitCount() {
 		return replayHitCount;

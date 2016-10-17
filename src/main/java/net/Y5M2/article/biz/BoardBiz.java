@@ -3,6 +3,7 @@ package net.Y5M2.article.biz;
 import net.Y5M2.article.vo.BoardListVO;
 import net.Y5M2.article.vo.BoardVO;
 import net.Y5M2.article.vo.SearchBoardVO;
+import net.Y5M2.category.vo.CategoryVO;
 
 public interface BoardBiz {
 
@@ -12,7 +13,7 @@ public interface BoardBiz {
 	 * @param searchBoard
 	 * @return
 	 */
-	public BoardListVO getAllBoards(SearchBoardVO searchBoard);
+	public BoardListVO getAllBoards(SearchBoardVO searchBoard, CategoryVO categoryVO );
 
 	/**
 	 * 게시판 글쓰기

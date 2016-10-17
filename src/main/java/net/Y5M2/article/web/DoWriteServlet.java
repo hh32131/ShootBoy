@@ -35,7 +35,8 @@ public class DoWriteServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		MultipartHttpServletRequest multipartRequest = new MultipartHttpServletRequest(request);
-
+		
+		String categoryId = multipartRequest.getParameter("categoryId");
 		String boardSubject = multipartRequest.getParameter("boardSubject");
 		String boardContent = multipartRequest.getParameter("boardContent");
 
@@ -63,6 +64,7 @@ public class DoWriteServlet extends HttpServlet {
 		board.setBoardContent(boardContent);
 		board.setUserId(userVO.getUserId());
 		board.setFileName(fileName);
+		board.setCategoryId(categoryId);
 		
 		if ( boardSubject.length() == 0 ) {
 			response.sendRedirect("/ShootBoy/board/write?errorCode=1");

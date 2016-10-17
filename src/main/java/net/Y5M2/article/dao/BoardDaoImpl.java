@@ -9,6 +9,7 @@ import java.util.List;
 
 import net.Y5M2.article.vo.BoardVO;
 import net.Y5M2.article.vo.SearchBoardVO;
+import net.Y5M2.category.vo.CategoryVO;
 import net.Y5M2.support.DaoSupport;
 import net.Y5M2.support.Query;
 import net.Y5M2.support.QueryAndResult;
@@ -18,7 +19,7 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<BoardVO> getAllBoards(SearchBoardVO searchBoard) {
+	public List<BoardVO> getAllBoards(SearchBoardVO searchBoard, CategoryVO categoryVO) {
 		return selectList(new QueryAndResult() {
 			
 			@Override
@@ -36,9 +37,15 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				query.append(" 			, B.FILE_NM ");
 				query.append("			, TO_CHAR(B.CRT_DT, 'YYYY-MM-DD HH24:MI:SS' ) CRT_DT ");
 				query.append("   		, TO_CHAR(B.LTST_MDFY_DT, 'YYYY-DD-MM HH24:MI:SS') LTST_MDFY_DT  ");
+				query.append("   		, C.CTGR_NM  ");
+				query.append("   		, C.PRNT_CTGR_ID  ");
 				query.append(" FROM		BOARD B ");
 				query.append(" 			, USR U ");
+				query.append(" 			, CTGR C ");
 				query.append(" WHERE	B.USR_ID = U.USR_ID ");
+				query.append(" AND		B.CTGR_ID = C.CTGR_ID ");
+				query.append(" AND		B.CTGR_ID = ? ");
+				
 				
 				if ( searchBoard.getSearchType() == 1 ) {
 					query.append(" AND	( B.BOARD_SBJ LIKE '%'|| ?|| '%' ");
@@ -60,6 +67,9 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				PreparedStatement pstmt = conn.prepareStatement(pagingQuery);
 				
 				int index = 1;
+				
+				pstmt.setString(index++, categoryVO.getCategoryId());
+				
 				if ( searchBoard.getSearchType() == 1 ) {
 					pstmt.setString(index++, searchBoard.getSearchKeyword());
 					pstmt.setString(index++, searchBoard.getSearchKeyword());
@@ -87,7 +97,7 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				List<BoardVO> boards = new ArrayList<BoardVO>();
 
 				UserVO userVO = null;	
-				
+				CategoryVO categoryVO = null;
 				while( rs.next() ) {
 					
 					boardVO = new BoardVO();
@@ -96,6 +106,11 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 					boardVO.setBoardContent(rs.getString("BOARD_CONT"));
 					boardVO.setHitCount(rs.getInt("HIT_CNT"));
 					boardVO.setCategoryId(rs.getString("CTGR_ID"));
+					
+					categoryVO = boardVO.getCategoryVO();
+					categoryVO.setCategoryName(rs.getString("CTGR_NM"));
+					categoryVO.setParentsCategoryId(rs.getString("PRNT_CTGR_ID"));
+					
 					boardVO.setFileName(rs.getString("FILE_NM"));
 					boardVO.setCreateDate(rs.getString("CRT_DT"));
 					boardVO.setModifyDate(rs.getString("LTST_MDFY_DT"));
@@ -188,14 +203,15 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				query.append(" 					) ");
 				query.append(" VALUES ( ");
 				query.append(" 'BO-' || TO_CHAR(SYSDATE, 'YYYYMMDD') || '-' || LPAD(BOARD_ID_SEQ.NEXTVAL,6,0) ");
-				query.append(" , ?, ?, 0, 0, ?, ?, SYSDATE, SYSDATE) ");
+				query.append(" , ?, ?, ?, 0, ?, ?, SYSDATE, SYSDATE) ");
 
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				pstmt.setString(1, boardVO.getBoardSubject());
 				pstmt.setString(2, boardVO.getBoardContent());
-				pstmt.setString(3, boardVO.getUserId());
-				pstmt.setString(4, boardVO.getFileName());
+				pstmt.setString(3, boardVO.getCategoryId());
+				pstmt.setString(4, boardVO.getUserId());
+				pstmt.setString(5, boardVO.getFileName());
 				
 				return pstmt;
 			}
