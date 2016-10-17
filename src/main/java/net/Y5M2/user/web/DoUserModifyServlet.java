@@ -57,7 +57,7 @@ public class DoUserModifyServlet extends HttpServlet {
 		userInfo.setPosition(position);
 		userInfo.setLocationId(leafCategory);
 		
-		boolean isSuccess = userBiz.userInfoModify(userInfo);
+		boolean isSuccess = userBiz.userInfoModify(userInfo, request);
 		
 		if(isSuccess){
 			response.sendRedirect("/ShootBoy/detailUserInfo");

@@ -1,5 +1,6 @@
 package net.Y5M2.user.biz;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 
 import net.Y5M2.user.vo.UserVO;
@@ -17,7 +18,7 @@ public interface UserBiz {
 	public UserVO findPassword(UserVO userVO);
 
 
-	public boolean userInfoModify(UserVO userInfo);
+	public boolean userInfoModify(UserVO userInfo, ServletRequest request);
 
 
 }

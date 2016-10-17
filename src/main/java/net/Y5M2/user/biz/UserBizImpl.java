@@ -1,5 +1,6 @@
 package net.Y5M2.user.biz;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -46,7 +47,7 @@ public class UserBizImpl implements UserBiz {
 	}
 	
 	@Override
-	public boolean userInfoModify(UserVO userInfo) {
+	public boolean userInfoModify(UserVO userInfo, ServletRequest request) {
 		UserVO originalUserInfo = userDao.getUserInfoForModify(userInfo);
 		
 		int modiUserCount = 6;
@@ -77,8 +78,19 @@ public class UserBizImpl implements UserBiz {
 		if(modiUserCount==0){
 			return true;
 		}
+		boolean isSuccess = userDao.UpdateUserInfo(userInfo)>0;
+		if(isSuccess){
+			HttpSession session = ((HttpServletRequest)request).getSession();
+			session.removeAttribute(Session.USER_INFO); 
+			UserVO UserVO = userDao.getUserBy(userInfo);
+			session.setAttribute(Session.USER_INFO, UserVO);
+			
+			return true;
+		}
+		else{
+			return false;
+		}
 		
-		return userDao.UpdateUserInfo(userInfo)>0;
 	}
 	
 }
