@@ -5,11 +5,13 @@
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/checkbox.css" />
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
+
 	$().ready(function() {
 		$("#searchType").change(function() {
 			alert($("#searchType option:selected").text());
 		});
 	});
+	
 </script>
 	<jsp:include page="/WEB-INF/view/commons/adminHeader.jsp" />
 	
@@ -40,28 +42,6 @@
 							<th>가입일</th>
 						</tr>	
 					</thead>
-					<tbody>
-							<c:forEach items="${users}" var="users">
-						<tr>	
-							<td class="td_check">
-								<div class="checks">
-									<input type="checkbox" id="select-check">
-									<label for="select-check"></label>
-								</div>
-							</td>
-							<td class="td_userId"> ${users.userName} </td>
-							<td class="td_userName"> 남재현 </td>
-							<td class="td_userEmail"> n2350@naver.com </td>
-							<td class="td_userPhone"> ${users.phoneNumber}
-							<td class="td_userPosition"> ${users.position} </td>
-							<td class="td_userLocation"> ${users.locationVO.parentLocationName} </td>
-							<td class="td_userTeam"> ${users.teamVO.teamName} </td>
-							<td class="td_userGrade"> ${users.levelVO.levelName} </td>
-							<td class="td_userJoindate"> ${users.createDate} </td>
-						
-						</tr>
-							</c:forEach>
-					</tbody>
 					<c:forEach var="users" items="${users}">
 						<tbody>
 							<tr>	
