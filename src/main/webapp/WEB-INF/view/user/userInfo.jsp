@@ -62,7 +62,7 @@
 			</div>
 			</c:if>
 			<c:if test="${empty userInfo.userId}">
-				<p style="font-size: 20px;">로그인 하지 않았습니다! 로그인 후 접근하세요!</p>
+				<p style="font-size: 20px; color: red;">로그인 하지 않았습니다! 로그인 후 접근하세요!</p>
 			</c:if>
 	</div>
 	

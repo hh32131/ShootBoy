@@ -42,8 +42,6 @@
 	
 	<div class="myInfoText" style="display: inline-block; width: 800px;"><h1>팀 정보</h1>
 		<hr class="myPageline">
-	
-	<c:if test="${!empty userInfo.userId}">
 		<div id="teamDetailwrapper">
 		<c:if test="${!empty userInfo.teamId}">
 
@@ -70,13 +68,9 @@
 		<div class="warning"></div>
 		</c:if>
 		<c:if test="${empty userInfo.teamId}">
-		<p style="font-size: 30px;">팀에 가입하지 않았습니다!</p>
+		<p style="font-size: 20px; color: red;">팀에 가입하지 않았습니다!</p>
 		</c:if>
 		</div>
-	</c:if>
-	<c:if test="${empty userInfo.userId}">
-		<p style="font-size: 20px;">로그인을 하지 않았습니다! 로그인 후 접근하세요!</p>
-	</c:if>
 </div>
 	<div class="clear">
 	<div style="padding-top: 60px;">

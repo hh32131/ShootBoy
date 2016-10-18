@@ -10,9 +10,8 @@
 
 	$().ready(function(){
 		$(".imgBtn").click(function(){
-			var teamid = $(this).data("teamid");
-			
-		window.open("/ShootBoy/teamDetail?teamId="+ teamid,"","width=400, height= 400"); 
+			var teamid = $(this).data("teamid");	
+				window.open("/ShootBoy/teamDetail?teamId="+ teamid,"","width=500, height= 600"); 
 		});
 		
 	});
@@ -53,7 +52,9 @@
 				</c:forEach>
 			</tr>
 		</table>
+		<c:if test="${!empty sessionScope._USER_INFO_}">
 		<button id="teamCreateBtn"  onclick="openWin()" style="float: right;">팀생성하기</button>
+		</c:if>
 	</div>
 	<div class="clear">
 	<div style="padding-top: 50px;">

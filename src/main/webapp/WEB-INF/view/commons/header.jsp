@@ -51,11 +51,14 @@ $(document).ready(function(){
 				<ul>
 					<li class="active"><a href="#">My page</a>
 						<ul>
+						<c:if test="${!empty sessionScope._USER_INFO_}">
 							<li><a href="/ShootBoy/userInfo">내 정보</a></li>
 							<li><a href="/ShootBoy/detailTeamInfo">팀 정보</a></li>
 							<li><a href="/ShootBoy/teamMatchInfo">팀 매치 정보</a></li>
 							<li><a href="/ShootBoy/message">메시지함</a></li>
-						</ul></li>
+						</c:if>
+						</ul>
+					</li>
 
 					<li><a href="#">Match</a>
 						<ul>
