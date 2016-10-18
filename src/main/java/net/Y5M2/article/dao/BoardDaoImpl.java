@@ -47,10 +47,10 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				else if ( searchBoard.getSearchType() == 2 ) {
 					query.append(" AND	( B.BOARD_SBJ LIKE '%'|| ?|| '%' ");
 				}
-				else if ( searchBoard.getSearchType() == 2 ) {
+				else if ( searchBoard.getSearchType() == 3 ) {
 					query.append(" AND	( B.BOARD_CONT LIKE '%'|| ?|| '%' ");
 				}
-				else if ( searchBoard.getSearchType() == 2 ) {
+				else if ( searchBoard.getSearchType() == 4 ) {
 					query.append(" AND	( U.USR_NM LIKE '%'|| ?|| '%' ");
 				}
 				
@@ -67,10 +67,10 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				else if ( searchBoard.getSearchType() == 2 ) {
 					pstmt.setString(index++, searchBoard.getSearchKeyword());
 				}
-				else if ( searchBoard.getSearchType() == 2 ) {
+				else if ( searchBoard.getSearchType() == 3 ) {
 					pstmt.setString(index++, searchBoard.getSearchKeyword());
 				}
-				else if ( searchBoard.getSearchType() == 2 ) {
+				else if ( searchBoard.getSearchType() == 4 ) {
 					pstmt.setString(index++, searchBoard.getSearchKeyword());
 				}
 				

@@ -80,7 +80,7 @@
 							<option value="4" ${ searchBoard.searchType eq 4 ? 'selected' : '' }>작성자</option>
 						</select>
 						<input type="text" id="searchKeyword" name="searchKeyword" value="${searchArticle.searchKeyword}"/>
-						<input type="button" id="searchBtn" value="검색" onclick="movePage(0)"/>
+						<input type="button" id="searchBtn" value="검123색" onclick="movePage(0)"/>
 						<a href="/ShootBoy/list/init">처음으로</a>
 				</div>
 				<div class="clear"></div>

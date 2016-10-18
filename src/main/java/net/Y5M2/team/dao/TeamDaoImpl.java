@@ -7,11 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.Y5M2.article.vo.BoardVO;
 import net.Y5M2.location.vo.LocationVO;
 import net.Y5M2.support.DaoSupport;
 import net.Y5M2.support.Query;
 import net.Y5M2.support.QueryAndResult;
+import net.Y5M2.team.vo.SearchTeamVO;
 import net.Y5M2.team.vo.TeamVO;
 
 public class TeamDaoImpl extends DaoSupport implements TeamDao{
@@ -50,7 +50,7 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 	}
 
 	@Override
-	public List<TeamVO> getAllTeam() {
+	public List<TeamVO> getAllTeam(SearchTeamVO searchTeam) {
 		return selectList(new QueryAndResult() {
 			
 			@Override
@@ -72,9 +72,45 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 				query.append(" FROM		TEAM T ");
 				query.append(" 			, LCTN L ");
 				query.append(" WHERE	T.LCTN_ID = L.LCTN_ID ");
-				query.append(" ORDER	BY	CRT_DT DESC ");
 				
-				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				
+				if ( searchTeam.getSearchType() == 1 ) {
+					query.append(" AND	( T.TEAM_NM LIKE '%'|| ?|| '%' ");
+					query.append(" OR	T.TEAM_INFO LIKE '%' || ? || '%' ) ");
+				}
+				if ( searchTeam.getSearchType() == 2 ) {
+					query.append(" AND	( T.TEAM_NM LIKE '%'|| ?|| '%') ");
+				}
+				if ( searchTeam.getSearchType() == 3 ) {
+					query.append(" AND	( T.TEAM_INFO LIKE '%'|| ?|| '%') ");
+				}
+				if ( searchTeam.getSearchType() == 4 ) {
+					query.append(" AND	( U.USR_NM LIKE '%'|| ?|| '%') ");
+				}
+				
+				query.append(" ORDER	BY	CRT_DT DESC ");
+				String pagingQuery = appendPagingQueryFormat(query.toString());
+				
+				PreparedStatement pstmt = conn.prepareStatement(pagingQuery);
+				
+				int index = 1;
+				if ( searchTeam.getSearchType() == 1 ) {
+					pstmt.setString(index++, searchTeam.getSearchKeyword());
+					pstmt.setString(index++, searchTeam.getSearchKeyword());
+				}
+				if ( searchTeam.getSearchType() == 2 ) {
+					pstmt.setString(index++, searchTeam.getSearchKeyword());
+				}
+				if ( searchTeam.getSearchType() == 3 ) {
+					pstmt.setString(index++, searchTeam.getSearchKeyword());
+				}
+				if ( searchTeam.getSearchType() == 4 ) {
+					pstmt.setString(index++, searchTeam.getSearchKeyword());
+				}
+				
+				pstmt.setInt(index++, searchTeam.getEndRowNumber());
+				pstmt.setInt(index++, searchTeam.getStartRowNumber());
+				
 				return pstmt;
 			}
 			
@@ -225,6 +261,54 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 				}
 				
 				return team;
+			}
+		});
+	}
+
+	@Override
+	public int getCountOfTeams(SearchTeamVO searchTeam) {
+		return (int) selectOne(new QueryAndResult() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				
+				StringBuffer query = new StringBuffer();
+				query.append(" SELECT	COUNT(1) CNT ");
+				query.append(" FROM		TEAM T ");
+				
+				if ( searchTeam.getSearchType() == 1 ) {
+					query.append(" WHERE	( T.TEAM_NM LIKE '%'|| ?|| '%' ");
+					query.append(" OR	T.TEAM_INFO LIKE '%' || ? || '%' ) ");
+				}
+				else if ( searchTeam.getSearchType() == 2 ) {
+					query.append(" WHERE	( T.TEAM_NM LIKE '%'|| ?|| '%') ");
+				}
+				else if ( searchTeam.getSearchType() == 3 ) {
+					query.append(" WHERE	( T.TEAM_INFO LIKE '%'|| ?|| '%') ");
+				}
+				
+				
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				int index = 1;
+				if ( searchTeam.getSearchType() == 1 ) {
+					pstmt.setString(index++, searchTeam.getSearchKeyword());
+					pstmt.setString(index++, searchTeam.getSearchKeyword());
+				}
+				else if ( searchTeam.getSearchType() == 2 ) {
+					pstmt.setString(index++, searchTeam.getSearchKeyword());
+				}
+				else if ( searchTeam.getSearchType() == 3 ) {
+					pstmt.setString(index++, searchTeam.getSearchKeyword());
+				}
+		
+				
+				return pstmt;
+			}
+			
+			@Override
+			public Object makeObject(ResultSet rs) throws SQLException {
+				rs.next();
+				return rs.getInt("CNT");
 			}
 		});
 	}

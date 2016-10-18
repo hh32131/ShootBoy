@@ -6,9 +6,15 @@ import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+
+
 import net.Y5M2.constants.Session;
+import net.Y5M2.support.pager.Pager;
+import net.Y5M2.support.pager.PagerFactory;
 import net.Y5M2.team.dao.TeamDao;
 import net.Y5M2.team.dao.TeamDaoImpl;
+import net.Y5M2.team.vo.SearchTeamVO;
+import net.Y5M2.team.vo.TeamListVO;
 import net.Y5M2.team.vo.TeamVO;
 import net.Y5M2.user.dao.UserDao;
 import net.Y5M2.user.dao.UserDaoImpl;
@@ -46,8 +52,24 @@ public class TeamBizImpl implements TeamBiz {
 	}
 
 	@Override
-	public List<TeamVO> getAllTeam() {
-		return teamDao.getAllTeam();
+	public TeamListVO getAllTeam(SearchTeamVO searchTeam) {
+		
+		int totalCount = teamDao.getCountOfTeams(searchTeam);
+		Pager pager = PagerFactory.getPager(true, 20, 5);
+		pager.setTotalArticleCount(totalCount);
+		pager.setPageNumber(searchTeam.getPageNo());
+		
+		
+		searchTeam.setStartRowNumber(pager.getStartArticleNumber());
+		searchTeam.setEndRowNumber(pager.getEndArticleNumber());
+		
+		List<TeamVO> teams = teamDao.getAllTeam(searchTeam);
+		
+		TeamListVO teamList = new TeamListVO();
+		teamList.setPager(pager);
+		teamList.setTeams(teams);;
+		
+		return teamList;
 	}
 
 	@Override
