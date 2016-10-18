@@ -37,7 +37,7 @@
 </script>
 </head>
 <body>
-	<div id="teamModifyText" style="margin-left: 250px;"><h1>팀 정보 수정</h1></div>
+	<div id="teamModifyText" style="margin-left: 250px; color: #30b5ed; font-size: 30px;"><h1>팀 정보 수정</h1></div>
 		<div id="teamModifyWrapper" style="width: 800px; padding: 40px;">
 			<form id="teamModifyForm" name="teamModifyForm" enctype="multipart/form-data">
 			<div id="teamModiryLeft" style="display: inline-block; vertical-align: top;">
