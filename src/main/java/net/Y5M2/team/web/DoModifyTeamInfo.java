@@ -2,6 +2,7 @@ package net.Y5M2.team.web;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -70,13 +71,17 @@ public class DoModifyTeamInfo extends HttpServlet {
 			String fileName = uploadFile.getFileName();
 			teamVO.setTeamPhoto(fileName);
 		}
+		PrintWriter out = response.getWriter();
 		
 		boolean isSuccess = teamBiz.updateTeamInfo(teamVO);
 		if(isSuccess){
-			
+			out.print("<script type='text/javascript'>");
+			out.print("	window.opener.location.reload(); ");
+			out.print("	window.close(); ");
+			out.print("</javascript'>");
 		}
 		else{
-			
+			response.sendRedirect("/ShootBoy/teamModify?errorCode=1");
 		}
 		
 		
