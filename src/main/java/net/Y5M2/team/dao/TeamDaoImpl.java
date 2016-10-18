@@ -124,7 +124,7 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 				query.append(" 			, T.TEAM_POINT ");
 				query.append(" 			, T.LTST_MODY_DT ");
 				query.append(" 			, T.TEAM_INFO ");
-				query.append(" 			, L.LCTN_ID ");
+				query.append(" 			, T.LCTN_ID ");
 				query.append(" 			, L.LCTN_NM ");
 				query.append(" 			, L.PRNT_LCTN_ID ");
 				query.append(" 			, L.PRNT_LCTN_NM ");
@@ -154,9 +154,9 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 					team.setTeamPoint(rs.getInt("TEAM_POINT"));
 					team.setLatestModifyDate(rs.getString("LTST_MODY_DT"));
 					team.setTeamInfo(rs.getString("TEAM_INFO"));
+					team.setLocationId(rs.getString("LCTN_ID"));
 					
 					location = team.getLocationVO();
-					location.setLocationId(rs.getString("LCTN_ID"));
 					location.setLocationName(rs.getString("LCTN_NM"));
 					location.setParentLocationId(rs.getString("PRNT_LCTN_ID"));
 					location.setParentLocationName(rs.getString("PRNT_LCTN_NM"));
@@ -184,7 +184,7 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 				query.append(" 			, T.TEAM_POINT ");
 				query.append(" 			, T.LTST_MODY_DT ");
 				query.append(" 			, T.TEAM_INFO ");
-				query.append(" 			, L.LCTN_ID ");
+				query.append(" 			, T.LCTN_ID ");
 				query.append(" 			, L.LCTN_NM ");
 				query.append(" 			, L.PRNT_LCTN_ID ");
 				query.append(" 			, L.PRNT_LCTN_NM ");
@@ -215,9 +215,9 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 					team.setTeamPoint(rs.getInt("TEAM_POINT"));
 					team.setLatestModifyDate(rs.getString("LTST_MODY_DT"));
 					team.setTeamInfo(rs.getString("TEAM_INFO"));
+					team.setLocationId(rs.getString("LCTN_ID"));
 					
 					location = team.getLocationVO();
-					location.setLocationId(rs.getString("LCTN_ID"));
 					location.setLocationName(rs.getString("LCTN_NM"));
 					location.setParentLocationId(rs.getString("PRNT_LCTN_ID"));
 					location.setParentLocationName(rs.getString("PRNT_LCTN_NM"));
@@ -239,6 +239,7 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 				StringBuffer query = new StringBuffer();
 				query.append(" UPDATE	TEAM ");
 				query.append(" SET		LTST_MODY_DT = SYSDATE ");
+				
 				if(teamVO.getTeamName() != null){
 					query.append(" 		, TEAM_NM = ? ");
 				}
@@ -254,7 +255,7 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 				if(teamVO.getTeamPhoto() != null){
 					query.append(" 		, TEAM_PHOTO = ? ");
 				}
-				query.append(" WHERE	TEMA_ID = ? ");
+				query.append(" WHERE	TEAM_ID = ? ");
 				
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());

@@ -1,22 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-<jsp:include page="/WEB-INF/view/commons/header.jsp"></jsp:include>
-
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<link rel="stylesheet" type="text/css" href="/ShootBoy/css/hsh.css" />
-<link rel="stylesheet" type="text/css" href="/ShootBoy/css/page.css">
+<jsp:include page="/WEB-INF/view/commons/header.jsp"></jsp:include>
 
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
 
 	$().ready(function(){
 		$(".imgBtn").click(function(){
-			var teamid = $(this).data("teamid");
-			
-		window.open("/ShootBoy/teamDetail?teamId="+ teamid,"","width=400, height= 400"); 
+			var teamid = $(this).data("teamid");	
+				window.open("/ShootBoy/teamDetail?teamId="+ teamid,"","width=500, height= 600"); 
 		});
 		
 	});
@@ -56,9 +51,10 @@
 					</td>
 				</c:forEach>
 			</tr>
-	<button onclick="openWin()">팀생성하기</button>
 		</table>
+		<c:if test="${!empty sessionScope._USER_INFO_}">
 		<button id="teamCreateBtn"  onclick="openWin()" style="float: right;">팀생성하기</button>
+		</c:if>
 	</div>
 	<div class="clear">
 	<div style="padding-top: 50px;">
