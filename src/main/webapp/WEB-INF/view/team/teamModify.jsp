@@ -37,6 +37,7 @@
 </script>
 </head>
 <body>
+<<<<<<< HEAD
 	<div id="teamModifyText" style="margin-left: 250px;"><h1>팀 정보 수정</h1></div>
 		<div id="teamModifyWrapper" style="width: 800px; padding: 40px;">
 			<form id="teamModifyForm" name="teamModifyForm" enctype="multipart/form-data">
@@ -62,5 +63,27 @@
 				</div>
 			</form>
 	</div>
+=======
+	<form id="teamModifyForm" name="teamModifyForm" enctype="multipart/form-data">
+		<img src="/ShootBoy/showImage?teamId=${teamInfo.teamId}">
+		<input type="checkbox" id="fileDeleteBtn" name="fileDeleteBtn" value="delete" />
+		<input type="file" id="file" name="file">
+		<input type = "hidden" id="teamId" name="teamId" value="${teamInfo.teamId}" >
+		팀 이름<input type="text" id ="teamName" name="teamName" value="${teamInfo.teamName}">
+		팀원 수<input type="text" id = "teamCount" name="teamCount" value="${teamInfo.teamCount}">
+		거주 지역 <select id="locationId" name="locationId">
+					<c:forEach items="${location}" var="location">
+						<option value="${location.locationId}">${location.locationName}</option>
+					</c:forEach>
+			</select><br/>
+		상세 지역 <select name="leafCategory" id="leafCategory">
+				</select>
+		팀 소개<textarea id="teamInfo" name="teamInfo" style="width: 350px; height: 250px; border-radius: 10px;">${teamInfo.teamInfo}</textarea>
+		<input type="button" id="modifyBtn" value="수정"> 
+		<input type="button" id="cancelBtn" value="취소" onclick="location.href='/ShootBoy/detailTeamInfo'" >
+		
+	</form>
+
+>>>>>>> f755565746d1b618537d1b98fce724e3d2dfaed5
 </body>
 </html>

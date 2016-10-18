@@ -229,4 +229,59 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 		});
 	}
 	
+	@Override
+	public int updateTeamInfo(TeamVO teamVO) {
+
+		return insert(new Query() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				StringBuffer query = new StringBuffer();
+				query.append(" UPDATE	TEAM ");
+				query.append(" SET		LTST_MODY_DT = SYSDATE ");
+				if(teamVO.getTeamName() != null){
+					query.append(" 		, TEAM_NM = ? ");
+				}
+				if(teamVO.getTeamCount() != 0){
+					query.append(" 		, TEAM_CNT = ? ");
+				}
+				if(teamVO.getLocationId() != null){
+					query.append(" 		, LCTN_ID = ? ");
+				}
+				if(teamVO.getTeamInfo() != null){
+					query.append(" 		, TEAM_INFO = ? ");
+				}
+				if(teamVO.getTeamPhoto() != null){
+					query.append(" 		, TEAM_PHOTO = ? ");
+				}
+				query.append(" WHERE	TEMA_ID = ? ");
+				
+				
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				
+				int index = 1;
+				
+				if(teamVO.getTeamName() != null){
+					pstmt.setString(index++, teamVO.getTeamName());
+				}
+				if(teamVO.getTeamCount() != 0){
+					pstmt.setInt(index++, teamVO.getTeamCount());
+				}
+				if(teamVO.getLocationId() != null){
+					pstmt.setString(index++, teamVO.getLocationId());
+				}
+				if(teamVO.getTeamInfo() != null){
+					pstmt.setString(index++, teamVO.getTeamInfo());
+				}
+				if(teamVO.getTeamPhoto() != null){
+					pstmt.setString(index++, teamVO.getTeamPhoto());
+				}
+				pstmt.setString(index++, teamVO.getTeamId());
+				
+				
+				return pstmt;
+			}
+		});
+	}
+	
 }

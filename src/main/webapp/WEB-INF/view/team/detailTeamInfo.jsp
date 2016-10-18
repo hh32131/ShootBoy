@@ -15,9 +15,15 @@
 			$("#passwordConfirm").show();
 			
 			$("#passwordConfirm").click(function(){
+<<<<<<< HEAD
 				
 			if($("#password").val()=="${userInfo.password}"){
 				window.open("/ShootBoy/teamModify","","width=800, height=700");
+=======
+			
+			if("$('#password').val()" == "${userInfo.password}"){
+				location.href="/ShootBoy/teamModify";
+>>>>>>> f755565746d1b618537d1b98fce724e3d2dfaed5
 			}
 			else{
 				$("div.warning").html("<p>비밀번호가 틀렸습니다.</p>")

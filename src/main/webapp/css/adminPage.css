@@ -1,0 +1,100 @@
+@CHARSET "UTF-8";
+
+.page-title {
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	font-size: 20px;
+}
+
+.listAll {
+	font-size: 13px;
+	background-color: #f2f5f9;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+	border-bottom: solid 1px lightgray;
+	border-top: solid 1px lightgray;
+}
+.textAll {
+	margin-left: 20px;
+}
+
+.search-tool {
+	margin-left: 20px;
+}
+
+#sbtn {
+    margin:0;
+	padding:0.2%;
+	border:0;
+	background:#ff3061;
+	color:#fff;
+	cursor:pointer;
+}
+
+#search-select {
+	height: 50px;
+	
+}
+
+#search-input {
+	height: 28px;
+	background-color: #f6f9fa;
+	border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+#search-target {
+	font-size:13px;
+	width: 110px;
+	height: 20px;
+	box-sizing: border-box;
+}
+
+.line {
+	margin: 0;
+	border-top: solid 1px lightgrey;
+}
+
+.notice {
+	font-size: 13px;
+	background-color: #f9f9f9;
+	border-collapse:collapse;
+	border:solid 1px lightgray;
+	width: 97%;
+	height: 45px;
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#notice-text {
+	margin-left: 20px;
+	vertical-align: middle;
+	
+}
+
+.alldata-table table{
+	
+	margin-top: 20px;
+	border-collapse:collapse;
+	border:solid 1px lightgray;
+	width: 97%;
+	text-align: center;
+	margin: auto;
+}
+
+.alldata-table th {
+	height: 35px;
+	background-color: #e5ecef;
+	border-collapse:collapse;
+	border:solid 1px lightgray;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.alldata-table td  {
+	border: solid 1px lightgray;
+}
+

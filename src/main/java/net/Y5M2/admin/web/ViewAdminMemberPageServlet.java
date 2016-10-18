@@ -13,29 +13,28 @@ import net.Y5M2.admin.biz.AdminBiz;
 import net.Y5M2.admin.biz.AdminBizImpl;
 import net.Y5M2.user.vo.UserVO;
 
-public class ViewAdminPageServlet extends HttpServlet {
+public class ViewAdminMemberPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private AdminBiz adminBiz;
+       private  AdminBiz adminBiz;
+    public ViewAdminMemberPageServlet() {
+        super();
+        adminBiz = new AdminBizImpl();
+    }
 
-	public ViewAdminPageServlet() {
-		super();
-		adminBiz = new AdminBizImpl();
-
-	}
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		String viewPath = "/WEB-INF/view/admin.jsp";
-		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String viewPath = "/WEB-INF/view/adminMember.jsp";
+		
 		List<UserVO> users = adminBiz.getAllUser();
+		
+		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 
 		request.setAttribute("users", users);
+		
 		rd.forward(request, response);
 	}
 

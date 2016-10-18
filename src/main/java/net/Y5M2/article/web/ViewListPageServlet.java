@@ -14,8 +14,6 @@ import net.Y5M2.article.biz.BoardBizImpl;
 import net.Y5M2.article.vo.BoardListVO;
 import net.Y5M2.article.vo.SearchBoardVO;
 import net.Y5M2.constants.Session;
-import net.Y5M2.replay.biz.ReplayBiz;
-import net.Y5M2.replay.biz.ReplayBizImpl;
 import net.Y5M2.support.Param;
 import net.Y5M2.support.pager.ClassicPageExplorer;
 import net.Y5M2.support.pager.PageExplorer;
@@ -24,13 +22,11 @@ public class ViewListPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private BoardBiz boardBiz;
-	private ReplayBiz replayBiz;
 	
 
 	public ViewListPageServlet() {
 		super();
 		boardBiz = new BoardBizImpl();
-		replayBiz = new ReplayBizImpl();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
