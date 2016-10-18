@@ -45,7 +45,7 @@ public class ViewListPageServlet extends HttpServlet {
 		SearchBoardVO searchBoard = null;
 
 		if (pageNo == -1) {
-			searchBoard = (SearchBoardVO) session.getAttribute(Session.SEARCH_INFO);
+			searchBoard = (SearchBoardVO) session.getAttribute(Session.SEARCH_BOARD_INFO);
 			if (searchBoard == null) {
 				searchBoard = new SearchBoardVO();
 				searchBoard.setPageNo(0);
@@ -57,7 +57,7 @@ public class ViewListPageServlet extends HttpServlet {
 			searchBoard.setSearchKeyword(searchKeyword);
 		}
 
-		session.setAttribute(Session.SEARCH_INFO, searchBoard);
+		session.setAttribute(Session.SEARCH_BOARD_INFO, searchBoard);
 		BoardListVO boards = boardBiz.getAllBoards(searchBoard);
 
 		String viewPath = "/WEB-INF/view/board/list.jsp";

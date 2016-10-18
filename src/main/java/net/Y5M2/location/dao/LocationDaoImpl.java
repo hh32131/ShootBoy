@@ -14,6 +14,7 @@ import net.Y5M2.support.QueryAndResult;
 
 public class LocationDaoImpl extends DaoSupport implements LocationDao {
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<LocationVO> getLocations(LocationVO locations) {
 		return selectList(new QueryAndResult() {
