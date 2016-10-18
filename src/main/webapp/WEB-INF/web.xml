@@ -251,6 +251,26 @@
 	</servlet-mapping>
 	<servlet>
 		<description></description>
+		<display-name>DoShowImage</display-name>
+		<servlet-name>DoShowImage</servlet-name>
+		<servlet-class>net.Y5M2.team.web.DoShowImage</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DoShowImage</servlet-name>
+		<url-pattern>/showImage</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>ViewTeamDetailPageServlet</display-name>
+		<servlet-name>ViewTeamDetailPageServlet</servlet-name>
+		<servlet-class>net.Y5M2.team.web.ViewTeamDetailPageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ViewTeamDetailPageServlet</servlet-name>
+		<url-pattern>/teamDetail</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
 		<display-name>ViewReplayPageServlet</display-name>
 		<servlet-name>ViewReplayPageServlet</servlet-name>
 		<servlet-class>net.Y5M2.replay.ViewReplayPageServlet</servlet-class>
@@ -299,6 +319,27 @@
 		<url-pattern>/replayDelete</url-pattern>
 	</servlet-mapping>
 	<servlet>
+		<description></description>
+		<display-name>ViewUserInfoPageServlet</display-name>
+		<servlet-name>ViewUserInfoPageServlet</servlet-name>
+		<servlet-class>net.Y5M2.user.web.ViewUserInfoPageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ViewUserInfoPageServlet</servlet-name>
+		<url-pattern>/userInfo</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>ViewMessagePageServlet</display-name>
+		<servlet-name>ViewMessagePageServlet</servlet-name>
+		<servlet-class>net.Y5M2.user.web.ViewMessagePageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ViewMessagePageServlet</servlet-name>
+		<url-pattern>/message</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
 		<display-name>ViewUserModifyPageServlet</display-name>
 		<servlet-name>ViewUserModifyPageServlet</servlet-name>
 		<servlet-class>net.Y5M2.user.web.ViewUserModifyPageServlet</servlet-class>
@@ -319,12 +360,53 @@
 	</servlet-mapping>
 	<servlet>
 		<description></description>
+		<display-name>ViewDetailTeamInfo</display-name>
+		<servlet-name>ViewDetailTeamInfo</servlet-name>
+		<servlet-class>net.Y5M2.team.web.ViewDetailTeamInfo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ViewDetailTeamInfo</servlet-name>
+		<url-pattern>/detailTeamInfo</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>ViewTeamInfoModify</display-name>
+		<servlet-name>ViewTeamInfoModify</servlet-name>
+		<servlet-class>net.Y5M2.team.web.ViewTeamInfoModify</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ViewTeamInfoModify</servlet-name>
+		<url-pattern>/teamModify</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
 		<display-name>DoModifyReplayServlet</display-name>
 		<servlet-name>DoModifyReplayServlet</servlet-name>
 		<servlet-class>net.Y5M2.replay.web.DoModifyReplayServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>DoModifyReplayServlet</servlet-name>
+		<url-pattern>/doModifyReply</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>ViewModifyReply</display-name>
+		<servlet-name>ViewModifyReply</servlet-name>
+		<servlet-class>net.Y5M2.replay.web.ViewModifyReply</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ViewModifyReply</servlet-name>
+		<url-pattern>/modifyReply</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>DoModifyTeamInfo</display-name>
+		<servlet-name>DoModifyTeamInfo</servlet-name>
+		<servlet-class>net.Y5M2.team.web.DoModifyTeamInfo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DoModifyTeamInfo</servlet-name>
+		<url-pattern>/doModifyTeamInfo</url-pattern>
 		<url-pattern>/doModify</url-pattern>
 	</servlet-mapping>
 	<servlet>
@@ -368,6 +450,25 @@
 	</servlet-mapping>
 	<servlet>
 		<description></description>
+		<display-name>DoDeleteUserServlet</display-name>
+		<servlet-name>DoDeleteUserServlet</servlet-name>
+		<servlet-class>net.Y5M2.user.web.DoDeleteUserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DoDeleteUserServlet</servlet-name>
+		<url-pattern>/doDeleteUser</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>DoDeleteTeamServlet</display-name>
+		<servlet-name>DoDeleteTeamServlet</servlet-name>
+		<servlet-class>net.Y5M2.team.web.DoDeleteTeamServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DoDeleteTeamServlet</servlet-name>
+		<url-pattern>/doDeleteTeam</url-pattern>
+	</servlet-mapping>
+	<servlet>
 		<display-name>ViewUserListPageServlet</display-name>
 		<servlet-name>ViewUserListPageServlet</servlet-name>
 		<servlet-class>net.Y5M2.user.web.ViewUserListPageServlet</servlet-class>
@@ -376,25 +477,25 @@
 		<servlet-name>ViewUserListPageServlet</servlet-name>
 		<url-pattern>/userList</url-pattern>
 	</servlet-mapping>
-	<servlet>
-		<description></description>
-		<display-name>SearchAdminListInitiateServlet</display-name>
-		<servlet-name>SearchAdminListInitiateServlet</servlet-name>
-		<servlet-class>net.Y5M2.admin.web.SearchAdminListInitiateServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>SearchAdminListInitiateServlet</servlet-name>
-		<url-pattern>/adminList/init</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<description></description>
-		<display-name>SearchAdminUserInitateServlet</display-name>
-		<servlet-name>SearchAdminUserInitateServlet</servlet-name>
-		<servlet-class>net.Y5M2.admin.web.SearchAdminUserInitateServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>SearchAdminUserInitateServlet</servlet-name>
-		<url-pattern>/adminUser/init</url-pattern>
-	</servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchAdminListInitiateServlet</display-name>
+    <servlet-name>SearchAdminListInitiateServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.SearchAdminListInitiateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchAdminListInitiateServlet</servlet-name>
+    <url-pattern>/adminList/init</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchAdminUserInitateServlet</display-name>
+    <servlet-name>SearchAdminUserInitateServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.SearchAdminUserInitateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchAdminUserInitateServlet</servlet-name>
+    <url-pattern>/adminUser/init</url-pattern>
+  </servlet-mapping>
 
 </web-app>
