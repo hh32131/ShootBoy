@@ -11,7 +11,7 @@
 		</div>
 
 		<div class="listAll">
-				<a class="textAll">전체 목록 | 총회원수 00명</a>
+				<p class="textAll">전체 목록 | 총회원수 00명</p>
 		</div>
 		
 		<div class="container">

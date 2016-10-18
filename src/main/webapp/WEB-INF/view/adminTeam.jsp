@@ -10,7 +10,7 @@
 		</div>
 
 		<div class="listAll">
-				<a class="textAll">전체 목록 | 총 팀수 00개</a>
+				<p class="textAll">전체 목록 | 총 팀수 00개</p>
 		</div>
 		
 		<div class="container">
