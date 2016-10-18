@@ -51,20 +51,6 @@
 		<hr class="myPageline">
 		<div id="teamDetailwrapper">
 		<c:if test="${!empty userInfo.teamId}">
-
-<<<<<<< HEAD
-		<img src="/ShootBoy/showImage?teamId=${userInfo.teamId}">
-			팀명 : ${userInfo.teamVO.teamName}
-			팀원수 : ${userInfo.teamVO.teamCount}
-			팀 포인트 : ${userInfo.teamVO.teamPoint}
-			팀 생성일 : ${userInfo.teamVO.createDate}
-			팀 지역 : ${teamInfo.locationVO.parentLocationName}-${teamInfo.locationVO.locationName}
-			팀 설명 : ${userInfo.teamVO.teamInfo}
-		<input type="button" id="modifyBtn" name="modifyBtn" value="수정" >
-		<input type="button" id="deleteTeam" name="deleteTeam" value="팀 해체" >
-		<input type="password" id="password" name="password" placeholder=" 회원 비밀번호를 입력해주세요">
-		<input type="button" id="passwordConfirm" name="passwordConfirm" value="비밀번호 확인">
-=======
 			<div id="teamImg" style="display: inline-block;">
 				<img src="/ShootBoy/showImage?teamId=${userInfo.teamId}" 
 						style="width: 300px; height: 300px; padding-top: 20px;
@@ -85,7 +71,6 @@
 				<input type="button" id="passwordConfirm" name="passwordConfirm" value="비밀번호 확인" style="margin-left: 30px;">
 			</div>
 			</div>
->>>>>>> 0173401237928c2d95ccfd44682718832c9d863e
 		<div class="warning"></div>
 		</c:if>
 		<c:if test="${empty userInfo.teamId}">
