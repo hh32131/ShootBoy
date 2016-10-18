@@ -73,6 +73,7 @@
 				</select>
 				<input type="text" id="searchKeyword" name="searchKeyword" value="${searchUser.searchKeyword}"/>
 				<input type="button" id="searchBtn" value="검색" onclick="movePage(0)"/>
+				<a href="/ShootBoy/adminUser/init">처음으로</a>
 					<div class="clear"></div>
 				</div>
 			</form>

@@ -27,6 +27,7 @@
 					<p id="notice-text">게시물 리스트</p>
 				</div>
 				<div class="alldata-table">
+				
 					<table>
 						<thead>
 							<tr>
@@ -73,6 +74,7 @@
 					</select>
 					<input type="text" id="searchKeyword" name="searchKeyword" value="${searchBoard.searchKeyword}"/>
 					<input type="button" id="searchBtn" value="검색" onclick="movePage(0)"/>
+					<a href="/ShootBoy/adminList/init">처음으로</a>
 						<div class="clear"></div>
 					</div>
 				</form>
