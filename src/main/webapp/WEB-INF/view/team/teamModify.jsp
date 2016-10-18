@@ -17,7 +17,7 @@
 				$("#leafCategory option").remove();
 				$("#leafCategory").html(data);
 				
-				var locationId = "${teamInfo.locationVO.locationId}";
+				var locationId = "${teamInfo.locationId}";
 				if ( $("#leafCategory > option[value='"+locationId+"'").text() != "" ) {
 					$("#leafCategory").val(locationId);
 				}
