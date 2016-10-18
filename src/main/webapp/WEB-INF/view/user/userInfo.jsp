@@ -44,6 +44,7 @@
 	
 	<div class="myInfoText"><h1>내 정보</h1>
 		<hr class="myPageline">
+			<c:if test="${!empty userInfo.userId}">
 			<div id="userInfoWrapper">
 				<div class="name" style="font-size: 20px; margin-bottom: 15px;">이름 : ${userInfo.userName}</div>
 				<div class="phone" style="font-size: 20px; margin-bottom: 15px;">전화번호 : ${userInfo.phoneNumber}</div>
@@ -59,6 +60,10 @@
 				<div id="inline"><input type="button" id="passwordConfirm" name="passwordConfirm" value="비밀번호 확인"></div>
 				<div class="warning"></div>
 			</div>
+			</c:if>
+			<c:if test="${empty userInfo.userId}">
+				<p style="font-size: 20px;">로그인 하지 않았습니다! 로그인 후 접근하세요!</p>
+			</c:if>
 	</div>
 	
 <div class="clear">

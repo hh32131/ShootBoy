@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div><span><img class="teamPhoto"	src="/ShootBoy/showImage?teamId=${team.teamId}" /></span></div>
+	<div><span><img class="teamPhoto" src="/ShootBoy/showImage?teamId=${team.teamId}" /></span></div>
 	<div>팀명 : ${team.teamName}</div> 
 	<div>인원수 : ${team.teamCount} 명</div>
 	<div>팀 포인트 : ${team.teamPoint} 점</div>  
