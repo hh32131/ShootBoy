@@ -8,11 +8,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import net.Y5M2.support.MultipartHttpServletRequest;
 import net.Y5M2.support.MultipartHttpServletRequest.MultipartFile;
 import net.Y5M2.team.biz.TeamBiz;
 import net.Y5M2.team.biz.TeamBizImpl;
 import net.Y5M2.team.vo.TeamVO;
+import net.Y5M2.user.vo.UserVO;
 
 public class DoModifyTeamInfo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -41,6 +43,8 @@ public class DoModifyTeamInfo extends HttpServlet {
 		String leafCategory = multiparRequest.getParameter("leafCategory");
 		String teamInfo = multiparRequest.getParameter("teamInfo");
 		String fileDeleteBtn = multiparRequest.getParameter("fileDeleteBtn");
+		
+		String email = multiparRequest.getParameter("email");
 		
 		teamInfo = teamInfo.replaceAll("\n", "<br/>")
 							.replaceAll("\r", "");
@@ -71,9 +75,14 @@ public class DoModifyTeamInfo extends HttpServlet {
 			String fileName = uploadFile.getFileName();
 			teamVO.setTeamPhoto(fileName);
 		}
+		
+		UserVO userInfo = new UserVO();
+		userInfo.setEmail(email);
+		
 		PrintWriter out = response.getWriter();
-		boolean isSuccess = teamBiz.updateTeamInfo(teamVO);
+		boolean isSuccess = teamBiz.updateTeamInfo(teamVO, request, userInfo);
 		if(isSuccess){
+			
 			out.print(" <script type='text/javascript'>   ");
 			out.print("  window.opener.location.reload();   ");
 			out.print("  window.close();   ");

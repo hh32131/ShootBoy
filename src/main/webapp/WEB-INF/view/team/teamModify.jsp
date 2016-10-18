@@ -45,6 +45,7 @@
 				<div><input type="checkbox" id="fileDeleteBtn" name="fileDeleteBtn" value="delete" /></div>
 				<input type="file" id="file" name="file"></div>
 				<input type="hidden" id="teamId" name="teamId" value="${teamInfo.teamId}" >
+				<input type="hidden" id="email" name="email" value="${userInfo.email}" >
 				<div id="teamModifyRight" style="display: inline-block; margin-left: 50px; width: 300px;">
 				<div class="teamName" style="margin-bottom: 20px; font-size: 20px;">팀 이름  <input type="text" id ="temaName" name="teamName" value="${teamInfo.teamName}"></div>
 				<div class="teamCount" style="margin-bottom: 20px; font-size: 20px;">팀원 수 <input type="text" id = "teamCount" name="teamCount" value="${teamInfo.teamCount}"></div>

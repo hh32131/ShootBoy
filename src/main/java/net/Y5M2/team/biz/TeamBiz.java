@@ -19,6 +19,6 @@ public interface TeamBiz {
 
 	public String getFileNameOfTeam(String teamId);
 
-	public boolean updateTeamInfo(TeamVO teamVO);
+	public boolean updateTeamInfo(TeamVO teamVO, ServletRequest request, UserVO userInfo );
 
 }
