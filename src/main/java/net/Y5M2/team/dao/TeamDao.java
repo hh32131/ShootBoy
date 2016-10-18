@@ -14,6 +14,10 @@ public interface TeamDao {
 	public TeamVO getTeamAt(String teamId);
 
 	public TeamVO getTeamInfoForUpdate(String teamName);
+
+	public int updateTeamInfo(TeamVO teamVO);
+	
+	public int deleteTeam(String teamId);
 	
 	public int getCountOfTeams(SearchTeamVO searchTeam);
 	

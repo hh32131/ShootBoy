@@ -60,7 +60,7 @@
 
 	function openWin() {
 		window.open("http://localhost:8080/ShootBoy/createTeam", "",
-				"width=500, height= 600");
+				"width=900, height= 600");
 	}
 </script>
 
@@ -278,9 +278,11 @@
 								<div>${sessionScope._USER_INFO_.position}</div>
 							</div>
 						</form>
+						<c:if test="${empty sessionScope._USER_INFO_.teamId}">
 						<div class="teamCreateButton">
 							<input type="button" id="teamCreateBtn" value="팀 생성"  onclick="openWin()"/>
 						</div>
+						</c:if>
 						<div class="OutButton">
 							<input type="button" id="signOutBtn" value="로그아웃" onclick="location.href='/ShootBoy/logout'"/>
 						</div>

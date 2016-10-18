@@ -1,7 +1,6 @@
-package net.Y5M2.article.web;
+package net.Y5M2.admin.web;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -10,11 +9,10 @@ import javax.servlet.http.HttpSession;
 
 import net.Y5M2.constants.Session;
 
-
-public class SearchInitiateServlet extends HttpServlet {
+public class SearchAdminUserInitateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public SearchInitiateServlet() {
+	public SearchAdminUserInitateServlet() {
 		super();
 	}
 
@@ -26,9 +24,9 @@ public class SearchInitiateServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		session.removeAttribute(Session.SEARCH_BOARD_INFO);
-		
-		response.sendRedirect("/ShootBoy/list");
+		session.removeAttribute(Session.SEARCH_USER_INFO);
+
+		response.sendRedirect("/ShootBoy/adminMember");
 	}
 
 }

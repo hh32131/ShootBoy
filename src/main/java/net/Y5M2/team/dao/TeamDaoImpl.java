@@ -160,7 +160,7 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 				query.append(" 			, T.TEAM_POINT ");
 				query.append(" 			, T.LTST_MODY_DT ");
 				query.append(" 			, T.TEAM_INFO ");
-				query.append(" 			, L.LCTN_ID ");
+				query.append(" 			, T.LCTN_ID ");
 				query.append(" 			, L.LCTN_NM ");
 				query.append(" 			, L.PRNT_LCTN_ID ");
 				query.append(" 			, L.PRNT_LCTN_NM ");
@@ -190,9 +190,9 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 					team.setTeamPoint(rs.getInt("TEAM_POINT"));
 					team.setLatestModifyDate(rs.getString("LTST_MODY_DT"));
 					team.setTeamInfo(rs.getString("TEAM_INFO"));
+					team.setLocationId(rs.getString("LCTN_ID"));
 					
 					location = team.getLocationVO();
-					location.setLocationId(rs.getString("LCTN_ID"));
 					location.setLocationName(rs.getString("LCTN_NM"));
 					location.setParentLocationId(rs.getString("PRNT_LCTN_ID"));
 					location.setParentLocationName(rs.getString("PRNT_LCTN_NM"));
@@ -220,7 +220,7 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 				query.append(" 			, T.TEAM_POINT ");
 				query.append(" 			, T.LTST_MODY_DT ");
 				query.append(" 			, T.TEAM_INFO ");
-				query.append(" 			, L.LCTN_ID ");
+				query.append(" 			, T.LCTN_ID ");
 				query.append(" 			, L.LCTN_NM ");
 				query.append(" 			, L.PRNT_LCTN_ID ");
 				query.append(" 			, L.PRNT_LCTN_NM ");
@@ -251,9 +251,9 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 					team.setTeamPoint(rs.getInt("TEAM_POINT"));
 					team.setLatestModifyDate(rs.getString("LTST_MODY_DT"));
 					team.setTeamInfo(rs.getString("TEAM_INFO"));
+					team.setLocationId(rs.getString("LCTN_ID"));
 					
 					location = team.getLocationVO();
-					location.setLocationId(rs.getString("LCTN_ID"));
 					location.setLocationName(rs.getString("LCTN_NM"));
 					location.setParentLocationId(rs.getString("PRNT_LCTN_ID"));
 					location.setParentLocationName(rs.getString("PRNT_LCTN_NM"));
@@ -309,6 +309,80 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 			public Object makeObject(ResultSet rs) throws SQLException {
 				rs.next();
 				return rs.getInt("CNT");
+			}
+		});
+	}
+	
+	@Override
+	public int updateTeamInfo(TeamVO teamVO) {
+
+		return insert(new Query() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				StringBuffer query = new StringBuffer();
+				query.append(" UPDATE	TEAM ");
+				query.append(" SET		LTST_MODY_DT = SYSDATE ");
+				
+				if(teamVO.getTeamName() != null){
+					query.append(" 		, TEAM_NM = ? ");
+				}
+				if(teamVO.getTeamCount() != 0){
+					query.append(" 		, TEAM_CNT = ? ");
+				}
+				if(teamVO.getLocationId() != null){
+					query.append(" 		, LCTN_ID = ? ");
+				}
+				if(teamVO.getTeamInfo() != null){
+					query.append(" 		, TEAM_INFO = ? ");
+				}
+				if(teamVO.getTeamPhoto() != null){
+					query.append(" 		, TEAM_PHOTO = ? ");
+				}
+				query.append(" WHERE	TEAM_ID = ? ");
+				
+				
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				
+				int index = 1;
+				
+				if(teamVO.getTeamName() != null){
+					pstmt.setString(index++, teamVO.getTeamName());
+				}
+				if(teamVO.getTeamCount() != 0){
+					pstmt.setInt(index++, teamVO.getTeamCount());
+				}
+				if(teamVO.getLocationId() != null){
+					pstmt.setString(index++, teamVO.getLocationId());
+				}
+				if(teamVO.getTeamInfo() != null){
+					pstmt.setString(index++, teamVO.getTeamInfo());
+				}
+				if(teamVO.getTeamPhoto() != null){
+					pstmt.setString(index++, teamVO.getTeamPhoto());
+				}
+				pstmt.setString(index++, teamVO.getTeamId());
+				
+				return pstmt;
+			}
+		});
+	}
+
+	@Override
+	public int deleteTeam(String teamId) {
+		return insert(new Query() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				StringBuffer query = new StringBuffer();
+				
+				query.append(" DELETE ");
+				query.append(" FROM		TEAM ");
+				query.append(" WHERE	TEAM_ID = ? ");
+				
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				pstmt.setString(1, teamId);
+				return null;
 			}
 		});
 	}

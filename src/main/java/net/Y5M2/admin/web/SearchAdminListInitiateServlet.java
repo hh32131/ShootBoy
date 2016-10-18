@@ -1,19 +1,20 @@
-package net.Y5M2.user.web;
+package net.Y5M2.admin.web;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-public class ViewTeamMatchInfoPageServlet extends HttpServlet {
+import net.Y5M2.constants.Session;
+
+public class SearchAdminListInitiateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	public ViewTeamMatchInfoPageServlet() {
-		super();
-	}
+       
+    public SearchAdminListInitiateServlet() {
+        super();
+    }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -22,9 +23,10 @@ public class ViewTeamMatchInfoPageServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String viewPath = "/WEB-INF/view/user/teamMatchInfo.jsp";
-		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
-		rd.forward(request, response);
+		HttpSession session = request.getSession();
+		session.removeAttribute(Session.SEARCH_BOARD_INFO);
+		
+		response.sendRedirect("/ShootBoy/adminArticle");
 	}
 
 }

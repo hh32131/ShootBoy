@@ -73,6 +73,7 @@
 					<a href="/ShootBoy/write">글쓰기</a>
 				</div>
 				<div class="right">
+<<<<<<< HEAD
 						<select id="searchType" name="searchType">
 							<option value="1" ${ searchBoard.searchType eq 1 ? 'selected' : '' }>제목+내용</option>
 							<option value="2" ${ searchBoard.searchType eq 2 ? 'selected' : '' }>제목</option>
@@ -82,6 +83,17 @@
 						<input type="text" id="searchKeyword" name="searchKeyword" value="${searchArticle.searchKeyword}"/>
 						<input type="button" id="searchBtn" value="검123색" onclick="movePage(0)"/>
 						<a href="/ShootBoy/list/init">처음으로</a>
+=======
+					<select id="searchType" name="searchType">
+						<option value="1" ${ searchBoard.searchType eq 1 ? 'selected' : '' }>제목+내용</option>
+						<option value="2" ${ searchBoard.searchType eq 2 ? 'selected' : '' }>제목</option>
+						<option value="3" ${ searchBoard.searchType eq 3 ? 'selected' : '' }>내용</option>
+						<option value="4" ${ searchBoard.searchType eq 4 ? 'selected' : '' }>작성자</option>
+					</select>
+					<input type="text" id="searchKeyword" name="searchKeyword" value="${searchBoard.searchKeyword}"/>
+					<input type="button" id="searchBtn" value="검색" onclick="movePage(0)"/>
+					<a href="/ShootBoy/list/init">처음으로</a>
+>>>>>>> d01a58afd7e74ba268fa15852c3e3f96f02fed97
 				</div>
 				<div class="clear"></div>
 			</div>

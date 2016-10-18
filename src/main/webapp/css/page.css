@@ -45,7 +45,7 @@
 	color: #000000;
 }
 .myPageline {
-	width: 750px;
+	width: 800px;
 	border: 1px solid;
 }
 
@@ -110,6 +110,18 @@
 
 #passwordConfirm:HOVER {	
 	background-color: #808080;
+}
+
+#deleteUser {
+	color: #fff;
+	font-size: 15px;
+	width:100px;
+	background-color: #ff5151;
+	margin-bottom: 20px;
+}
+
+#deleteUser:HOVER {
+	background-color: #ff0000;
 }
 
 #allTeamLeftMenuTwo {

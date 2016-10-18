@@ -60,25 +60,19 @@
 							<th scope="col"> 팀 정보 </th>
 							<th scope="col"> 팀 인원수 </th>
 							<th scope="col"> 팀 생성일자 </th>
-							
 						</tr>
 					</thead>
-					<tbody>
-						<tr>
-							<td class="td_teamId"> 1 </td>
-							<td class="td_teamName"> 레알마드리드 </td>
-							<td class="td_teamInfo"> 저희는 스페인에 있습니다~! </td>
-							<td class="td_team-memberCnt"> 23 </td>
-							<td class="td_team-date"> 2016-10-13 11:00 </td>
-						</tr>
-						<tr>
-							<td class="td_teamId"> 2 </td>
-							<td class="td_teamName"> 수원 </td>
-							<td class="td_teamInfo"> 한국 수원에서 활동해요~ </td>
-							<td class="td_team-memberCnt"> 21 </td>
-							<td class="td_team-date"> 2016-10-11 21:00 </td>
-						</tr>
-					</tbody>	
+					<c:forEach var="teams" items="${teams}" begin="0" end="4" step="1">
+						<tbody>
+							<tr>
+								<td class="td_teamId"> ${teams.teamId } </td>
+								<td class="td_teamName"> ${teams.teamName} </td>
+								<td class="td_teamInfo"> ${teams.teamInfo} </td>
+								<td class="td_team-memberCnt"> ${teams.teamCount} </td>
+								<td class="td_team-date"> ${teams.createDate} </td>
+							</tr>
+						</tbody>	
+					</c:forEach>
 				</table>
 				<div class="game-view">
 					<button class="viewbtn" onclick="location.href='/ShootBoy/adminTeam'">팀 전체보기</button>
@@ -142,16 +136,18 @@
 							
 						</tr>
 					</thead>
-					<tbody>
-						<tr>
-							<td class="td_articleName"> 축구갤러리 </td>
-							<td class="td_articleId"> 1 </td>
-							<td class="td_articleSubject"> 손흥민 골! </td>
-							<td class="td_userId"> wogudnn </td>
-							<td class="td_userName"> 이재형 </td>
-							<td class="td_articleDate"> 2016-10-13 21:00 </td>
-						</tr>
-					</tbody>	
+					<c:forEach var="boards" items="${boards}" begin="0" end="4" step="1">
+						<tbody>
+							<tr>
+								<td class="td_board"> 게시판 </td>
+								<td class="td_boardId"> ${boards.boardId} </td>
+								<td class="td_boardSubject"> ${boards.boardSubject} </td>
+								<td class="td_username"> 닉네임 </td>
+								<td class="td_userId"> 이름 </td>
+								<td class="td_createDate"> ${boards.createDate} </td>
+							</tr>
+						</tbody>	
+					</c:forEach>	
 				</table>
 				<div class="article-view">
 					<button class="viewbtn" onclick="location.href='/ShootBoy/adminArticle'">게시글 전체보기</button>
