@@ -288,9 +288,6 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 	@Override
 	public UserVO getUserInfoForModify(UserVO userInfo) {
 		return (UserVO) selectOne(new QueryAndResult() {
-			
-			public List<UserVO> getUserListOf() {
-				return selectList(new QueryAndResult() {
 
 			@Override
 			public PreparedStatement query(Connection conn) throws SQLException {
