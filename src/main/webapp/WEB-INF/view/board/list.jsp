@@ -21,10 +21,13 @@
 </script>
 </head>
 <body>
-	${boards.categoryVO.categoryName}
 	<div id="wrapper">
+			<c:if test="${empty boards[0].categoryVO.categoryName}">
+				Community
+			</c:if>
+			<h1>${boards[0].categoryVO.categoryName}</h1>
+	
 		<div id="header">
-			<h1>Page Title</h1>
 			<c:if test="${ not empty sessionScope._USER_INFO_ }">
 			<div style="text-align: right;">
 				${sessionScope._USER_INFO_.userName} 
@@ -70,7 +73,9 @@
 			${paging}
 			<div style="padding-top: 5px;">
 				<div class="left">
-					<a href="/ShootBoy/write?categoryId=${boards.categoryId}">글쓰기</a>
+					<c:if test="${!empty boards[0].categoryId}">
+					<a href="/ShootBoy/write?categoryId=${boards[0].categoryId}">글쓰기</a>
+					</c:if>
 				</div>
 				<div class="right">
 						<select id="searchType" name="searchType">

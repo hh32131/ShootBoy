@@ -78,7 +78,7 @@ public class DoWriteServlet extends HttpServlet {
 
 		boolean isSuccess = boardBiz.writeBoard(board);
 		if (isSuccess) {
-			response.sendRedirect("/ShootBoy/list");
+			response.sendRedirect("/ShootBoy/list?categoryId="+categoryId);
 		} else {
 			response.sendRedirect("/ShootBoy/list?errorCode=2");
 		}
