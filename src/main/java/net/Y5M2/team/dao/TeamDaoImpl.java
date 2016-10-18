@@ -278,8 +278,26 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 				}
 				pstmt.setString(index++, teamVO.getTeamId());
 				
-				
 				return pstmt;
+			}
+		});
+	}
+
+	@Override
+	public int deleteTeam(String teamId) {
+		return insert(new Query() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				StringBuffer query = new StringBuffer();
+				
+				query.append(" DELETE ");
+				query.append(" FROM		TEAM ");
+				query.append(" WHERE	TEAM_ID = ? ");
+				
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				pstmt.setString(1, teamId);
+				return null;
 			}
 		});
 	}

@@ -94,5 +94,10 @@ public class UserBizImpl implements UserBiz {
 		
 		/*return userDao.UpdateUserInfo(userInfo)>0;*/
 	}
+
+	@Override
+	public boolean deleteUser(String userId) {
+		return userDao.deleteUser(userId) > 0;
+	}
 	
 }

@@ -26,7 +26,12 @@
 			}
 			});
 			
-			
+		$("#deleteUser").click(function() {
+			if( confirm("정말로 탈퇴 하시겠습니까?") ) {
+				alert("정상적으로 탈퇴 되었습니다.");
+				location.href="/ShootBoy/doDeleteUser?userId=" + userId;
+			}
+		});
 			
 		});
 	});
@@ -43,6 +48,8 @@
 		<c:if test="${!empty userInfo.teamId}">
 		팀 : ${userInfo.teamVO.teamName}
 		</c:if>
+		
+		ㅇㄴ무ㅏㅐㅣ은ㅁ
 		<input type="button" id="modifyBtn" name="modifyBtn" value="수정" >
 		<input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요">
 		<input type="button" id="passwordConfirm" name="passwordConfirm" value="비밀번호 확인">

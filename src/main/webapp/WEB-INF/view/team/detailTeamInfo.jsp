@@ -28,6 +28,13 @@
 
 			});
 		});
+		
+		$("#deleteTeam").click(function () {
+			if ( confirm("정말로 팀을 해체 하시겠습니까?") ) {
+				alert("정상적으로 처리 되었습니다.");
+				location.href="/ShootBoy/doDeleteTeam?teamId=" + "${teamInfo.teamId}";
+			}
+		})
 	});
 		
 </script>
@@ -44,6 +51,7 @@
 			팀 지역 : ${teamInfo.locationVO.parentLocationName}-${teamInfo.locationVO.locationName}
 			팀 설명 : ${userInfo.teamVO.teamInfo}
 		<input type="button" id="modifyBtn" name="modifyBtn" value="수정" >
+		<input type="button" id="deleteTeam" name="deleteTeam" value="팀 해체" >
 		<input type="password" id="password" name="password" placeholder=" 회원 비밀번호를 입력해주세요">
 		<input type="button" id="passwordConfirm" name="passwordConfirm" value="비밀번호 확인">
 		<div class="warning"></div>

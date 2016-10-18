@@ -102,4 +102,9 @@ public class TeamBizImpl implements TeamBiz {
 		
 		return teamDao.updateTeamInfo(teamVO)>0;
 	}
+
+	@Override
+	public boolean deleteTeam(String teamId) {
+		return teamDao.deleteTeam(teamId) > 0;
+	}
 }

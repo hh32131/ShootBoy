@@ -16,4 +16,6 @@ public interface TeamDao {
 
 	public int updateTeamInfo(TeamVO teamVO);
 	
+	public int deleteTeam(String teamId);
+	
 }
