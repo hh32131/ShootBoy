@@ -29,6 +29,7 @@ public class DoSignUpServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		String email = Param.getStringParam(request, "email");
 		String userName = Param.getStringParam(request, "userName");
 		String password1 = Param.getStringParam(request, "password1");

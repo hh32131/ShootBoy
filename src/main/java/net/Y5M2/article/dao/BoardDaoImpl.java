@@ -46,9 +46,8 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				query.append(" AND		B.CTGR_ID = C.CTGR_ID ");
 				
 				if(categoryVO.getCategoryId() != "0"){
-					query.append(" AND		B.CTGR_ID = ? ");
+					query.append(" AND	B.CTGR_ID = ? ");
 				}
-				
 				
 				if ( searchBoard.getSearchType() == 1 ) {
 					query.append(" AND	( B.BOARD_SBJ LIKE '%'|| ?|| '%' ");
