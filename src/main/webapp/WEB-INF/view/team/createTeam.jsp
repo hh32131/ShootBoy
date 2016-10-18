@@ -51,7 +51,7 @@
 			<div>
 				<div class="inline-block" style="border-radius: 8px;">
 					<input type="text"
-						style=" width: 255px; height: 25px; border-radius: 8px;"
+						style=" width: 255px; height: 25px; border-radius: 8px; margin-bottom: 20px;"
 						id="teamName" name="teamName" placeholder="팀명" />
 				</div>
 	
@@ -67,18 +67,19 @@
 				<option value="${location.locationId}">${location.locationName}</option>
 			</c:forEach>
 	 	</select>
-		<select name="leafLocation" id="leafLocation" style="border-radius: 5px">
+		<select name="leafLocation" id="leafLocation" style="border-radius: 5px; margin-bottom: 20px;">
 			<option> 상세 지역을 선택하세요 </option>
 		</select>
 			<div style="height: 8px;"></div>
 			<div>
 				<textarea id="teamInfo" name="teamInfo"
-					style="width: 350px; height: 250px; border-radius: 10px; font-size: 15px;"
-					placeholder="소개글을 입력하세요."></textarea>
+					style="width: 350px; height: 250px; border-radius: 10px; margin-bottom:20px;
+					font-size: 15px;" placeholder="소개글을 입력하세요."></textarea>
 			</div>
 			<input type="file" id="file" name="file" style="width: 220px; back" /> 
-			<input type="button" id="teamCreateBtn" name="teamCreateBtn" value="팀 생성"/>			  
-			<input type="button" id="backBtn" name="backBtn" value="취소"/>
+			<input type="button" id="teamCreateBtn" 
+					name="teamCreateBtn" value="팀 생성" 
+					style="margin-left: 60px; width: 60px; border-radius: 200px; "/>			  
 		</form>
 	</div>
 </body>

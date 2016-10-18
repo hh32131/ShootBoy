@@ -51,24 +51,22 @@
 
 #userInfoWrapper {
 	margin-top:30px;
-	border:2px solid;
+	border:2px solid #5d5d5d;
 	padding: 20px; 
-	border-radius: 8px;
-	border-top-color: #5ac2ef;
-	border-bottom-color: #518cf0;
-	border-left-color: #5ac2ef;
-	border-right-color: #518cf0;
+	border-radius: 30px;
 }
 
 #modifyBtn {
+	color:#fff;
 	font-size: 20px;
-	width: 400px;	
-	background-color: #c0c0c0;
+	width: 60px;	
+	background-color: #0080ff;
 	margin-bottom: 20px;
+	border-radius: 500px;
 }
 
 #modifyBtn:HOVER {
-	background-color: #808080;
+	background-color: #005ab5;
 }
 
 #password {
@@ -104,12 +102,14 @@
 #passwordConfirm {
 	font-size: 15px;
 	width: 130px;	
-	background-color: #c0c0c0;
+	background-color: #0080ff;
 	margin-bottom: 20px;
+	border-radius: 15px;
+	color: #fff;
 }
 
 #passwordConfirm:HOVER {	
-	background-color: #808080;
+	background-color: #005ab5;
 }
 
 #deleteUser {

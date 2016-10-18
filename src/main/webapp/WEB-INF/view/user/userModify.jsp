@@ -108,8 +108,7 @@
 			상세 지역 <select name="leafCategory" id="leafCategory" style="font-size: 15px;">
 					</select><br/><br/>
 			<div id="btn">
-				<input type="button" id="modifyBtn" value="수정"> 
-				<input type="button" id="cancelBtn" value="취소" onclick="location.href='/ShootBoy/detailUserInfo'" >
+				<input type="button" id="modifyBtn" value="수정" style="float: right;"> 
 			</div>
 		</form>
 	</div>

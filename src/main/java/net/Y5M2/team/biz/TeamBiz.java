@@ -17,14 +17,11 @@ public interface TeamBiz {
 	
 	public String getFileNmaeOfTeamBy(String teamId);
 
-	public String getFileNameOfTeam(String teamId);
+	public boolean updateTeamInfo(TeamVO teamVO, ServletRequest request, UserVO userInfo );
 
-<<<<<<< HEAD
-	public boolean updateTeamInfo(TeamVO teamVO);
+	public String getFileNameOfTeam(String teamId);
 	
 	public boolean deleteTeam(String teamId);
-=======
-	public boolean updateTeamInfo(TeamVO teamVO, ServletRequest request, UserVO userInfo );
->>>>>>> 597b852e1ba6554db0225cd8228d2b89ffc79599
+
 
 }

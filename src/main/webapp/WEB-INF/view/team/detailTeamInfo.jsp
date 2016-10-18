@@ -49,13 +49,14 @@
 	
 	<div class="myInfoText" style="display: inline-block; width: 800px;"><h1>팀 정보</h1>
 		<hr class="myPageline">
-		<div id="teamDetailwrapper">
+		<div id="teamDetailwrapper" style="padding-top: 20px;">
 		<c:if test="${!empty userInfo.teamId}">
 			<div id="teamImg" style="display: inline-block;">
 				<img src="/ShootBoy/showImage?teamId=${userInfo.teamId}" 
-						style="width: 300px; height: 300px; padding-top: 20px;
+						style="width: 300px; height: 300px;
 						border-radius: 150px;">
-			</div>	
+			<div class="teamPhoto" style="font-size: 30px; width: 150px; margin-left: 80px; padding-top: 20px;">팀 앰블럼</div>	
+			</div>
 			<div id="teamDetailContainer" style="display: inline-block; width: 400px; 
 					vertical-align: top; margin-left: 50px; padding-top: 20px;">
 				<div class="teamName" style="font-size: 20px; padding-bottom: 10px">팀명 : ${userInfo.teamVO.teamName}</div>
@@ -66,7 +67,7 @@
 				<div class="teamInfo" style="font-size: 20px; padding-bottom: 10px">팀 설명 : ${userInfo.teamVO.teamInfo}</div>
 			</div>
 			<div id="teamModify" style=" float: right; margin-right: 100px;"><input type="button" id="modifyBtn" name="modifyBtn" value="수정" 
-					style="margin-top: 20px; width: 200px;" >
+					style="margin-top: 20px;" >
 			<div><input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요">
 				<input type="button" id="passwordConfirm" name="passwordConfirm" value="비밀번호 확인" style="margin-left: 30px;">
 			</div>
