@@ -19,11 +19,10 @@
 
 			});
 
-
 	function openWin() {
-
 		window.open("/ShootBoy/createTeam", "", "width=900, height= 600");
 	}
+	
 </script>
 
 <div id="allTeamLeftMenu">
@@ -35,10 +34,12 @@
 		</div>
 	</div>
 </div>
+
 <div class="allTeamText">
 	<h1>All TEAM</h1>
 	<hr class="teamline">
 </div>
+
 <div id="allTeamWrapper" style="width: 700px; margin-left: 250px;">
 
 	<table>
@@ -70,6 +71,7 @@
 					<a href="/ShootBoy/write">글쓰기</a>
 				</div>
 				<div class="right">
+				
 					<select id="searchType" name="searchType">
 						<option value="1"
 							${ searchTeam.searchType eq 1 ? 'selected' : '' }>팀 이름+소개내용</option>
@@ -77,7 +79,6 @@
 							${ searchTeam.searchType eq 2 ? 'selected' : '' }>팀 이름</option>
 						<option value="3"
 							${ searchTeam.searchType eq 3 ? 'selected' : '' }>소개내용</option>
-					
 					</select> 
 						
 					<input type="text" id="searchKeyword" name="searchKeyword"
