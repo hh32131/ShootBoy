@@ -32,7 +32,7 @@ public class ViewAdminTeamPageServlet extends HttpServlet {
 
 		String viewPath = "/WEB-INF/view/adminTeam.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
-		List<TeamVO> teams = adminBiz.getAllTeam();
+		List<TeamVO> teams = adminBiz.getAllTeams();
 
 		request.setAttribute("teams", teams);
 		rd.forward(request, response);

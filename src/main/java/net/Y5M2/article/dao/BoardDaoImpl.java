@@ -48,17 +48,11 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 					query.append(" AND	B.BOARD_SBJ LIKE '%'|| ?|| '%' ");
 				}
 				else if ( searchBoard.getSearchType() == 3 ) {
-<<<<<<< HEAD
-					query.append(" AND	( B.BOARD_CONT LIKE '%'|| ?|| '%' ");
-				}
-				else if ( searchBoard.getSearchType() == 4 ) {
-					query.append(" AND	( U.USR_NM LIKE '%'|| ?|| '%' ");
-=======
+
 					query.append(" AND	B.BOARD_CONT LIKE '%'|| ?|| '%' ");
 				}
 				else if ( searchBoard.getSearchType() == 4 ) {
 					query.append(" AND	U.USR_NM LIKE '%'|| ?|| '%' ");
->>>>>>> d01a58afd7e74ba268fa15852c3e3f96f02fed97
 				}
 				
 				query.append(" ORDER	BY BOARD_ID DESC");

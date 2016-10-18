@@ -9,7 +9,17 @@ public interface TeamDao {
 
 	public int addTeam(TeamVO teamVO);
 	
+	
+	/**
+	 * 서치하기위한 유저용  
+	 */
 	public List<TeamVO> getAllTeam(SearchTeamVO searchTeam);
+	
+	/**
+	 * admin 용
+	 */
+	public List<TeamVO> getAllTeams();
+	
 	
 	public TeamVO getTeamAt(String teamId);
 

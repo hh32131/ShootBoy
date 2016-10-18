@@ -386,5 +386,67 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 			}
 		});
 	}
+
+	@Override
+	public List<TeamVO> getAllTeams() {
+		return selectList(new QueryAndResult() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				StringBuffer query = new StringBuffer();
+				
+				query.append(" SELECT	T.TEAM_ID ");
+				query.append(" 			, T.TEAM_CNT ");
+				query.append(" 			, T.TEAM_NM ");
+				query.append(" 			, T.TEAM_PHOTO ");
+				query.append(" 			, T.CRT_DT ");
+				query.append(" 			, T.TEAM_POINT ");
+				query.append(" 			, T.LTST_MODY_DT ");
+				query.append(" 			, T.TEAM_INFO ");
+				query.append(" 			, L.LCTN_ID ");
+				query.append(" 			, L.LCTN_NM ");
+				query.append(" 			, L.PRNT_LCTN_ID ");
+				query.append(" 			, L.PRNT_LCTN_NM ");
+				query.append(" FROM		TEAM T ");
+				query.append(" 			, LCTN L ");
+				query.append(" WHERE	T.LCTN_ID = L.LCTN_ID ");
+				
+				PreparedStatement pstmt =conn.prepareStatement(query.toString());
+				
+				return pstmt;
+			}
+			
+			@Override
+			public Object makeObject(ResultSet rs) throws SQLException {
+				
+				TeamVO teamVO = null;
+				List<TeamVO> teams = new ArrayList<TeamVO>();
+				LocationVO locationVO = null;
+				
+				while( rs.next()){
+					teamVO = new TeamVO();
+					teamVO.setTeamId(rs.getString("TEAM_ID"));
+					teamVO.setTeamCount(rs.getInt("TEAM_CNT"));
+					teamVO.setTeamName(rs.getString("TEAM_NM"));
+					teamVO.setTeamPhoto(rs.getString("TEAM_PHOTO"));
+					teamVO.setTeamPoint(rs.getInt("TEAM_POINT"));
+					teamVO.setTeamInfo(rs.getString("TEAM_INFO"));
+					teamVO.setCreateDate(rs.getString("CRT_DT"));
+					teamVO.setLatestModifyDate(rs.getString("LTST_MODY_DT"));
+					
+					locationVO = teamVO.getLocationVO();
+					locationVO.setLocationId(rs.getString("LCTN_ID"));
+					locationVO.setLocationName(rs.getString("LCTN_NM"));
+					locationVO.setParentLocationId(rs.getString("PRNT_LCTN_ID"));
+					locationVO.setParentLocationName(rs.getString("PRNT_LCTN_NM"));
+					
+					teams.add(teamVO);
+					
+					
+				}
+				return teams;
+			}
+		});
+	}
 	
 }

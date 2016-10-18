@@ -24,7 +24,7 @@ public class DoRemoveServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		session.removeAttribute(Session.SEARCH_INFO);
+		session.removeAttribute(Session.SEARCH_TEAM_INFO);
 		response.sendRedirect("/ShootBoy/team");
 	}
 

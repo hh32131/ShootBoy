@@ -47,7 +47,7 @@ public class ViewTeamPageServlet extends HttpServlet {
 
 
 		if (pageNo == -1) {
-			searchTeam = (SearchTeamVO) session.getAttribute(Session.SEARCH_INFO);
+			searchTeam = (SearchTeamVO) session.getAttribute(Session.SEARCH_TEAM_INFO);
 			if (searchTeam == null) {
 				searchTeam = new SearchTeamVO();
 				searchTeam.setPageNo(0);
@@ -59,7 +59,7 @@ public class ViewTeamPageServlet extends HttpServlet {
 			searchTeam.setSearchKeyword(searchKeyword);
 		}
 
-		session.setAttribute(Session.SEARCH_INFO, searchTeam);
+		session.setAttribute(Session.SEARCH_TEAM_INFO, searchTeam);
 		TeamListVO teams = teamBiz.getAllTeam(searchTeam);
 
 		String viewPath = "/WEB-INF/view/team/team.jsp";
