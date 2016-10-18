@@ -1,11 +1,8 @@
 package net.Y5M2.user.biz;
 
-<<<<<<< HEAD
 import javax.servlet.ServletRequest;
-=======
 import java.util.List;
 
->>>>>>> f2ae02d0b98d37ea5001dfc89aa05e71f2b2e643
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 

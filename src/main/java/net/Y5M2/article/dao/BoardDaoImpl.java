@@ -59,11 +59,7 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				String pagingQuery = appendPagingQueryFormat(query.toString());
 				PreparedStatement pstmt = conn.prepareStatement(pagingQuery);
 				
-<<<<<<< HEAD
-				int index = 2;
-=======
 				int index = 1;
->>>>>>> f2ae02d0b98d37ea5001dfc89aa05e71f2b2e643
 				if ( searchBoard.getSearchType() == 1 ) {
 					pstmt.setString(index++, searchBoard.getSearchKeyword());
 					pstmt.setString(index++, searchBoard.getSearchKeyword());
@@ -135,13 +131,13 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 					query.append(" OR	B.BOARD_CONT LIKE '%' || ? || '%' ) ");
 				}
 				else if ( searchBoard.getSearchType() == 2 ) {
-					query.append(" AND	( B.BOARD_SBJ LIKE '%'|| ?|| '%' ");
+					query.append(" AND	 B.BOARD_SBJ LIKE '%'|| ?|| '%' ");
 				}
 				else if ( searchBoard.getSearchType() == 3 ) {
-					query.append(" AND	( B.BOARD_CONT LIKE '%'|| ?|| '%' ");
+					query.append(" AND	 B.BOARD_CONT LIKE '%'|| ?|| '%' ");
 				}
 				else if ( searchBoard.getSearchType() == 4 ) {
-					query.append(" AND	( U.USR_NM LIKE '%'|| ?|| '%' ");
+					query.append(" AND	 U.USR_NM LIKE '%'|| ?|| '%' ");
 				}
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());

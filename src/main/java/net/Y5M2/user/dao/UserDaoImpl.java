@@ -226,77 +226,72 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 			}
 		});
 	}
-	
+
 	@Override
-<<<<<<< HEAD
 	public int UpdateUserInfo(UserVO userInfo) {
-		
+
 		return insert(new Query() {
-			
+
 			@Override
 			public PreparedStatement query(Connection conn) throws SQLException {
 				StringBuffer query = new StringBuffer();
 				query.append(" UPDATE	USR ");
 				query.append(" SET		LTST_MODY_DT = SYSDATE ");
-				
-				if(userInfo.getUserName() != null){
+
+				if (userInfo.getUserName() != null) {
 					query.append(" 		, 	USR_NM = ? ");
 				}
-				if(userInfo.getPassword() != null){
+				if (userInfo.getPassword() != null) {
 					query.append(" 		, 	USR_PWD = ? ");
 				}
-				if(userInfo.getPhoneNumber() != null){
+				if (userInfo.getPhoneNumber() != null) {
 					query.append(" 		, 	USR_PHN = ? ");
 				}
-				if(userInfo.getAge() != null){
+				if (userInfo.getAge() != null) {
 					query.append(" 		, 	USR_AGE = ? ");
 				}
-				if(userInfo.getPosition() != null){
+				if (userInfo.getPosition() != null) {
 					query.append(" 		, 	USR_POSIT = ? ");
 				}
-				if(userInfo.getLocationId() != null){
+				if (userInfo.getLocationId() != null) {
 					query.append(" 		, 	LCTN_ID = ? ");
 				}
 				query.append(" WHERE	USR_EMAIL = ? ");
-				
-				
+
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				int index = 1;
-				if(userInfo.getUserName() != null){
+				if (userInfo.getUserName() != null) {
 					pstmt.setString(index++, userInfo.getUserName());
 				}
-				if(userInfo.getPassword() != null){
+				if (userInfo.getPassword() != null) {
 					pstmt.setString(index++, userInfo.getPassword());
 				}
-				if(userInfo.getPhoneNumber() != null){
+				if (userInfo.getPhoneNumber() != null) {
 					pstmt.setString(index++, userInfo.getPhoneNumber());
 				}
-				if(userInfo.getAge() != null){
+				if (userInfo.getAge() != null) {
 					pstmt.setString(index++, userInfo.getAge());
 				}
-				if(userInfo.getPosition() != null){
+				if (userInfo.getPosition() != null) {
 					pstmt.setString(index++, userInfo.getPosition());
 				}
-				if(userInfo.getLocationId() != null){
+				if (userInfo.getLocationId() != null) {
 					pstmt.setString(index++, userInfo.getLocationId());
 				}
 				pstmt.setString(index++, userInfo.getEmail());
-				
+
 				return pstmt;
 			}
 		});
 	}
-	
+
 	@Override
 	public UserVO getUserInfoForModify(UserVO userInfo) {
-return (UserVO) selectOne(new QueryAndResult() {
-
+		return (UserVO) selectOne(new QueryAndResult() {
 			
-=======
-	public List<UserVO> getUserListOf() {
-		return selectList(new QueryAndResult() {
+			public List<UserVO> getUserListOf() {
+				return selectList(new QueryAndResult() {
 
->>>>>>> f2ae02d0b98d37ea5001dfc89aa05e71f2b2e643
 			@Override
 			public PreparedStatement query(Connection conn) throws SQLException {
 				StringBuffer query = new StringBuffer();
@@ -334,15 +329,9 @@ return (UserVO) selectOne(new QueryAndResult() {
 				query.append(" ORDER	BY USR_ID DESC ");
 
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
-<<<<<<< HEAD
 				pstmt.setString(1, userInfo.getEmail());
 				
 				return pstmt;
-=======
-
-				return pstmt;
-
->>>>>>> f2ae02d0b98d37ea5001dfc89aa05e71f2b2e643
 			}
 
 			@Override
@@ -351,12 +340,9 @@ return (UserVO) selectOne(new QueryAndResult() {
 				UserVO userVO = null;
 				LocationVO locationVO = null;
 				TeamVO teamVO = null;
-<<<<<<< HEAD
 				
 				if(rs.next()){
-=======
 				while (rs.next()) {
->>>>>>> f2ae02d0b98d37ea5001dfc89aa05e71f2b2e643
 					userVO = new UserVO();
 					userVO.setUserId(rs.getString("USR_ID"));
 					userVO.setEmail(rs.getString("USR_EMAIL"));
@@ -387,7 +373,6 @@ return (UserVO) selectOne(new QueryAndResult() {
 					teamVO.setLatestModifyDate(rs.getString("LTST_MODY_DT"));
 					teamVO.setTeamInfo(rs.getString("TEAM_INFO"));
 					teamVO.setLocationId(rs.getString("LCTN_ID"));
-<<<<<<< HEAD
 					
 				}
 					
@@ -413,13 +398,11 @@ return (UserVO) selectOne(new QueryAndResult() {
 				pstmt.setString(2, userInfo.getUserId());
 				
 				return pstmt;
-=======
 
-					users.add(userVO);
 				}
-
+		
 				return users;
-			}
+			});
 		});
 	}
 
@@ -513,13 +496,11 @@ return (UserVO) selectOne(new QueryAndResult() {
 				}
 
 				return users;
->>>>>>> f2ae02d0b98d37ea5001dfc89aa05e71f2b2e643
 			}
 		});
 	}
 
 	@Override
-<<<<<<< HEAD
 	public List<UserVO> getUserListOf() {
         return selectList(new QueryAndResult() {
             
@@ -613,24 +594,24 @@ return (UserVO) selectOne(new QueryAndResult() {
 	@Override
 	public int deleteUser(String userId) {
 		return insert(new Query() {
-			
+
 			@Override
 			public PreparedStatement query(Connection conn) throws SQLException {
-				
+
 				StringBuffer query = new StringBuffer();
-				
+
 				query.append(" DELETE ");
 				query.append(" FROM		USR ");
 				query.append(" WHERE	USR_ID = ? ");
-				
+
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				pstmt.setString(1, userId);
 				return pstmt;
 			}
 		});
 	}
-	
-=======
+
+
 	public int getCountOfUsers(SearchUserVO searchUser) {
 		return (int) selectOne(new QueryAndResult() {
 
@@ -680,5 +661,4 @@ return (UserVO) selectOne(new QueryAndResult() {
 			}
 		});
 	}
->>>>>>> f2ae02d0b98d37ea5001dfc89aa05e71f2b2e643
 }

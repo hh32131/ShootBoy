@@ -22,12 +22,6 @@ public class ViewAdminArticlePageServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 
-<<<<<<< HEAD
-	public ViewAdminArticlePageServlet() {
-
-	}
-
-=======
 	private BoardBiz boardBiz;
 	
 	public ViewAdminArticlePageServlet() {
@@ -35,7 +29,6 @@ public class ViewAdminArticlePageServlet extends HttpServlet {
 		boardBiz = new BoardBizImpl();
 	}
 
->>>>>>> f2ae02d0b98d37ea5001dfc89aa05e71f2b2e643
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doPost(request, response);
@@ -44,12 +37,6 @@ public class ViewAdminArticlePageServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-<<<<<<< HEAD
-		String viewPath = "/WEB-INF/view/adminArticle.jsp";
-
-		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
-
-=======
 		HttpSession session = request.getSession();
 		int pageNo = Param.getIntParam(request, "pageNo", -1);
 		int searchType = Param.getIntParam(request, "searchType");
@@ -83,7 +70,6 @@ public class ViewAdminArticlePageServlet extends HttpServlet {
 
 		request.setAttribute("paging", pager);
 		request.setAttribute("searchBoard", searchBoard);
->>>>>>> f2ae02d0b98d37ea5001dfc89aa05e71f2b2e643
 		rd.forward(request, response);
 
 	}

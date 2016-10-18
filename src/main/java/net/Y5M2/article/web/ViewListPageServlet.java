@@ -57,11 +57,7 @@ public class ViewListPageServlet extends HttpServlet {
 			searchBoard.setSearchKeyword(searchKeyword);
 		}
 
-<<<<<<< HEAD
-		session.setAttribute(Session.SEARCH_INFO, searchBoard);
-=======
 		session.setAttribute(Session.SEARCH_BOARD_INFO, searchBoard);
->>>>>>> f2ae02d0b98d37ea5001dfc89aa05e71f2b2e643
 		BoardListVO boards = boardBiz.getAllBoards(searchBoard);
 
 		String viewPath = "/WEB-INF/view/board/list.jsp";
