@@ -35,7 +35,7 @@
 	<div id="allTeamLeftMenuTwo">
 		<div class="allTeamOne">
 			<img src="/ShootBoy/img/화살표.jpg" class="arrow"><a
-				href="/ShootBoy/team">전체 팀 보기</a>
+				href="/ShootBoy/remove">전체 팀 보기</a>
 		</div>
 	</div>
 </div>
@@ -86,7 +86,6 @@
 						
 					<input type="text" id="searchKeyword" name="searchKeyword"
 						value="${searchTeam.searchKeyword}" /> <input type="button"	id="searchBtn" value="검색" onclick="movePage(0)" /> 
-						<a	href="/ShootBoy/list/init">처음으로</a>
 				</div>
 				<div class="clear"></div>
 			</div>

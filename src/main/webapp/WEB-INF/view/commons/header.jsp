@@ -64,7 +64,7 @@ $(document).ready(function(){
 
 					<li><a href="#">Team</a>
 						<ul>
-							<li><a href="/ShootBoy/team">전체 팀 보기</a></li>
+							<li><a href="/ShootBoy/remove">전체 팀 보기</a></li>
 						</ul></li>
 
 					<li><a href="#">Community</a>
