@@ -373,4 +373,24 @@
     <servlet-name>ViewUserListPageServlet</servlet-name>
     <url-pattern>/userList</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchAdminListInitiateServlet</display-name>
+    <servlet-name>SearchAdminListInitiateServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.SearchAdminListInitiateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchAdminListInitiateServlet</servlet-name>
+    <url-pattern>/adminList/init</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchAdminUserInitateServlet</display-name>
+    <servlet-name>SearchAdminUserInitateServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.SearchAdminUserInitateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchAdminUserInitateServlet</servlet-name>
+    <url-pattern>/adminUser/init</url-pattern>
+  </servlet-mapping>
 </web-app>
