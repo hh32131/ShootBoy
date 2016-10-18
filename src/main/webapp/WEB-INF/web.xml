@@ -248,6 +248,7 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+<<<<<<< HEAD
     <display-name>DoShowImage</display-name>
     <servlet-name>DoShowImage</servlet-name>
     <servlet-class>net.Y5M2.team.web.DoShowImage</servlet-class>
@@ -268,6 +269,8 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+=======
+>>>>>>> f2ae02d0b98d37ea5001dfc89aa05e71f2b2e643
     <display-name>ViewReplayPageServlet</display-name>
     <servlet-name>ViewReplayPageServlet</servlet-name>
     <servlet-class>net.Y5M2.replay.ViewReplayPageServlet</servlet-class>
@@ -316,6 +319,7 @@
     <url-pattern>/replayDelete</url-pattern>
   </servlet-mapping>
   <servlet>
+<<<<<<< HEAD
     <description></description>
     <display-name>ViewUserInfoPageServlet</display-name>
     <servlet-name>ViewUserInfoPageServlet</servlet-name>
@@ -357,6 +361,8 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+=======
+>>>>>>> f2ae02d0b98d37ea5001dfc89aa05e71f2b2e643
     <display-name>ViewUserModifyPageServlet</display-name>
     <servlet-name>ViewUserModifyPageServlet</servlet-name>
     <servlet-class>net.Y5M2.user.web.ViewUserModifyPageServlet</servlet-class>
@@ -377,6 +383,7 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+<<<<<<< HEAD
     <display-name>ViewDetailTeamInfo</display-name>
     <servlet-name>ViewDetailTeamInfo</servlet-name>
     <servlet-class>net.Y5M2.team.web.ViewDetailTeamInfo</servlet-class>
@@ -397,12 +404,15 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+=======
+>>>>>>> f2ae02d0b98d37ea5001dfc89aa05e71f2b2e643
     <display-name>DoModifyReplayServlet</display-name>
     <servlet-name>DoModifyReplayServlet</servlet-name>
     <servlet-class>net.Y5M2.replay.web.DoModifyReplayServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>DoModifyReplayServlet</servlet-name>
+<<<<<<< HEAD
     <url-pattern>/doModifyReply</url-pattern>
   </servlet-mapping>
   <servlet>
@@ -424,6 +434,9 @@
   <servlet-mapping>
     <servlet-name>DoModifyTeamInfo</servlet-name>
     <url-pattern>/doModifyTeamInfo</url-pattern>
+=======
+    <url-pattern>/doModify</url-pattern>
+>>>>>>> f2ae02d0b98d37ea5001dfc89aa05e71f2b2e643
   </servlet-mapping>
   <servlet>
     <display-name>ViewAdminMemberPageServlet</display-name>
@@ -466,6 +479,7 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+<<<<<<< HEAD
     <display-name>DoDeleteUserServlet</display-name>
     <servlet-name>DoDeleteUserServlet</servlet-name>
     <servlet-class>net.Y5M2.user.web.DoDeleteUserServlet</servlet-class>
@@ -483,5 +497,14 @@
   <servlet-mapping>
     <servlet-name>DoDeleteTeamServlet</servlet-name>
     <url-pattern>/doDeleteTeam</url-pattern>
+=======
+    <display-name>ViewUserListPageServlet</display-name>
+    <servlet-name>ViewUserListPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.user.web.ViewUserListPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewUserListPageServlet</servlet-name>
+    <url-pattern>/userList</url-pattern>
+>>>>>>> f2ae02d0b98d37ea5001dfc89aa05e71f2b2e643
   </servlet-mapping>
 </web-app>
