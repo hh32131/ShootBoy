@@ -338,7 +338,6 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 				LocationVO locationVO = null;
 				TeamVO teamVO = null;
 				
-				if(rs.next()){
 				while (rs.next()) {
 					userVO = new UserVO();
 					userVO.setUserId(rs.getString("USR_ID"));
@@ -378,6 +377,7 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 			}
 		});
 	}
+		
 	@Override
 	public int UserTemaIdUpdate(TeamVO teamVO, UserVO userInfo) {
 
@@ -397,9 +397,6 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 				return pstmt;
 
 				}
-		
-				return users;
-			});
 		});
 	}
 

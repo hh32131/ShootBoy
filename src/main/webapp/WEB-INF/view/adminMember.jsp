@@ -1,9 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-<<<<<<< HEAD
 	pageEncoding="UTF-8"%>
-=======
-    pageEncoding="UTF-8"%>
->>>>>>> f2ae02d0b98d37ea5001dfc89aa05e71f2b2e643
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/adminPage.css" />
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/checkbox.css" />
@@ -44,7 +40,6 @@
 							<th>가입일</th>
 						</tr>	
 					</thead>
-<<<<<<< HEAD
 					<tbody>
 							<c:forEach items="${users}" var="users">
 						<tr>	
@@ -67,7 +62,6 @@
 						</tr>
 							</c:forEach>
 					</tbody>
-=======
 					<c:forEach var="users" items="${users}">
 						<tbody>
 							<tr>	
@@ -89,7 +83,6 @@
 							</tr>
 						</tbody>
 					</c:forEach>
->>>>>>> f2ae02d0b98d37ea5001dfc89aa05e71f2b2e643
 				</table>
 			<form id="searchForm" name="searchForm">
 				${paging}
