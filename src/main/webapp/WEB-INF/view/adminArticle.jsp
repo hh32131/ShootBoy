@@ -27,6 +27,7 @@
 					<p id="notice-text">게시물 리스트</p>
 				</div>
 				<div class="alldata-table">
+				
 					<table>
 						<thead>
 							<tr>
