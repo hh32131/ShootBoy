@@ -1,14 +1,16 @@
 package net.Y5M2.user.biz;
 
-import javax.servlet.ServletRequest;
 import java.util.List;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import net.Y5M2.constants.Session;
 import net.Y5M2.support.pager.Pager;
 import net.Y5M2.support.pager.PagerFactory;
+import net.Y5M2.team.dao.TeamDao;
+import net.Y5M2.team.dao.TeamDaoImpl;
 import net.Y5M2.user.dao.UserDao;
 import net.Y5M2.user.dao.UserDaoImpl;
 import net.Y5M2.user.vo.SearchUserVO;
@@ -18,9 +20,11 @@ import net.Y5M2.user.vo.UserVO;
 public class UserBizImpl implements UserBiz {
 
 	private UserDao userDao;
+	private TeamDao teamDao;
 	
 	public UserBizImpl() {
 		userDao = new UserDaoImpl();
+		teamDao = new TeamDaoImpl();
 	}
 	
 	@Override
@@ -102,8 +106,11 @@ public class UserBizImpl implements UserBiz {
 	}
 
 	@Override
-	public boolean deleteUser(String userId) {
-		return userDao.deleteUser(userId) > 0;
+	public boolean deleteUser(UserVO userVO) {
+		
+		teamDao.deleteTeam(userVO.getTeamId());
+		
+		return userDao.deleteUser(userVO) > 0;
 	}
 
 	@Override
