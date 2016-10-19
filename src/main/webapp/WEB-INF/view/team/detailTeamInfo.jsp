@@ -66,7 +66,12 @@
 				<div class="teamInfo" style="font-size: 20px; padding-bottom: 10px">팀 설명 : ${userInfo.teamVO.teamInfo}</div>
 			</div>
 			<div id="teamModify" style=" float: right; margin-right: 100px;"><input type="button" id="modifyBtn" name="modifyBtn" value="수정" 
+<<<<<<< HEAD
 					style="margin-top: 20px;" >
+=======
+					style="margin-top: 20px; width: 200px;" >
+			<div> <input type="button" id="deleteTeam" name="deleteTeam" value="팀 해체" /> </div>
+>>>>>>> 67267473cd18ef3381fe8efe8121bd26440ffa9e
 			<div><input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요">
 				<input type="button" id="passwordConfirm" name="passwordConfirm" value="비밀번호 확인" style="margin-left: 30px;">
 			</div>

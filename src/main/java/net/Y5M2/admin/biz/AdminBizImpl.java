@@ -29,14 +29,15 @@ public class AdminBizImpl implements AdminBiz {
 		return userDao.getUserListOf();
 	}
 
-	@Override
-	public List<TeamVO> getAllTeam() {
-		return teamDao.getAllTeam();
-	}
 
 	@Override
 	public List<BoardVO> getAllBoard() {
 		return boardDao.getAllBoard();
+	}
+
+	@Override
+	public List<TeamVO> getAllTeams() {
+		return teamDao.getAllTeams();
 	}
 
 }

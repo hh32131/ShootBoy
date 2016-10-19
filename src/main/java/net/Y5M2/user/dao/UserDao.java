@@ -24,7 +24,7 @@ public interface UserDao {
 
 	public int UserTemaIdUpdate(TeamVO teamVO, UserVO userInfo);
 
-	public int deleteUser(String userId);
+	public int deleteUser(UserVO userVO);
 
 	public List<UserVO> getAllUsers(SearchUserVO searchUser);
 

@@ -38,6 +38,7 @@ public class ViewTeamInfoModify extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		HttpSession session = request.getSession();
 		LocationVO locationVO = new LocationVO();
 		locationVO.setParentLocationId("0");
@@ -50,6 +51,6 @@ public class ViewTeamInfoModify extends HttpServlet {
 		request.setAttribute("location", location);
 		request.setAttribute("teamInfo", teamInfo);
 		rd.forward(request, response);
+		
 	}
-
 }

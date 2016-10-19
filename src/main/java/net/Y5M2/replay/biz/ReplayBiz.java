@@ -10,7 +10,7 @@ public interface ReplayBiz {
 	
 	public List<ReplayVO> getListReplays(String boardId);
 	
-	public boolean deleteOneReplay(String replayId);
+	public boolean deleteOneReplay(ReplayVO replays);
 	
 	public boolean replayModify(ReplayVO replays);
 

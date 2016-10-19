@@ -586,7 +586,7 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
     }
 
 	@Override
-	public int deleteUser(String userId) {
+	public int deleteUser(UserVO userVO) {
 		return insert(new Query() {
 
 			@Override
@@ -599,7 +599,7 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 				query.append(" WHERE	USR_ID = ? ");
 
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
-				pstmt.setString(1, userId);
+				pstmt.setString(1, userVO.getUserId());
 				return pstmt;
 			}
 		});

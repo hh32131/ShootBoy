@@ -11,6 +11,13 @@ public interface CategoryBiz {
 	 * @param parentsCategoryId
 	 * @return
 	 */
-	public List<CategoryVO> getCategoryList(int parentsCategoryId);
+	public List<CategoryVO> getCategoryList(String parentCategoryId);
+	
+	/**
+	 * LeafNode찾기
+	 * @param categoryId
+	 * @return
+	 */
+	public boolean isCategoryLeafNode(String categoryId);
 	
 }
