@@ -24,36 +24,38 @@
 </head>
 <body>
 	<div id="wrapper">
-			<c:choose >
-				<c:when test="${categoryId == '11'}">
+		<c:choose >
+			<c:when test="${categoryId == '0'}">
+				<h1>Community</h1>
+			</c:when>
+			<c:when test="${categoryId == '11'}">
 				<h1>공지사항</h1>
-				</c:when>
-				<c:when test="${categoryId == '12'}">
+			</c:when>
+			<c:when test="${categoryId == '12'}">
 				<h1>가입인사</h1>
-				</c:when>
-				<c:when test="${categoryId == '13'}">
+			</c:when>
+			<c:when test="${categoryId == '13'}">
 				<h1>자유게시판</h1>
-				</c:when>
-				<c:when test="${categoryId == '14'}">
+			</c:when>
+			<c:when test="${categoryId == '14'}">
 				<h1>국내축구소식</h1>
-				</c:when>
-				<c:when test="${categoryId == '15'}">
+			</c:when>
+			<c:when test="${categoryId == '15'}">
 				<h1>해외축구소식</h1>
-				</c:when>
-				<c:when test="${categoryId == '16'}">
+			</c:when>
+			<c:when test="${categoryId == '16'}">
 				<h1>축구동영상</h1>
-				</c:when>
-				<c:when test="${categoryId == '17'}">
+			</c:when>
+			<c:when test="${categoryId == '17'}">
 				<h1>축구갤러리</h1>
-				</c:when>
-				<c:when test="${categoryId == '18'}">
+			</c:when>
+			<c:when test="${categoryId == '18'}">
 				<h1>매치경기후기</h1>
-				</c:when>
-				<c:when test="${categoryId == '19'}">
+			</c:when>
+			<c:when test="${categoryId == '19'}">
 				<h1>모집게시판</h1>
-				</c:when>
-			</c:choose>
-
+			</c:when>
+		</c:choose>
 	
 		<div id="header">
 			<c:if test="${ not empty sessionScope._USER_INFO_ }">
@@ -101,7 +103,7 @@
 			${paging}
 			<div style="padding-top: 5px;">
 				<div class="left">
-					<c:if test="${!empty categoryId}">
+					<c:if test="${categoryId ne '0'}">
 					<a href="/ShootBoy/write?categoryId=${categoryId}">글쓰기</a>
 					</c:if>
 				</div>
