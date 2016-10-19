@@ -535,6 +535,7 @@
     <url-pattern>/doDeleteTeam</url-pattern>
   </servlet-mapping>
   <servlet>
+<<<<<<< HEAD
     <display-name>ViewUserListPageServlet</display-name>
     <servlet-name>ViewUserListPageServlet</servlet-name>
     <servlet-class>net.Y5M2.user.web.ViewUserListPageServlet</servlet-class>
@@ -572,5 +573,15 @@
   <servlet-mapping>
     <servlet-name>DoRemoveUserServlet</servlet-name>
     <url-pattern>/adminUserRemove</url-pattern>
+=======
+    <description></description>
+    <display-name>DoDeleteTeamAdminServlet</display-name>
+    <servlet-name>DoDeleteTeamAdminServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.DoDeleteTeamAdminServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoDeleteTeamAdminServlet</servlet-name>
+    <url-pattern>/deleteTeamAdmin</url-pattern>
+>>>>>>> 71bbb7db7accdd16760df3c5f670386bc1ae3978
   </servlet-mapping>
 </web-app>
