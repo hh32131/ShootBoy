@@ -133,7 +133,7 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 	}
 
 	@Override
-	public int getCountOfBoards(SearchBoardVO searchBoard) {
+	public int getCountOfBoards(SearchBoardVO searchBoard, CategoryVO categoryVO) {
 		return (int) selectOne(new QueryAndResult() {
 			
 			@Override
@@ -145,6 +145,9 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				query.append(" 			, USR U ");
 				query.append(" WHERE	B.USR_ID = U.USR_ID ");
 				
+				if ( categoryVO.getCategoryId() != "0" ) {
+					query.append(" AND	B.CTGR_ID = ? ");
+				}
 				if ( searchBoard.getSearchType() == 1 ) {
 					query.append(" AND	( B.BOARD_SBJ LIKE '%'|| ?|| '%' ");
 					query.append(" OR	B.BOARD_CONT LIKE '%' || ? || '%' ) ");
@@ -161,18 +164,24 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				
+				int index = 1;
+				
+				if ( categoryVO.getCategoryId() != "0") {
+					pstmt.setString(index++, categoryVO.getCategoryId());
+				}
+				
 				if ( searchBoard.getSearchType() == 1 ) {
-					pstmt.setString(1, searchBoard.getSearchKeyword());
-					pstmt.setString(2, searchBoard.getSearchKeyword());
+					pstmt.setString(index++, searchBoard.getSearchKeyword());
+					pstmt.setString(index++, searchBoard.getSearchKeyword());
 				}
 				else if ( searchBoard.getSearchType() == 2 ) {
-					pstmt.setString(1, searchBoard.getSearchKeyword());
+					pstmt.setString(index++, searchBoard.getSearchKeyword());
 				}
 				else if ( searchBoard.getSearchType() == 3 ) {
-					pstmt.setString(1, searchBoard.getSearchKeyword());
+					pstmt.setString(index++, searchBoard.getSearchKeyword());
 				}
 				else if ( searchBoard.getSearchType() == 4 ) {
-					pstmt.setString(1, searchBoard.getSearchKeyword());
+					pstmt.setString(index++, searchBoard.getSearchKeyword());
 				}
 				
 				return pstmt;

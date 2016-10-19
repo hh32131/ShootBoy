@@ -19,11 +19,8 @@ public interface UserBiz {
 
 	public boolean userInfoModify(UserVO userInfo, ServletRequest request);
 
-<<<<<<< HEAD
-=======
 	public boolean deleteUser(String userId);
 	
 	public UserListVO getAllUsers(SearchUserVO searchUser);
 
->>>>>>> 1018최신(저녁)
 }

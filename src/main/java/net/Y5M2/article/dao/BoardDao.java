@@ -10,7 +10,7 @@ public interface BoardDao {
 
 	public List<BoardVO> getAllBoards(SearchBoardVO searchBoard, CategoryVO categoryVO);
 	
-	public int getCountOfBoards(SearchBoardVO searchBoard);
+	public int getCountOfBoards(SearchBoardVO searchBoard, CategoryVO categoryVO);
 	
 	public int writeBoard(BoardVO boardVO);
 
@@ -23,7 +23,6 @@ public interface BoardDao {
 	public BoardVO getBoardForModify(String boardId);
 
 	public int modifyBoard(BoardVO board);
-	
 	
 	public List<BoardVO> getAllBoard();
 

@@ -26,7 +26,7 @@ public class BoardBizImpl implements BoardBiz{
 	@Override
 	public BoardListVO getAllBoards(SearchBoardVO searchBoard, CategoryVO categoryVO) {
 		
-		int totalCount = boardDao.getCountOfBoards(searchBoard);
+		int totalCount = boardDao.getCountOfBoards(searchBoard, categoryVO);
 		Pager pager = PagerFactory.getPager(true);
 		pager.setTotalArticleCount(totalCount);
 		pager.setPageNumber(searchBoard.getPageNo());

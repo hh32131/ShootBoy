@@ -58,16 +58,11 @@ public class ViewListPageServlet extends HttpServlet {
 			searchBoard.setSearchType(searchType);
 			searchBoard.setSearchKeyword(searchKeyword);
 		}
-<<<<<<< HEAD
 		CategoryVO categoryVO = new CategoryVO();
 		categoryVO.setCategoryId(categoryId);
-		session.setAttribute(Session.SEARCH_INFO, searchBoard);
-		BoardListVO boards = boardBiz.getAllBoards(searchBoard, categoryVO);
-=======
-
 		session.setAttribute(Session.SEARCH_BOARD_INFO, searchBoard);
-		BoardListVO boards = boardBiz.getAllBoards(searchBoard);
->>>>>>> 1018최신(저녁)
+		BoardListVO boards = boardBiz.getAllBoards(searchBoard, categoryVO);
+
 
 		String viewPath = "/WEB-INF/view/board/list.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
