@@ -32,13 +32,13 @@ public class DoCheckPassword extends HttpServlet {
 		UserVO userVO = (UserVO) session.getAttribute(Session.USER_INFO);
 		PrintWriter out = response.getWriter();
 		
-		if(password.equals(userVO.getPassword())){
-			out.print(" true ");
+		if(password.equals(userVO.getPassword())||password == userVO.getPassword()){
+			out.print("true");
 			out.flush();
 			out.close();
 		}
 		else{
-			out.print(" false ");
+			out.print("false");
 			out.flush();
 			out.close();
 		}

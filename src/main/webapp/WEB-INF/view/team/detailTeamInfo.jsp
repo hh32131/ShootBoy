@@ -17,13 +17,13 @@
 			$("#passwordConfirm").click(function(){
 
 				
-			if($("#password").val()=="${userInfo.password}"){
-				window.open("/ShootBoy/teamModify","","width=800, height=700");
-
-			}
-			else{
-				$("div.warning").html("<p>비밀번호가 틀렸습니다.</p>")
-			}
+				$.post("/ShootBoy/doCheckPassword", {"password" : $("#password").val()} ,function(data){
+					if(data == "true"){
+						window.open("/ShootBoy/teamModify","","withd=500, height=500")
+					}
+					else{
+						alert("비밀번호가 틀렸습니다.")
+					}
 
 			});
 		});
