@@ -27,19 +27,21 @@
 		<div class="page-title">
 			회원 관리 
 		</div>
+		
 		<div class="listAll">
-			<a class="textAll">전체 목록 | 총회원수 00명</a>
+			<p class="textAll">전체 목록 | 총회원수 00명</p>
 		</div>
+		
 		<div class="search-tool">
 			<form id="searchForm" name="searchForm">
-				<select class="searchType" name="searchType">
+				<select class="searchType" name="searchType" id="searchType">
 					<option value="1" ${ searchUser.searchType eq 1 ? 'selected' : '' }>이메일</option>
 					<option value="2" ${ searchUser.searchType eq 2 ? 'selected' : '' }>이름</option>
 					<option value="3" ${ searchUser.searchType eq 3 ? 'selected' : '' }>연락처</option>
 					<option value="4" ${ searchUser.searchType eq 4 ? 'selected' : '' }>나이</option>
 				</select>
-				<input type="text" class="searchKeyword" name="searchKeyword" value="${searchUser.searchKeyword}"/>
-				<input type="button" id="searchBtn" value="검색"/>
+				<input type="text" class="searchKeyword" id="searchKeyword" name="searchKeyword" value="${searchUser.searchKeyword}"/>
+				<input type="button" class="searchBtn" id="searchBtn" value="검색"/>
 				<a href="/ShootBoy/adminUser/init">검색 초기화</a>
 				<input type="button" id="signUpBtn" value="등록" onclick="location='adminSignUp'"/>
 				<input type="button" id="signUpBtn" value="수정" onclick="location='adminUserModify'"/>
@@ -47,8 +49,11 @@
 				<div class="clear"></div>
 			</form>
 		</div>
-		<div class=line></div>
-		<div class=notice>
+		
+		<div class="line">
+		</div>
+		
+		<div class="notice">
 			<p id="notice-text">회원자료 삭제 시 다른 회원이 기존 회원아이디를 사용하지 못하도록 회원아이디는 삭제하지 않고 영구 보관합니다.</p>
 		</div>
 		<div class="alldata-table">

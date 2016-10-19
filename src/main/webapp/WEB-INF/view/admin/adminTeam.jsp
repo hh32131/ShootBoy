@@ -45,11 +45,11 @@
 		</div>
 
 		<div class="listAll">
-				<a class="textAll">전체 목록 | 총 팀수 00개</a>
+				<p class="textAll">전체 목록 | 총 팀수 00개</p>
 		</div>
-		<form id="searchForm" name="searchForm">
-		<div class="container">
-			<div class="search-tool"> 
+		
+		<div class="search-tool"> 
+			<form id="searchForm" name="searchForm">
 				<div id="search-select" name="search-select">
 					<select id="searchType" name="searchType">
 						<option value="1" ${ searchTeam.searchType eq 1 ? 'selected' : '' }>팀 이름+ 팀소개</option>
@@ -57,17 +57,17 @@
 						<option value="3" ${ searchTeam.searchType eq 3 ? 'selected' : '' }>팀 소개</option>
 					</select>
 					<input type="text" id="searchKeyword" name="searchKeyword" value="${searchTeam.searchKeyword}" /> 
-					<input type="button" id="sbtn" value="검색" onclick="movePage(0)" /> 
+					<input type="button" id="searchBtn" value="검색" onclick="movePage(0)" /> 
 					<input type="button" id="makeTeamBtn" value="생성" onclick="openWin()"/>
 					<input type="button" id="teamModifyBtn" value="수정" />
 					<input type="button" id="teamDeleteBtn" value="삭제" />
 				</div>
-			</div>
-		
-			<div class=line>
+		</div>
+			
+			<div class="line">
 			</div>
 			
-			<div class=notice>
+			<div class="notice">
 				<p id="notice-text">팀 리스트</p>
 			</div>
 			

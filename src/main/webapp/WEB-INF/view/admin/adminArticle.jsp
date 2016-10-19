@@ -28,25 +28,28 @@
 		<div class="page-title">
 			게시판 관리 
 		</div>
+		
 		<div class="listAll">
 			<p class="textAll">전체 목록 | 총 경기수 00개</p>
 		</div>
+		
 		<div class="search-tool">
 			<form id="searchForm" name="searchForm">
-				<select class="searchType" name="searchType">
+				<select class="searchType" name="searchType" id="searchType">
 					<option value="1" ${ searchBoard.searchType eq 1 ? 'selected' : '' }>제목+내용</option>
 					<option value="2" ${ searchBoard.searchType eq 2 ? 'selected' : '' }>제목</option>
 					<option value="3" ${ searchBoard.searchType eq 3 ? 'selected' : '' }>내용</option>
 					<option value="4" ${ searchBoard.searchType eq 4 ? 'selected' : '' }>작성자</option>
 				</select>
-				<input type="text" class="searchKeyword" name="searchKeyword" value="${searchBoard.searchKeyword}"/>
+				<input type="text" class="searchKeyword" name="searchKeyword" id="searchKeyword" value="${searchBoard.searchKeyword}"/>
 				<input type="button" id="searchBtn" value="검색" />
 				<a href="/ShootBoy/adminList/init">검색 초기화</a>
 				<div class="clear"></div>
 			</form>
 		</div>
-		<div class=line></div>
-		<div class=notice>
+		<div class="line">
+		</div>
+		<div class="notice">
 			<p id="notice-text">게시물 리스트</p>
 		</div>
 		<div class="alldata-table">
