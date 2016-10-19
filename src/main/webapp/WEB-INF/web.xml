@@ -477,8 +477,8 @@
 		<servlet-name>ViewUserListPageServlet</servlet-name>
 		<url-pattern>/userList</url-pattern>
 	</servlet-mapping>
+  <servlet>
     <description></description>
-   <servlet>
     <display-name>SearchAdminListInitiateServlet</display-name>
     <servlet-name>SearchAdminListInitiateServlet</servlet-name>
     <servlet-class>net.Y5M2.admin.web.SearchAdminListInitiateServlet</servlet-class>
