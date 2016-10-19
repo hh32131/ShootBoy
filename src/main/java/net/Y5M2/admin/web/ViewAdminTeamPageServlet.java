@@ -60,7 +60,6 @@ public class ViewAdminTeamPageServlet extends HttpServlet {
 
 		String viewPath = "/WEB-INF/view/admin/adminTeam.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
-		//List<TeamVO> teams = adminBiz.getAllTeams();
 		request.setAttribute("team", teams.getTeams());
 		request.setAttribute("pager", teams.getPager());
 
