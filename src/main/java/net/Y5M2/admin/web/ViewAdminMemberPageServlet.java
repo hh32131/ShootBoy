@@ -64,11 +64,7 @@ public class ViewAdminMemberPageServlet extends HttpServlet {
 
 		session.setAttribute(Session.SEARCH_USER_INFO, searchUser);
 		UserListVO users = userBiz.getAllUsers(searchUser);
-<<<<<<< HEAD
 
-=======
-		
->>>>>>> dc82a200179cae9d08b3a3dc73cae057776b9596
 		String viewPath = "/WEB-INF/view/admin/adminMember.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 		request.setAttribute("users", users.getUsers());
