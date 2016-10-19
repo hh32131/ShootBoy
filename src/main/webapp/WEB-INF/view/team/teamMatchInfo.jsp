@@ -5,7 +5,7 @@
 
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/page.css">
 
-<script type="text/javascript" src="/ShootBoy/js/Calendar.js"></script>
+<script type="text/javascript" src="/ShootBoy/js/calendar.js"></script>
 <body>
 	
 	<div id="myPageLeftMenu">
@@ -21,9 +21,5 @@
 	<div class="myInfoText"><h1>팀 매치 정보</h1>
 		<hr class="myPageline">
 	</div>
-	<input type="text" id="txtDate" onclick="fnPopUpCalendar(txtDate,txtDate,'dd/mm/yyyy')"/>
-	
-	<iframe src="https://calendar.google.com/calendar/embed?src=hsubin119%40gmail.com&ctz=Asia/Seoul" 
-	style="border: 0" width="800" height="600"></iframe>
 </body>
 </html>

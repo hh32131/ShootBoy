@@ -19,7 +19,7 @@
 				
 				$.post("/ShootBoy/doCheckPassword", {"password" : $("#password").val()} ,function(data){
 					if(data == "true"){
-						window.open("/ShootBoy/teamModify","","withd=600px, height=700px")
+						window.open("/ShootBoy/teamModify","","width=800, height=800")
 					}
 					else{
 						alert("비밀번호가 틀렸습니다.")
