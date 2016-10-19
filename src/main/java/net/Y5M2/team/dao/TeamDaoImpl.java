@@ -382,7 +382,7 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				pstmt.setString(1, teamId);
-				return null;
+				return pstmt;
 			}
 		});
 	}

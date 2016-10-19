@@ -514,5 +514,14 @@
     <servlet-name>DoRemoveTeamServlet</servlet-name>
     <url-pattern>/removeTeam</url-pattern>
   </servlet-mapping>
-
+ <servlet>
+    <description></description>
+    <display-name>DoDeleteUserServlet</display-name>
+    <servlet-name>DoDeleteUserServlet</servlet-name>
+    <servlet-class>net.Y5M2.user.web.DoDeleteUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoDeleteUserServlet</servlet-name>
+    <url-pattern>/doDeleteUser</url-pattern>
+  </servlet-mapping>
 </web-app>
