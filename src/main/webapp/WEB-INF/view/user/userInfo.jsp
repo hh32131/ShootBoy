@@ -16,11 +16,13 @@
 			
 			$("#passwordConfirm").click(function(){
 					
-				$.post("/ShootBoy/doCheckPassword",{"password" : $("#password").val()},function(data){
-					if(data = "false"){
+				$.post("/ShootBoy/doCheckPassword", {"password" : $("#password").val()} ,function(data){
+					if(data == "true"){
+						window.open("/ShootBoy/userModify","","withd=500, height=500")
+					}
+					else{
 						alert("비밀번호가 틀렸습니다.")
 					}
-					else()
 				});
 			});
 			

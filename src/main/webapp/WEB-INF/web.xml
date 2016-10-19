@@ -454,4 +454,14 @@
     <servlet-name>DoCheckPassword</servlet-name>
     <url-pattern>/doCheckPassword</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoCheckPasswordHint</display-name>
+    <servlet-name>DoCheckPasswordHint</servlet-name>
+    <servlet-class>net.Y5M2.user.web.ajax.DoCheckPasswordHint</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoCheckPasswordHint</servlet-name>
+    <url-pattern>/doCheckPasswordHint</url-pattern>
+  </servlet-mapping>
 </web-app>
