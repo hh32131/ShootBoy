@@ -7,7 +7,6 @@ import net.Y5M2.article.dao.BoardDaoImpl;
 import net.Y5M2.article.vo.BoardVO;
 import net.Y5M2.team.dao.TeamDao;
 import net.Y5M2.team.dao.TeamDaoImpl;
-import net.Y5M2.team.vo.SearchTeamVO;
 import net.Y5M2.team.vo.TeamVO;
 import net.Y5M2.user.dao.UserDao;
 import net.Y5M2.user.dao.UserDaoImpl;

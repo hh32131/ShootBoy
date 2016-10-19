@@ -473,9 +473,9 @@
   <servlet-mapping>
     <servlet-name>DoRemoveServlet</servlet-name>
     <url-pattern>/remove</url-pattern>
-</servlet-mapping>
-    <description></description>
-   <servlet>
+  </servlet-mapping>
+  <description></description>
+  <servlet>
     <display-name>SearchAdminListInitiateServlet</display-name>
     <servlet-name>SearchAdminListInitiateServlet</servlet-name>
     <servlet-class>net.Y5M2.admin.web.SearchAdminListInitiateServlet</servlet-class>
@@ -493,5 +493,15 @@
   <servlet-mapping>
     <servlet-name>SearchAdminUserInitateServlet</servlet-name>
     <url-pattern>/adminUser/init</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoRemoveTeamServlet</display-name>
+    <servlet-name>DoRemoveTeamServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.DoRemoveTeamServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoRemoveTeamServlet</servlet-name>
+    <url-pattern>/removeTeam</url-pattern>
   </servlet-mapping>
 </web-app>
