@@ -2,8 +2,10 @@
     pageEncoding="UTF-8"%>
 
 <jsp:include page="/WEB-INF/view/commons/header.jsp"></jsp:include>
+
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/page.css">
 
+<script type="text/javascript" src="/ShootBoy/js/Calendar.js"></script>
 <body>
 	
 	<div id="myPageLeftMenu">
@@ -19,6 +21,6 @@
 	<div class="myInfoText"><h1>팀 매치 정보</h1>
 		<hr class="myPageline">
 	</div>
-	
+	<input type="text" id="txtDate" onclick="fnPopUpCalendar(txtDate,txtDate,'dd/mm/yyyy')"/>
 </body>
 </html>
