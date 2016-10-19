@@ -22,5 +22,8 @@
 		<hr class="myPageline">
 	</div>
 	<input type="text" id="txtDate" onclick="fnPopUpCalendar(txtDate,txtDate,'dd/mm/yyyy')"/>
+	
+	<iframe src="https://calendar.google.com/calendar/embed?src=hsubin119%40gmail.com&ctz=Asia/Seoul" 
+	style="border: 0" width="800" height="600"></iframe>
 </body>
 </html>

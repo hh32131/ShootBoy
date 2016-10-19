@@ -15,25 +15,15 @@
 			$("#passwordConfirm").show();
 			
 			$("#passwordConfirm").click(function(){
-<<<<<<< HEAD
-				if($("#password").val()==${userInfo.password}) {
-					window.open("/ShootBoy/userModify","","width=600px,height=700px");
-				}
-				else{
-					$("div.warning").html("<p>비밀번호가 틀렸습니다.</p>")
-				}
-
-=======
 					
 				$.post("/ShootBoy/doCheckPassword", {"password" : $("#password").val()} ,function(data){
 					if(data == "true"){
-						window.open("/ShootBoy/userModify","","withd=500, height=500")
+						window.open("/ShootBoy/userModify","","width=600px,height=700px")
 					}
 					else{
 						alert("비밀번호가 틀렸습니다.")
 					}
 				});
->>>>>>> 91291b3875989bb0a204d120caeab3234cd7d6ce
 			});
 			
 		});

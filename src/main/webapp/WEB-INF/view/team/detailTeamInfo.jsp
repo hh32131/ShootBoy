@@ -19,12 +19,12 @@
 				
 				$.post("/ShootBoy/doCheckPassword", {"password" : $("#password").val()} ,function(data){
 					if(data == "true"){
-						window.open("/ShootBoy/teamModify","","withd=500, height=500")
+						window.open("/ShootBoy/teamModify","","withd=600px, height=700px")
 					}
 					else{
 						alert("비밀번호가 틀렸습니다.")
 					}
-
+				});
 			});
 		});
 		
@@ -33,9 +33,8 @@
 				alert("정상적으로 처리 되었습니다.");
 				location.href="/ShootBoy/doDeleteTeam?teamId=" + "${teamInfo.teamId}";
 			}
-		})
-	});
-		
+		});
+	});	
 </script>
 	<div id="myPageLeftMenu">
 		<div class="mplmTitle">My Page</div>
