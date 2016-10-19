@@ -11,7 +11,6 @@ public interface UserBiz {
 
 	public boolean signUpUser(UserVO userVO);
 
-
 	public boolean isExsist(String email);
 	
 	public boolean getUserBy(UserVO userVO, HttpServletRequest request);
@@ -20,7 +19,7 @@ public interface UserBiz {
 
 	public boolean userInfoModify(UserVO userInfo, ServletRequest request);
 
-	public boolean deleteUser(String userId);
+	public boolean deleteUser(UserVO userVO);
 	
 	public UserListVO getAllUsers(SearchUserVO searchUser);
 

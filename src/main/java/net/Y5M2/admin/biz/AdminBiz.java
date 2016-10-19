@@ -10,7 +10,7 @@ public interface AdminBiz {
 
   public List<UserVO> getAllUser();
   
-  public List<TeamVO> getAllTeam();
+  public List<TeamVO> getAllTeams();
 
   public List<BoardVO> getAllBoard();
 }

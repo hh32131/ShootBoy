@@ -1,20 +1,18 @@
-package net.Y5M2.article.web;
+package net.Y5M2.team.web;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import net.Y5M2.category.vo.CategoryVO;
-import net.Y5M2.support.Param;
+import net.Y5M2.constants.Session;
 
-public class ViewWritePageServlet extends HttpServlet {
+public class DoRemoveServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public ViewWritePageServlet() {
+	public DoRemoveServlet() {
 		super();
 	}
 
@@ -25,14 +23,9 @@ public class ViewWritePageServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		String categoryId = Param.getStringParam(request, "categoryId");
-		String viewPath = "/WEB-INF/view/board/write.jsp";
-		
-		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
-		request.setAttribute("categoryId", categoryId);
-		
-		rd.forward(request, response);
+		HttpSession session = request.getSession();
+		session.removeAttribute(Session.SEARCH_TEAM_INFO);
+		response.sendRedirect("/ShootBoy/team");
 	}
 
 }

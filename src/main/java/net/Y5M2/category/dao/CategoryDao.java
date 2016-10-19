@@ -6,6 +6,7 @@ import net.Y5M2.category.vo.CategoryVO;
 
 public interface CategoryDao {
 
-	public List<CategoryVO> getCategoryList(int parentsCategoryId);
+	public List<CategoryVO> getCategoryList(String parentCategoryId);
+	public boolean isCategoryLeafNode(String categoryId);
 
 }

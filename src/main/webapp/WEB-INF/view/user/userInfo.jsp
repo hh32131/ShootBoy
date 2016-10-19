@@ -31,7 +31,7 @@
 		$("#deleteUser").click(function() {
 			if( confirm("정말로 탈퇴 하시겠습니까?") ) {
 				alert("정상적으로 처리 되었습니다.");
-				location.href="/ShootBoy/doDeleteUser?userId="+"${userInfo.userId}";
+				location.href="/ShootBoy/doDeleteUser?userId=${userInfo.userId}&&teamId=${userInfo.teamId}";
 			}
 		});
 	});
