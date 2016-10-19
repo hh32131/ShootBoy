@@ -41,6 +41,9 @@
 				<input type="text" class="searchKeyword" name="searchKeyword" value="${searchUser.searchKeyword}"/>
 				<input type="button" id="searchBtn" value="검색"/>
 				<a href="/ShootBoy/adminUser/init">검색 초기화</a>
+				<input type="button" id="signUpBtn" value="등록" onclick="location='adminSignUp'"/>
+				<input type="button" id="signUpBtn" value="수정" onclick="location='adminUserModify'"/>
+				<input type="button" id="signUpBtn" value="삭제" onclick="location='adminUserRemove'"/>
 				<div class="clear"></div>
 			</form>
 		</div>
@@ -98,8 +101,6 @@
 					<input type="hidden" class="searchKeyword" name="searchKeyword" value="${searchUser.searchKeyword}" />
 				</form>
 			</div>
-			<input type="button" id="signUpBtn" value="등록" onclick="location='adminSignUp'"/>
-			<a href="/ShootBoy/adminSignUp">등록</a>
 		</div>
 	</div>
 </body>
