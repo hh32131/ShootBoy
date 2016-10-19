@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.Y5M2.replay.biz.ReplayBiz;
 import net.Y5M2.replay.biz.ReplayBizImpl;
-
+import net.Y5M2.replay.vo.ReplayVO;
 import net.Y5M2.support.Param;
 
 public class DoDeleteReplayServlet extends HttpServlet {
@@ -30,8 +30,13 @@ public class DoDeleteReplayServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String Referer = request.getHeader("referer");
 		String replayId = Param.getStringParam(request, "replayId");
+		String boardId = Param.getStringParam(request, "boardId");
+		ReplayVO replayVO = new ReplayVO();
 		
-		boolean isSuccess = replayBiz.deleteOneReplay(replayId);
+		replayVO.setBoardId(boardId);
+		replayVO.setReplayId(replayId);
+		
+		boolean isSuccess = replayBiz.deleteOneReplay(replayVO);
 		
 		if( isSuccess ) {
 			response.sendRedirect(Referer);

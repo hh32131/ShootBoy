@@ -10,11 +10,11 @@ public interface ReplayDao {
 	
 	public List<ReplayVO> getListReplays(String boardId);
 	
-	public int replayHitCount(int hitCount);
+	public int replayHitCount(int hitCount, ReplayVO replays);
 	
 	public int deletAllReplay(String boardId);
 	
-	public int deleteOneReplay(String replayId);
+	public int deleteOneReplay(ReplayVO replays);
 	
 	public int replayModify(ReplayVO replays);
 

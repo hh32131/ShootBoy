@@ -104,7 +104,7 @@ public class ReplayDaoImpl extends DaoSupport implements ReplayDao{
 	}
 
 	@Override
-	public int replayHitCount(int hitCount) {
+	public int replayHitCount(int hitCount, ReplayVO replays) {
 		return insert(new Query() {
 			
 			@Override
@@ -113,9 +113,10 @@ public class ReplayDaoImpl extends DaoSupport implements ReplayDao{
 				
 				query.append(" UPDATE	BOARD ");
 				query.append(" SET		REPLY_HIT_CNT = REPLY_HIT_CNT + ? ");
-				
+				query.append(" WHERE	BOARD_ID = ? ");
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				pstmt.setInt(1, hitCount);
+				pstmt.setString(2, replays.getBoardId());
 				return pstmt;
 			}
 		});
@@ -143,7 +144,7 @@ public class ReplayDaoImpl extends DaoSupport implements ReplayDao{
 	}
 
 	@Override
-	public int deleteOneReplay(String replayId) {
+	public int deleteOneReplay(ReplayVO replays) {
 		return insert(new Query() {
 			
 			@Override
@@ -156,7 +157,7 @@ public class ReplayDaoImpl extends DaoSupport implements ReplayDao{
 				query.append(" WHERE	REPLY_ID = ? ");
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
-				pstmt.setString(1, replayId);
+				pstmt.setString(1, replays.getReplayId());
 				return pstmt;
 			}
 		});

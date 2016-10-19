@@ -101,7 +101,7 @@
 			${paging}
 			<div style="padding-top: 5px;">
 				<div class="left">
-					<c:if test="${!empty boards[0].categoryId}">
+					<c:if test="${!empty categoryId}">
 					<a href="/ShootBoy/write?categoryId=${categoryId}">글쓰기</a>
 					</c:if>
 				</div>
