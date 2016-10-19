@@ -37,7 +37,6 @@
 		});
 
 	});
-
 	
 	function closeWin() {
 		close();
@@ -46,7 +45,8 @@
 </head>
 <body>
 	<div id="createTeamWrapper" style= "margin: 0 auto; width: 600px">
-		<div class="createTeamText" style="color: #518cf0;"><h1>CREATE TEAM</h1></div>
+		<div class="createTeamText" style="color: #518cf0;">
+		<h1>CREATE TEAM</h1></div>
 		<form id="craeteTeamForm" name="createTeamForm"	enctype="multipart/form-data" >
 			<div>
 				<div class="inline-block" style="border-radius: 8px;">

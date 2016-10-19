@@ -18,7 +18,7 @@
 		$(".replayDeleteBtn").click(function() {
 			var replyId = $(this).data("replyid");
 			if (confirm("정말로  삭제하시겠습니까?")) {
-				location.href="/ShootBoy/replayDelete?replayId=" + replyId;
+				location.href="/ShootBoy/replayDelete?replayId=" + replyId+ "&&boardId="+${board.boardId};
 			}
 		});
 		

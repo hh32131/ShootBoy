@@ -53,6 +53,7 @@
 	<div id="wrapper" style="width: 700px;">
 		<div><h1>WRITE BOARD</h1></div>
 		<form id="writeForm" name="writeForm" enctype="multipart/form-data">
+			<input type="hidden" id="categoryId" name="categoryId" value="${categoryId}" >
 			<div>
 				<input type="text"  style="width:700px; height: 25px; border-radius: 10px;" id="boardSubject" name="boardSubject" placeholder="제목을 입력하세요." />
 			</div>
