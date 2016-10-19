@@ -494,6 +494,7 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 		});
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<UserVO> getUserListOf() {
         return selectList(new QueryAndResult() {

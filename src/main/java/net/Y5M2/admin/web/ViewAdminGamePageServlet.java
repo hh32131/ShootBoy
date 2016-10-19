@@ -21,7 +21,7 @@ public class ViewAdminGamePageServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	
-    	String viewPath = "/WEB-INF/view/adminGame.jsp";
+    	String viewPath = "/WEB-INF/view/admin/adminGame.jsp";
     	
     	RequestDispatcher rd = request.getRequestDispatcher(viewPath);
     	

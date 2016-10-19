@@ -60,13 +60,13 @@ public class ViewAdminArticlePageServlet extends HttpServlet {
 		session.setAttribute(Session.SEARCH_BOARD_INFO, searchBoard);
 		BoardListVO boards = boardBiz.getAllBoards(searchBoard);
 
-		String viewPath = "/WEB-INF/view/adminArticle.jsp";
+		String viewPath = "/WEB-INF/view/admin/adminArticle.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 		request.setAttribute("boards", boards.getBoards());
 		request.setAttribute("pager", boards.getPager());
 
 		PageExplorer pageExplorer = new ClassicPageExplorer(boards.getPager());
-		String pager = pageExplorer.getPagingList("pageNo", "[@]", "<<", ">>", "searchForm");
+		String pager = pageExplorer.getPagingList("pageNo", "[@]", "<<", ">>", "pagingForm");
 
 		request.setAttribute("paging", pager);
 		request.setAttribute("searchBoard", searchBoard);
