@@ -1,4 +1,4 @@
-package net.Y5M2.user.web;
+package net.Y5M2.admin.web;
 
 import java.io.IOException;
 
@@ -12,24 +12,22 @@ import net.Y5M2.user.biz.UserBiz;
 import net.Y5M2.user.biz.UserBizImpl;
 import net.Y5M2.user.vo.UserVO;
 
-public class DoSignUpServlet extends HttpServlet {
+public class DoAdminSignUpServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
 	private UserBiz userBiz;
 	
-	
-	public DoSignUpServlet() {
-		super();
-		userBiz = new UserBizImpl();
-	}
+    public DoAdminSignUpServlet() {
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+    	userBiz = new UserBizImpl();
+    }
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
 		String email = Param.getStringParam(request, "email");
 		String userName = Param.getStringParam(request, "userName");
 		String password1 = Param.getStringParam(request, "password1");
@@ -43,52 +41,50 @@ public class DoSignUpServlet extends HttpServlet {
 		
 		
 		if (email == null) {
-			response.sendRedirect("/ShootBoy/signUp?errorCode=2");
+			response.sendRedirect("/ShootBoy/adminSignUp?errorCode=2");
 			return;
 		}
 		if (userName == null) {
-			response.sendRedirect("/ShootBoy/signUp?errorCode=3");
+			response.sendRedirect("/ShootBoy/adminSignUp?errorCode=3");
 			return;
 		}
 		if (password1 == null) {
-			response.sendRedirect("/ShootBoy/signUp?errorCode=4");
+			response.sendRedirect("/ShootBoy/adminSignUp?errorCode=4");
 			return;
 		}
 		if (password2 == null) {
-			response.sendRedirect("/ShootBoy/signUp?errorCode=5");
+			response.sendRedirect("/ShootBoy/adminSignUp?errorCode=5");
 			return;
 		}
 		if (passwordHintKey == null) {
-			response.sendRedirect("/ShootBoy/signUp?errorCode=6");
+			response.sendRedirect("/ShootBoy/adminSignUp?errorCode=6");
 			return;
 		}
 		if (passwordHintValue == null) {
-			response.sendRedirect("/ShootBoy/signUp?errorCode=7");
+			response.sendRedirect("/ShootBoy/adminSignUp?errorCode=7");
 			return;
 		}
 		if (phoneNumber == null) {
-			response.sendRedirect("/ShootBoy/signUp?errorCode=8");
+			response.sendRedirect("/ShootBoy/adminSignUp?errorCode=8");
 			return;
 		}
 		if (age == null) {
-			response.sendRedirect("/ShootBoy/signUp?errorCode=9");
+			response.sendRedirect("/ShootBoy/adminSignUp?errorCode=9");
 			return;
 		}
 		if (position == null) {
-			response.sendRedirect("/ShootBoy/signUp?errorCode=10");
+			response.sendRedirect("/ShootBoy/adminSignUp?errorCode=10");
 			return;
 		}
 		if(leafCategory==null){
-			response.sendRedirect("/ShootBoy/signUp?errorCode=11");
+			response.sendRedirect("/ShootBoy/adminSignUp?errorCode=11");
 			return;
 		}
 		
 		if (!password1.equals(password2)) {
-			response.sendRedirect("/ShootBoy/signUp?errorCode=12");
+			response.sendRedirect("/ShootBoy/adminSignUp?errorCode=12");
 			return;
 		}
-		
-		
 		
 		UserVO userVO = new UserVO();
 		userVO.setEmail(email);
@@ -104,12 +100,11 @@ public class DoSignUpServlet extends HttpServlet {
 		boolean isSuccess = userBiz.signUpUser(userVO);
 		
 		if(isSuccess){
-			response.sendRedirect("/ShootBoy/main");
+			response.sendRedirect("/ShootBoy/adminMember");
 		}
 		else{
-			response.sendRedirect("/ShootBoy/signUp?errorCode=1");
+			response.sendRedirect("/ShootBoy/adminSignUp?errorCode=1");
 		}
-
 	}
 
 }

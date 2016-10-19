@@ -61,4 +61,50 @@ public class TeamBizImpl implements TeamBiz {
 		return team.getTeamPhoto();
 	}
 	
+	@Override
+	public String getFileNameOfTeam(String teamId) {
+		TeamVO teamInfo = teamDao.getTeamAt(teamId);
+		return teamInfo.getTeamPhoto();
+	}
+	@Override
+	public boolean updateTeamInfo(TeamVO teamVO) {
+		TeamVO originalTeamInfo = teamDao.getTeamAt(teamVO.getTeamId());
+		
+		int teamModify = 5;
+		
+		if(originalTeamInfo.getTeamName().equals(teamVO.getTeamName())){
+			teamVO.setTeamName(null);
+			teamModify--;
+		}
+		if(originalTeamInfo.getTeamCount()==teamVO.getTeamCount()){
+			teamVO.setTeamCount(0);
+			teamModify--;
+		}
+		if(originalTeamInfo.getLocationId().equals(teamVO.getLocationId())){
+			teamVO.setLocationId(null);
+			teamModify--;
+		}
+		if(originalTeamInfo.getTeamInfo().equals(teamVO.getTeamInfo())){
+			teamVO.setTeamInfo(null);
+			teamModify--;
+		}
+		if(originalTeamInfo.getTeamPhoto()==null){
+			originalTeamInfo.setTeamPhoto("");
+		}
+		if(originalTeamInfo.getTeamPhoto().equals(teamVO.getTeamPhoto())){
+			teamVO.setTeamPhoto(null);
+			teamModify--;
+		}
+		if(teamModify==0){
+			return true;
+		}
+		
+		
+		return teamDao.updateTeamInfo(teamVO)>0;
+	}
+
+	@Override
+	public boolean deleteTeam(String teamId) {
+		return teamDao.deleteTeam(teamId) > 0;
+	}
 }

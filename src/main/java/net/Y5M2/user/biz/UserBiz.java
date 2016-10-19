@@ -3,12 +3,13 @@ package net.Y5M2.user.biz;
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 
+import net.Y5M2.user.vo.SearchUserVO;
+import net.Y5M2.user.vo.UserListVO;
 import net.Y5M2.user.vo.UserVO;
 
 public interface UserBiz {
 
 	public boolean signUpUser(UserVO userVO);
-
 
 	public boolean isExsist(String email);
 	
@@ -16,9 +17,10 @@ public interface UserBiz {
 
 	public UserVO findPassword(UserVO userVO);
 
-
 	public boolean userInfoModify(UserVO userInfo, ServletRequest request);
 
-
+	public boolean deleteUser(String userId);
+	
+	public UserListVO getAllUsers(SearchUserVO searchUser);
 
 }

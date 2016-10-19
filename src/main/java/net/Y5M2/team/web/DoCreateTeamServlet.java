@@ -87,7 +87,9 @@ public class DoCreateTeamServlet extends HttpServlet {
 		boolean isSuccess = teamBiz.addTeam(team, userInfo, request);
 		PrintWriter out = response.getWriter();
 		if (isSuccess) {
-			out.write("<script type='text/javascript'> window.close() </script>");
+			out.write("<script type='text/javascript'>  ");
+			out.write(" window.opener.location.reload();");
+			out.write(" window.close(); </script>");
 			out.flush();
 			out.close();
 		}

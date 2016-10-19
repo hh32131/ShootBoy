@@ -33,7 +33,6 @@ public class DoLogOutServlet extends HttpServlet {
 		String Referer = request.getHeader("referer");
 		System.out.println("Referer = " + Referer);
 		
-		
 		HttpSession session = request.getSession();
 		session.invalidate();
 		

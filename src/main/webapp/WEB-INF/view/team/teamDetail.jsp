@@ -10,14 +10,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div><span><img class="teamPhoto"	src="/ShootBoy/showImage?teamId=${team.teamId}" /></span></div>
-	<div>팀명 : ${team.teamName}</div> 
-	<div>인원수 : ${team.teamCount} 명</div>
-	<div>팀 포인트 : ${team.teamPoint} 점</div>  
-	<div>팀 생성일 : ${team.createDate}</div> 
-	<div>팀 지역 : ${team.locationVO.parentLocationName} - ${team.locationVO.locationName}</div>
-	<div><b>팀 소개글 :</b></div>
-	<div class="double">${team.teamInfo}</div> 
-
+	<div class="teamName" style="font-size: 30px; padding-bottom:10px; margin:0 auto;
+						font-weight: bold; color: #30b5ed;">${team.teamName}</div>
+	<div><img class="teamPhoto" src="/ShootBoy/showImage?teamId=${team.teamId}" 
+				style="width: 400px; height: 250px; padding-bottom: 10px; padding-left:20px;"/></div>
+	<div style="padding-bottom: 10px;">인원수 : ${team.teamCount} 명</div>
+	<div style="padding-bottom: 10px;">팀 포인트 : ${team.teamPoint} 점</div>  
+	<div style="padding-bottom: 10px;">팀 생성일 : ${team.createDate}</div> 
+	<div style="padding-bottom: 10px;">팀 지역 : ${team.locationVO.parentLocationName} - ${team.locationVO.locationName}</div>
+	<div style="padding-bottom: 10px;">팀 소개글 :</div>
+	<div>${team.teamInfo}</div> 
 </body>
 </html>

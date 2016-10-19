@@ -1,12 +1,18 @@
 package net.Y5M2.user.biz;
 
 import javax.servlet.ServletRequest;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import net.Y5M2.constants.Session;
+import net.Y5M2.support.pager.Pager;
+import net.Y5M2.support.pager.PagerFactory;
 import net.Y5M2.user.dao.UserDao;
 import net.Y5M2.user.dao.UserDaoImpl;
+import net.Y5M2.user.vo.SearchUserVO;
+import net.Y5M2.user.vo.UserListVO;
 import net.Y5M2.user.vo.UserVO;
 
 public class UserBizImpl implements UserBiz {
@@ -93,6 +99,31 @@ public class UserBizImpl implements UserBiz {
 		}
 		
 		/*return userDao.UpdateUserInfo(userInfo)>0;*/
+	}
+
+	@Override
+	public boolean deleteUser(String userId) {
+		return userDao.deleteUser(userId) > 0;
+	}
+
+	@Override
+	public UserListVO getAllUsers(SearchUserVO searchUser) {
+		
+		int totalCount = userDao.getCountOfUsers(searchUser);
+		Pager pager = PagerFactory.getPager(true);
+		pager.setTotalArticleCount(totalCount);
+		pager.setPageNumber(searchUser.getPageNo());
+		
+		searchUser.setStartRowNumber(pager.getStartArticleNumber());
+		searchUser.setEndRowNumber(pager.getEndArticleNumber());
+		
+		List<UserVO> users = userDao.getAllUsers(searchUser);
+		
+		UserListVO userList = new UserListVO();
+		userList.setPager(pager);
+		userList.setUsers(users);
+		
+		return userList;
 	}
 	
 }
