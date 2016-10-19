@@ -31,7 +31,7 @@
 		$("#deleteTeam").click(function () {
 			if ( confirm("정말로 팀을 해체 하시겠습니까?") ) {
 				alert("정상적으로 처리 되었습니다.");
-				location.href="/ShootBoy/doDeleteTeam?teamId=" + "${teamInfo.teamId}";
+				location.href="/ShootBoy/doDeleteTeam?teamId=${teamInfo.teamId}";
 			}
 		})
 	});

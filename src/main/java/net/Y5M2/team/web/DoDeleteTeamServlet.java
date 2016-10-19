@@ -34,6 +34,7 @@ public class DoDeleteTeamServlet extends HttpServlet {
 		session.invalidate();
 		
 		boolean isSuccess = teamBiz.deleteTeam(teamId);
+		
 		if ( isSuccess ) {
 			response.sendRedirect("/ShootBoy/main");
 		}
