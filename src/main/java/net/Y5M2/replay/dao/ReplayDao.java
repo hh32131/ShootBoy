@@ -17,4 +17,7 @@ public interface ReplayDao {
 	public int deleteOneReplay(String replayId);
 	
 	public int replayModify(ReplayVO replays);
+
+	public ReplayVO getReplyAt(String replyId);
+
 }

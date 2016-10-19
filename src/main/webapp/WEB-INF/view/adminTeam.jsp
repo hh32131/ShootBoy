@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/adminPage.css" />
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/checkbox.css" />
 	<jsp:include page="/WEB-INF/view/commons/adminHeader.jsp" />
@@ -23,8 +24,8 @@
 					</select>
 					<input type="text" id="search-input" name="search-input" value id ="search-word"/>
 					<button id="sbtn" name="sbtn" onclick="" >검색 </button> 
-				</div>
-			</form>
+				</form>
+			</div>
 		
 			<div class=line>
 			</div>
@@ -53,29 +54,29 @@
 							<th>지역</th>
 						</tr>	
 					</thead>
-					<tbody>
-						<tr>	
-							<td class="td_check">
-								<div class="checks">
-									<input type="checkbox" id="select-check">
-									<label for="select-check"></label>
-								</div>
-							</td>
-							<td class="td_teamId"> TM-161017-0001 </td>
-							<td class="td_teamName"> y5m2 </td>
-							<td class="td_teamCount"> 7 </td>
-							<td class="td_teamEmblem"> image... </td>
-							<td class="td_teamCreatedate"> 2016-10-17 </td>
-							<td class="td_teamPoint"> 100 </td>
-							<td class="td_teamInfo"> 팀정보 ........ </td>
-							<td class="td_teamLocation"> 서울 </td>
-						</tr>
-					</tbody>
+					<c:forEach var="teams" items="${teams}">
+						<tbody>
+							<tr>	
+								<td class="td_check">
+									<div class="checks">
+										<input type="checkbox" id="select-check">
+										<label for="select-check"></label>
+									</div>
+								</td>
+								<td class="td_teamId"> ${teams.teamId } </td>
+								<td class="td_teamName"> ${teams.teamName} </td>
+								<td class="td_teamInfo"> ${teams.teamInfo} </td>
+								<td class="td_team-memberCnt"> ${teams.teamCount} </td>
+								<td class="td_team-date"> ${teams.createDate} </td>
+								<td class="td_team-date"> ${teams.createDate} </td>
+								<td class="td_team-date"> ${teams.createDate} </td>
+								<td class="td_team-date"> ${teams.createDate} </td>
+							</tr>
+						</tbody>	
+					</c:forEach>
 				</table>
 			</div>
-			
 		</div>		
 	</div>
-	
 </body>
 </html>

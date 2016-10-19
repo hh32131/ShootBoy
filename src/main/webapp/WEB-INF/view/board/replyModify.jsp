@@ -10,9 +10,13 @@
 	$().ready(function () {
 		$("#check").click(function () {
 			if( confirm("수정 하시겠습니까?") ) {
-				location.href="";
+				$("#modifyReplyForm").attr({
+					"method" : "post",
+					"action" : "/ShootBoy/doModifyReply"
+				}).submit(); 
 			}
 		});
+
 		
 		$("cancel").click(function() {
 			close();
@@ -21,10 +25,11 @@
 </script>
 </head>
 <body>
-
-	<textarea id="replyModify" name="replyModify" placeholder="내용을 적어주세요" ></textarea>
-	<input type="button" id="check" name="check" value="수정하기"/>
-	<input type="button" id="cancel" name="cancel" value="취소"/>
-	
+	<form id="modifyReplyForm" name="modifyReplyForm">
+		<input type="hidden" name="replyId" value="${replayVO.replayId}" />
+		<textarea id="replayContent" name="replayContent" >${replayVO.replayContent}</textarea>
+		<input type="button" id="check" name="check" value="수정하기" />
+		<input type="button" id="cancel" name="cancel" value="취소"/>
+	</form>
 </body>
 </html>

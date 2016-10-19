@@ -3,5 +3,5 @@
 
    
 <div id="bannerImg">
-	<a href=""><img src="/ShootBoy/img/배너1.png"></a>
+	<a href="http://www.laneige.com/kr/ko/main.html" target="_blanck"><img src="/ShootBoy/img/배너1.png"></a>
 </div>

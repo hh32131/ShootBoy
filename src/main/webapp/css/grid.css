@@ -9,17 +9,30 @@
 	font-family: "나눔고딕";
 }
 
+.grid th{
+	font-size: 15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.grid th:FIRST-CHILD {
+	border-radius: 4px 4px 0 0;
+}
+
+.grid tr:LAST-CHILD {
+	border-radius: 0 0 4px 4px;
+}
 .grid td {
 	padding: 7px;
+}
+
+.contents {
+	margin: 10px;	
 }
 
 .grid tr, td {
 	border: none;
 	font-size: 12px;
-}
-
-.One {
-	text-align: center;
 }
 
 .grid th, td {
@@ -28,13 +41,44 @@
 }
 
 .one {
-	background-color: #2fb024;
+	background-color: #5cc5e7;
+	color: #f6f6f6;
 }
 
 .two {
-	background-color: #2fb024;
+	background-color: #5cc5e7;
+	color: #f6f6f6;
 }
 
 .containerOne, .containerTwo {
-	background-color: #dddddd;	
+	background-color: #d9f2ff;	
+}
+
+.textOne, .textTwo, .textThree {
+	font-size: 30px;
+}
+
+
+.tableOne {
+	width: 800px;
+	display: inline-block;
+}
+
+.tableTwo {
+	width: 800px;	
+	display: inline-block;
+}
+
+#wrapperOne {
+	top:0;
+	width:50px;
+	display: inline-block;
+	float: left;
+}
+
+#wrapperTwo {
+	display: inline-block;
+	width: 400px;
+	margin-left: 50px;
+	float: right;
 }

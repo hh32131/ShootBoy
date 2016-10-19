@@ -31,13 +31,6 @@ public interface BoardBiz {
 	 */
 	public BoardVO getBoardAt(String boardId);
 
-	/**
-	 * 게시판 글 조회수 업데이트
-	 * 
-	 * @param boardId
-	 * @return
-	 */
-	public boolean hitCountUpdate(String boardId);
 
 	/**
 	 * 게시판 글 삭제

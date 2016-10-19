@@ -39,7 +39,25 @@ public class ReplayBizImpl implements ReplayBiz {
 
 	@Override
 	public boolean replayModify(ReplayVO replays) {
+		int modifyCount = 1;
+		ReplayVO originalReply = replayDao.getReplyAt(replays.getReplayId());
+		if(originalReply.getReplayContent().equals(replays.getReplayContent())){
+			replays.setReplayContent(null);
+			modifyCount--;
+		}
+		if(modifyCount==0){
+			return true;
+		}
+		
+		
+		
 		return replayDao.replayModify(replays) > 0;
+	}
+	
+	@Override
+	public ReplayVO getReplyAt(String replyId) {
+		
+		return replayDao.getReplyAt(replyId);
 	}
 
 }

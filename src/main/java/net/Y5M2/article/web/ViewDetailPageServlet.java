@@ -39,7 +39,7 @@ public class ViewDetailPageServlet extends HttpServlet {
 		
 		String boardId = Param.getStringParam(request, "boardId");
 		
-		boardBiz.hitCountUpdate(boardId);
+		
 		BoardVO board = boardBiz.getBoardAt(boardId);
 		
 		List<ReplayVO> replays = replayBiz.getListReplays(boardId);

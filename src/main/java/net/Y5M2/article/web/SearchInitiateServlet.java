@@ -26,7 +26,7 @@ public class SearchInitiateServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		session.removeAttribute(Session.SEARCH_INFO);
+		session.removeAttribute(Session.SEARCH_BOARD_INFO);
 		
 		response.sendRedirect("/ShootBoy/list");
 	}

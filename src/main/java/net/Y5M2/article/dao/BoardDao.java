@@ -23,5 +23,8 @@ public interface BoardDao {
 	public BoardVO getBoardForModify(String boardId);
 
 	public int modifyBoard(BoardVO board);
+	
+	
+	public List<BoardVO> getAllBoard();
 
 }

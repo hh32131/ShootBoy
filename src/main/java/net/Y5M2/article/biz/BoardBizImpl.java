@@ -50,13 +50,10 @@ public class BoardBizImpl implements BoardBiz{
 
 	@Override
 	public BoardVO getBoardAt(String boardId) {
+		boardDao.hitCountUpdate(boardId);
 		return boardDao.getBoardAt(boardId);
 	}
 	
-	@Override
-	public boolean hitCountUpdate(String boardId) {
-		return boardDao.hitCountUpdate(boardId) > 0;
-	}
 
 	@Override
 	public boolean deleteBoard(String boardId) {

@@ -1,6 +1,7 @@
 package net.Y5M2.user.web;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -28,6 +29,7 @@ public class DoUserModifyServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String email = Param.getStringParam(request, "email");
 		String userName = Param.getStringParam(request, "userName");
 		String password = Param.getStringParam(request, "password");
 		String phoneNumber = Param.getStringParam(request, "phoneNumber");
@@ -44,9 +46,11 @@ public class DoUserModifyServlet extends HttpServlet {
 		if(phoneNumber == null){
 			response.sendRedirect("/ShootBoy/userModify?errorCode=4");
 		}
-
+		
+		
 		
 		UserVO userInfo = new UserVO();
+		userInfo.setEmail(email);
 		userInfo.setUserName(userName);
 		userInfo.setPassword(password);
 		userInfo.setPhoneNumber(phoneNumber);
@@ -54,10 +58,18 @@ public class DoUserModifyServlet extends HttpServlet {
 		userInfo.setPosition(position);
 		userInfo.setLocationId(leafCategory);
 		
-		boolean isSuccess = userBiz.userInfoModify(userInfo);
+		
+		PrintWriter out = response.getWriter();
+		
+		boolean isSuccess = userBiz.userInfoModify(userInfo, request);
 		
 		if(isSuccess){
-			response.sendRedirect("/ShootBoy/detailUserInfo");
+			out.print(" <script type='text/javascript'>   ");
+			out.print("  window.opener.location.reload();   ");
+			out.print("  window.close();   ");
+			out.print(" </script>  ");
+			out.flush();
+			out.close();
 		}
 		else{
 			response.sendRedirect("/ShootBoy/userModify?errorCode=1");

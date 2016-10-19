@@ -7,36 +7,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/grid.css" />
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/layout.css" />
+<link rel="stylesheet" type="text/css" href="/ShootBoy/css/hsh.css" />
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/signUp.css">
+<link rel="stylesheet" type="text/css" href="/ShootBoy/css/page.css">
 
 <title>Shoot Boy</title>
 </head>
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="/ShootBoy/js/jquery.cycle2.js"></script>
+
 <script type="text/javascript">
 
-	$(document).ready(function(){
-		
-		var myIndex = 0;
-		carousel();
+$(document).ready(function(){
+	
 
-		function carousel() {
-			
-		    var i;
-		    var x = document.getElementsByClassName("mainImgOne");
-		    for (i = 0; i < x.length; i++) {
-		       x[i].style.display = "none";  
-		    }
-		    myIndex++;
-		    if (myIndex > x.length) {
-		    	myIndex = 1;
-		    }    
-		    x[myIndex-1].style.display = "block";
-		   
-		  	setTimeout(carousel, 2000);
-
-		}
-
-	});
+});
+	
 </script>
 <body>
 	<h1>
@@ -65,11 +51,14 @@
 				<ul>
 					<li class="active"><a href="#">My page</a>
 						<ul>
-							<li><a href="#">내 정보</a></li>
-							<li><a href="#">팀 정보</a></li>
-							<li><a href="#">팀 매치 정보</a></li>
-							<li><a href="#">메시지함</a></li>
-						</ul></li>
+						<c:if test="${!empty sessionScope._USER_INFO_}">
+							<li><a href="/ShootBoy/userInfo">내 정보</a></li>
+							<li><a href="/ShootBoy/detailTeamInfo">팀 정보</a></li>
+							<li><a href="/ShootBoy/teamMatchInfo">팀 매치 정보</a></li>
+							<li><a href="/ShootBoy/message">메시지함</a></li>
+						</c:if>
+						</ul>
+					</li>
 
 					<li><a href="#">Match</a>
 						<ul>
@@ -80,7 +69,7 @@
 
 					<li><a href="#">Team</a>
 						<ul>
-							<li><a href="#">전체 팀 보기</a></li>
+							<li><a href="/ShootBoy/remove">전체 팀 보기</a></li>
 						</ul></li>
 
 					<li><a href="/ShootBoy/list">Community</a>
@@ -98,10 +87,11 @@
 						</li>
 				</ul>
 			</div>
-			<div class="mainImg">
-				<img class="mainImgOne" src="/ShootBoy/img/경기장.png">
-				<img class="mainImgOne" src="/ShootBoy/img/메시.jpg">
-				<img class="mainImgOne" src="/ShootBoy/img/호날두.jpg">
+			<div class="cycle-slideshow" data-cycle-timeout=2000>
+				<img src="/ShootBoy/img/경기장.png">
+				<img src="/ShootBoy/img/메시.jpg">
+				<img src="/ShootBoy/img/호날두.jpg">
+				<img src="/ShootBoy/img/손흥민.jpg">
 			</div>		
 		</div>
 	</div>
