@@ -476,8 +476,6 @@
 	</servlet-mapping>
   <servlet>
     <description></description>
-<<<<<<< HEAD
-=======
     <display-name>DoRemoveServlet</display-name>
     <servlet-name>DoRemoveServlet</servlet-name>
     <servlet-class>net.Y5M2.team.web.DoRemoveServlet</servlet-class>
@@ -488,7 +486,6 @@
   </servlet-mapping>
   <description></description>
   <servlet>
->>>>>>> 95f1b691517cd935fae1986ccaf90fbbc9424072
     <display-name>SearchAdminListInitiateServlet</display-name>
     <servlet-name>SearchAdminListInitiateServlet</servlet-name>
     <servlet-class>net.Y5M2.admin.web.SearchAdminListInitiateServlet</servlet-class>
