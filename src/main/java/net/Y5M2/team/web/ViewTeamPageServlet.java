@@ -41,11 +41,8 @@ public class ViewTeamPageServlet extends HttpServlet {
 		int searchType = Param.getIntParam(request, "searchType");
 		String searchKeyword = Param.getStringParam(request, "searchKeyword");
 		
-		
 		SearchTeamVO searchTeam = null;
 		
-
-
 		if (pageNo == -1) {
 			searchTeam = (SearchTeamVO) session.getAttribute(Session.SEARCH_TEAM_INFO);
 			if (searchTeam == null) {

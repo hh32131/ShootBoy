@@ -37,6 +37,5 @@ public class DoDownloadServlet extends HttpServlet {
 			DownloadUtil downloadUtil = DownloadUtil.getInstance("D:\\board\\uploadfiles");
 			downloadUtil.download(request, response, fileName, fileName);
 		}
-		
 	}
 }

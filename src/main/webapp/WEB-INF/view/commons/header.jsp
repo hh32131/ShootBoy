@@ -72,18 +72,19 @@ $(document).ready(function(){
 							<li><a href="/ShootBoy/remove">전체 팀 보기</a></li>
 						</ul></li>
 
-					<li><a href="#">Community</a>
+					<li><a href="/ShootBoy/list">Community</a>
 						<ul>
-							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">공지사항</a></li>
-							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">가입인사</a></li>
-							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">자유게시판</a></li>
-							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">국내축구소식</a></li>
-							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">해외축구소식</a></li>
-							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">축구동영상</a></li>
-							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">축구갤러리</a></li>
-							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">매치경기후기</a></li>
-							<li><a href="#?categoryId=${category.getCategoryId}&?parentCategoryId=${category.getParentsCategoryId}">모집게시판</a></li>
-						</ul></li>
+							<li><a href="/ShootBoy/list?categoryId=11">공지사항</a></li>
+							<li><a href="/ShootBoy/list?categoryId=12">가입인사</a></li>
+							<li><a href="/ShootBoy/list?categoryId=13">자유게시판</a></li>
+							<li><a href="/ShootBoy/list?categoryId=14">국내축구소식</a></li>
+							<li><a href="/ShootBoy/list?categoryId=15">해외축구소식</a></li>
+							<li><a href="/ShootBoy/list?categoryId=16">축구동영상</a></li>
+							<li><a href="/ShootBoy/list?categoryId=17">축구갤러리</a></li>
+							<li><a href="/ShootBoy/list?categoryId=18">매치경기후기</a></li>
+							<li><a href="/ShootBoy/list?categoryId=19">모집게시판</a></li>
+						</ul>
+						</li>
 				</ul>
 			</div>
 			<div class="cycle-slideshow" data-cycle-timeout=2000>

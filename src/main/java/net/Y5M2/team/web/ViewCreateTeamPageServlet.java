@@ -29,8 +29,6 @@ public class ViewCreateTeamPageServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		
-		
 		LocationVO locationVO = new LocationVO();
 		locationVO.setParentLocationId("0");
 		
