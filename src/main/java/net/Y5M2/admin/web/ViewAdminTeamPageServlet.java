@@ -30,7 +30,7 @@ public class ViewAdminTeamPageServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String viewPath = "/WEB-INF/view/adminTeam.jsp";
+		String viewPath = "/WEB-INF/view/admin/adminTeam.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 		List<TeamVO> teams = adminBiz.getAllTeam();
 

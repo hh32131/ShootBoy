@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/adminPage.css" />
-<link rel="stylesheet" type="text/css" href="/ShootBoy/css/checkbox.css" />
 	<jsp:include page="/WEB-INF/view/commons/adminHeader.jsp" />
 	
 	<div class="wrapper">
