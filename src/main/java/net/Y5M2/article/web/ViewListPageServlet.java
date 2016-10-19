@@ -42,7 +42,7 @@ public class ViewListPageServlet extends HttpServlet {
 		int pageNo = Param.getIntParam(request, "pageNo", -1);
 		int searchType = Param.getIntParam(request, "searchType");
 		String searchKeyword = Param.getStringParam(request, "searchKeyword");
-		String categoryId = Param.getStringParam(request, "categoryId", "0");
+		String categoryId = Param.getStringParam(request, "categoryId");
 
 		SearchBoardVO searchBoard = null;
 
@@ -71,6 +71,7 @@ public class ViewListPageServlet extends HttpServlet {
 		PageExplorer pageExplorer = new ClassicPageExplorer(boards.getPager());
 		String pager = pageExplorer.getPagingList("pageNo", "[@]", "<<", ">>", "searchForm");
 
+		request.setAttribute("categoryId", categoryId);
 		request.setAttribute("paging", pager);
 		request.setAttribute("searchBoard", searchBoard);
 		rd.forward(request, response);
