@@ -13,14 +13,15 @@
 							window.open(
 									"/ShootBoy/teamDetail?teamId=" + teamid,
 									"", "width=500, height= 500");
-						})
+						});
 
-			function() {
 				$("#teamDeleteBtn").click(
-					var checked = $('select-check').val("teamid");
-					location.href = "/ShootBoy/board/detail?boardId=${board.boardId}";
-				)}
-			});
+						function() {
+						var checked = $('select-check').val();
+						location.href = "/ShootBoy/doDeleteTeam?teamId=" + checked; 
+						//location.href="/ShootBoy/doDeleteTeam?teamId=" + "${teamInfo.teamId}";
+						});
+				});
 
 
 	function openWin() {
@@ -67,7 +68,7 @@
 						<tr>
 							<th>
 								<div class="checks">
-									<input type="checkbox" id="select-check">
+									<input type="checkbox" >
 									<label for="select-check"></label>
 								</div>
 							</th>
