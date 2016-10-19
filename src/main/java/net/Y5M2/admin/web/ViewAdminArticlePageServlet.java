@@ -13,6 +13,7 @@ import net.Y5M2.article.biz.BoardBiz;
 import net.Y5M2.article.biz.BoardBizImpl;
 import net.Y5M2.article.vo.BoardListVO;
 import net.Y5M2.article.vo.SearchBoardVO;
+import net.Y5M2.category.vo.CategoryVO;
 import net.Y5M2.constants.Session;
 import net.Y5M2.support.Param;
 import net.Y5M2.support.pager.ClassicPageExplorer;
@@ -41,6 +42,7 @@ public class ViewAdminArticlePageServlet extends HttpServlet {
 		int pageNo = Param.getIntParam(request, "pageNo", -1);
 		int searchType = Param.getIntParam(request, "searchType");
 		String searchKeyword = Param.getStringParam(request, "searchKeyword");
+		String categoryId = Param.getStringParam(request, "categoryId");
 
 		SearchBoardVO searchBoard = null;
 
@@ -57,8 +59,10 @@ public class ViewAdminArticlePageServlet extends HttpServlet {
 			searchBoard.setSearchKeyword(searchKeyword);
 		}
 
+		CategoryVO categoryVO = new CategoryVO();
+		categoryVO.setCategoryId(categoryId);
 		session.setAttribute(Session.SEARCH_BOARD_INFO, searchBoard);
-		BoardListVO boards = boardBiz.getAllBoards(searchBoard);
+		BoardListVO boards = boardBiz.getAllBoards(searchBoard, categoryVO);
 
 		String viewPath = "/WEB-INF/view/adminArticle.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
@@ -68,6 +72,7 @@ public class ViewAdminArticlePageServlet extends HttpServlet {
 		PageExplorer pageExplorer = new ClassicPageExplorer(boards.getPager());
 		String pager = pageExplorer.getPagingList("pageNo", "[@]", "<<", ">>", "searchForm");
 
+		request.setAttribute("categoryId", categoryId);
 		request.setAttribute("paging", pager);
 		request.setAttribute("searchBoard", searchBoard);
 		rd.forward(request, response);

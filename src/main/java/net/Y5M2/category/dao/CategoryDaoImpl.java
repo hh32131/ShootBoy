@@ -13,9 +13,8 @@ import net.Y5M2.support.QueryAndResult;
 
 public class CategoryDaoImpl extends DaoSupport implements CategoryDao {
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public List<CategoryVO> getCategoryList(int parentsCategoryId) {
+	public List<CategoryVO> getCategoryList(String parentCategoryId) {
 		return selectList(new QueryAndResult() {
 			
 			@Override
@@ -27,13 +26,14 @@ public class CategoryDaoImpl extends DaoSupport implements CategoryDao {
 				query.append(" 			, CTGR_NM ");
 				query.append(" 			, PRNT_CTGR_ID ");
 				query.append(" FROM		CTGR ");
+				query.append(" WHERE	PRNT_CTGR_ID = ? ");
+
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
-				
+				pstmt.setString(1, parentCategoryId);
 				return pstmt;
 			}
-			
-			@SuppressWarnings("null")
+		
 			@Override
 			public Object makeObject(ResultSet rs) throws SQLException {
 				
@@ -41,6 +41,7 @@ public class CategoryDaoImpl extends DaoSupport implements CategoryDao {
 				List<CategoryVO> categoryList = new ArrayList<CategoryVO>();
 				
 				while ( rs.next() ) {
+					category = new CategoryVO();
 					category.setCategoryId(rs.getString("CTGR_ID"));
 					category.setCategoryName(rs.getString("CTGR_NM"));
 					category.setParentsCategoryId(rs.getString("PRNT_CTGR_ID"));
@@ -51,5 +52,10 @@ public class CategoryDaoImpl extends DaoSupport implements CategoryDao {
 				return categoryList;
 			}
 		});
+	}
+	
+	@Override
+	public boolean isCategoryLeafNode(String categoryId) {
+		return getCategoryList(categoryId).size() == 0;
 	}
 }

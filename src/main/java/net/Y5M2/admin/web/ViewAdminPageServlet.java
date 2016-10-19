@@ -33,9 +33,10 @@ public class ViewAdminPageServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
+		
 		List<UserVO> users = adminBiz.getAllUser();
-		List<TeamVO> teams = adminBiz.getAllTeam();
+		List<TeamVO> teams = adminBiz.getAllTeams();
 		List<BoardVO> boards = adminBiz.getAllBoard();
 
 		String viewPath = "/WEB-INF/view/admin.jsp";

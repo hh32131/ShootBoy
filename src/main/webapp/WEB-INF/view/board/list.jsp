@@ -13,18 +13,49 @@
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/grid.css" />
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
+
 	$().ready(function() {
 		$("#searchType").change(function() {
 			alert($("#searchType option:selected").text());
 		});
 	});
+
 </script>
 </head>
 <body>
-
 	<div id="wrapper">
+			<c:choose >
+				<c:when test="${categoryId == '11'}">
+				<h1>공지사항</h1>
+				</c:when>
+				<c:when test="${categoryId == '12'}">
+				<h1>가입인사</h1>
+				</c:when>
+				<c:when test="${categoryId == '13'}">
+				<h1>자유게시판</h1>
+				</c:when>
+				<c:when test="${categoryId == '14'}">
+				<h1>국내축구소식</h1>
+				</c:when>
+				<c:when test="${categoryId == '15'}">
+				<h1>해외축구소식</h1>
+				</c:when>
+				<c:when test="${categoryId == '16'}">
+				<h1>축구동영상</h1>
+				</c:when>
+				<c:when test="${categoryId == '17'}">
+				<h1>축구갤러리</h1>
+				</c:when>
+				<c:when test="${categoryId == '18'}">
+				<h1>매치경기후기</h1>
+				</c:when>
+				<c:when test="${categoryId == '19'}">
+				<h1>모집게시판</h1>
+				</c:when>
+			</c:choose>
+
+	
 		<div id="header">
-			<h1>Page Title</h1>
 			<c:if test="${ not empty sessionScope._USER_INFO_ }">
 			<div style="text-align: right;">
 				${sessionScope._USER_INFO_.userName} 
@@ -70,9 +101,12 @@
 			${paging}
 			<div style="padding-top: 5px;">
 				<div class="left">
-					<a href="/ShootBoy/write">글쓰기</a>
+					<c:if test="${!empty boards[0].categoryId}">
+					<a href="/ShootBoy/write?categoryId=${categoryId}">글쓰기</a>
+					</c:if>
 				</div>
 				<div class="right">
+
 					<select id="searchType" name="searchType">
 						<option value="1" ${ searchBoard.searchType eq 1 ? 'selected' : '' }>제목+내용</option>
 						<option value="2" ${ searchBoard.searchType eq 2 ? 'selected' : '' }>제목</option>

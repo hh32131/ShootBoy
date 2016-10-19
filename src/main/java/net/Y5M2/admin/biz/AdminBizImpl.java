@@ -7,6 +7,7 @@ import net.Y5M2.article.dao.BoardDaoImpl;
 import net.Y5M2.article.vo.BoardVO;
 import net.Y5M2.team.dao.TeamDao;
 import net.Y5M2.team.dao.TeamDaoImpl;
+import net.Y5M2.team.vo.SearchTeamVO;
 import net.Y5M2.team.vo.TeamVO;
 import net.Y5M2.user.dao.UserDao;
 import net.Y5M2.user.dao.UserDaoImpl;
@@ -29,14 +30,15 @@ public class AdminBizImpl implements AdminBiz {
 		return userDao.getUserListOf();
 	}
 
-	@Override
-	public List<TeamVO> getAllTeam() {
-		return teamDao.getAllTeam();
-	}
 
 	@Override
 	public List<BoardVO> getAllBoard() {
 		return boardDao.getAllBoard();
+	}
+
+	@Override
+	public List<TeamVO> getAllTeams() {
+		return teamDao.getAllTeams();
 	}
 
 }
