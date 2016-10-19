@@ -40,4 +40,9 @@ public class AdminBizImpl implements AdminBiz {
 		return teamDao.getAllTeams();
 	}
 
+	@Override
+	public boolean deleteUser(String userId) {
+		return userDao.deleteUser(userId);
+	}
+
 }
