@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/adminPage.css" />
-<<<<<<< HEAD
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/checkbox.css" />
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>	
 <script type="text/javascript">
@@ -30,8 +29,6 @@
 		window.open("/ShootBoy/createTeam", "", "width=900, height= 600");
 	}
 </script>
-=======
->>>>>>> ceb143ccd5250182830237df30fd6bc7c9746f17
 	<jsp:include page="/WEB-INF/view/commons/adminHeader.jsp" />
 	<div class="wrapper">
 		<div class="page-title">
