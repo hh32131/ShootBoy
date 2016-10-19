@@ -465,15 +465,15 @@
     <url-pattern>/adminArticle</url-pattern>
   </servlet-mapping>
   <servlet>
-		<description></description>
-		<display-name>ViewCategoryListPageServlet</display-name>
-		<servlet-name>ViewCategoryListPageServlet</servlet-name>
-		<servlet-class>net.Y5M2.category.web.ViewCategoryListPageServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>ViewCategoryListPageServlet</servlet-name>
-		<url-pattern>/categoryList</url-pattern>
-	</servlet-mapping>
+    <description></description>
+    <display-name>ViewCategoryListPageServlet</display-name>
+    <servlet-name>ViewCategoryListPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.category.web.ViewCategoryListPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewCategoryListPageServlet</servlet-name>
+    <url-pattern>/categoryList</url-pattern>
+  </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>DoRemoveServlet</display-name>
@@ -514,7 +514,7 @@
     <servlet-name>DoRemoveTeamServlet</servlet-name>
     <url-pattern>/removeTeam</url-pattern>
   </servlet-mapping>
- <servlet>
+  <servlet>
     <description></description>
     <display-name>DoDeleteUserServlet</display-name>
     <servlet-name>DoDeleteUserServlet</servlet-name>
@@ -524,7 +524,7 @@
     <servlet-name>DoDeleteUserServlet</servlet-name>
     <url-pattern>/doDeleteUser</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <description></description>
     <display-name>DoDeleteTeamServlet</display-name>
     <servlet-name>DoDeleteTeamServlet</servlet-name>
@@ -533,5 +533,15 @@
   <servlet-mapping>
     <servlet-name>DoDeleteTeamServlet</servlet-name>
     <url-pattern>/doDeleteTeam</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoDeleteTeamAdminServlet</display-name>
+    <servlet-name>DoDeleteTeamAdminServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.DoDeleteTeamAdminServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoDeleteTeamAdminServlet</servlet-name>
+    <url-pattern>/deleteTeamAdmin</url-pattern>
   </servlet-mapping>
 </web-app>

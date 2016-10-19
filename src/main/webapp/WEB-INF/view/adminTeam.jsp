@@ -2,28 +2,37 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/adminPage.css" />
-<link rel="stylesheet" type="text/css" href="/ShootBoy/css/checkbox.css" />
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>	
 <script type="text/javascript">
-	$().ready(
-			function() {
+	$().ready(function() {
 				$(".teamCode").click(
 						function() {
 							var teamid = $(this).data("teamid");
 							window.open(
 									"/ShootBoy/teamDetail?teamId=" + teamid,
 									"", "width=500, height= 500");
-						});
+				});
 
 				$("#teamDeleteBtn").click(
 						function() {
-						var checked = $('select-check').val();
-						location.href = "/ShootBoy/doDeleteTeam?teamId=" + checked; 
-						//location.href="/ShootBoy/doDeleteTeam?teamId=" + "${teamInfo.teamId}";
+						$.post( "/ShootBoy/deleteTeamAdmin", $("#searchForm").serialize(), function( data ) {
+						alert( "" + data );
+						location.reload();
 						});
 				});
-
-
+				
+				 $("#checkAll").click(function(){
+				        //클릭되었으면
+				        var chk = $(this).is(":checked");
+				        if (chk) $(".check input").prop('checked', true);
+				            //input태그의 name이 chk인 태그들을 찾아서 checked옵션을 true로 정의
+				            //클릭이 안되있으면
+				        else
+				            //input태그의 name이 chk인 태그들을 찾아서 checked옵션을 false로 정의
+				        	 $(".check input").prop('checked', false);
+				        
+				}); 
+	});
 	function openWin() {
 
 		window.open("/ShootBoy/createTeam", "", "width=900, height= 600");
@@ -68,7 +77,7 @@
 						<tr>
 							<th>
 								<div class="checks">
-									<input type="checkbox" >
+									<input type="checkbox" id="checkAll" name="checkAll" value="checkall">
 									<label for="select-check"></label>
 								</div>
 							</th>
@@ -86,8 +95,10 @@
 						<tbody>
 							<tr>	
 								<td class="td_check">
-									<div class="checks">
-										<input type="checkbox" id="select-check">
+									<div class="checks check" id = "checkTeam" name= "checkTeam">
+										
+										<input type="checkbox" id="select-check" name="select-check" value="${team.teamId}">
+										
 										<label for="select-check"></label>
 									</div>
 								</td>
