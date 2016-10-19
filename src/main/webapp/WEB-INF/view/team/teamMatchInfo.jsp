@@ -4,8 +4,16 @@
 <jsp:include page="/WEB-INF/view/commons/header.jsp"></jsp:include>
 
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/page.css">
+<link rel="stylesheet" type="text/css" href="/ShootBoy/css/jquery-ui.css">
 
-<script type="text/javascript" src="/ShootBoy/js/calendar.js"></script>
+<script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
+<script>
+
+$(function() {
+		  $( "#datepicker" ).datepicker();
+	  });
+
+</script>
 <body>
 	
 	<div id="myPageLeftMenu">
@@ -20,6 +28,8 @@
 	
 	<div class="myInfoText"><h1>팀 매치 정보</h1>
 		<hr class="myPageline">
+		
+		<p>Date: <input type="text" id="datepicker"></p>
 	</div>
 </body>
 </html>
