@@ -69,7 +69,6 @@
 						<th>가입일</th>
 					</tr>	
 				</thead>
-				<p>${users[0].locationId}dsad</p>
 				<c:forEach var="users" items="${users}">
 					<tbody>
 						<tr>	
