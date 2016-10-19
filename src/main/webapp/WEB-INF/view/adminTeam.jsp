@@ -13,8 +13,13 @@
 							window.open(
 									"/ShootBoy/teamDetail?teamId=" + teamid,
 									"", "width=500, height= 500");
-						});
+						})
 
+			function() {
+				$("#teamDeleteBtn").click(
+					var checked = $('select-check').val("teamid");
+					location.href = "/ShootBoy/board/detail?boardId=${board.boardId}";
+				)}
 			});
 
 
