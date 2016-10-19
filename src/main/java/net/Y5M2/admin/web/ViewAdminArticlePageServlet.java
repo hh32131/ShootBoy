@@ -66,7 +66,7 @@ public class ViewAdminArticlePageServlet extends HttpServlet {
 		request.setAttribute("pager", boards.getPager());
 
 		PageExplorer pageExplorer = new ClassicPageExplorer(boards.getPager());
-		String pager = pageExplorer.getPagingList("pageNo", "[@]", "<<", ">>", "searchForm");
+		String pager = pageExplorer.getPagingList("pageNo", "[@]", "<<", ">>", "pagingForm");
 
 		request.setAttribute("paging", pager);
 		request.setAttribute("searchBoard", searchBoard);

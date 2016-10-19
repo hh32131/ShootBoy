@@ -23,8 +23,8 @@
 					</select>
 					<input type="text" id="search-input" name="search-input" value id ="search-word"/>
 					<button id="sbtn" name="sbtn" onclick="" >검색 </button> 
-				</div>
-			</form>
+				</form>
+			</div>
 		
 			<div class=line>
 			</div>

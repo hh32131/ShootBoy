@@ -112,6 +112,18 @@
 	background-color: #808080;
 }
 
+#deleteUser {
+	color: #fff;
+	font-size: 15px;
+	width:100px;
+	background-color: #ff5151;
+	margin-bottom: 20px;
+}
+
+#deleteUser:HOVER {
+	background-color: #ff0000;
+}
+
 #allTeamLeftMenuTwo {
 	border-top: none;
 	border-right:4px solid #1377c8;
