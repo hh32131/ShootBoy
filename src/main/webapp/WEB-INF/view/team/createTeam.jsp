@@ -26,7 +26,6 @@
 				closeWin();
 			}
 		});
-
 		
 		$("#teamCreateBtn").click(function() {
 			if (confirm("생성하시겠습니까?")) {
