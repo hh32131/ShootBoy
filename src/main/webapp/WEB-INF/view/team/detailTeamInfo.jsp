@@ -17,25 +17,24 @@
 			$("#passwordConfirm").click(function(){
 
 				
-			if($("#password").val()=="${userInfo.password}"){
-				window.open("/ShootBoy/teamModify","","width=800, height=700");
-
-			}
-			else{
-				$("div.warning").html("<p>비밀번호가 틀렸습니다.</p>")
-			}
-
+				$.post("/ShootBoy/doCheckPassword", {"password" : $("#password").val()} ,function(data){
+					if(data == "true"){
+						window.open("/ShootBoy/teamModify","","width=800, height=800")
+					}
+					else{
+						alert("비밀번호가 틀렸습니다.")
+					}
+				});
 			});
 		});
 		
-		$("#deleteTeam").click(function () {
+		$("#deleteTeamBtn").click(function () {
 			if ( confirm("정말로 팀을 해체 하시겠습니까?") ) {
 				alert("정상적으로 처리 되었습니다.");
 				location.href="/ShootBoy/doDeleteTeam?teamId=${teamInfo.teamId}&&userId=${userInfo.teamId}";
 			}
-		})
-	});
-		
+		});
+	});	
 </script>
 	<div id="myPageLeftMenu">
 		<div class="mplmTitle">My Page</div>
@@ -49,13 +48,14 @@
 	
 	<div class="myInfoText" style="display: inline-block; width: 800px;"><h1>팀 정보</h1>
 		<hr class="myPageline">
-		<div id="teamDetailwrapper">
+		<div id="teamDetailwrapper" style="padding-top: 20px;">
 		<c:if test="${!empty userInfo.teamId}">
 			<div id="teamImg" style="display: inline-block;">
 				<img src="/ShootBoy/showImage?teamId=${userInfo.teamId}" 
-						style="width: 300px; height: 300px; padding-top: 20px;
+						style="width: 300px; height: 300px;
 						border-radius: 150px;">
-			</div>	
+			<div class="teamPhoto" style="font-size: 30px; width: 150px; margin-left: 80px; padding-top: 20px;">팀 앰블럼</div>	
+			</div>
 			<div id="teamDetailContainer" style="display: inline-block; width: 400px; 
 					vertical-align: top; margin-left: 50px; padding-top: 20px;">
 				<div class="teamName" style="font-size: 20px; padding-bottom: 10px">팀명 : ${userInfo.teamVO.teamName}</div>
@@ -67,7 +67,7 @@
 			</div>
 			<div id="teamModify" style=" float: right; margin-right: 100px;"><input type="button" id="modifyBtn" name="modifyBtn" value="수정" 
 					style="margin-top: 20px; width: 200px;" >
-			<div> <input type="button" id="deleteTeam" name="deleteTeam" value="팀 해체" /> </div>
+			<div> <input type="button" id="deleteTeamBtn" name="deleteTeamBtn" value="팀 해체" /> </div>
 			<div><input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요">
 				<input type="button" id="passwordConfirm" name="passwordConfirm" value="비밀번호 확인" style="margin-left: 30px;">
 			</div>

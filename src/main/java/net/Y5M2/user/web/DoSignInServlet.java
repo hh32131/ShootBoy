@@ -1,6 +1,7 @@
 package net.Y5M2.user.web;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -39,7 +40,7 @@ public class DoSignInServlet extends HttpServlet {
 		if(password==null){
 			response.sendRedirect("/ShootBoy/signIn?errorCode=2");
 		}
-		
+		PrintWriter out = response.getWriter();
 		UserVO userVO = new UserVO();
 		userVO.setEmail(userEmail);
 		userVO.setPassword(password);
@@ -47,14 +48,26 @@ public class DoSignInServlet extends HttpServlet {
 		boolean isSuccess = userBiz.getUserBy(userVO, request);
 		if(isSuccess){
 			if(Referer.equals("")){
-				response.sendRedirect("/ShootBoy/main");
+				out.write("<script type='text/javascript'>location.href='/ShootBoy/main'</script>");
+				out.flush();
+				out.close();
+				/*response.sendRedirect("/ShootBoy/main");*/
 			}
+			
 			else {
-				response.sendRedirect(Referer);
+				out.write(String.format("<script type='text/javascript'>location.href='%s'</script>", Referer));
+				out.flush();
+				out.close();
+				/*response.sendRedirect(Referer);*/
 			}
 		}
 		else{
-			response.sendRedirect("/ShootBoy/signIn?errorCode=1");
+			
+			out.write("<script type='text/javascript'> alert('비밀번호가 틀렸습니다.') ");
+			out.write("</script>");
+			out.flush();
+			out.close();
+			
 		}
 	}
 

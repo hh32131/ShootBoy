@@ -89,7 +89,7 @@ public class TeamBizImpl implements TeamBiz {
 		return teamInfo.getTeamPhoto();
 	}
 	@Override
-	public boolean updateTeamInfo(TeamVO teamVO) {
+	public boolean updateTeamInfo(TeamVO teamVO, ServletRequest request, UserVO userInfo) {
 		TeamVO originalTeamInfo = teamDao.getTeamAt(teamVO.getTeamId());
 		
 		int teamModify = 5;
@@ -120,9 +120,19 @@ public class TeamBizImpl implements TeamBiz {
 		if(teamModify==0){
 			return true;
 		}
-		
-		
-		return teamDao.updateTeamInfo(teamVO)>0;
+		boolean isSuccess = teamDao.updateTeamInfo(teamVO) > 0;
+		if(isSuccess){
+			HttpSession session = ((HttpServletRequest)request).getSession();
+			session.removeAttribute(Session.USER_INFO);
+			UserVO UserVO = userDao.getUserInfoForModify(userInfo);
+			session.setAttribute(Session.USER_INFO, UserVO);
+			
+			return true;
+		}
+		else{
+			return false;
+			
+		}
 	}
 
 	@Override

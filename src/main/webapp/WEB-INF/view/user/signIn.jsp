@@ -41,10 +41,17 @@
 		});
 		
 		$("#signBtn").click(function(){
-			$("#signForm").attr({
+			$.post("/ShootBoy/doSignIn",$("#signForm").serialize(), function(data){
+				$("#passwordreturn").html(data);
+			});
+			
+			
+			
+			
+			/* $("#signForm").attr({
 				"method": "post",
 				"action": "/ShootBoy/doSignIn"
-			}).submit();
+			}).submit(); */
 		});
 	});
 	
@@ -74,6 +81,7 @@
 		<input type="hidden" id="Referer" name="Referer" value="${Referer}">
 		<input type="text" id="userEmail" name="userEmail" placeholder="Id">
 		<input type="password" id="password" name="password" placeholder="password">
+		<div id="passwordreturn"></div>
 		<input type="button" id="signBtn" name="signBtn" value="로그인">
 	<div class="subSignForm">
 		<a href="/ShootBoy/signUp">회원가입</a> | 
