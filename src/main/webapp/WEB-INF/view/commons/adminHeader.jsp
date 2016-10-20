@@ -34,9 +34,9 @@
 			</li>
 				
 			<li class="dropdown">
-			  	<a href="/ShootBoy/adminTeam" class="dropbtn">팀 관리</a>
+			  	<a href="/ShootBoy/removeTeam" class="dropbtn">팀 관리</a>
 			  		<div class="dropdown-content">
-				  		<a href="/ShootBoy/adminTeam">팀 관리 </a>
+				  		<a href="/ShootBoy/removeTeam">팀 관리 </a>
 				  	</div>
 			</li>
 			

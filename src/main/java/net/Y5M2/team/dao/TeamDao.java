@@ -20,7 +20,6 @@ public interface TeamDao {
 	 */
 	public List<TeamVO> getAllTeams();
 	
-	
 	public TeamVO getTeamAt(String teamId);
 
 	public TeamVO getTeamInfoForUpdate(String teamName);

@@ -58,11 +58,10 @@
 
 #modifyBtn {
 	color:#fff;
-	font-size: 20px;
+	font-size: 15px;
 	width: 60px;	
 	background-color: #0080ff;
 	margin-bottom: 20px;
-	border-radius: 500px;
 }
 
 #modifyBtn:HOVER {
@@ -104,7 +103,6 @@
 	width: 130px;	
 	background-color: #0080ff;
 	margin-bottom: 20px;
-	border-radius: 15px;
 	color: #fff;
 }
 
@@ -164,4 +162,14 @@
 #createBtn:HOVER {
 	background-color: #9e9e9e;
 	border-radius: 4px 4px 4px 4px;	
+}
+
+#deleteTeamBtn {
+	margin-bottom: 20px;
+	background-color: #ff5151;
+	color:#fff;
+}
+
+#deleteTeamBtn:HOVER {
+	background-color: red;
 }

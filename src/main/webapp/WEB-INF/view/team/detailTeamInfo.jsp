@@ -17,25 +17,24 @@
 			$("#passwordConfirm").click(function(){
 
 				
-			if($("#password").val()=="${userInfo.password}"){
-				window.open("/ShootBoy/teamModify","","width=800, height=700");
-
-			}
-			else{
-				$("div.warning").html("<p>비밀번호가 틀렸습니다.</p>")
-			}
-
+				$.post("/ShootBoy/doCheckPassword", {"password" : $("#password").val()} ,function(data){
+					if(data == "true"){
+						window.open("/ShootBoy/teamModify","","width=800, height=800")
+					}
+					else{
+						alert("비밀번호가 틀렸습니다.")
+					}
+				});
 			});
 		});
 		
-		$("#deleteTeam").click(function () {
+		$("#deleteTeamBtn").click(function () {
 			if ( confirm("정말로 팀을 해체 하시겠습니까?") ) {
 				alert("정상적으로 처리 되었습니다.");
-				location.href="/ShootBoy/doDeleteTeam?teamId=" + "${teamInfo.teamId}";
+				location.href="/ShootBoy/doDeleteTeam?teamId=${teamInfo.teamId}&&userId=${userInfo.teamId}";
 			}
-		})
-	});
-		
+		});
+	});	
 </script>
 	<div id="myPageLeftMenu">
 		<div class="mplmTitle">My Page</div>
@@ -67,7 +66,8 @@
 				<div class="teamInfo" style="font-size: 20px; padding-bottom: 10px">팀 설명 : ${userInfo.teamVO.teamInfo}</div>
 			</div>
 			<div id="teamModify" style=" float: right; margin-right: 100px;"><input type="button" id="modifyBtn" name="modifyBtn" value="수정" 
-					style="margin-top: 20px;" >
+					style="margin-top: 20px; width: 200px;" >
+			<div> <input type="button" id="deleteTeamBtn" name="deleteTeamBtn" value="팀 해체" /> </div>
 			<div><input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요">
 				<input type="button" id="passwordConfirm" name="passwordConfirm" value="비밀번호 확인" style="margin-left: 30px;">
 			</div>

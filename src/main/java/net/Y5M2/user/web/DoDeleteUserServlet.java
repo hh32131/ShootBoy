@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import net.Y5M2.support.Param;
 import net.Y5M2.user.biz.UserBiz;
 import net.Y5M2.user.biz.UserBizImpl;
+import net.Y5M2.user.vo.UserVO;
 
 public class DoDeleteUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -29,11 +30,16 @@ public class DoDeleteUserServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		String userId = Param.getStringParam(request, "userId");
+		String teamId = Param.getStringParam(request, "teamId");
 		
 		HttpSession session = request.getSession();
 		session.invalidate();
 		
-		boolean isSuccess = userBiz.deleteUser(userId);
+		UserVO userVO = new UserVO();
+		userVO.setUserId(userId);
+		userVO.setTeamId(teamId);
+		
+		boolean isSuccess = userBiz.deleteUser(userVO);
 		if ( isSuccess ) {
 			response.sendRedirect("/ShootBoy/main");
 		}
