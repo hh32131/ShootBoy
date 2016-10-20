@@ -379,7 +379,7 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 	}
 		
 	@Override
-	public int UserTemaIdUpdate(TeamVO teamVO, UserVO userInfo) {
+	public int UserTemaIdUpdate(String teamId, String userId) {
 
 		return insert(new Query() {
 			
@@ -388,11 +388,12 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 				StringBuffer query = new StringBuffer();
 				query.append(" UPDATE	USR ");
 				query.append(" SET		TEAM_ID = ? ");
+				query.append(" 			, LV_ID = '3' ");
 				query.append(" WHERE	USR_ID = ? ");
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
-				pstmt.setString(1, teamVO.getTeamId());
-				pstmt.setString(2, userInfo.getUserId());
+				pstmt.setString(1, teamId);
+				pstmt.setString(2, userId);
 				
 				return pstmt;
 
@@ -655,4 +656,26 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 			}
 		});
 	}
+	@Override
+	public int UserTemaIdDelete(String teamId) {
+		return insert(new Query() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				StringBuffer query = new StringBuffer();
+				query.append(" UPDATE	USR ");
+				query.append(" SET		TEAM_ID = ? ");
+				query.append(" 			, LV_ID = '2' ");
+				query.append(" WHERE	TEAM_ID = ? ");
+				
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				pstmt.setString(1, null);
+				pstmt.setString(2, teamId);
+				
+				return pstmt;
+
+				}
+		});
+	}
+	
 }

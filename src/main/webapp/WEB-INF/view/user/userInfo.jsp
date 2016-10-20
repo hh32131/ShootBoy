@@ -29,10 +29,28 @@
 		});
 		
 		$("#deleteUser").click(function() {
-			if( confirm("정말로 탈퇴 하시겠습니까?") ) {
-				alert("정상적으로 처리 되었습니다.");
-				location.href="/ShootBoy/doDeleteUser?userId=${userInfo.userId}&&teamId=${userInfo.teamId}";
-			}
+			$("#password").show();
+			$("#passwordConfirm").show();
+			
+			$("#passwordConfirm").click(function(){
+					
+				$.post("/ShootBoy/doCheckPassword", {"password" : $("#password").val()} ,function(data){
+					if(data == "true"){
+						if( confirm("정말로 탈퇴 하시겠습니까?") ) {
+							alert("정상적으로 처리 되었습니다.");
+							location.href="/ShootBoy/doDeleteUser?userId=${userInfo.userId}&&teamId=${userInfo.teamId}";
+						}
+					}
+					else{
+						alert("비밀번호가 틀렸습니다.")
+					}
+				});
+			});
+			
+			
+			
+			
+			
 		});
 	});
 </script>

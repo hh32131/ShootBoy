@@ -8,9 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import net.Y5M2.constants.Session;
 import net.Y5M2.support.Param;
 import net.Y5M2.team.biz.TeamBiz;
 import net.Y5M2.team.biz.TeamBizImpl;
+import net.Y5M2.user.vo.UserVO;
 
 public class DoDeleteTeamServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -29,6 +31,7 @@ public class DoDeleteTeamServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		String teamId = Param.getStringParam(request, "teamId");
+<<<<<<< HEAD
 		String userId = Param.getStringParam(request, "userId");
 	
 		HttpSession session = request.getSession();
@@ -36,8 +39,16 @@ public class DoDeleteTeamServlet extends HttpServlet {
 		
 		boolean isSuccess = teamBiz.deleteTeam(teamId);
 		
+=======
+		HttpSession session = request.getSession();
+		UserVO userVO = (UserVO) session.getAttribute(Session.USER_INFO);
+		boolean isSuccess = teamBiz.deleteTeam(teamId, userVO, request);
+>>>>>>> 2027ad44bb34e2578302a8672b702edd7d4e8123
 		if ( isSuccess ) {
-			response.sendRedirect("/ShootBoy/main");
+			response.sendRedirect("/ShootBoy/userInfo");
+		}
+		else{
+			response.sendRedirect("/ShootBoy/detailTeamInfo?errorCode=1");
 		}
 	}
 

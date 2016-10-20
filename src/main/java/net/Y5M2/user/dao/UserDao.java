@@ -22,12 +22,15 @@ public interface UserDao {
 
 	public UserVO getUserInfoForModify(UserVO userInfo);
 
-	public int UserTemaIdUpdate(TeamVO teamVO, UserVO userInfo);
+	public int UserTemaIdUpdate(String teamId, String userId);
 
 	public int deleteUser(UserVO userVO);
 
 	public List<UserVO> getAllUsers(SearchUserVO searchUser);
 
 	public int getCountOfUsers(SearchUserVO searchUser);
+
+	public int UserTemaIdDelete(String teamId);
+
 
 }
