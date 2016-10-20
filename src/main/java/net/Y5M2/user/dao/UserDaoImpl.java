@@ -327,17 +327,17 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				pstmt.setString(1, userInfo.getEmail());
-				
+
 				return pstmt;
 			}
 
 			@Override
 			public Object makeObject(ResultSet rs) throws SQLException {
-				
+
 				UserVO userVO = null;
 				LocationVO locationVO = null;
 				TeamVO teamVO = null;
-				
+
 				while (rs.next()) {
 					userVO = new UserVO();
 					userVO.setUserId(rs.getString("USR_ID"));
@@ -369,38 +369,36 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 					teamVO.setLatestModifyDate(rs.getString("LTST_MODY_DT"));
 					teamVO.setTeamInfo(rs.getString("TEAM_INFO"));
 					teamVO.setLocationId(rs.getString("LCTN_ID"));
-					
+
 				}
-					
-					
+
 				return userVO;
 			}
 		});
 	}
-		
+
 	@Override
 	public int UserTemaIdUpdate(TeamVO teamVO, UserVO userInfo) {
 
 		return insert(new Query() {
-			
+
 			@Override
 			public PreparedStatement query(Connection conn) throws SQLException {
 				StringBuffer query = new StringBuffer();
 				query.append(" UPDATE	USR ");
 				query.append(" SET		TEAM_ID = ? ");
 				query.append(" WHERE	USR_ID = ? ");
-				
+
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				pstmt.setString(1, teamVO.getTeamId());
 				pstmt.setString(2, userInfo.getUserId());
-				
+
 				return pstmt;
 
-				}
+			}
 		});
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<UserVO> getAllUsers(SearchUserVO searchUser) {
 		return selectList(new QueryAndResult() {
@@ -427,36 +425,30 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 
 				if (searchUser.getSearchType() == 1) {
 					query.append(" WHERE	USR_EMAIL LIKE '%'|| ?|| '%' ");
-				} 
-				else if (searchUser.getSearchType() == 2) {
+				} else if (searchUser.getSearchType() == 2) {
 					query.append(" WHERE	USR_NM LIKE '%'|| ?|| '%' ");
-				} 
-				else if (searchUser.getSearchType() == 3) {
+				} else if (searchUser.getSearchType() == 3) {
 					query.append(" WHERE	USR_PHN LIKE '%'|| ?|| '%' ");
-				} 
-				else if (searchUser.getSearchType() == 4) {
+				} else if (searchUser.getSearchType() == 4) {
 					query.append(" WHERE	USR_AGE LIKE '%'|| ?|| '%' ");
-				} 
+				}
 
 				query.append(" ORDER	BY USR_ID DESC ");
-				
+
 				String pagingQuery = appendPagingQueryFormat(query.toString());
 				PreparedStatement pstmt = conn.prepareStatement(pagingQuery);
-				
+
 				int index = 1;
-				if ( searchUser.getSearchType() == 1 ) {
+				if (searchUser.getSearchType() == 1) {
+					pstmt.setString(index++, searchUser.getSearchKeyword());
+				} else if (searchUser.getSearchType() == 2) {
+					pstmt.setString(index++, searchUser.getSearchKeyword());
+				} else if (searchUser.getSearchType() == 3) {
+					pstmt.setString(index++, searchUser.getSearchKeyword());
+				} else if (searchUser.getSearchType() == 4) {
 					pstmt.setString(index++, searchUser.getSearchKeyword());
 				}
-				else if ( searchUser.getSearchType() == 2 ) {
-					pstmt.setString(index++, searchUser.getSearchKeyword());
-				}
-				else if ( searchUser.getSearchType() == 3 ) {
-					pstmt.setString(index++, searchUser.getSearchKeyword());
-				}
-				else if ( searchUser.getSearchType() == 4 ) {
-					pstmt.setString(index++, searchUser.getSearchKeyword());
-				}
-				
+
 				pstmt.setInt(index++, searchUser.getEndRowNumber());
 				pstmt.setInt(index++, searchUser.getStartRowNumber());
 
@@ -497,94 +489,94 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<UserVO> getUserListOf() {
-        return selectList(new QueryAndResult() {
-            
-            @Override
-            public PreparedStatement query(Connection conn) throws SQLException {
-                StringBuffer query = new StringBuffer();
-                query.append(" SELECT  U.USR_ID ");
-                query.append("             , U.USR_EMAIL ");
-                query.append("             , U.USR_PWD ");
-                query.append("             , U.USR_NM ");
-                query.append("             , U.USR_PHN ");
-                query.append("             , U.USR_AGE ");
-                query.append("             , U.USR_POSIT ");
-                query.append("             , U.TEAM_ID ");
-                query.append("             , U.LV_ID ");
-                query.append("             , U.LCTN_ID ");
-                query.append("             , TO_CHAR(U.LTST_MODY_DT, 'YYYY-MM-DD HH24:MI:SS') LTST_MODY_DT ");
-                query.append("             , TO_CHAR(U.CRT_DT, 'YYYY-MM-DD HH24:MI:SS') CRT_DT ");
-                query.append("             , U.PWD_HINT ");
-                query.append("             , U.PWD_ANSER ");
-                query.append("             , T.TEAM_CNT ");
-                query.append("             , T.TEAM_NM ");
-                query.append("             , T.TEAM_PHOTO ");
-                query.append("             , T.CRT_DT ");
-                query.append("             , T.TEAM_POINT ");
-                query.append("             , T.LTST_MODY_DT ");
-                query.append("             , T.TEAM_INFO ");
-                query.append("             , T.LCTN_ID ");
-                query.append("             , L.PRNT_LCTN_ID ");
-                query.append("             , L.LCTN_NM ");
-                query.append("             , L.PRNT_LCTN_NM ");
-                query.append(" FROM        USR U ");
-                query.append("             , LCTN L ");
-                query.append("             , TEAM T ");
-                query.append(" WHERE   U.LCTN_ID = L.LCTN_ID ");
-                query.append(" AND     U.TEAM_ID = T.TEAM_ID(+) ");
-                query.append(" ORDER   BY USR_ID DESC ");
-                
-                PreparedStatement pstmt = conn.prepareStatement(query.toString());
-                
-                return pstmt;
-                
-            }
-            
-            @Override
-            public Object makeObject(ResultSet rs) throws SQLException {
-                List<UserVO> users = new ArrayList<UserVO>();
-                UserVO userVO = null;
-                LocationVO locationVO = null;
-                TeamVO teamVO = null;
-                while(rs.next()){
-                    userVO = new UserVO();
-                    userVO.setUserId(rs.getString("USR_ID"));
-                    userVO.setEmail(rs.getString("USR_EMAIL"));
-                    userVO.setPassword(rs.getString("USR_PWD"));
-                    userVO.setUserName(rs.getString("USR_NM"));
-                    userVO.setPhoneNumber(rs.getString("USR_PHN"));
-                    userVO.setAge(rs.getString("USR_AGE"));
-                    userVO.setPosition(rs.getString("USR_POSIT"));
-                    userVO.setTeamId(rs.getString("TEAM_ID"));
-                    userVO.setLevelId(rs.getString("LV_ID"));
-                    userVO.setLocationId(rs.getString("LCTN_ID"));
-                    userVO.setLatestModifyDate(rs.getString("LTST_MODY_DT"));
-                    userVO.setCreateDate(rs.getString("CRT_DT"));
-                    userVO.setPasswordHint(rs.getString("PWD_HINT"));
-                    userVO.setPasswordAnswer(rs.getString("PWD_ANSER"));
-                    
-                    locationVO = userVO.getLocationVO();
-                    locationVO.setLocationName(rs.getString("LCTN_NM"));
-                    locationVO.setParentLocationId(rs.getString("PRNT_LCTN_ID"));
-                    locationVO.setParentLocationName(rs.getString("PRNT_LCTN_NM"));
-                    
-                    teamVO = userVO.getTeamVO();
-                    teamVO.setTeamCount(rs.getInt("TEAM_CNT"));
-                    teamVO.setTeamName(rs.getString("TEAM_NM"));
-                    teamVO.setTeamPhoto(rs.getString("TEAM_PHOTO"));
-                    teamVO.setCreateDate(rs.getString("CRT_DT"));
-                    teamVO.setTeamPoint(rs.getInt("TEAM_POINT"));
-                    teamVO.setLatestModifyDate(rs.getString("LTST_MODY_DT"));
-                    teamVO.setTeamInfo(rs.getString("TEAM_INFO"));
-                    teamVO.setLocationId(rs.getString("LCTN_ID"));
-                    
-                    users.add(userVO);
-                }
-                
-                return users;
-            }
-        });
-    }
+		return selectList(new QueryAndResult() {
+
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				StringBuffer query = new StringBuffer();
+				query.append(" SELECT  U.USR_ID ");
+				query.append("             , U.USR_EMAIL ");
+				query.append("             , U.USR_PWD ");
+				query.append("             , U.USR_NM ");
+				query.append("             , U.USR_PHN ");
+				query.append("             , U.USR_AGE ");
+				query.append("             , U.USR_POSIT ");
+				query.append("             , U.TEAM_ID ");
+				query.append("             , U.LV_ID ");
+				query.append("             , U.LCTN_ID ");
+				query.append("             , TO_CHAR(U.LTST_MODY_DT, 'YYYY-MM-DD HH24:MI:SS') LTST_MODY_DT ");
+				query.append("             , TO_CHAR(U.CRT_DT, 'YYYY-MM-DD HH24:MI:SS') CRT_DT ");
+				query.append("             , U.PWD_HINT ");
+				query.append("             , U.PWD_ANSER ");
+				query.append("             , T.TEAM_CNT ");
+				query.append("             , T.TEAM_NM ");
+				query.append("             , T.TEAM_PHOTO ");
+				query.append("             , T.CRT_DT ");
+				query.append("             , T.TEAM_POINT ");
+				query.append("             , T.LTST_MODY_DT ");
+				query.append("             , T.TEAM_INFO ");
+				query.append("             , T.LCTN_ID ");
+				query.append("             , L.PRNT_LCTN_ID ");
+				query.append("             , L.LCTN_NM ");
+				query.append("             , L.PRNT_LCTN_NM ");
+				query.append(" FROM        USR U ");
+				query.append("             , LCTN L ");
+				query.append("             , TEAM T ");
+				query.append(" WHERE   U.LCTN_ID = L.LCTN_ID ");
+				query.append(" AND     U.TEAM_ID = T.TEAM_ID(+) ");
+				query.append(" ORDER   BY USR_ID DESC ");
+
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+
+				return pstmt;
+
+			}
+
+			@Override
+			public Object makeObject(ResultSet rs) throws SQLException {
+				List<UserVO> users = new ArrayList<UserVO>();
+				UserVO userVO = null;
+				LocationVO locationVO = null;
+				TeamVO teamVO = null;
+				while (rs.next()) {
+					userVO = new UserVO();
+					userVO.setUserId(rs.getString("USR_ID"));
+					userVO.setEmail(rs.getString("USR_EMAIL"));
+					userVO.setPassword(rs.getString("USR_PWD"));
+					userVO.setUserName(rs.getString("USR_NM"));
+					userVO.setPhoneNumber(rs.getString("USR_PHN"));
+					userVO.setAge(rs.getString("USR_AGE"));
+					userVO.setPosition(rs.getString("USR_POSIT"));
+					userVO.setTeamId(rs.getString("TEAM_ID"));
+					userVO.setLevelId(rs.getString("LV_ID"));
+					userVO.setLocationId(rs.getString("LCTN_ID"));
+					userVO.setLatestModifyDate(rs.getString("LTST_MODY_DT"));
+					userVO.setCreateDate(rs.getString("CRT_DT"));
+					userVO.setPasswordHint(rs.getString("PWD_HINT"));
+					userVO.setPasswordAnswer(rs.getString("PWD_ANSER"));
+
+					locationVO = userVO.getLocationVO();
+					locationVO.setLocationName(rs.getString("LCTN_NM"));
+					locationVO.setParentLocationId(rs.getString("PRNT_LCTN_ID"));
+					locationVO.setParentLocationName(rs.getString("PRNT_LCTN_NM"));
+
+					teamVO = userVO.getTeamVO();
+					teamVO.setTeamCount(rs.getInt("TEAM_CNT"));
+					teamVO.setTeamName(rs.getString("TEAM_NM"));
+					teamVO.setTeamPhoto(rs.getString("TEAM_PHOTO"));
+					teamVO.setCreateDate(rs.getString("CRT_DT"));
+					teamVO.setTeamPoint(rs.getInt("TEAM_POINT"));
+					teamVO.setLatestModifyDate(rs.getString("LTST_MODY_DT"));
+					teamVO.setTeamInfo(rs.getString("TEAM_INFO"));
+					teamVO.setLocationId(rs.getString("LCTN_ID"));
+
+					users.add(userVO);
+				}
+
+				return users;
+			}
+		});
+	}
 
 	@Override
 	public int deleteUser(UserVO userVO) {
@@ -606,7 +598,6 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 		});
 	}
 
-
 	public int getCountOfUsers(SearchUserVO searchUser) {
 		return (int) selectOne(new QueryAndResult() {
 
@@ -617,35 +608,29 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 
 				query.append(" SELECT	COUNT(1) CNT ");
 				query.append(" FROM		USR  ");
-				
-				if ( searchUser.getSearchType() == 1 ) {
+
+				if (searchUser.getSearchType() == 1) {
 					query.append(" WHERE	USR_EMAIL LIKE '%'|| ?|| '%' ");
-				}
-				else if ( searchUser.getSearchType() == 2 ) {
+				} else if (searchUser.getSearchType() == 2) {
 					query.append(" WHERE	USR_NM LIKE '%'|| ?|| '%' ");
-				}
-				else if ( searchUser.getSearchType() == 3 ) {
+				} else if (searchUser.getSearchType() == 3) {
 					query.append(" WHERE	USR_PHN LIKE '%'|| ?|| '%' ");
-				}
-				else if ( searchUser.getSearchType() == 4 ) {
+				} else if (searchUser.getSearchType() == 4) {
 					query.append(" WHERE	USR_AGE LIKE '%'|| ?|| '%' ");
 				}
-				
+
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
-				
-				if ( searchUser.getSearchType() == 1 ) {
+
+				if (searchUser.getSearchType() == 1) {
+					pstmt.setString(1, searchUser.getSearchKeyword());
+				} else if (searchUser.getSearchType() == 2) {
+					pstmt.setString(1, searchUser.getSearchKeyword());
+				} else if (searchUser.getSearchType() == 3) {
+					pstmt.setString(1, searchUser.getSearchKeyword());
+				} else if (searchUser.getSearchType() == 4) {
 					pstmt.setString(1, searchUser.getSearchKeyword());
 				}
-				else if ( searchUser.getSearchType() == 2 ) {
-					pstmt.setString(1, searchUser.getSearchKeyword());
-				}
-				else if ( searchUser.getSearchType() == 3 ) {
-					pstmt.setString(1, searchUser.getSearchKeyword());
-				}
-				else if ( searchUser.getSearchType() == 4 ) {
-					pstmt.setString(1, searchUser.getSearchKeyword());
-				}
-				
+
 				return pstmt;
 			}
 
@@ -653,6 +638,114 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 			public Object makeObject(ResultSet rs) throws SQLException {
 				rs.next();
 				return rs.getInt("CNT");
+			}
+		});
+	}
+
+	@Override
+	public int adminPageDeleteUser(String userId) {
+		return insert(new Query() {
+
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+
+				StringBuffer query = new StringBuffer();
+
+				query.append(" DELETE ");
+				query.append(" FROM		USR ");
+				query.append(" WHERE	USR_ID = ? ");
+
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				pstmt.setString(1, userId);
+				return pstmt;
+
+			}
+		});
+	}
+
+	@Override
+	public UserVO getUserOne(String userId) {
+		return (UserVO) selectOne(new QueryAndResult() {
+
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				StringBuffer query = new StringBuffer();
+				query.append(" SELECT	U.USR_ID ");
+				query.append(" 			, U.USR_EMAIL ");
+				query.append(" 			, U.USR_PWD ");
+				query.append(" 			, U.USR_NM ");
+				query.append(" 			, U.USR_PHN ");
+				query.append(" 			, U.USR_AGE ");
+				query.append(" 			, U.USR_POSIT ");
+				query.append(" 			, U.TEAM_ID ");
+				query.append(" 			, U.LV_ID ");
+				query.append(" 			, U.LCTN_ID ");
+				query.append(" 			, TO_CHAR(U.LTST_MODY_DT, 'YYYY-MM-DD HH24:MI:SS') LTST_MODY_DT ");
+				query.append(" 			, TO_CHAR(U.CRT_DT, 'YYYY-MM-DD HH24:MI:SS') CRT_DT ");
+				query.append(" 			, U.PWD_HINT ");
+				query.append(" 			, U.PWD_ANSER ");
+				query.append(" 			, T.TEAM_CNT ");
+				query.append(" 			, T.TEAM_NM ");
+				query.append(" 			, T.TEAM_PHOTO ");
+				query.append(" 			, T.CRT_DT ");
+				query.append(" 			, T.TEAM_POINT ");
+				query.append(" 			, T.LTST_MODY_DT ");
+				query.append(" 			, T.TEAM_INFO ");
+				query.append(" 			, T.LCTN_ID ");
+				query.append(" 			, L.PRNT_LCTN_ID ");
+				query.append(" 			, L.LCTN_NM ");
+				query.append(" 			, L.PRNT_LCTN_NM ");
+				query.append(" FROM		USR U ");
+				query.append(" 			, LCTN L ");
+				query.append(" 			, TEAM T ");
+				query.append(" WHERE	U.LCTN_ID = L.LCTN_ID ");
+				query.append(" AND		U.TEAM_ID = T.TEAM_ID(+) ");
+
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+
+				return pstmt;
+			}
+
+			@Override
+			public Object makeObject(ResultSet rs) throws SQLException {
+
+				UserVO userVO = null;
+				LocationVO locationVO = null;
+				TeamVO teamVO = null;
+
+				if (rs.next()) {
+					userVO = new UserVO();
+					userVO.setUserId(rs.getString("USR_ID"));
+					userVO.setEmail(rs.getString("USR_EMAIL"));
+					userVO.setPassword(rs.getString("USR_PWD"));
+					userVO.setUserName(rs.getString("USR_NM"));
+					userVO.setPhoneNumber(rs.getString("USR_PHN"));
+					userVO.setAge(rs.getString("USR_AGE"));
+					userVO.setPosition(rs.getString("USR_POSIT"));
+					userVO.setTeamId(rs.getString("TEAM_ID"));
+					userVO.setLevelId(rs.getString("LV_ID"));
+					userVO.setLocationId(rs.getString("LCTN_ID"));
+					userVO.setLatestModifyDate(rs.getString("LTST_MODY_DT"));
+					userVO.setCreateDate(rs.getString("CRT_DT"));
+					userVO.setPasswordHint(rs.getString("PWD_HINT"));
+					userVO.setPasswordAnswer(rs.getString("PWD_ANSER"));
+
+					locationVO = userVO.getLocationVO();
+					locationVO.setLocationName(rs.getString("LCTN_NM"));
+					locationVO.setParentLocationId(rs.getString("PRNT_LCTN_ID"));
+					locationVO.setParentLocationName(rs.getString("PRNT_LCTN_NM"));
+
+					teamVO = userVO.getTeamVO();
+					teamVO.setTeamCount(rs.getInt("TEAM_CNT"));
+					teamVO.setTeamName(rs.getString("TEAM_NM"));
+					teamVO.setTeamPhoto(rs.getString("TEAM_PHOTO"));
+					teamVO.setCreateDate(rs.getString("CRT_DT"));
+					teamVO.setTeamPoint(rs.getInt("TEAM_POINT"));
+					teamVO.setLatestModifyDate(rs.getString("LTST_MODY_DT"));
+					teamVO.setTeamInfo(rs.getString("TEAM_INFO"));
+					teamVO.setLocationId(rs.getString("LCTN_ID"));
+				}
+				return userId;
 			}
 		});
 	}

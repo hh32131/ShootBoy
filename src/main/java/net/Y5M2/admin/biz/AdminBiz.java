@@ -13,6 +13,9 @@ public interface AdminBiz {
   public List<TeamVO> getAllTeams();
 
   public List<BoardVO> getAllBoard();
-  
+
   public boolean deleteUser(String userId);
+  
+  public UserVO getUserOne(String userId);
+  
 }

@@ -64,7 +64,7 @@ public class ViewAdminTeamPageServlet extends HttpServlet {
 		request.setAttribute("pager", teams.getPager());
 
 		PageExplorer pageExplorer = new ClassicPageExplorer(teams.getPager());
-		String pager = pageExplorer.getPagingList("pageNo", "[@]", "<<", ">>", "searchForm");
+		String pager = pageExplorer.getPagingList("pageNo", "[@]", "<<", ">>", "pagingForm");
 
 		request.setAttribute("paging", pager);
 		request.setAttribute("searchTeam", searchTeam);

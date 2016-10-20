@@ -28,9 +28,10 @@
 		<div class="page-title">
 			게시판 관리 
 		</div>
-		
+
 		<div class="listAll">
-			<p class="textAll">전체 목록 | 총 경기수 00개</p>
+			<c:set var="list" value="boards"/>
+			<p class="textAll">전체 목록 | 총 경기수 ${fn:length(list)}개</p>
 		</div>
 		
 		<div class="search-tool">
@@ -43,7 +44,8 @@
 				</select>
 				<input type="text" class="searchKeyword" name="searchKeyword" id="searchKeyword" value="${searchBoard.searchKeyword}"/>
 				<input type="button" id="searchBtn" value="검색" />
-				<a href="/ShootBoy/adminList/init">검색 초기화</a>
+				<input type="button" id="modifyBtn" value="수정"/>
+				<input type="button" id="deleteBtn" value="삭제"/>
 				<div class="clear"></div>
 			</form>
 		</div>

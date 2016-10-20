@@ -38,7 +38,6 @@ public class ViewUserModifyPageServlet extends HttpServlet {
 		
 		List<LocationVO> location = locationBiz.getLocations(locationVO);
 		
-		
 		String viewPath = "/WEB-INF/view/user/userModify.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 		request.setAttribute("userInfo", userInfo);

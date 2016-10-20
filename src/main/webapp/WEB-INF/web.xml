@@ -593,4 +593,14 @@
     <servlet-name>DoDeleteUserAdminServlet</servlet-name>
     <url-pattern>/doDeleteUserAdmin</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewModifyUserAdminPageServlet</display-name>
+    <servlet-name>ViewModifyUserAdminPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.ViewModifyUserAdminPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewModifyUserAdminPageServlet</servlet-name>
+    <url-pattern>/adminMemeberModify</url-pattern>
+  </servlet-mapping>
 </web-app>

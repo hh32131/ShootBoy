@@ -30,4 +30,8 @@ public interface UserDao {
 
 	public int getCountOfUsers(SearchUserVO searchUser);
 
+	public int adminPageDeleteUser(String userId);
+
+	public UserVO getUserOne(String userId);
+	
 }

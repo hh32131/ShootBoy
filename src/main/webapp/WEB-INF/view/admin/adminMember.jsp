@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/adminPage.css" />
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/checkbox.css" />
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
@@ -19,6 +21,26 @@
 			
 			movePage(0);
 		});
+		
+		$("#deleteBtn").click(function() {
+			$.post( "/ShootBoy/doDeleteUserAdmin", $("#checkBoxForm").serialize(), function( data ) {
+				alert( "" + data );
+				location.reload();
+			});
+		});
+		
+		$("#modifyBtn").click(functoin() {
+			$.post("/ShootBoy//adminMemeberModify", $("#checkBoxForm").get(), function(data) {
+				alert( "" + data );
+				location.reload();
+			});
+		});
+				
+		$("#checkAll").click(function(){
+	        var chk = $(this).is(":checked");
+	        if (chk) $(".check input").prop('checked', true);
+		    else $(".check input").prop('checked', false);
+		}); 
 	});
 </script>
 	<jsp:include page="/WEB-INF/view/commons/adminHeader.jsp" />
@@ -29,7 +51,8 @@
 		</div>
 		
 		<div class="listAll">
-			<p class="textAll">전체 목록 | 총회원수 00명</p>
+			<c:set var="list" value="users"/>
+			<p class="textAll">전체 목록 | 총 회원수 ${fn:length(list)}개</p>
 		</div>
 		
 		<div class="search-tool">
@@ -42,16 +65,14 @@
 				</select>
 				<input type="text" class="searchKeyword" id="searchKeyword" name="searchKeyword" value="${searchUser.searchKeyword}"/>
 				<input type="button" class="searchBtn" id="searchBtn" value="검색"/>
-				<a href="/ShootBoy/adminUser/init">검색 초기화</a>
-				<input type="button" id="signUpBtn" value="등록" onclick="location='adminSignUp'"/>
-				<input type="button" id="signUpBtn" value="수정" onclick="location='adminUserModify'"/>
-				<input type="button" id="signUpBtn" value="삭제" onclick="location='adminUserRemove'"/>
+				<input type="button" id="signUpBtn" value="등록"/>
+				<input type="button" id="modifyBtn" value="수정"/>
+				<input type="button" id="deleteBtn" value="삭제"/>
 				<div class="clear"></div>
 			</form>
 		</div>
 		
-		<div class="line">
-		</div>
+		<div class="line"></div>
 		
 		<div class="notice">
 			<p id="notice-text">회원자료 삭제 시 다른 회원이 기존 회원아이디를 사용하지 못하도록 회원아이디는 삭제하지 않고 영구 보관합니다.</p>
@@ -62,7 +83,7 @@
 					<tr>
 						<th>
 							<div class="checks">
-								<input type="checkbox" id="select-check">
+								<input type="checkbox" id="checkAll" name="checkAll" value="checkall">
 								<label for="select-check"></label>
 							</div>
 						</th>
@@ -77,27 +98,29 @@
 						<th>가입일</th>
 					</tr>	
 				</thead>
-				<c:forEach var="users" items="${users}">
-					<tbody>
-						<tr>	
-							<td class="td_check">
-								<div class="checks">
-									<input type="checkbox" id="select-check">
-									<label for="select-check"></label>
-								</div>
-							</td>
-							<td class="td_userEmail"> ${users.email } </td>
-							<td class="td_userName"> ${users.userName } </td>
-							<td class="td_userPhone"> ${users.phoneNumber } </td>
-							<td class="td_userAge"> ${users.age } </td>
-							<td class="td_userPosition"> ${users.position } </td>
-							<td class="td_userLocation"> ${users.locationVO.locationName } </td>
-							<td class="td_userTeam"> ${users.teamVO.teamName } </td>
-							<td class="td_userGrade"> ${users.levelId } </td>
-							<td class="td_userJoindate"> ${users.createDate } </td>
-						</tr>
-					</tbody>
-				</c:forEach>
+				<form id="checkBoxForm" name="checkBoxForm">	
+					<c:forEach var="users" items="${users}">
+						<tbody>
+							<tr>
+								<td class="td_check">
+									<div class="checks check">
+										<input type="checkbox" id="select-check" name="select-check" value="${users.userId}">
+										<label for="select-check"></label>
+									</div>
+								</td>
+								<td class="td_userEmail"> ${users.email } </td>
+								<td class="td_userName"> ${users.userName } </td>
+								<td class="td_userPhone"> ${users.phoneNumber } </td>
+								<td class="td_userAge"> ${users.age } </td>
+								<td class="td_userPosition"> ${users.position } </td>
+								<td class="td_userLocation"> ${users.locationVO.locationName } </td>
+								<td class="td_userTeam"> ${users.teamVO.teamName } </td>
+								<td class="td_userGrade"> ${users.levelId } </td>
+								<td class="td_userJoindate"> ${users.createDate } </td>
+							</tr>
+						</tbody>
+					</c:forEach>
+				</form>
 			</table>
 			<div style="padding-top: 5px;">
 				<form id="pagingForm" name="pagingForm">

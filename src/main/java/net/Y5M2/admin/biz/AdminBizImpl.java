@@ -42,7 +42,12 @@ public class AdminBizImpl implements AdminBiz {
 
 	@Override
 	public boolean deleteUser(String userId) {
-		return userDao.deleteUser(userId);
+		return userDao.adminPageDeleteUser(userId) > 0;
+	}
+
+	@Override
+	public UserVO getUserOne(String userId) {
+		return userDao.getUserOne(userId);
 	}
 
 }

@@ -41,7 +41,6 @@ public class DoDeleteUserAdminServlet extends HttpServlet {
 			}
 			out.print("삭제했습니다. ");
 		}
-
 		out.flush();
 		out.close();
 

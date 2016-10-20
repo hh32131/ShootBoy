@@ -29,7 +29,7 @@
 			<li class="dropdown">
 			  	<a href="/ShootBoy/adminMember" class="dropbtn">회원 관리</a>
 			  		<div class="dropdown-content">
-				  		<a href="/ShootBoy/adminMember">회원 관리 </a>
+				  		<a href="/ShootBoy/adminUser/init">회원 관리 </a>
 				  	</div>
 			</li>
 				
@@ -50,7 +50,7 @@
 			<li class="dropdown">
 			    <a href="/ShootBoy/adminArticle" class="dropbtn">게시판 관리</a>
 				    <div class="dropdown-content">
-				      <a href="/ShootBoy/adminArticle">게시판 관리</a>
+				      <a href="/ShootBoy/adminArticle/init">게시판 관리</a>
 				    </div>
 			</li>
 		</div>
