@@ -109,7 +109,6 @@ public class UserBizImpl implements UserBiz {
 	public boolean deleteUser(UserVO userVO) {
 		
 		teamDao.deleteTeam(userVO.getTeamId());
-		
 		return userDao.deleteUser(userVO) > 0;
 	}
 

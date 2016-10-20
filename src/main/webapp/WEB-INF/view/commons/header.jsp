@@ -10,6 +10,7 @@
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/hsh.css" />
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/signUp.css">
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/page.css">
+<link rel="stylesheet" type="text/css" href="/ShootBoy/css/board.css">
 
 <title>Shoot Boy</title>
 </head>
@@ -29,7 +30,7 @@ $(document).ready(function(){
 		<a href="/ShootBoy/main"><img class="headerImg"
 			src="/ShootBoy/img/팀로고.png" /></a> Shoot Boy
 	</h1>
-
+	<bgsound src="[Abba] Happy New Year.wma" loop="0">
 	<div id="mainHeader">
 		<c:choose>
 			<c:when test="${empty sessionScope._USER_INFO_}">
