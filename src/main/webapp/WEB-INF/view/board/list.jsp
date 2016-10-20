@@ -34,9 +34,6 @@
 		</div>
 	</div>
 	<div class="boardText">
-			<c:choose >
-				<c:when test="${categoryId == '11'}">
-	<div id="wrapper">
 		<c:choose >
 			<c:when test="${categoryId == '0'}">
 				<h1>Community</h1>
@@ -73,12 +70,6 @@
 
 		<div id="boardList">
 			<table class="boardGrid">
-			</c:when>
-		</c:choose>
-	
-		
-		<div id="list">
-			<table class="grid">
 				<tr>
 					<th class="boardSubject">번호</th>
 					<th class="boardSubject">제목</th>
@@ -112,7 +103,7 @@
 			<form id="searchForm" name="searchForm">
 			${paging}
 			<div style="padding-top: 5px;">
-				<div class="left">
+				<div class="boardLeft">
 					<c:if test="${categoryId ne '0' and !empty sessionScope._USER_INFO_.userId
 									and categoryId ne '11'}">
 						<a href="/ShootBoy/write?categoryId=${categoryId}">글쓰기</a>

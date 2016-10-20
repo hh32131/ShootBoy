@@ -32,10 +32,3 @@
 	padding-top: 20px;
 }
 
-.boardContent:NTH-CHILD(2n) {
-	background-color: #fdeef8;
-}
-
-.boardContent:NTH-CHILD(2n+1) {
-	background-color: #eaf0fd;
-}
