@@ -115,7 +115,18 @@
 				<input type="button" id="passwordConfirm" name="passwordConfirm" value="비밀번호 확인" style="margin-left: 30px;">
 			</div>
 			</div>
-		<div class="warning"></div>
+		</c:if>
+		<c:if test="${sessionScope._USER_INFO_.levelId eq 3}">
+			<c:forEach items="${joins}" var="join" >
+			<tr>
+				<td>${join.userName}</td>
+				<td>${join.email}</td>
+				<td>${join.phoneNumber}</td>
+				<td>${join.age}</td>
+				<td>${join.position}</td>
+				<td>${join.UserVO.LocationVO.locationName}</td>
+			</tr>
+			</c:forEach>
 		</c:if>
 		<c:if test="${empty userInfo.teamId}">
 		<p style="font-size: 20px; color: red;">팀에 가입하지 않았습니다!</p>

@@ -594,4 +594,24 @@
     <servlet-name>DoDropTeam</servlet-name>
     <url-pattern>/doDrop</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoTeamJoin</display-name>
+    <servlet-name>DoTeamJoin</servlet-name>
+    <servlet-class>net.Y5M2.teamjoin.web.DoTeamJoin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoTeamJoin</servlet-name>
+    <url-pattern>/teamJoin</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoCheckTeamJoin</display-name>
+    <servlet-name>DoCheckTeamJoin</servlet-name>
+    <servlet-class>net.Y5M2.teamjoin.web.ajax.DoCheckTeamJoin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoCheckTeamJoin</servlet-name>
+    <url-pattern>/doCheckTeamJoin</url-pattern>
+  </servlet-mapping>
 </web-app>

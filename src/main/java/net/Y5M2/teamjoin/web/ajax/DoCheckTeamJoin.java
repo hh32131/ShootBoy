@@ -1,6 +1,7 @@
-package net.Y5M2.team.web;
+package net.Y5M2.teamjoin.web.ajax;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,16 +11,17 @@ import javax.servlet.http.HttpSession;
 
 import net.Y5M2.constants.Session;
 import net.Y5M2.support.Param;
-import net.Y5M2.team.biz.TeamBiz;
-import net.Y5M2.team.biz.TeamBizImpl;
+import net.Y5M2.teamjoin.biz.TeamJoinBiz;
+import net.Y5M2.teamjoin.biz.TeamJoinBizImpl;
 import net.Y5M2.user.vo.UserVO;
 
-public class DoDropTeam extends HttpServlet {
+public class DoCheckTeamJoin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private TeamBiz teamBiz;
-    public DoDropTeam() {
+	private TeamJoinBiz teamJoinBiz;
+       
+    public DoCheckTeamJoin() {
         super();
-        teamBiz = new TeamBizImpl();
+        teamJoinBiz = new TeamJoinBizImpl();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -27,18 +29,15 @@ public class DoDropTeam extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String teamId = Param.getStringParam(request, "teamId");
+		/*String teamId = Param.getStringParam(request, "teamId");*/
 		HttpSession session = request.getSession();
 		UserVO userVO = (UserVO) session.getAttribute(Session.USER_INFO);
 		
-		boolean isSuccess = teamBiz.dropTeam(teamId,userVO,request);
-		if ( isSuccess ) {
-			response.sendRedirect("/ShootBoy/userInfo");
-		}
-		else{
-			response.sendRedirect("/ShootBoy/detailTeamInfo?errorCode=1");
-		}
-		
+		boolean isSuccess = teamJoinBiz.isExistTeamJoinApply(userVO);
+		PrintWriter out = response.getWriter();
+		out.write(isSuccess+"");
+		out.flush();
+		out.close();
 	}
 
 }
