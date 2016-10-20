@@ -27,14 +27,11 @@ public interface TeamBiz {
 
 	public boolean dropTeam(String teamId, UserVO userVO, HttpServletRequest request);
 	
-<<<<<<< HEAD
 	public boolean deleteTeam(String teamId);
 	
 	public int getCountOfTeam(String teamId);
-
-=======
+	
 	public boolean isExsistTeam(String teamName);
->>>>>>> 9be007d84a214c703bafc170d988d1c4559b50de
 
 
 }

@@ -138,8 +138,7 @@ public class TeamBizImpl implements TeamBiz {
 
 	@Override
 	public boolean deleteTeam(String teamId,UserVO userVO, ServletRequest request) {
-		
-		
+
 		boolean isSuccess = userDao.UserTemaIdDelete(teamId)>0;
 		if(isSuccess){
 			HttpSession session = ((HttpServletRequest)request).getSession();
@@ -177,4 +176,10 @@ public class TeamBizImpl implements TeamBiz {
 	public int getCountOfTeam(String teamId) {
 		return teamDao.getCountOfTeam(teamId);
 	}
+
+	@Override
+	public boolean deleteTeam(String teamId) {
+		return teamDao.deleteTeam(teamId) > 0;
+	}
+
 }

@@ -28,22 +28,50 @@
 		});
 		
 		$("#teamCreateBtn").click(function() {
+				
+			if ( $("#teamName").val() == "") {
+				alert("팀명을 입력해주세요.");
+				$("#teamName").focus();
+				return;
+			}
+			
+			else if ( $("#teamCount").val() == 0 ) {
+				alert("팀원수를 작성해주세요.");
+				$("#teamCount").focus();
+				return;
+			}
+			
+			else if ( $("#teamInfo").val() == "" ) {
+				alert("소개글을 작성해주세요.");
+				$("#teamInfo").focus();
+				return;
+			}
+			
 			if (confirm("생성하시겠습니까?")) {
-				$("#craeteTeamForm").attr({
+				// 나중에 한번더 확인 하기!
+				if ( $("#teamNameCheck").length < 13) {
+					alert("중복체크를 해주시기 바랍니다.");
+				}
+				else {
+					$("#craeteTeamForm").attr({
 					"method" : "post",
 					"action" : "/ShootBoy/doCreateTeam"
-				}).submit(); 
+					}).submit(); 
+				}
 			}
+			
 		});
 
 		$("#checkTeamName").click(function () {
 			$.post("/ShootBoy/doCheckTeamName", 
 					{ "teamName" : $("#teamName").val() }, function(data){
 				if(data=="false") {
-					alert("사용 가능한 팀 이름입니다.");
+					$("#teamNameCheck").html("<p>사용 가능한 팀 이름입니다.</p>")
+					$("#teamCreateBtn").slideDown();
 				}
 				else {
 					$("#teamNameCheck").html("<p>중복된 팀 이름입니다.</p>")
+					$("#teamCreateBtn").hide();
 				}
 			});
 		
@@ -53,6 +81,7 @@
 	function closeWin() {
 		close();
 	}
+	
 </script>
 </head>
 <body>
