@@ -330,16 +330,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>ViewTeamInfoPageServlet</display-name>
-    <servlet-name>ViewTeamInfoPageServlet</servlet-name>
-    <servlet-class>net.Y5M2.user.web.ViewTeamInfoPageServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ViewTeamInfoPageServlet</servlet-name>
-    <url-pattern>/teamInfo</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>ViewMessagePageServlet</display-name>
     <servlet-name>ViewMessagePageServlet</servlet-name>
     <servlet-class>net.Y5M2.user.web.ViewMessagePageServlet</servlet-class>
@@ -568,5 +558,35 @@
   <servlet-mapping>
     <servlet-name>ViewTeamMatchInfoServlet</servlet-name>
     <url-pattern>/teamMatchInfo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewMatchBoardServlet</display-name>
+    <servlet-name>ViewMatchBoardServlet</servlet-name>
+    <servlet-class>net.Y5M2.match.web.ViewMatchBoardServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewMatchBoardServlet</servlet-name>
+    <url-pattern>/matchBoard</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewMatchApply</display-name>
+    <servlet-name>ViewMatchApply</servlet-name>
+    <servlet-class>net.Y5M2.match.web.ViewMatchApply</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewMatchApply</servlet-name>
+    <url-pattern>/matchApply</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewMatchApplyManagement</display-name>
+    <servlet-name>ViewMatchApplyManagement</servlet-name>
+    <servlet-class>net.Y5M2.match.web.ViewMatchApplyManagement</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewMatchApplyManagement</servlet-name>
+    <url-pattern>/matchApplyManagement</url-pattern>
   </servlet-mapping>
 </web-app>
