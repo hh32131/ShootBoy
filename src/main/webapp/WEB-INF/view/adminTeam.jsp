@@ -32,6 +32,14 @@
 				        	 $(".check input").prop('checked', false);
 				        
 				}); 
+				 
+				$("#teamModifyBtn").click(function() {
+					
+							 $.post( "/ShootBoy/adminTeamModify", $("#searchForm").serialize(),function(data){
+								
+							}); 
+				});		
+				 
 	});
 	function openWin() {
 
