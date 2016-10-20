@@ -528,7 +528,7 @@
     <description></description>
     <display-name>DoDeleteTeamServlet</display-name>
     <servlet-name>DoDeleteTeamServlet</servlet-name>
-    <servlet-class>net.Y5M2.user.web.DoDeleteTeamServlet</servlet-class>
+    <servlet-class>net.Y5M2.team.web.DoDeleteTeamServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>DoDeleteTeamServlet</servlet-name>

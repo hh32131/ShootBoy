@@ -29,7 +29,8 @@ public class DoDeleteTeamServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		String teamId = Param.getStringParam(request, "teamId");
-		
+		String userId = Param.getStringParam(request, "userId");
+	
 		HttpSession session = request.getSession();
 		session.invalidate();
 		

@@ -377,9 +377,8 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 				StringBuffer query = new StringBuffer();
 				
 				query.append(" DELETE ");
-				query.append(" FROM		TEAM T ");
-				query.append(" 			, USR U ");
-				query.append(" WHERE	T.TEAM_ID = ? ");
+				query.append(" FROM		TEAM ");
+				query.append(" WHERE	TEAM_ID = ? ");
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				pstmt.setString(1, teamId);
