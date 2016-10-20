@@ -9,6 +9,7 @@
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/layout.css" />
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/hsh.css" />
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/signUp.css">
+<link rel="stylesheet" type="text/css" href="/ShootBoy/css/signIn.css">
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/page.css">
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/board.css">
 

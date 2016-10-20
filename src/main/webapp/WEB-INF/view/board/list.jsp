@@ -16,24 +16,23 @@
 	});
 
 </script>
-</head>
 <body>
 <div id="boardWrapper">
 	<div id="myPageLeftMenu">
 		<div class="mplmTitle">Community</div>
 		<div id="myPageLeftMenuTwo">
-			<div class="mplmOne"><img src="/ShootBoy/img/화살표.jpg" class="arrow"><a href="">공지사항</a></div>
-			<div class="mplmTwo"><a href="">가입인사</a></div>
-			<div class="mplmThree"><a href="">자유게시판</a></div>
-			<div class="mplmFour"><a href="">국내축구소식</a></div>
-			<div class="mplmFour"><a href="">해외축구소식</a></div>
-			<div class="mplmFour"><a href="">축구동영상</a></div>
-			<div class="mplmFour"><a href="">축구갤러리</a></div>
-			<div class="mplmFour"><a href="">매치경기후기</a></div>
-			<div class="mplmFour"><a href="">모집게시판</a></div>
+			<div class="mplmOne"><c:if test="${categoryId eq 11}"><img src="/ShootBoy/img/화살표.jpg" class="arrow"></c:if><a href="/ShootBoy/list?categoryId=11">공지사항</a></div>
+			<div class="mplmTwo"><c:if test="${categoryId eq 12}"><img src="/ShootBoy/img/화살표.jpg" class="arrow"></c:if><a href="/ShootBoy/list?categoryId=12">가입인사</a></div>
+			<div class="mplmThree"><c:if test="${categoryId eq 13}"><img src="/ShootBoy/img/화살표.jpg" class="arrow"></c:if><a href="/ShootBoy/list?categoryId=13">자유게시판</a></div>
+			<div class="mplmFour"><c:if test="${categoryId eq 14}"><img src="/ShootBoy/img/화살표.jpg" class="arrow"></c:if><a href="/ShootBoy/list?categoryId=14">국내축구소식</a></div>
+			<div class="mplmFour"><c:if test="${categoryId eq 15}"><img src="/ShootBoy/img/화살표.jpg" class="arrow"></c:if><a href="/ShootBoy/list?categoryId=15">해외축구소식</a></div>
+			<div class="mplmFour"><c:if test="${categoryId eq 16}"><img src="/ShootBoy/img/화살표.jpg" class="arrow"></c:if><a href="/ShootBoy/list?categoryId=16">축구동영상</a></div>
+			<div class="mplmFour"><c:if test="${categoryId eq 17}"><img src="/ShootBoy/img/화살표.jpg" class="arrow"></c:if><a href="/ShootBoy/list?categoryId=17">축구갤러리</a></div>
+			<div class="mplmFour"><c:if test="${categoryId eq 18}"><img src="/ShootBoy/img/화살표.jpg" class="arrow"></c:if><a href="/ShootBoy/list?categoryId=18">매치경기후기</a></div>
+			<div class="mplmFour"><c:if test="${categoryId eq 19}"><img src="/ShootBoy/img/화살표.jpg" class="arrow"></c:if><a href="/ShootBoy/list?categoryId=19">모집게시판</a></div>
 		</div>
 	</div>
-	<div class="boardText">
+	<div class="boardText" style="margin-top: 20px;">
 		<c:choose >
 			<c:when test="${categoryId == '0'}">
 				<h1>Community</h1>
@@ -66,7 +65,7 @@
 				<h1>모집게시판</h1>
 				</c:when>
 			</c:choose>
-			<hr style="border: 1px solid;"/>
+		<hr style="border: 1px solid;"/>
 
 		<div id="boardList">
 			<table class="boardGrid">
@@ -89,7 +88,7 @@
 						<c:set var="number" value="${fn:split(boards.boardId,'-')[2]}"/>
                         <fmt:parseNumber var="number" type="number" value="${number}" />
                         <th class="boardContent">${number}</th>
-						<th class="boardContent"><a href="/ShootBoy/board/detail?boardId=${boards.boardId}">
+						<th class="boardContent"><a href="/ShootBoy/board/detail?boardId=${boards.boardId} && categoryId=${categoryId}">
 							${boards.boardSubject} [${boards.replayHitCount}]
 						</a></th>
 						<th class="boardContent">${boards.userVO.userName}</th>
@@ -119,10 +118,9 @@
 					</select>
 					<input type="text" id="searchKeyword" name="searchKeyword" value="${searchBoard.searchKeyword}"/>
 					<input type="button" id="searchBtn" value="검색" onclick="movePage(0)"/>
-					<a href="/ShootBoy/list/init">처음으로</a>
-			</div>
+					<a href="/ShootBoy/list?categoryId=${categoryId}" style="font-size: 15px;"><c:remove var="_SEARCH_BOARD_INFO_" scope="session" />목록보기</a>		
 				</div>
-				<div class="clear"></div>
+			</div>
 			</div>
 			</form>
 		</div>
@@ -135,5 +133,3 @@
 		<jsp:include page="/WEB-INF/view/commons/footer.jsp"></jsp:include>
 	</div>
 	</div>
-</body>
-</html>

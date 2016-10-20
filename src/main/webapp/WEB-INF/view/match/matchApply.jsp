@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/WEB-INF/view/commons/header.jsp"></jsp:include>
 
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/page.css">
@@ -30,5 +31,36 @@
 		</ul>
 	</div>
 	</div>
+	
+	<table style="margin-left: 300px;">
+		<tr>
+			<td>일</td>
+			<td>월</td>
+			<td>화</td>
+			<td>수</td>
+			<td>목</td>
+			<td>금</td>
+			<td>토</td>
+		</tr>
+		<tr>
+		<c:set var="day" value="${nowYearAndMonth.day-1}"></c:set>
+		<c:forEach var="date" begin="1" end="${day}" step="1">
+			<td>&nbsp;</td>
+		</c:forEach>
+		
+		<c:forEach var="date" begin="1" end="${maxDate }" step="1">
+			<c:set var="day" value="${day+1}"></c:set>
+			
+				<td>${date}</td>
+				<c:if test="${ day % 7 eq 0 }">
+					</tr><tr>
+				</c:if>
+		</c:forEach>
+		</tr>
+	
+	</table>
+	
+	
+	
 </body>
 </html>

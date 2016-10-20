@@ -32,3 +32,21 @@
 	padding-top: 20px;
 }
 
+#searchType {
+	font-size: 15px;
+}
+
+#searchKeyword {
+	font-size: 15px;
+}
+
+#searchBtn {
+	font-size: 15px;
+	background-color: #5b99ff;
+	color: #fff;
+}
+
+#searchBtn:HOVER {
+	background-color: #0080ff;
+}
+
