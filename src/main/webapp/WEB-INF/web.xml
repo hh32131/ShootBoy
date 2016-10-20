@@ -330,16 +330,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>ViewTeamInfoPageServlet</display-name>
-    <servlet-name>ViewTeamInfoPageServlet</servlet-name>
-    <servlet-class>net.Y5M2.user.web.ViewTeamInfoPageServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ViewTeamInfoPageServlet</servlet-name>
-    <url-pattern>/teamInfo</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>ViewMessagePageServlet</display-name>
     <servlet-name>ViewMessagePageServlet</servlet-name>
     <servlet-class>net.Y5M2.user.web.ViewMessagePageServlet</servlet-class>
@@ -568,5 +558,40 @@
   <servlet-mapping>
     <servlet-name>ViewTeamMatchInfoServlet</servlet-name>
     <url-pattern>/teamMatchInfo</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <display-name>SessionFilter</display-name>
+    <filter-name>SessionFilter</filter-name>
+    <filter-class>net.Y5M2.filter.SessionFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>SessionFilter</filter-name>
+    <url-pattern>/teamMatchInfo</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>SessionFilter</filter-name>
+    <url-pattern>/detailTeamInfo</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>SessionFilter</filter-name>
+    <url-pattern>/userInfo</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>SessionFilter</filter-name>
+    <url-pattern>/userModify</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>SessionFilter</filter-name>
+    <url-pattern>/teamModify</url-pattern>
+  </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoDropTeam</display-name>
+    <servlet-name>DoDropTeam</servlet-name>
+    <servlet-class>net.Y5M2.team.web.DoDropTeam</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoDropTeam</servlet-name>
+    <url-pattern>/doDrop</url-pattern>
   </servlet-mapping>
 </web-app>

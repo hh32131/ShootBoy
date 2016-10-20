@@ -29,11 +29,46 @@
 		});
 		
 		$("#deleteTeam").click(function () {
-			if ( confirm("정말로 팀을 해체 하시겠습니까?") ) {
-				alert("정상적으로 처리 되었습니다.");
-				location.href="/ShootBoy/doDeleteTeam?teamId=" + "${teamInfo.teamId}";
-			}
+			$("#password").show();
+			$("#passwordConfirm").show();
+			
+			$("#passwordConfirm").click(function(){
+				$.post("/ShootBoy/doCheckPassword", {"password" : $("#password").val()} ,function(data){
+					if(data == "true"){
+						if ( confirm("정말로 팀을 해체 하시겠습니까?") ) {
+							alert("정상적으로 처리 되었습니다.");
+							location.href="/ShootBoy/doDeleteTeam?teamId=" + "${teamInfo.teamId}";
+						}
+					}
+					else{
+						alert("비밀번호가 틀렸습니다.")
+					}
+				});
+				
+			});
 		});
+		
+		$("#dropTeam").click(function () {
+			$("#password").show();
+			$("#passwordConfirm").show();
+			
+			$("#passwordConfirm").click(function(){
+				$.post("/ShootBoy/doCheckPassword", {"password" : $("#password").val()} ,function(data){
+					if(data == "true"){
+						if ( confirm("정말로 팀을 탈퇴 하시겠습니까?") ) {
+							alert("정상적으로 처리 되었습니다.");
+							location.href="/ShootBoy/doDrop?teamId=" + "${teamInfo.teamId}";
+						}
+					}
+					else{
+						alert("비밀번호가 틀렸습니다.")
+					}
+				});
+				
+			});
+		});
+		
+		
 	});	
 </script>
 	<div id="myPageLeftMenu">
@@ -67,7 +102,15 @@
 			</div>
 			<div id="teamModify" style=" float: right; margin-right: 100px;"><input type="button" id="modifyBtn" name="modifyBtn" value="수정" 
 					style="margin-top: 20px; width: 200px;" >
-			<div> <input type="button" id="deleteTeam" name="deleteTeam" value="팀 해체" /> </div>
+					<c:choose>
+						<c:when test="${userInfo.levelId eq '3'}">
+							<div> <input type="button" id="deleteTeam" name="deleteTeam" value="팀 해체" /> </div>
+						</c:when>
+						<c:otherwise>
+							<div> <input type="button" id="dropTeam" name="dropTeam" value="팀 탈퇴" /> </div>
+						</c:otherwise>
+					</c:choose>
+					
 			<div><input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요">
 				<input type="button" id="passwordConfirm" name="passwordConfirm" value="비밀번호 확인" style="margin-left: 30px;">
 			</div>
