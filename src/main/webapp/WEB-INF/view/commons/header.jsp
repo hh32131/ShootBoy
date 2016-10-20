@@ -90,8 +90,8 @@ $(document).ready(function(){
 			</div>
 			<div class="cycle-slideshow" data-cycle-timeout=2000>
 				<img src="/ShootBoy/img/경기장.png">
-				<img src="/ShootBoy/img/메시.jpg">
 				<img src="/ShootBoy/img/호날두.jpg">
+				<img src="/ShootBoy/img/메시.jpg">				
 				<img src="/ShootBoy/img/손흥민.jpg">
 			</div>		
 		</div>
