@@ -167,4 +167,9 @@ public class TeamBizImpl implements TeamBiz {
 		
 		return false;
 	}
+
+	@Override
+	public boolean isExsistTeam(String teamName) {
+		return teamDao.isExsistTeam(teamName) > 0;
+	}
 }

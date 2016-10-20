@@ -26,6 +26,8 @@ public interface TeamBiz {
 	public boolean deleteTeam(String teamId, UserVO userVO, ServletRequest request);
 
 	public boolean dropTeam(String teamId, UserVO userVO, HttpServletRequest request);
+	
+	public boolean isExsistTeam(String teamName);
 
 
 }

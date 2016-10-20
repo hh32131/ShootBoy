@@ -30,4 +30,6 @@ public interface TeamDao {
 	
 	public int getCountOfTeams(SearchTeamVO searchTeam);
 	
+	public int isExsistTeam(String teamName);
+	
 }

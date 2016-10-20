@@ -11,6 +11,7 @@
 
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
+
 	$(document).ready(function() {
 		
 		$("#locationId").change(function(){
@@ -25,6 +26,7 @@
 				closeWin();
 			}
 		});
+
 		
 		$("#teamCreateBtn").click(function() {
 			if (confirm("생성하시겠습니까?")) {
@@ -32,10 +34,21 @@
 					"method" : "post",
 					"action" : "/ShootBoy/doCreateTeam"
 				}).submit(); 
-				
 			}
 		});
 
+		$("#checkTeamName").click(function () {
+			$.post("/ShootBoy/doCheckTeamName", 
+					{ "teamName" : $("#teamName").val() }, function(data){
+				if(data=="false") {
+					alert("사용 가능한 팀 이름입니다.");
+				}
+				else {
+					$("#teamNameCheck").html("<p>중복된 팀 이름입니다.</p>")
+				}
+			});
+		
+		});
 	});
 	
 	function closeWin() {
@@ -53,6 +66,8 @@
 					<input type="text"
 						style=" width: 255px; height: 25px; border-radius: 8px; margin-bottom: 20px;"
 						id="teamName" name="teamName" placeholder="팀명" />
+						<div id="teamNameCheck" ></div>
+					<input type="button" id="checkTeamName" name="checkTeamName" value="중복체크" />
 				</div>
 	
 				<div class="inline-block">
