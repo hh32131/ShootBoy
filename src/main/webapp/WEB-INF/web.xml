@@ -534,6 +534,47 @@
     <servlet-name>DoDeleteTeamServlet</servlet-name>
     <url-pattern>/doDeleteTeam</url-pattern>
   </servlet-mapping>
+<<<<<<< HEAD
+  <servlet>
+    <description></description>
+    <display-name>DoDeleteTeamAdminServlet</display-name>
+    <servlet-name>DoDeleteTeamAdminServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.DoDeleteTeamAdminServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoDeleteTeamAdminServlet</servlet-name>
+    <url-pattern>/deleteTeamAdmin</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoModifyTeamAdmin</display-name>
+    <servlet-name>DoModifyTeamAdmin</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.DoModifyTeamAdmin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoModifyTeamAdmin</servlet-name>
+    <url-pattern>/modifyTeamAdmin</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewAdminTeamModifyServlet</display-name>
+    <servlet-name>ViewAdminTeamModifyServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.ViewAdminTeamModifyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewAdminTeamModifyServlet</servlet-name>
+    <url-pattern>/adminTeamModify</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoCountTeamServlet</display-name>
+    <servlet-name>DoCountTeamServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.DoCountTeamServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoCountTeamServlet</servlet-name>
+    <url-pattern>/countTeam</url-pattern>
+=======
   <error-page>
     <error-code>404</error-code>
     <location>/WEB-INF/view/error/404.jsp</location>
@@ -616,5 +657,6 @@
   <servlet-mapping>
     <servlet-name>DoCheckTeamName</servlet-name>
     <url-pattern>/doCheckTeamName</url-pattern>
+>>>>>>> 9be007d84a214c703bafc170d988d1c4559b50de
   </servlet-mapping>
 </web-app>

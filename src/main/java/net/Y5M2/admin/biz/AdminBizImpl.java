@@ -40,4 +40,8 @@ public class AdminBizImpl implements AdminBiz {
 		return teamDao.getAllTeams();
 	}
 
+	@Override
+	public int getCountOfTeam(String teamId) {
+		return teamDao.getCountOfTeam(teamId);
+	}
 }

@@ -172,4 +172,9 @@ public class TeamBizImpl implements TeamBiz {
 	public boolean isExsistTeam(String teamName) {
 		return teamDao.isExsistTeam(teamName) > 0;
 	}
+
+	@Override
+	public int getCountOfTeam(String teamId) {
+		return teamDao.getCountOfTeam(teamId);
+	}
 }

@@ -13,4 +13,6 @@ public interface AdminBiz {
   public List<TeamVO> getAllTeams();
 
   public List<BoardVO> getAllBoard();
+  
+  public int getCountOfTeam(String teamId);
 }
