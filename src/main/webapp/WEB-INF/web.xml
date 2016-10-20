@@ -564,4 +564,14 @@
     <servlet-name>ViewAdminTeamModifyServlet</servlet-name>
     <url-pattern>/adminTeamModify</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoCountTeamServlet</display-name>
+    <servlet-name>DoCountTeamServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.DoCountTeamServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoCountTeamServlet</servlet-name>
+    <url-pattern>/countTeam</url-pattern>
+  </servlet-mapping>
 </web-app>

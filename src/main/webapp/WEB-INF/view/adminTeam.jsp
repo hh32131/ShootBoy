@@ -33,12 +33,20 @@
 				        
 				}); 
 				 
-				$("#teamModifyBtn").click(function() {
+				 $("#teamModifyBtn").click(function() {
 					
-							 $.post( "/ShootBoy/adminTeamModify", $("#searchForm").serialize(),function(data){
-								
-							}); 
-				});		
+					
+					 var select = $(".select-check:checked").val();
+					 var checkTeam = $(".select-check:checked").length;
+					 if(checkTeam  == 1  ) {
+								window.open(
+										"/ShootBoy/adminTeamModify?teamId=" + select,
+										"", "width=500, height= 500");
+					 } 
+					 else {
+						 alert(" 수정할 팀을 한팀 선택해 주세요");
+					 }
+				});	 
 				 
 	});
 	function openWin() {
@@ -53,7 +61,7 @@
 		</div>
 
 		<div class="listAll">
-				<a class="textAll">전체 목록 | 총 팀수 00개</a>
+				<a class="textAll">전체 목록 | 총 팀수 ${count} 개</a>
 		</div>
 		<form id="searchForm" name="searchForm">
 		<div class="container">
@@ -105,7 +113,7 @@
 								<td class="td_check">
 									<div class="checks check" id = "checkTeam" name= "checkTeam">
 										
-										<input type="checkbox" id="select-check" name="select-check" value="${team.teamId}">
+										<input type="checkbox" class="select-check" data-selectid="${team.teamId}" name="select-check" value="${team.teamId}">
 										
 										<label for="select-check"></label>
 									</div>

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 import net.Y5M2.location.biz.LocationBiz;
 import net.Y5M2.location.biz.LocationBizImpl;
 import net.Y5M2.location.vo.LocationVO;
@@ -35,16 +36,21 @@ public class ViewAdminTeamModifyServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String[] teamId =  request.getParameterValues("select-check");
+		String teamId =  Param.getStringParam(request, "teamId");
 		
-		TeamVO team = teamBiz.getTeamAt(teamId[0]);
+		
+		TeamVO team = teamBiz.getTeamAt(teamId);
 		LocationVO locationVO = new LocationVO();
 		locationVO.setParentLocationId("0");
+		
 		List<LocationVO> location = locationBiz.getLocations(locationVO);
-		request.setAttribute("location", location);
-		request.setAttribute("teaminfo", team);
+		
 		String viewPath = "/WEB-INF/view/team/teamModify.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
+		
+		request.setAttribute("location", location);
+		request.setAttribute("teamInfo", team);
+		
 		rd.forward(request, response);
 		
 	}

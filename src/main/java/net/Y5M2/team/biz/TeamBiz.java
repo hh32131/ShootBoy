@@ -23,5 +23,9 @@ public interface TeamBiz {
 	public boolean updateTeamInfo(TeamVO teamVO);
 	
 	public boolean deleteTeam(String teamId);
+	
+	public int getCountOfTeam(String teamId);
+
+
 
 }

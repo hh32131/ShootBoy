@@ -31,4 +31,6 @@ public interface TeamDao {
 	
 	public int getCountOfTeams(SearchTeamVO searchTeam);
 	
+	public int getCountOfTeam(String teamId);
+	
 }
