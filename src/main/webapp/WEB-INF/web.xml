@@ -49,7 +49,6 @@
     <url-pattern>/doSignUp</url-pattern>
   </servlet-mapping>
   <servlet>
-    <description></description>
     <display-name>ViewListPageServlet</display-name>
     <servlet-name>ViewListPageServlet</servlet-name>
     <servlet-class>net.Y5M2.article.web.ViewListPageServlet</servlet-class>
@@ -59,7 +58,6 @@
     <url-pattern>/list</url-pattern>
   </servlet-mapping>
   <servlet>
-    <description></description>
     <display-name>ViewWritePageServlet</display-name>
     <servlet-name>ViewWritePageServlet</servlet-name>
     <servlet-class>net.Y5M2.article.web.ViewWritePageServlet</servlet-class>
@@ -289,7 +287,6 @@
     <url-pattern>/replayList</url-pattern>
   </servlet-mapping>
   <servlet>
-    <description></description>
     <display-name>DoLogOutServlet</display-name>
     <servlet-name>DoLogOutServlet</servlet-name>
     <servlet-class>net.Y5M2.user.web.DoLogOutServlet</servlet-class>
@@ -337,6 +334,16 @@
   <servlet-mapping>
     <servlet-name>ViewTeamInfoPageServlet</servlet-name>
     <url-pattern>/teamInfo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewTeamMatchInfoPageServlet</display-name>
+    <servlet-name>ViewTeamMatchInfoPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.user.web.ViewTeamMatchInfoPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewTeamMatchInfoPageServlet</servlet-name>
+    <url-pattern>/teamMatchInfo</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -419,7 +426,6 @@
     <url-pattern>/doModifyTeamInfo</url-pattern>
   </servlet-mapping>
   <servlet>
-    <description></description>
     <display-name>ViewAdminMemberPageServlet</display-name>
     <servlet-name>ViewAdminMemberPageServlet</servlet-name>
     <servlet-class>net.Y5M2.admin.web.ViewAdminMemberPageServlet</servlet-class>
@@ -459,45 +465,15 @@
     <url-pattern>/adminArticle</url-pattern>
   </servlet-mapping>
   <servlet>
-    <description></description>
-    <display-name>DoDeleteUserServlet</display-name>
-    <servlet-name>DoDeleteUserServlet</servlet-name>
-    <servlet-class>net.Y5M2.user.web.DoDeleteUserServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DoDeleteUserServlet</servlet-name>
-    <url-pattern>/doDeleteUser</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>DoDeleteTeamServlet</display-name>
-    <servlet-name>DoDeleteTeamServlet</servlet-name>
-    <servlet-class>net.Y5M2.team.web.DoDeleteTeamServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DoDeleteTeamServlet</servlet-name>
-    <url-pattern>/doDeleteTeam</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ViewUserListPageServlet</display-name>
-    <servlet-name>ViewUserListPageServlet</servlet-name>
-    <servlet-class>net.Y5M2.user.web.ViewUserListPageServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ViewUserListPageServlet</servlet-name>
-    <url-pattern>/userList</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ViewCategoryListPageServlet</display-name>
-    <servlet-name>ViewCategoryListPageServlet</servlet-name>
-    <servlet-class>net.Y5M2.category.web.ViewCategoryListPageServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ViewCategoryListPageServlet</servlet-name>
-    <url-pattern>/categoryList</url-pattern>
-  </servlet-mapping>
+		<description></description>
+		<display-name>ViewCategoryListPageServlet</display-name>
+		<servlet-name>ViewCategoryListPageServlet</servlet-name>
+		<servlet-class>net.Y5M2.category.web.ViewCategoryListPageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ViewCategoryListPageServlet</servlet-name>
+		<url-pattern>/categoryList</url-pattern>
+	</servlet-mapping>
   <servlet>
     <description></description>
     <display-name>DoRemoveServlet</display-name>
@@ -510,7 +486,6 @@
   </servlet-mapping>
   <description></description>
   <servlet>
-    <description></description>
     <display-name>SearchAdminListInitiateServlet</display-name>
     <servlet-name>SearchAdminListInitiateServlet</servlet-name>
     <servlet-class>net.Y5M2.admin.web.SearchAdminListInitiateServlet</servlet-class>
@@ -531,26 +506,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>DoCheckPasswordHint</display-name>
-    <servlet-name>DoCheckPasswordHint</servlet-name>
-    <servlet-class>net.Y5M2.user.web.ajax.DoCheckPasswordHint</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DoCheckPasswordHint</servlet-name>
-    <url-pattern>/doCheckPasswordHint</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>DoCheckPassword</display-name>
-    <servlet-name>DoCheckPassword</servlet-name>
-    <servlet-class>net.Y5M2.user.web.ajax.DoCheckPassword</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DoCheckPassword</servlet-name>
-    <url-pattern>/doCheckPassword</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>DoRemoveTeamServlet</display-name>
     <servlet-name>DoRemoveTeamServlet</servlet-name>
     <servlet-class>net.Y5M2.admin.web.DoRemoveTeamServlet</servlet-class>
@@ -559,20 +514,24 @@
     <servlet-name>DoRemoveTeamServlet</servlet-name>
     <url-pattern>/removeTeam</url-pattern>
   </servlet-mapping>
-  <servlet>
+ <servlet>
     <description></description>
-<<<<<<< HEAD
+    <display-name>DoDeleteUserServlet</display-name>
+    <servlet-name>DoDeleteUserServlet</servlet-name>
+    <servlet-class>net.Y5M2.user.web.DoDeleteUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoDeleteUserServlet</servlet-name>
+    <url-pattern>/doDeleteUser</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <description></description>
     <display-name>DoDeleteTeamServlet</display-name>
     <servlet-name>DoDeleteTeamServlet</servlet-name>
     <servlet-class>net.Y5M2.team.web.DoDeleteTeamServlet</servlet-class>
-=======
-    <display-name>ViewTeamMatchInfoServlet</display-name>
-    <servlet-name>ViewTeamMatchInfoServlet</servlet-name>
-    <servlet-class>net.Y5M2.team.web.ViewTeamMatchInfoServlet</servlet-class>
->>>>>>> 701049d5d39dc0e5059fffe9f915840fed7f7958
   </servlet>
   <servlet-mapping>
-    <servlet-name>ViewTeamMatchInfoServlet</servlet-name>
-    <url-pattern>/teamMatchInfo</url-pattern>
+    <servlet-name>DoDeleteTeamServlet</servlet-name>
+    <url-pattern>/doDeleteTeam</url-pattern>
   </servlet-mapping>
 </web-app>
