@@ -163,3 +163,13 @@
 	background-color: #9e9e9e;
 	border-radius: 4px 4px 4px 4px;	
 }
+
+#deleteTeamBtn {
+	margin-bottom: 20px;
+	background-color: #ff5151;
+	color:#fff;
+}
+
+#deleteTeamBtn:HOVER {
+	background-color: red;
+}
