@@ -103,8 +103,9 @@
 			${paging}
 			<div style="padding-top: 5px;">
 				<div class="left">
-					<c:if test="${categoryId ne '0'}">
-					<a href="/ShootBoy/write?categoryId=${categoryId}">글쓰기</a>
+					<c:if test="${categoryId ne '0' and !empty sessionScope._USER_INFO_.userId
+									and categoryId ne '11'}">
+						<a href="/ShootBoy/write?categoryId=${categoryId}">글쓰기</a>
 					</c:if>
 				</div>
 				<div class="right">

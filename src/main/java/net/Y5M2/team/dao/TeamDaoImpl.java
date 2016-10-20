@@ -448,6 +448,34 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 			}
 		});
 	}
+
+	@Override
+	public int isExsistTeam(String teamName) {
+		return (int) selectOne(new QueryAndResult() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				
+				StringBuffer query = new StringBuffer();
+				
+				query.append(" SELECT	COUNT(1) CNT ");
+				query.append(" FROM		TEAM ");
+				query.append(" WHERE	TEAM_NM = ? ");
+				
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				pstmt.setString(1, teamName);
+				
+				return pstmt;
+			}
+			
+			@Override
+			public Object makeObject(ResultSet rs) throws SQLException {
+				
+				rs.next();
+				return rs.getInt("CNT");
+			}
+		});
+	}
 	
 	@Override
 	public int getCountOfTeam(String teamId) {

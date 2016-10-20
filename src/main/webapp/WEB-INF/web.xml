@@ -528,12 +528,13 @@
     <description></description>
     <display-name>DoDeleteTeamServlet</display-name>
     <servlet-name>DoDeleteTeamServlet</servlet-name>
-    <servlet-class>net.Y5M2.user.web.DoDeleteTeamServlet</servlet-class>
+    <servlet-class>net.Y5M2.team.web.DoDeleteTeamServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>DoDeleteTeamServlet</servlet-name>
     <url-pattern>/doDeleteTeam</url-pattern>
   </servlet-mapping>
+<<<<<<< HEAD
   <servlet>
     <description></description>
     <display-name>DoDeleteTeamAdminServlet</display-name>
@@ -573,5 +574,89 @@
   <servlet-mapping>
     <servlet-name>DoCountTeamServlet</servlet-name>
     <url-pattern>/countTeam</url-pattern>
+=======
+  <error-page>
+    <error-code>404</error-code>
+    <location>/WEB-INF/view/error/404.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/WEB-INF/view/error/500.jsp</location>
+  </error-page>
+  <servlet>
+    <description></description>
+    <display-name>ViewUserListPageServlet</display-name>
+    <servlet-name>ViewUserListPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.user.web.ViewUserListPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewUserListPageServlet</servlet-name>
+    <url-pattern>/userList</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoCheckPasswordHint</display-name>
+    <servlet-name>DoCheckPasswordHint</servlet-name>
+    <servlet-class>net.Y5M2.user.web.ajax.DoCheckPasswordHint</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoCheckPasswordHint</servlet-name>
+    <url-pattern>/doCheckPasswordHint</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoCheckPassword</display-name>
+    <servlet-name>DoCheckPassword</servlet-name>
+    <servlet-class>net.Y5M2.user.web.ajax.DoCheckPassword</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoCheckPassword</servlet-name>
+    <url-pattern>/doCheckPassword</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <display-name>SessionFilter</display-name>
+    <filter-name>SessionFilter</filter-name>
+    <filter-class>net.Y5M2.filter.SessionFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>SessionFilter</filter-name>
+    <url-pattern>/teamMatchInfo</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>SessionFilter</filter-name>
+    <url-pattern>/detailTeamInfo</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>SessionFilter</filter-name>
+    <url-pattern>/userInfo</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>SessionFilter</filter-name>
+    <url-pattern>/userModify</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>SessionFilter</filter-name>
+    <url-pattern>/teamModify</url-pattern>
+  </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoDropTeam</display-name>
+    <servlet-name>DoDropTeam</servlet-name>
+    <servlet-class>net.Y5M2.team.web.DoDropTeam</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoDropTeam</servlet-name>
+    <url-pattern>/doDrop</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoCheckTeamName</display-name>
+    <servlet-name>DoCheckTeamName</servlet-name>
+    <servlet-class>net.Y5M2.team.web.ajax.DoCheckTeamName</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoCheckTeamName</servlet-name>
+    <url-pattern>/doCheckTeamName</url-pattern>
+>>>>>>> 9be007d84a214c703bafc170d988d1c4559b50de
   </servlet-mapping>
 </web-app>
