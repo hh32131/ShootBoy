@@ -18,7 +18,6 @@
 </script>
 </head>
 <body>
-<<<<<<< HEAD
 <div id="boardWrapper">
 	<div id="myPageLeftMenu">
 		<div class="mplmTitle">Community</div>
@@ -37,14 +36,12 @@
 	<div class="boardText">
 			<c:choose >
 				<c:when test="${categoryId == '11'}">
-=======
 	<div id="wrapper">
 		<c:choose >
 			<c:when test="${categoryId == '0'}">
 				<h1>Community</h1>
 			</c:when>
 			<c:when test="${categoryId == '11'}">
->>>>>>> ab165aa5bc0c3c5565ab048e516f6bb64a87306b
 				<h1>공지사항</h1>
 			</c:when>
 			<c:when test="${categoryId == '12'}">
@@ -70,32 +67,18 @@
 			</c:when>
 			<c:when test="${categoryId == '19'}">
 				<h1>모집게시판</h1>
-<<<<<<< HEAD
 				</c:when>
 			</c:choose>
 			<hr style="border: 1px solid;"/>
 
 		<div id="boardList">
 			<table class="boardGrid">
-=======
 			</c:when>
 		</c:choose>
 	
-		<div id="header">
-			<c:if test="${ not empty sessionScope._USER_INFO_ }">
-			<div style="text-align: right;">
-				${sessionScope._USER_INFO_.userName} 
-				<a href="/ShootBoy/logout">로그아웃</a>
-			</div>
-			</c:if>
-				<c:if test="${ empty sessionScope._USER_INFO_ }">
-			<div style="text-align: right;" >로그인</div>
-			</c:if>
-			<hr/>
-		</div>
+		
 		<div id="list">
 			<table class="grid">
->>>>>>> ab165aa5bc0c3c5565ab048e516f6bb64a87306b
 				<tr>
 					<th class="boardSubject">번호</th>
 					<th class="boardSubject">제목</th>
@@ -128,19 +111,11 @@
 			
 			<form id="searchForm" name="searchForm">
 			${paging}
-<<<<<<< HEAD
-			<div style="padding-top: 5px; ">
-			<div class="boardOption">
-				<div class="boardLeft">
-					<c:if test="${!empty boards[0].categoryId}">
-					<a href="/ShootBoy/write?categoryId=${categoryId}">글쓰기</a>
-=======
 			<div style="padding-top: 5px;">
 				<div class="left">
 					<c:if test="${categoryId ne '0' and !empty sessionScope._USER_INFO_.userId
 									and categoryId ne '11'}">
 						<a href="/ShootBoy/write?categoryId=${categoryId}">글쓰기</a>
->>>>>>> ab165aa5bc0c3c5565ab048e516f6bb64a87306b
 					</c:if>
 				</div>
 				<div class="boardRight">
