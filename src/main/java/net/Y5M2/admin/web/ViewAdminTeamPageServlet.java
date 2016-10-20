@@ -39,6 +39,7 @@ public class ViewAdminTeamPageServlet extends HttpServlet {
 		int pageNo = Param.getIntParam(request, "pageNo", -1);
 		int searchType = Param.getIntParam(request, "searchType");
 		String searchKeyword = Param.getStringParam(request, "searchKeyword");
+		String teamId = Param.getStringParam(request, "teamCode");
 		
 		SearchTeamVO searchTeam = null;
 		
@@ -57,6 +58,7 @@ public class ViewAdminTeamPageServlet extends HttpServlet {
 		
 		session.setAttribute(Session.SEARCH_TEAM_INFO, searchTeam);
 		TeamListVO teams = teamBiz.getAllTeam(searchTeam);
+		int count = teamBiz.getCountOfTeam(teamId);
 
 		String viewPath = "/WEB-INF/view/admin/adminTeam.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
@@ -68,6 +70,8 @@ public class ViewAdminTeamPageServlet extends HttpServlet {
 
 		request.setAttribute("paging", pager);
 		request.setAttribute("searchTeam", searchTeam);
+		request.setAttribute("count", count);
+
 		rd.forward(request, response);
 	}
 

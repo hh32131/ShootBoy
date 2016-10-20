@@ -129,4 +129,9 @@ public class TeamBizImpl implements TeamBiz {
 	public boolean deleteTeam(String teamId) {
 		return teamDao.deleteTeam(teamId) > 0;
 	}
+
+	@Override
+	public int getCountOfTeam(String teamId) {
+		return teamDao.getCountOfTeam(teamId);
+	}
 }

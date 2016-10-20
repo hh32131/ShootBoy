@@ -41,6 +41,7 @@ public class AdminBizImpl implements AdminBiz {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public boolean deleteUser(String userId) {
 		return userDao.adminPageDeleteUser(userId) > 0;
 	}
@@ -50,4 +51,9 @@ public class AdminBizImpl implements AdminBiz {
 		return userDao.getUserOne(userId);
 	}
 
+=======
+	public int getCountOfTeam(String teamId) {
+		return teamDao.getCountOfTeam(teamId);
+	}
+>>>>>>> 5978e8e2db6741fc5a7bd5d677ae919e69c37e91
 }

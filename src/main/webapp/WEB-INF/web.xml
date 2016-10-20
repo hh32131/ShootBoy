@@ -585,6 +585,7 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+<<<<<<< HEAD
     <display-name>DoDeleteUserAdminServlet</display-name>
     <servlet-name>DoDeleteUserAdminServlet</servlet-name>
     <servlet-class>net.Y5M2.admin.web.DoDeleteUserAdminServlet</servlet-class>
@@ -602,5 +603,34 @@
   <servlet-mapping>
     <servlet-name>ViewModifyUserAdminPageServlet</servlet-name>
     <url-pattern>/adminMemeberModify</url-pattern>
+=======
+    <display-name>DoModifyTeamAdmin</display-name>
+    <servlet-name>DoModifyTeamAdmin</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.DoModifyTeamAdmin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoModifyTeamAdmin</servlet-name>
+    <url-pattern>/modifyTeamAdmin</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewAdminTeamModifyServlet</display-name>
+    <servlet-name>ViewAdminTeamModifyServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.ViewAdminTeamModifyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewAdminTeamModifyServlet</servlet-name>
+    <url-pattern>/adminTeamModify</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoCountTeamServlet</display-name>
+    <servlet-name>DoCountTeamServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.DoCountTeamServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoCountTeamServlet</servlet-name>
+    <url-pattern>/countTeam</url-pattern>
+>>>>>>> 5978e8e2db6741fc5a7bd5d677ae919e69c37e91
   </servlet-mapping>
 </web-app>
