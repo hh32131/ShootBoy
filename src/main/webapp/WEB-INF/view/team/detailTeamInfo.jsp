@@ -119,12 +119,12 @@
 		<c:if test="${sessionScope._USER_INFO_.levelId eq 3}">
 			<c:forEach items="${joins}" var="join" >
 			<tr>
-				<td>${join.userName}</td>
-				<td>${join.email}</td>
-				<td>${join.phoneNumber}</td>
-				<td>${join.age}</td>
-				<td>${join.position}</td>
-				<td>${join.UserVO.LocationVO.locationName}</td>
+				<td>${join.getUserVO().userName}</td>
+				<td>${join.getUserVO().email}</td>
+				<td>${join.getUserVO().phoneNumber}</td>
+				<td>${join.getUserVO().age}</td>
+				<td>${join.getUserVO().position}</td>
+				<td>${join.getUserVO().getLocationVO().locationName}</td>
 			</tr>
 			</c:forEach>
 		</c:if>

@@ -89,7 +89,7 @@ public class TeamJoinDaoImpl extends DaoSupport implements TeamJoinDao {
 				query.append(" 			, LCTN L ");
 				query.append(" WHERE	J.USR_ID = U.USR_ID ");
 				query.append(" AND		U.LCTN_ID = L.LCTN_ID ");
-				query.append(" AND		TEAM_ID = ? ");
+				query.append(" AND		J.TEAM_ID = ? ");
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				
