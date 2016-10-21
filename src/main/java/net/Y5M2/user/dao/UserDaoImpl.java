@@ -722,9 +722,11 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 				query.append(" 			, TEAM T ");
 				query.append(" WHERE	U.LCTN_ID = L.LCTN_ID ");
 				query.append(" AND		U.TEAM_ID = T.TEAM_ID(+) ");
-
+				query.append(" AND		U.USR_ID = ? ");
+				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
-
+				pstmt.setString(1, userId);
+				
 				return pstmt;
 			}
 
@@ -767,7 +769,7 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 					teamVO.setTeamInfo(rs.getString("TEAM_INFO"));
 					teamVO.setLocationId(rs.getString("LCTN_ID"));
 				}
-				return userId;
+				return userVO;
 			}
 		});
 	}

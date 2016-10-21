@@ -2,6 +2,8 @@ package net.Y5M2.admin.biz;
 
 import java.util.List;
 
+import javax.servlet.ServletRequest;
+
 import net.Y5M2.article.vo.BoardVO;
 import net.Y5M2.team.vo.TeamVO;
 import net.Y5M2.user.vo.UserVO;
@@ -18,5 +20,9 @@ public interface AdminBiz {
   
   public UserVO getUserOne(String userId);
   
+  public boolean userInfoModify(UserVO userInfo, ServletRequest request);
+  
   public int getCountOfTeam(String teamId);
+  
+  public BoardVO getBoardOne(String boardId);
 }

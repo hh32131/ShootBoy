@@ -38,11 +38,13 @@ public class ViewDetailPageServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		String boardId = Param.getStringParam(request, "boardId");
+<<<<<<< HEAD
 		String categoryId = Param.getStringParam(request, "categoryId");
 		
 		
+=======
+>>>>>>> f71e3ef5166ef0cf708c3e98c02fca81e282ee6c
 		BoardVO board = boardBiz.getBoardAt(boardId);
-		
 		List<ReplayVO> replays = replayBiz.getListReplays(boardId);
 		
 		String viewPath = "/WEB-INF/view/board/detail.jsp";
