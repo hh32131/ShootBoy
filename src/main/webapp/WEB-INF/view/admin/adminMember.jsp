@@ -11,12 +11,6 @@
 <script type="text/javascript">
 	$().ready(function() {
 		
-		$(".userCode").click(function() {
-				var teamid = $(this).data("userId");
-				window.open("/ShootBoy/userDetail?userId=" + userid, "", "width=500, height= 500");
-		});
-		
-		
 		$("#searchType").change(function() {
 			alert($("#searchType option:selected").text());
 		});
@@ -60,9 +54,6 @@
 			window.open("/ShootBoy/adminSignUp", "ADMINSIGNUP", "width=450, height= 600");
 		});
 	});
-	
-	
-	
 </script>
 	<jsp:include page="/WEB-INF/view/commons/adminHeader.jsp" />
 	
@@ -87,7 +78,7 @@
 				name="searchKeyword" value="${searchUser.searchKeyword}" /> <input
 				type="button" class="searchBtn" id="searchBtn" value="검색" />
 			<div class="initBtn">
-				<input type="button" id="initBtn" value="초기화" onclick="location='/ShootBoy/adminList/init'" />
+				<input type="button" id="initBtn" value="초기화" onclick="location='/ShootBoy/adminUser/init'" />
 			</div>
 			<div class="clear"></div>
 		</form>
@@ -129,14 +120,7 @@
 										<label for="select-check"></label>
 									</div>
 								</td>
-								<td class="td_userEmail">
-									<input type="hidden" value="${users.email }">
-									<span>
-										<a href="javascript:void(0);" class="userCode" data-teamid="${users.email }"> 
-											${users.email }
-										</a>
-									</span>
-								</td>
+								<td class="td_userEmail"> ${users.email } </td>
 								<td class="td_userName"> ${users.userName } </td>
 								<td class="td_userPhone"> ${users.phoneNumber } </td>
 								<td class="td_userAge"> ${users.age } </td>

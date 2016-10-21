@@ -1,13 +1,68 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="/ShootBoy/css/page.css">
+
 <title>Insert title here</title>
+<script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
+<script type="text/javascript">
+	$().ready(function(){
+		
+		$("#locationId").on("change", function() {
+			$.post("/ShootBoy/checkLocation", {
+				"locationId" : $("#locationId").val()
+			}, function(data) {
+				$("#leafCategory option").remove();
+				$("#leafCategory").html(data);
+				
+				var locationId = "${userInfo.locationId}";
+				if ( $("#leafCategory > option[value='"+locationId+"'").text() != "" ) {
+					$("#leafCategory").val(locationId);
+				}
+			});
+		});
+		
+		$("#locationId").val("${userInfo.locationVO.parentLocationId}")
+		$("#locationId").change();
+		$("#position").val("${userInfo.position}")
+		$("#age").val("${userInfo.age}")
+		
+		$("#userName").keyup(function() {
+			if ($(this).val() == "") {
+				alert("이름을 입력해주세요");
+				return;
+			} 
+		});
+		
+		$("#password").keyup(function() {
+			if ($(this).val() == "") {
+				alert("비밀번호를 입력해주세요");
+				return;
+			} 
+		});
+		
+		$("#phoneNumber").keyup(function() {
+			if ($(this).val() == "") {
+				alert("전화번호를 입력해주세요");
+				return;
+			} 
+		});
+		
+		$("#modifyBtn").click(function(){
+			$("#userModifyForm").attr({
+				"method": "post",
+				"action": "/ShootBoy/doAdminMemberModify"
+			}).submit();
+		});
+	});
+
+</script>
 </head>
 <body>
-
 	<div id="userModifyWrapper">
 		<div id="userModifyHeader"><h2>회원정보 수정</h2></div>
 		<form id="userModifyForm" name="userModifyForm">
@@ -51,6 +106,5 @@
 			</div>
 		</form>
 	</div>
-
 </body>
 </html>
