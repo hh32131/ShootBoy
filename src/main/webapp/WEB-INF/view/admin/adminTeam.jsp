@@ -12,7 +12,7 @@
 			window.open("/ShootBoy/teamDetail?teamId=" + teamid, "", "width=500, height= 500");
 		});
 
-		$("#teamDeleteBtn").click(function() {
+		$("#deleteBtn").click(function() {
 			$.post( "/ShootBoy/deleteTeamAdmin", $("#checkBoxForm").serialize(), function( data ) {
 				alert( "" + data );
 				location.reload();
@@ -33,7 +33,7 @@
 			movePage(0);
 		});
 		
-		 $("#teamModifyBtn").click(function() {
+		 $("#modifyBtn").click(function() {
 				
 			 var select = $(".select-check:checked").val();
 			 var checkTeam = $(".select-check:checked").length;
@@ -71,9 +71,7 @@
 				</select>
 				<input type="text" class="searchKeyword" id="searchKeyword" name="searchKeyword" value="${searchTeam.searchKeyword}" /> 
 				<input type="button" id="searchBtn" value="검색"/> 
-				<input type="button" id="makeTeamBtn" value="생성" onclick="openWin()"/>
-				<input type="button" id="teamModifyBtn" value="수정" />
-				<input type="button" id="teamDeleteBtn" value="삭제" />
+				
 				<div class="clear"></div>
 			</form>
 		</div>
@@ -135,6 +133,14 @@
 					<input type="hidden" class="searchType" name="searchType" value="${ searchTeam.searchType }" />
 					<input type="hidden" class="searchKeyword" name="searchKeyword" value="${searchTeam.searchKeyword}" />
 				</form>
+			</div>
+			<div class="initBtn">
+				<input type="button" id="initBtn" value="전체보기" onclick="location='/ShootBoy/removeTeam'"/>
+			</div>
+			<div class="functionBtn">
+				<input type="button" id="writeBtn" value="등 록" onclick="openWin()"/>
+				<input type="button" id="modifyBtn" value="선택 수정" />
+				<input type="button" id="deleteBtn" value="선택 삭제" />
 			</div>
 		</div>		
 	</div>

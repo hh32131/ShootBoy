@@ -5,12 +5,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="/ShootBoy/css/page.css">
+<link rel="stylesheet" type="text/css" href="/ShootBoy/css/adminModify.css">
 
 <title>Insert title here</title>
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
 	$().ready(function(){
+		
+		$("#cancelBtn").click(function() {
+			window.close();
+		});
 		
 		$("#locationId").on("change", function() {
 			$.post("/ShootBoy/checkLocation", {
@@ -64,7 +68,23 @@
 </head>
 <body>
 	<div id="userModifyWrapper">
-		<div id="userModifyHeader"><h2>회원정보 수정</h2></div>
+		<div class="modify-header">
+			<div class="modify-top">
+				<div class="modify-admin-logo">
+					<a href="/ShootBoy/admin" class="logo-text">ADMINISTRATOR</a>
+				</div>
+				
+				<div class="modify-shootboy-main">
+					<a href="/ShootBoy/main" class="main-text"> ShootBoy </a> 
+				</div>
+			</div>
+			
+			<div class="bottom">
+				<p class="modify-title">회원 수정</p> 
+			</div>
+	</div>
+		
+		
 		<form id="userModifyForm" name="userModifyForm">
 			<input type="hidden" id="email" name="email" value="${userInfo.email}">
 			이름 <input type="text" id="userName" name="userName" value="${userInfo.userName}" style="font-size: 15px;"> <br /><br/>
@@ -101,10 +121,9 @@
 			상세 지역 <select name="leafCategory" id="leafCategory" style="font-size: 15px;">
 					</select><br/><br/>
 			<div id="btn">
-				<input type="button" id="modifyBtn" value="수정"> 
-				<input type="button" id="cancelBtn" value="취소" onclick="location.href='/ShootBoy/detailUserInfo'" >
+				<input type="button" id="modifyBtn" value="수 정"> 
+				<input type="button" id="cancelBtn" value="취 소">
 			</div>
 		</form>
 	</div>
-</body>
-</html>
+<jsp:include page="/WEB-INF/view/commons/adminFooter.jsp" />

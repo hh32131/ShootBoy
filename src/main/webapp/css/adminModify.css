@@ -1,0 +1,90 @@
+@CHARSET "UTF-8";
+
+.modify-header .modify-top {
+	background-color: #282828;
+}
+
+.modify-top {
+	padding-bottom: 25px;
+}
+
+.modify-admin-logo {
+	text-align: center;
+	font-weight: bold;
+	font-size: 22px;
+}
+
+.modify-shootboy-main {
+	
+	text-align: center;
+}
+.logo-text{
+	color: #ebebeb;
+	text-decoration: none;
+}
+
+.main-text{
+	color: #ebebeb;
+	text-decoration: none;
+}
+.bottom {
+	text-align: center;
+	color: #ebebeb;
+	text-decoration: none;
+	margin-bottom: 20px;
+}
+
+.modify-title{
+	font-weight: bold;
+	font-size: 15px;
+}
+
+#userModifyForm {
+	margin-left: 20px;
+}
+
+#userName {
+	margin-left: 40px;
+}
+
+#password {
+	margin-left: 8px;
+}
+
+#phoneNumber {
+	margin-left: 8px;
+}
+
+#age {
+	margin-left: 40px;
+}
+
+#position {
+	margin-left: 24px;
+}
+
+#locationId {
+	margin-left: 3px;
+}
+
+#leafCategory{
+	margin-left: 3px;
+}
+
+#modifyBtn {
+	width: 70px;
+	padding:10px;
+	border:1px solid #ccc;
+	background:#fafafa;
+	text-decoration:none;
+	cursor:pointer
+}
+
+#cancelBtn {
+	width: 70px;
+	padding:10px;
+	border:1px solid #ccc;
+	background:#fafafa;
+	text-decoration:none;
+	cursor:pointer
+}
