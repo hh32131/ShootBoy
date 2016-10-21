@@ -1,6 +1,7 @@
-package net.Y5M2.article.web;
+package net.Y5M2.admin.web;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,16 +12,21 @@ import javax.servlet.http.HttpServletResponse;
 import net.Y5M2.article.biz.BoardBiz;
 import net.Y5M2.article.biz.BoardBizImpl;
 import net.Y5M2.article.vo.BoardVO;
+import net.Y5M2.replay.biz.ReplayBiz;
+import net.Y5M2.replay.biz.ReplayBizImpl;
+import net.Y5M2.replay.vo.ReplayVO;
 import net.Y5M2.support.Param;
 
-public class ViewModifyPageServlet extends HttpServlet {
+public class ViewAdminArticleDetailPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private BoardBiz boardBiz;
-	
-	public ViewModifyPageServlet() {
+	private ReplayBiz replayBiz;
+
+	public ViewAdminArticleDetailPageServlet() {
 		super();
 		boardBiz = new BoardBizImpl();
+		replayBiz = new ReplayBizImpl();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -30,19 +36,17 @@ public class ViewModifyPageServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		String boardId = Param.getStringParam(request, "boardId");
-		BoardVO board = boardBiz.getBoardForModify(boardId);
-		
-		String content = board.getBoardContent();
-		content = content.replaceAll("<br/>", "\n");
-		board.setBoardContent(content);
-		
-		String viewPath = "/WEB-INF/view/board/modify.jsp";
+		BoardVO board = boardBiz.getBoardAt(boardId);
+		List<ReplayVO> replays = replayBiz.getListReplays(boardId);
+
+		String viewPath = "/WEB-INF/view/admin/adminArticleDetail.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 		request.setAttribute("board", board);
+		request.setAttribute("replays", replays);
 		rd.forward(request, response);
-		
+
 	}
 
 }

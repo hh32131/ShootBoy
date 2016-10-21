@@ -8,19 +8,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.Y5M2.admin.biz.AdminBiz;
-import net.Y5M2.admin.biz.AdminBizImpl;
+import net.Y5M2.article.biz.BoardBiz;
+import net.Y5M2.article.biz.BoardBizImpl;
+import net.Y5M2.article.vo.BoardVO;
 import net.Y5M2.support.Param;
-import net.Y5M2.user.vo.UserVO;
 
-public class ViewAdminMemeberModifyPageServlet extends HttpServlet {
+public class ViewAdminArticleModifyPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private AdminBiz adminBiz;
-
-	public ViewAdminMemeberModifyPageServlet() {
+	private BoardBiz boardBiz;
+	
+	public ViewAdminArticleModifyPageServlet() {
 		super();
-		adminBiz = new AdminBizImpl();
+		boardBiz = new BoardBizImpl();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -30,12 +30,19 @@ public class ViewAdminMemeberModifyPageServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		String userId = Param.getStringParam(request, "userId");
-		UserVO userVO = adminBiz.getUserOne(userId);
-		String viewPath = "/WEB-INF/view/admin/adminMemberModify.jsp";
+		
+		String boardId = Param.getStringParam(request, "boardId");
+		BoardVO board = boardBiz.getBoardForModify(boardId);
+		
+		String content = board.getBoardContent();
+		content = content.replaceAll("<br/>", "\n");
+		board.setBoardContent(content);
+		
+		String viewPath = "/WEB-INF/view/admin/adminArticleModify.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
-		request.setAttribute("userInfo", userVO);
+		request.setAttribute("board", board);
 		rd.forward(request, response);
+		
 	}
+
 }
