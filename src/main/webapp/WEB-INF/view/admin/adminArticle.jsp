@@ -44,14 +44,11 @@
 				</select>
 				<input type="text" class="searchKeyword" name="searchKeyword" id="searchKeyword" value="${searchBoard.searchKeyword}"/>
 				<input type="button" id="searchBtn" value="검색" />
-<<<<<<< HEAD
 				<input type="button" id="modifyBtn" value="수정"/>
 				<input type="button" id="deleteBtn" value="삭제"/>
-=======
 				<div class="initBtn">
 					<input type="button" id="initBtn" value="초기화" onclick="location='/ShootBoy/adminList/init'"/>
 				</div>
->>>>>>> 3af1a58fba64148288af40fdc25b6beed708762a
 				<div class="clear"></div>
 			</form>
 		</div>

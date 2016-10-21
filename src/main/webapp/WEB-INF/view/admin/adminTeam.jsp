@@ -33,6 +33,17 @@
 			movePage(0);
 		});
 		
+		 $("#teamModifyBtn").click(function() {
+				
+			 var select = $(".select-check:checked").val();
+			 var checkTeam = $(".select-check:checked").length;
+			 if(checkTeam  == 1  ) {
+						window.open("/ShootBoy/adminTeamModify?teamId=" + select, "", "width=500, height= 500");
+			 } 
+			 else {
+				 alert(" 수정할 팀을 한팀 선택해 주세요");
+			 }
+		});	 
 		
 	});
 	
@@ -48,7 +59,7 @@
 
 		<div class="listAll">
 			<c:set var="list" value="teams"/>
-			<p class="textAll">전체 목록 | 총 회원수 ${fn:length(list)}개</p>
+			<p class="textAll">전체 목록 | 총 회원수 ${count}개</p>
 		</div>
 		
 		<div class="search-tool"> 
@@ -98,7 +109,7 @@
 							<tr>	
 								<td class="td_check">
 									<div class="checks check" id ="checkTeam" name="checkTeam">
-										<input type="checkbox" id="select-check" name="select-check" value="${team.teamId}">
+										<input type="checkbox" class="select-check" data-selectid="${team.teamId}" name="select-check" value="${team.teamId}">
 										<label for="select-check"></label>
 									</div>
 								</td>
@@ -127,10 +138,5 @@
 			</div>
 		</div>		
 	</div>
-<<<<<<< HEAD
-</body>
-</html>
-=======
-	</div>
+
 <jsp:include page="/WEB-INF/view/commons/adminFooter.jsp" />
->>>>>>> 3af1a58fba64148288af40fdc25b6beed708762a
