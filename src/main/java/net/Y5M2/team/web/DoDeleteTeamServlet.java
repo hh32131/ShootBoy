@@ -31,19 +31,11 @@ public class DoDeleteTeamServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		String teamId = Param.getStringParam(request, "teamId");
-<<<<<<< HEAD
-		String userId = Param.getStringParam(request, "userId");
-	
-		HttpSession session = request.getSession();
-		session.invalidate();
-		
-		boolean isSuccess = teamBiz.deleteTeam(teamId);
-		
-=======
+
 		HttpSession session = request.getSession();
 		UserVO userVO = (UserVO) session.getAttribute(Session.USER_INFO);
 		boolean isSuccess = teamBiz.deleteTeam(teamId, userVO, request);
->>>>>>> e27e6fca1a79d021144ccfc3f92ce216dd69518c
+
 		if ( isSuccess ) {
 			response.sendRedirect("/ShootBoy/userInfo");
 		}

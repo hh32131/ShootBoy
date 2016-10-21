@@ -42,13 +42,9 @@ public class ViewDetailTeamInfo extends HttpServlet {
 		UserVO userInfo = (UserVO) session.getAttribute(Session.USER_INFO);
 		
 		TeamVO teamInfo = teamBiz.getTeamAt(userInfo.getTeamId());
-<<<<<<< HEAD
-=======
 		
 		List<TeamJoinVO> joins = teamJoinBiz.getTeamJoinId(userInfo.getTeamId());
 		
-		
->>>>>>> e27e6fca1a79d021144ccfc3f92ce216dd69518c
 		String viewPath = "/WEB-INF/view/team/detailTeamInfo.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 		request.setAttribute("userInfo", userInfo);

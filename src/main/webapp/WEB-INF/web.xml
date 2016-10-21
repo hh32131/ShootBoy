@@ -327,7 +327,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-<<<<<<< HEAD
     <display-name>ViewTeamInfoPageServlet</display-name>
     <servlet-name>ViewTeamInfoPageServlet</servlet-name>
     <servlet-class>net.Y5M2.user.web.ViewTeamInfoPageServlet</servlet-class>
@@ -348,8 +347,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-=======
->>>>>>> e27e6fca1a79d021144ccfc3f92ce216dd69518c
     <display-name>ViewMessagePageServlet</display-name>
     <servlet-name>ViewMessagePageServlet</servlet-name>
     <servlet-class>net.Y5M2.user.web.ViewMessagePageServlet</servlet-class>
