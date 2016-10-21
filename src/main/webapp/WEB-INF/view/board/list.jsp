@@ -100,33 +100,30 @@
 			</table>
 			
 			<form id="searchForm" name="searchForm">
-			${paging}
-			<div style="padding-top: 5px;">
-				<div class="boardLeft">
-					<c:if test="${categoryId ne '0' and !empty sessionScope._USER_INFO_.userId
-									and categoryId ne '11'}">
-						<a href="/ShootBoy/write?categoryId=${categoryId}">글쓰기</a>
-					</c:if>
+				${paging}
+				<div style="padding-top: 5px;">
+					<div class="boardRight">
+						<c:if test="${categoryId ne '0' and !empty sessionScope._USER_INFO_.userId
+										and categoryId ne '11'}">
+							<a href="/ShootBoy/write?categoryId=${categoryId}" style="color:#fff; font-size: 15px;">글쓰기</a>
+						</c:if>
+					</div>
+					<div class="boardLeft">
+						<select id="searchType" name="searchType">
+							<option value="1" ${ searchBoard.searchType eq 1 ? 'selected' : '' }>제목+내용</option>
+							<option value="2" ${ searchBoard.searchType eq 2 ? 'selected' : '' }>제목</option>
+							<option value="3" ${ searchBoard.searchType eq 3 ? 'selected' : '' }>내용</option>
+							<option value="4" ${ searchBoard.searchType eq 4 ? 'selected' : '' }>작성자</option>
+						</select>
+						<input type="text" id="searchKeyword" name="searchKeyword" value="${searchBoard.searchKeyword}"/>
+						<input type="button" id="searchBtn" value="검색" onclick="movePage(0)"/>
+						<a href="/ShootBoy/list?categoryId=${categoryId}" style="font-size: 15px;"><c:remove var="_SEARCH_BOARD_INFO_" scope="session" />목록보기</a>		
+					</div>
 				</div>
-				<div class="boardRight">
-
-					<select id="searchType" name="searchType">
-						<option value="1" ${ searchBoard.searchType eq 1 ? 'selected' : '' }>제목+내용</option>
-						<option value="2" ${ searchBoard.searchType eq 2 ? 'selected' : '' }>제목</option>
-						<option value="3" ${ searchBoard.searchType eq 3 ? 'selected' : '' }>내용</option>
-						<option value="4" ${ searchBoard.searchType eq 4 ? 'selected' : '' }>작성자</option>
-					</select>
-					<input type="text" id="searchKeyword" name="searchKeyword" value="${searchBoard.searchKeyword}"/>
-					<input type="button" id="searchBtn" value="검색" onclick="movePage(0)"/>
-					<a href="/ShootBoy/list?categoryId=${categoryId}" style="font-size: 15px;"><c:remove var="_SEARCH_BOARD_INFO_" scope="session" />목록보기</a>		
-				</div>
-			</div>
-			</div>
 			</form>
-		</div>
-		<hr/>
-		</div>
+		</div>	
 	</div>
+</div>
 	
 	<div class="clear">
 	<div style="padding-top: 60px;">

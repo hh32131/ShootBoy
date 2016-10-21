@@ -50,3 +50,22 @@
 	background-color: #0080ff;
 }
 
+.boardRight {
+	float: right;
+	border:1px solid;
+	border-color: #aa3700;
+	background-color: #aa3700;
+	height: 20px;
+}
+
+.boardRight:HOVER {
+	border-color: #ff854a;
+}
+
+#goBackBtn, #writeBtn {
+	background-color: #58b6e2;
+}
+
+#goBackBtn:HOVER, #writeBtn:HOVER {
+	background-color: #2497ce;
+} 

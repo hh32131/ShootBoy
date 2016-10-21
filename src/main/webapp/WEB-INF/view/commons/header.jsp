@@ -28,7 +28,7 @@ $(document).ready(function(){
 <body>
 	<h1>
 		<a href="/ShootBoy/main"><img class="headerImg"
-			src="/ShootBoy/img/팀로고.png" /></a> Shoot Boy
+			src="/ShootBoy/img/팀로고.png" />Shoot Boy</a>
 	</h1>
 	<bgsound src="[Abba] Happy New Year.wma" loop="0">
 	<div id="mainHeader">
