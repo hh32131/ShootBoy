@@ -87,7 +87,7 @@
 				name="searchKeyword" value="${searchUser.searchKeyword}" /> <input
 				type="button" class="searchBtn" id="searchBtn" value="검색" />
 			<div class="initBtn">
-				<input type="button" id="initBtn" value="초기화" onclick="location='/ShootBoy/adminList/init'" />
+				<input type="button" id="initBtn" value="초기화" onclick="location='/ShootBoy/adminUser/init'" />
 			</div>
 			<div class="clear"></div>
 		</form>
