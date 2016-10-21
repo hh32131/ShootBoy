@@ -624,16 +624,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>ViewAdminWriteArticlePageServlet</display-name>
-    <servlet-name>ViewAdminWriteArticlePageServlet</servlet-name>
-    <servlet-class>net.Y5M2.admin.web.ViewAdminWriteArticlePageServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ViewAdminWriteArticlePageServlet</servlet-name>
-    <url-pattern>/adminArticleWrite</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>ViewAdminMemberModifyPageServlet</display-name>
     <servlet-name>ViewAdminMemberModifyPageServlet</servlet-name>
     <servlet-class>net.Y5M2.admin.web.ViewAdminMemberModifyPageServlet</servlet-class>
@@ -644,12 +634,72 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>DoAdminMemberModifyServlet</display-name>
-    <servlet-name>DoAdminMemberModifyServlet</servlet-name>
-    <servlet-class>net.Y5M2.admin.web.DoAdminMemberModifyServlet</servlet-class>
+    <display-name>DoModifyAdminMemberServlet</display-name>
+    <servlet-name>DoModifyAdminMemberServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.DoModifyAdminMemberServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>DoAdminMemberModifyServlet</servlet-name>
+    <servlet-name>DoModifyAdminMemberServlet</servlet-name>
     <url-pattern>/doAdminMemberModify</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoModifyAdminArticleServlet</display-name>
+    <servlet-name>DoModifyAdminArticleServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.DoModifyAdminArticleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoModifyAdminArticleServlet</servlet-name>
+    <url-pattern>/doAdminArticleModify</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewAdminArticleModifyPageServlet</display-name>
+    <servlet-name>ViewAdminArticleModifyPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.ViewAdminArticleModifyPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewAdminArticleModifyPageServlet</servlet-name>
+    <url-pattern>/adminArticleModify</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoWriteAdminArticleServlet</display-name>
+    <servlet-name>DoWriteAdminArticleServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.DoWriteAdminArticleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoWriteAdminArticleServlet</servlet-name>
+    <url-pattern>/doAdminArticleWrite</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoDeleteArticleAdminServlet</display-name>
+    <servlet-name>DoDeleteArticleAdminServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.DoDeleteArticleAdminServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoDeleteArticleAdminServlet</servlet-name>
+    <url-pattern>/doAdminArticleDelete</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewAdminArticleWritePageServlet</display-name>
+    <servlet-name>ViewAdminArticleWritePageServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.ViewAdminArticleWritePageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewAdminArticleWritePageServlet</servlet-name>
+    <url-pattern>/adminArticleWrite</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewAdminArticleDetailPageServlet</display-name>
+    <servlet-name>ViewAdminArticleDetailPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.ViewAdminArticleDetailPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewAdminArticleDetailPageServlet</servlet-name>
+    <url-pattern>/adminArticleDetail</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -1,4 +1,4 @@
-package net.Y5M2.article.web;
+package net.Y5M2.admin.web;
 
 import java.io.IOException;
 
@@ -13,12 +13,12 @@ import net.Y5M2.article.biz.BoardBizImpl;
 import net.Y5M2.article.vo.BoardVO;
 import net.Y5M2.support.Param;
 
-public class ViewModifyPageServlet extends HttpServlet {
+public class ViewAdminArticleModifyPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private BoardBiz boardBiz;
 	
-	public ViewModifyPageServlet() {
+	public ViewAdminArticleModifyPageServlet() {
 		super();
 		boardBiz = new BoardBizImpl();
 	}
@@ -38,7 +38,7 @@ public class ViewModifyPageServlet extends HttpServlet {
 		content = content.replaceAll("<br/>", "\n");
 		board.setBoardContent(content);
 		
-		String viewPath = "/WEB-INF/view/board/modify.jsp";
+		String viewPath = "/WEB-INF/view/admin/adminArticleModify.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 		request.setAttribute("board", board);
 		rd.forward(request, response);

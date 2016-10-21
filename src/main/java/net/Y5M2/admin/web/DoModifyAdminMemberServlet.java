@@ -13,12 +13,12 @@ import net.Y5M2.admin.biz.AdminBizImpl;
 import net.Y5M2.support.Param;
 import net.Y5M2.user.vo.UserVO;
 
-public class DoAdminMemberModifyServlet extends HttpServlet {
+public class DoModifyAdminMemberServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private AdminBiz adminBiz;
 	
-	public DoAdminMemberModifyServlet() {
+	public DoModifyAdminMemberServlet() {
 		super();
 		adminBiz = new AdminBizImpl();
 	}

@@ -102,4 +102,9 @@ public class AdminBizImpl implements AdminBiz {
 			return false;
 		}
 	}
+
+	@Override
+	public BoardVO getBoardOne(String boardId) {
+		return boardDao.getBoardAt(boardId);
+	}
 }

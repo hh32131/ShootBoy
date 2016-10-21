@@ -35,12 +35,12 @@
 		 $("#modifyBtn").click(function() {
 				
 			 var select = $(".select-check:checked").val();
-			 var checkTeam = $(".select-check:checked").length;
-			 if(checkTeam  == 1  ) {
+			 var checkUser = $(".select-check:checked").length;
+			 if(checkUser  == 1  ) {
 						window.open("/ShootBoy/adminMemberModify?userId=" + select, "", "width=500, height= 500");
 			 } 
 			 else {
-				 alert(" 수정할 팀을 한팀 선택해 주세요");
+				 alert(" 수정할 유저를 선택해 주세요");
 			 }
 		});	 
 				
@@ -95,8 +95,8 @@
 				<tr>
 					<th>
 						<div class="checks">
-							<input type="checkbox" id="select-check"> <label
-								for="select-check"></label>
+							<input type="checkbox" id="checkAll" name="checkAll" value="checkall">
+							<label for="select-check"></label>
 						</div>
 					</th>
 					<th>회원 이메일</th>
@@ -143,9 +143,8 @@
 		</div>
 		<div class="functionBtn">
 			<input type="button" id="writeBtn" value="등 록"  />
-			<input type="button" id="modifyBtn" value="선택 수정"
-				onclick="location='#'" /> <input type="button" id="deleteBtn"
-				value="선택 삭제" onclick="location='#'" />
+			<input type="button" id="modifyBtn" value="선택 수정" onclick="location='#'" /> 
+			<input type="button" id="deleteBtn" value="선택 삭제" onclick="location='#'" />
 		</div>
 	</div>
 </div>
