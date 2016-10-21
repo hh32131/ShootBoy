@@ -39,7 +39,7 @@ public class ViewAdminPageServlet extends HttpServlet {
 		List<TeamVO> teams = adminBiz.getAllTeams();
 		List<BoardVO> boards = adminBiz.getAllBoard();
 
-		String viewPath = "/WEB-INF/view/admin.jsp";
+		String viewPath = "/WEB-INF/view/admin/admin.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 
 		request.setAttribute("users", users);

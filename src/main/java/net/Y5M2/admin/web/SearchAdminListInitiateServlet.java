@@ -25,7 +25,6 @@ public class SearchAdminListInitiateServlet extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		session.removeAttribute(Session.SEARCH_BOARD_INFO);
-		
 		response.sendRedirect("/ShootBoy/adminArticle");
 	}
 

@@ -40,7 +40,7 @@
 	<hr class="teamline">
 </div>
 
-<div id="allTeamWrapper" style="width: 700px; margin-left: 250px;">
+<div id="allTeamWrapper" style="width: 700px; margin-left: 280px;">
 
 	<table>
 		<tr>
@@ -63,16 +63,15 @@
 			</c:forEach>
 		</tr>
 	</table>
+	<c:if test="${empty sessionScope._USER_INFO_.teamId}">
 	<button id="teamCreateBtn" onclick="openWin()" style="float: right;">팀생성하기</button>
+	</c:if>
 			<form id="searchForm" name="searchForm">
 			${paging}
 			<div style="padding-top: 5px;">
-				<div class="left">
-					<a href="/ShootBoy/write">글쓰기</a>
-				</div>
 				<div class="right">
 				
-					<select id="searchType" name="searchType">
+					<select id="searchType" name="searchType" style="font-size: 15px;">
 						<option value="1"
 							${ searchTeam.searchType eq 1 ? 'selected' : '' }>팀 이름+소개내용</option>
 						<option value="2"
@@ -82,13 +81,16 @@
 					</select> 
 						
 					<input type="text" id="searchKeyword" name="searchKeyword"
-						value="${searchTeam.searchKeyword}" /> <input type="button"	id="searchBtn" value="검색" onclick="movePage(0)" /> 
+						value="${searchTeam.searchKeyword}" style="font-size: 15px;"/> 
+					<input type="button" id="searchBtn" value="검색" onclick="movePage(0)" style="font-size: 15px;"/> 
 				</div>
 				<div class="clear"></div>
 			</div>
 		</form>
 </div>
-<!-- <div class="clear">
-	<div style="padding-top: 50px;"> -->
 
+<div class="clear">
+	<div style="padding-top: 50px;">
 		<jsp:include page="/WEB-INF/view/commons/footer.jsp"></jsp:include>
+</div>
+</div>

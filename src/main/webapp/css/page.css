@@ -4,7 +4,7 @@
 #myPageLeftMenu {
 	font-size: 30px;
 	padding:30px;
-	width: 200px;
+	width: 210px;
 }
 
 #myPageLeftMenuTwo {
@@ -162,4 +162,14 @@
 #createBtn:HOVER {
 	background-color: #9e9e9e;
 	border-radius: 4px 4px 4px 4px;	
+}
+
+#deleteTeamBtn {
+	margin-bottom: 20px;
+	background-color: #ff5151;
+	color:#fff;
+}
+
+#deleteTeamBtn:HOVER {
+	background-color: red;
 }
