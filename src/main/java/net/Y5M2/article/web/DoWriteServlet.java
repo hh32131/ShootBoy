@@ -66,8 +66,6 @@ public class DoWriteServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		UserVO userVO = (UserVO) session.getAttribute(Session.USER_INFO);
 		
-		
-		
 		board.setBoardSubject(boardSubject);
 		board.setBoardContent(boardContent);
 		board.setUserId(userVO.getUserId());

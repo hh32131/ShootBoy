@@ -1,7 +1,6 @@
 package net.Y5M2.article.web;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,9 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.Y5M2.category.biz.CategoryBiz;
-import net.Y5M2.category.biz.CategoryBizImpl;
-import net.Y5M2.category.vo.CategoryVO;
 import net.Y5M2.support.Param;
 
 public class ViewWritePageServlet extends HttpServlet {

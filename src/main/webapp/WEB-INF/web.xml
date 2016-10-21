@@ -783,12 +783,12 @@
 	</servlet-mapping>
 	<servlet>
 		<description></description>
-		<display-name>ViewAdminWriteArticlePageServlet</display-name>
-		<servlet-name>ViewAdminWriteArticlePageServlet</servlet-name>
-		<servlet-class>net.Y5M2.admin.web.ViewAdminWriteArticlePageServlet</servlet-class>
+		<display-name>ViewAdminArticleWritePageServlet</display-name>
+		<servlet-name>ViewAdminArticleWritePageServlet</servlet-name>
+		<servlet-class>net.Y5M2.admin.web.ViewAdminArticleWritePageServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>ViewAdminWriteArticlePageServlet</servlet-name>
+		<servlet-name>ViewAdminArticleWritePageServlet</servlet-name>
 		<url-pattern>/adminArticleWrite</url-pattern>
 	</servlet-mapping>
 	<servlet>
