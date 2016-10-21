@@ -468,10 +468,6 @@
 		<url-pattern>/adminArticle</url-pattern>
 	</servlet-mapping>
 	<servlet>
-<<<<<<< HEAD
-
-=======
->>>>>>> b34437332f5ad1ad4f51359766415c85008a329e
 		<description></description>
 		<display-name>ViewCategoryListPageServlet</display-name>
 		<servlet-name>ViewCategoryListPageServlet</servlet-name>
@@ -535,19 +531,13 @@
 		<description></description>
 		<display-name>DoDeleteTeamServlet</display-name>
 		<servlet-name>DoDeleteTeamServlet</servlet-name>
-<<<<<<< HEAD
 		<servlet-class>net.Y5M2.team.web.DoDeleteTeamServlet</servlet-class>
-=======
-		<servlet-class>net.Y5M2.user.web.DoDeleteTeamServlet</servlet-class>
->>>>>>> b34437332f5ad1ad4f51359766415c85008a329e
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>DoDeleteTeamServlet</servlet-name>
 		<url-pattern>/doDeleteTeam</url-pattern>
 	</servlet-mapping>
 	<servlet>
-<<<<<<< HEAD
-=======
 		<display-name>ViewUserListPageServlet</display-name>
 		<servlet-name>ViewUserListPageServlet</servlet-name>
 		<servlet-class>net.Y5M2.user.web.ViewUserListPageServlet</servlet-class>
@@ -587,7 +577,6 @@
 		<url-pattern>/adminUserRemove</url-pattern>
 	</servlet-mapping>
 	<servlet>
->>>>>>> b34437332f5ad1ad4f51359766415c85008a329e
 		<description></description>
 		<display-name>DoDeleteTeamAdminServlet</display-name>
 		<servlet-name>DoDeleteTeamAdminServlet</servlet-name>
@@ -599,8 +588,6 @@
 	</servlet-mapping>
 	<servlet>
 		<description></description>
-<<<<<<< HEAD
-=======
 		<display-name>DoDeleteUserAdminServlet</display-name>
 		<servlet-name>DoDeleteUserAdminServlet</servlet-name>
 		<servlet-class>net.Y5M2.admin.web.DoDeleteUserAdminServlet</servlet-class>
@@ -620,7 +607,6 @@
 		<url-pattern>/adminMemberModify</url-pattern>
 	</servlet-mapping>
 	<servlet>
->>>>>>> b34437332f5ad1ad4f51359766415c85008a329e
 		<display-name>DoModifyTeamAdmin</display-name>
 		<servlet-name>DoModifyTeamAdmin</servlet-name>
 		<servlet-class>net.Y5M2.admin.web.DoModifyTeamAdmin</servlet-class>
@@ -649,7 +635,6 @@
 		<servlet-name>DoCountTeamServlet</servlet-name>
 		<url-pattern>/countTeam</url-pattern>
 	</servlet-mapping>
-<<<<<<< HEAD
 	<error-page>
 		<error-code>404</error-code>
 		<location>/WEB-INF/view/error/404.jsp</location>
@@ -658,16 +643,6 @@
 		<error-code>500</error-code>
 		<location>/WEB-INF/view/error/500.jsp</location>
 	</error-page>
-	<servlet>
-		<description></description>
-		<display-name>ViewUserListPageServlet</display-name>
-		<servlet-name>ViewUserListPageServlet</servlet-name>
-		<servlet-class>net.Y5M2.user.web.ViewUserListPageServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>ViewUserListPageServlet</servlet-name>
-		<url-pattern>/userList</url-pattern>
-	</servlet-mapping>
 	<servlet>
 		<description></description>
 		<display-name>DoCheckPasswordHint</display-name>
@@ -806,7 +781,6 @@
     <servlet-name>DoCheckTeamJoin</servlet-name>
     <url-pattern>/doCheckTeamJoin</url-pattern>
   </servlet-mapping>
-=======
 	<servlet>
 		<description></description>
 		<display-name>ViewAdminWriteArticlePageServlet</display-name>
@@ -817,5 +791,4 @@
 		<servlet-name>ViewAdminWriteArticlePageServlet</servlet-name>
 		<url-pattern>/adminArticleWrite</url-pattern>
 	</servlet-mapping>
->>>>>>> b34437332f5ad1ad4f51359766415c85008a329e
 </web-app>

@@ -391,15 +391,8 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 				query.append(" WHERE	USR_ID = ? ");
 
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
-<<<<<<< HEAD
 				pstmt.setString(1, teamId);
 				pstmt.setString(2, userId);
-				
-=======
-				pstmt.setString(1, teamVO.getTeamId());
-				pstmt.setString(2, userInfo.getUserId());
-
->>>>>>> b34437332f5ad1ad4f51359766415c85008a329e
 				return pstmt;
 
 			}
@@ -648,7 +641,6 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 			}
 		});
 	}
-<<<<<<< HEAD
 	@Override
 	public int UserTemaIdDelete(String teamId) {
 		return insert(new Query() {
@@ -671,7 +663,6 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 		});
 	}
 	
-=======
 
 	@Override
 	public int adminPageDeleteUser(String userId) {
@@ -780,5 +771,4 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 			}
 		});
 	}
->>>>>>> b34437332f5ad1ad4f51359766415c85008a329e
 }

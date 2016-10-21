@@ -30,14 +30,10 @@ public interface UserDao {
 
 	public int getCountOfUsers(SearchUserVO searchUser);
 
-<<<<<<< HEAD
 	public int UserTemaIdDelete(String teamId);
 
-
-=======
 	public int adminPageDeleteUser(String userId);
 
 	public UserVO getUserOne(String userId);
 	
->>>>>>> b34437332f5ad1ad4f51359766415c85008a329e
 }
