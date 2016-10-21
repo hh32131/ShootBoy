@@ -1,6 +1,7 @@
 package net.Y5M2.admin.web;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -100,7 +101,14 @@ public class DoAdminSignUpServlet extends HttpServlet {
 		boolean isSuccess = userBiz.signUpUser(userVO);
 		
 		if(isSuccess){
-			response.sendRedirect("/ShootBoy/adminMember");
+			PrintWriter out = response.getWriter();
+			out.write(" <script type='text/javascript'>  ");
+			out.write(" window.opener.location.reload();  ");
+			out.write(" window.close();  ");
+			out.write(" </script>  ");
+			
+			out.flush();
+			out.close();
 		}
 		else{
 			response.sendRedirect("/ShootBoy/adminSignUp?errorCode=1");

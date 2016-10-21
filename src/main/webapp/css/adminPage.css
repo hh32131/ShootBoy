@@ -1,5 +1,9 @@
 @CHARSET "UTF-8";
 
+.wrapper {
+	margin-bottom: 20px;
+}
+
 .page-title {
 	margin-top: 10px;
 	margin-left: 10px;
@@ -89,3 +93,43 @@
 .alldata-table td  {
 	border: solid 1px lightgray;
 }
+
+.functionBtn {
+	float: right;
+	margin-right: 30px;
+}
+
+#writeBtn, #modifyBtn, #deleteBtn {
+	padding:10px;
+	border:1px solid #ccc;
+	background:#fafafa;
+	text-decoration:none;
+	cursor:pointer
+}
+#writeBtn {
+	width: 80px;
+}
+
+.initBtn {
+	float: right;
+	margin-right: 30px;
+}
+
+#initBtn{
+	padding:5px;
+	border:1px solid #ccc;
+	background:#fafafa;
+	text-decoration:none;
+	cursor:pointer
+}
+
+#pagingForm {
+	text-align:center;
+}
+.paging {
+	color:black;
+	text-decoration: none;
+	font-style: normal;
+	font-weight: lighter;
+}
+

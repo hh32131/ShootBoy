@@ -71,6 +71,4 @@
 			</div>
 		</div>
 	</div>
-	
-</body>
-</html>
+<jsp:include page="/WEB-INF/view/commons/adminFooter.jsp" />
