@@ -127,5 +127,10 @@
 			</div>
 		</div>		
 	</div>
+<<<<<<< HEAD
 </body>
 </html>
+=======
+	</div>
+<jsp:include page="/WEB-INF/view/commons/adminFooter.jsp" />
+>>>>>>> 3af1a58fba64148288af40fdc25b6beed708762a

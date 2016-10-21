@@ -44,13 +44,21 @@
 				</select>
 				<input type="text" class="searchKeyword" name="searchKeyword" id="searchKeyword" value="${searchBoard.searchKeyword}"/>
 				<input type="button" id="searchBtn" value="검색" />
+<<<<<<< HEAD
 				<input type="button" id="modifyBtn" value="수정"/>
 				<input type="button" id="deleteBtn" value="삭제"/>
+=======
+				<div class="initBtn">
+					<input type="button" id="initBtn" value="초기화" onclick="location='/ShootBoy/adminList/init'"/>
+				</div>
+>>>>>>> 3af1a58fba64148288af40fdc25b6beed708762a
 				<div class="clear"></div>
 			</form>
 		</div>
+		
 		<div class="line">
 		</div>
+		
 		<div class="notice">
 			<p id="notice-text">게시물 리스트</p>
 		</div>
@@ -104,9 +112,12 @@
 					<input type="hidden" class="searchKeyword" name="searchKeyword" value="${searchBoard.searchKeyword}" />
 				</form>
 			</div>
-			<input type="button" id="signUpBtn" value="등록" onclick="location='adminSignUp'"/>
-			<a href="/ShootBoy/adminSignUp">등록</a>
+			<div class="functionBtn">
+				<input type="button" id="writeBtn" value="등 록" onclick="location='adminArticleWrite'"/>
+				<input type="button" id="modifyBtn" value="선택 수정" onclick="location='adminArticleModify'"/>
+				<input type="button" id="deleteBtn" value="선택 삭제" onclick="location='adminArticleDoDelete'"/>
+			</div>
 		</div>
 	</div>
-</body>
-</html>
+	
+	<jsp:include page="/WEB-INF/view/commons/adminFooter.jsp" />
