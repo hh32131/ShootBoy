@@ -1,7 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <jsp:include page="/WEB-INF/view/commons/header.jsp"></jsp:include>
 
@@ -48,7 +46,6 @@
 				});
 				
 			});
-
 		});
 		
 		$("#dropTeam").click(function () {
@@ -89,10 +86,6 @@
 			
 		});
 		
-		
-		
-		
-		
 	});	
 </script>
 	<div id="myPageLeftMenu">
@@ -126,7 +119,6 @@
 			</div>
 			<div id="teamModify" style=" float: right; margin-right: 100px;"><input type="button" id="modifyBtn" name="modifyBtn" value="수정" 
 					style="margin-top: 20px; width: 200px;" >
-
 					<c:choose>
 						<c:when test="${userInfo.levelId eq '3'}">
 							<div> <input type="button" id="deleteTeam" name="deleteTeam" value="팀 해체" /> </div>
@@ -136,7 +128,6 @@
 						</c:otherwise>
 					</c:choose>
 					
-
 			<div><input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요">
 				<input type="button" id="passwordConfirm" name="passwordConfirm" value="비밀번호 확인" style="margin-left: 30px;">
 			</div>
@@ -147,7 +138,6 @@
 		<input type="button" id="joinReject" name="joinReject" value="거절" >
 			<c:forEach items="${joins}" var="join" >
 			<tr>
-<<<<<<< HEAD
 				<td><input type="checkbox" class="joinApplyId" name="joinApplyId" value="${join.userVO.userId}" ></td>
 				<td>${join.getUserVO().userName}</td>
 				<td>${join.getUserVO().email}</td>
@@ -155,14 +145,6 @@
 				<td>${join.getUserVO().age}</td>
 				<td>${join.getUserVO().position}</td>
 				<td>${join.getUserVO().getLocationVO().locationName}</td>
-=======
-				<td>${join.userVO.userName}</td>
-				<td>${join.userVO.email}</td>
-				<td>${join.userVO.phoneNumber}</td>
-				<td>${join.userVO.age}</td>
-				<td>${join.userVO.position}</td>
-				<td>${join.userVO.locationVO.locationName}</td>
->>>>>>> 04dc03eeb9a898a763420b99100958ee1120f756
 			</tr>
 			</c:forEach>
 		</c:if>

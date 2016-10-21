@@ -781,7 +781,6 @@
     <servlet-name>DoCheckTeamJoin</servlet-name>
     <url-pattern>/doCheckTeamJoin</url-pattern>
   </servlet-mapping>
-<<<<<<< HEAD
   <servlet>
     <description></description>
     <display-name>DoAdmitJoinId</display-name>
@@ -792,7 +791,6 @@
     <servlet-name>DoAdmitJoinId</servlet-name>
     <url-pattern>/doAdmitJoinId</url-pattern>
   </servlet-mapping>
-=======
 	<servlet>
 		<description></description>
 		<display-name>ViewAdminWriteArticlePageServlet</display-name>
@@ -803,5 +801,4 @@
 		<servlet-name>ViewAdminWriteArticlePageServlet</servlet-name>
 		<url-pattern>/adminArticleWrite</url-pattern>
 	</servlet-mapping>
->>>>>>> 04dc03eeb9a898a763420b99100958ee1120f756
 </web-app>
