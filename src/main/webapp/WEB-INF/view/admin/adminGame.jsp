@@ -15,21 +15,21 @@
 		<div class="container">
 			<div class="search-tool"> 
 				<form id="search-select" name="search-select" method="post">
-					<select id="search-target" name="search-target">
+					<select id="searchType" name="searchType">
 						<option value="gm_id"> 경기 아이디 </option>
 						<option value="tm_name"> 팀 명 </option>
 						<option value="gm_date"> 경기 날짜 </option>
 						<option value="gm_location"> 지역 </option>
 					</select>
-					<input type="text" id="search-input" name="search-input" value id ="search-word"/>
-					<button id="sbtn" name="sbtn" onclick="" >검색 </button> 
-				</div>
-			</form>
+					<input type="text" id="searchKeyword" name="searchKeyword" value id ="search-word"/>
+					<button id="searchBtn" name="searchBtn" onclick="" >검색 </button> 
+				</form>
+			</div>
 		
-			<div class=line>
+			<div class="line">
 			</div>
 			
-			<div class=notice>
+			<div class="notice">
 				<p id="notice-text">경기 리스트</p>
 			</div>
 			
@@ -71,6 +71,4 @@
 			</div>
 		</div>
 	</div>
-	
-</body>
-</html>
+<jsp:include page="/WEB-INF/view/commons/adminFooter.jsp" />

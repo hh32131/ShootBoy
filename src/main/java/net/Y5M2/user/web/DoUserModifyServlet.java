@@ -16,7 +16,7 @@ import net.Y5M2.user.vo.UserVO;
 public class DoUserModifyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UserBiz userBiz;
-	
+
 	public DoUserModifyServlet() {
 		super();
 		userBiz = new UserBizImpl();
@@ -36,19 +36,17 @@ public class DoUserModifyServlet extends HttpServlet {
 		String age = Param.getStringParam(request, "age");
 		String position = Param.getStringParam(request, "position");
 		String leafCategory = Param.getStringParam(request, "leafCategory");
-		
-		if(userName == null){
+
+		if (userName == null) {
 			response.sendRedirect("/ShootBoy/userModify?errorCode=2");
 		}
-		if(password == null){
+		if (password == null) {
 			response.sendRedirect("/ShootBoy/userModify?errorCode=3");
 		}
-		if(phoneNumber == null){
+		if (phoneNumber == null) {
 			response.sendRedirect("/ShootBoy/userModify?errorCode=4");
 		}
-		
-		
-		
+
 		UserVO userInfo = new UserVO();
 		userInfo.setEmail(email);
 		userInfo.setUserName(userName);
@@ -57,26 +55,20 @@ public class DoUserModifyServlet extends HttpServlet {
 		userInfo.setAge(age);
 		userInfo.setPosition(position);
 		userInfo.setLocationId(leafCategory);
-		
-		
+
 		PrintWriter out = response.getWriter();
-		
+
 		boolean isSuccess = userBiz.userInfoModify(userInfo, request);
-		
-		if(isSuccess){
+
+		if (isSuccess) {
 			out.print(" <script type='text/javascript'>   ");
 			out.print("  window.opener.location.reload();   ");
 			out.print("  window.close();   ");
 			out.print(" </script>  ");
 			out.flush();
 			out.close();
-		}
-		else{
+		} else {
 			response.sendRedirect("/ShootBoy/userModify?errorCode=1");
 		}
-		
-		
-		
 	}
-
 }

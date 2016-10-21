@@ -32,5 +32,8 @@ public interface UserDao {
 
 	public int UserTemaIdDelete(String teamId);
 
+	public int adminPageDeleteUser(String userId);
 
+	public UserVO getUserOne(String userId);
+	
 }

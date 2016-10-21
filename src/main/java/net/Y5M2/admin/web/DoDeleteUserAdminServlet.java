@@ -1,9 +1,8 @@
 package net.Y5M2.admin.web;
 
 import java.io.IOException;
-import java.util.List;
+import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -11,17 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.Y5M2.admin.biz.AdminBiz;
 import net.Y5M2.admin.biz.AdminBizImpl;
-import net.Y5M2.article.vo.BoardVO;
-import net.Y5M2.team.vo.TeamVO;
-import net.Y5M2.user.vo.UserVO;
 
-public class ViewAdminPageServlet extends HttpServlet {
-
+public class DoDeleteUserAdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private AdminBiz adminBiz;
 
-	public ViewAdminPageServlet() {
+	public DoDeleteUserAdminServlet() {
 		super();
 		adminBiz = new AdminBizImpl();
 	}
@@ -33,20 +28,21 @@ public class ViewAdminPageServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		
-		List<UserVO> users = adminBiz.getAllUser();
-		List<TeamVO> teams = adminBiz.getAllTeams();
-		List<BoardVO> boards = adminBiz.getAllBoard();
+		String[] checkbox = request.getParameterValues("select-check");
 
-		String viewPath = "/WEB-INF/view/admin/admin.jsp";
-		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
+		PrintWriter out = response.getWriter();
 
-		request.setAttribute("users", users);
-		request.setAttribute("teams", teams);
-		request.setAttribute("boards", boards);
+		if (checkbox == null || checkbox.length == 0) {
+			out.print("다시선택하세요. ");
+			return;
+		} else {
+			for (int i = 0; i < checkbox.length; i++) {
+				adminBiz.deleteUser(checkbox[i]);
+			}
+			out.print("삭제했습니다. ");
+		}
+		out.flush();
+		out.close();
 
-		rd.forward(request, response);
 	}
-
 }

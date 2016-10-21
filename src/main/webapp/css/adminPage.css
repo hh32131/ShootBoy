@@ -1,5 +1,9 @@
 @CHARSET "UTF-8";
 
+.wrapper {
+	margin-bottom: 20px;
+}
+
 .page-title {
 	margin-top: 10px;
 	margin-left: 10px;
@@ -10,12 +14,11 @@
 .listAll {
 	font-size: 13px;
 	background-color: #f2f5f9;
-	padding-top: 10px;
-	padding-bottom: 10px;
 	margin-bottom: 20px;
 	border-bottom: solid 1px lightgray;
 	border-top: solid 1px lightgray;
 }
+
 .textAll {
 	margin-left: 20px;
 }
@@ -24,7 +27,7 @@
 	margin-left: 20px;
 }
 
-#sbtn {
+#searchBtn {
     margin:0;
 	padding:0.2%;
 	border:0;
@@ -33,27 +36,22 @@
 	cursor:pointer;
 }
 
-#search-select {
-	height: 50px;
-	
-}
-
-#search-input {
+#searchKeyword {
 	height: 28px;
 	background-color: #f6f9fa;
 	border: 1px solid #ccc;
     box-sizing: border-box;
 }
 
-#search-target {
+#searchType {
 	font-size:13px;
-	width: 110px;
+	width: 100px;
 	height: 20px;
 	box-sizing: border-box;
+	vertical-align: middle;
 }
 
 .line {
-	margin: 0;
 	border-top: solid 1px lightgrey;
 }
 
@@ -72,11 +70,9 @@
 #notice-text {
 	margin-left: 20px;
 	vertical-align: middle;
-	
 }
 
 .alldata-table table{
-	
 	margin-top: 20px;
 	border-collapse:collapse;
 	border:solid 1px lightgray;
@@ -96,5 +92,44 @@
 
 .alldata-table td  {
 	border: solid 1px lightgray;
+}
+
+.functionBtn {
+	float: right;
+	margin-right: 30px;
+}
+
+#writeBtn, #modifyBtn, #deleteBtn {
+	padding:10px;
+	border:1px solid #ccc;
+	background:#fafafa;
+	text-decoration:none;
+	cursor:pointer
+}
+#writeBtn {
+	width: 80px;
+}
+
+.initBtn {
+	float: right;
+	margin-right: 30px;
+}
+
+#initBtn{
+	padding:5px;
+	border:1px solid #ccc;
+	background:#fafafa;
+	text-decoration:none;
+	cursor:pointer
+}
+
+#pagingForm {
+	text-align:center;
+}
+.paging {
+	color:black;
+	text-decoration: none;
+	font-style: normal;
+	font-weight: lighter;
 }
 

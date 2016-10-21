@@ -1,0 +1,136 @@
+@CHARSET "UTF-8";
+
+.member-header .member-top {
+	background-color: #282828;
+}
+
+.member-top {
+	padding-bottom: 25px;
+}
+
+.member-admin-logo {
+	text-align: center;
+	font-weight: bold;
+	font-size: 22px;
+}
+
+.member-shootboy-main {
+	
+	text-align: center;
+}
+.logo-text{
+	color: #ebebeb;
+	text-decoration: none;
+}
+
+.main-text{
+	color: #ebebeb;
+	text-decoration: none;
+}
+.bottom {
+	text-align: center;
+	color: #ebebeb;
+	text-decoration: none;
+}
+
+.member-join{
+	font-weight: bold;
+	font-size: 15px;
+}
+
+.signText {
+	text-align: center;
+	color: #c6152c;
+	font-weight: bold;
+	font-size: 13px;
+	margin-bottom: 5px;
+}
+
+#signUpForm {
+	margin-left: 30px;
+}
+
+#signUpText #signUpClauseOne, #signUpClauseTwo {
+	letter-spacing: 3px;
+	font-size: 10px;
+	color: #000000;
+	padding-top: 10px;
+	margin-left: 20px;
+}
+
+#signUpText #clauseOne, #clauseTwo {
+	margin-left: 70px;
+	margin-top: 20px;
+	width:750px;	
+	height: 200px;
+}
+
+
+#email, #userName, #password1, #password2, #passwordHintKey 
+	  , #passwordHintValue, #phoneNumber, #age, #position
+	  , #locationId, #leafCategory, #signBtn {
+	margin: 5px;
+	width: 200px;
+}
+
+#email {
+	margin-left: 57px;
+}
+
+#userName {
+	margin-left: 73px;
+}
+
+#password1 {
+	margin-left: 41px;
+}
+#passwordHintKey, #age, #position, #locationId, #leafCategory{
+	height: 23px;
+}
+
+#passwordHintKey, #passwordHintValue {
+	margin-left: 110px;
+	vertical-align: middle;
+}
+
+#phoneNumber {
+	margin-left: 40px;
+}
+
+
+#age {
+	margin-left: 71px;
+	vertical-align: middle;
+}
+
+#position {
+	margin-left: 55px;
+	vertical-align: middle;
+}
+
+#locationId, #leafCategory {
+	margin-left: 35px;
+	vertical-align: middle;
+}
+
+#btn{
+	margin-top: 20px;	
+	margin-left: 135px; 
+}
+
+#signBtn {
+	width: 100px;
+	padding:10px;
+	border:1px solid #ccc;
+	background:#fafafa;
+	text-decoration:none;
+	cursor:pointer
+}
+
+#cancelBtn {
+	padding:10px;
+	border:1px solid #ccc;
+	background:#fafafa;
+	text-decoration:none;
+	cursor:pointer
+}

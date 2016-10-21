@@ -16,21 +16,25 @@ import net.Y5M2.user.vo.UserVO;
 
 public class DoDropTeam extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
     private TeamBiz teamBiz;
     public DoDropTeam() {
         super();
         teamBiz = new TeamBizImpl();
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doPost(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		String teamId = Param.getStringParam(request, "teamId");
 		HttpSession session = request.getSession();
 		UserVO userVO = (UserVO) session.getAttribute(Session.USER_INFO);
-		
+
 		boolean isSuccess = teamBiz.dropTeam(teamId,userVO,request);
 		if ( isSuccess ) {
 			response.sendRedirect("/ShootBoy/userInfo");

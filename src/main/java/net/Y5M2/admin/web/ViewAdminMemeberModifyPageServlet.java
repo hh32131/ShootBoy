@@ -1,7 +1,6 @@
 package net.Y5M2.admin.web;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,17 +10,15 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.Y5M2.admin.biz.AdminBiz;
 import net.Y5M2.admin.biz.AdminBizImpl;
-import net.Y5M2.article.vo.BoardVO;
-import net.Y5M2.team.vo.TeamVO;
+import net.Y5M2.support.Param;
 import net.Y5M2.user.vo.UserVO;
 
-public class ViewAdminPageServlet extends HttpServlet {
-
+public class ViewAdminMemeberModifyPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private AdminBiz adminBiz;
 
-	public ViewAdminPageServlet() {
+	public ViewAdminMemeberModifyPageServlet() {
 		super();
 		adminBiz = new AdminBizImpl();
 	}
@@ -33,20 +30,12 @@ public class ViewAdminPageServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		
-		List<UserVO> users = adminBiz.getAllUser();
-		List<TeamVO> teams = adminBiz.getAllTeams();
-		List<BoardVO> boards = adminBiz.getAllBoard();
 
-		String viewPath = "/WEB-INF/view/admin/admin.jsp";
+		String userId = Param.getStringParam(request, "userId");
+		UserVO userVO = adminBiz.getUserOne(userId);
+		String viewPath = "/WEB-INF/view/admin/adminMemberModify.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
-
-		request.setAttribute("users", users);
-		request.setAttribute("teams", teams);
-		request.setAttribute("boards", boards);
-
+		request.setAttribute("userInfo", userVO);
 		rd.forward(request, response);
 	}
-
 }
