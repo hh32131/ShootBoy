@@ -38,7 +38,6 @@ public class ViewAdminTeamModifyServlet extends HttpServlet {
 		
 		String teamId =  Param.getStringParam(request, "teamId");
 		
-		
 		TeamVO team = teamBiz.getTeamAt(teamId);
 		LocationVO locationVO = new LocationVO();
 		locationVO.setParentLocationId("0");

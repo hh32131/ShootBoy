@@ -54,7 +54,8 @@ public class ViewAdminMemberPageServlet extends HttpServlet {
 				searchUser = new SearchUserVO();
 				searchUser.setPageNo(0);
 			}
-		} else {
+		} 
+		else {
 			searchUser = new SearchUserVO();
 			searchUser.setPageNo(pageNo);
 			searchUser.setSearchType(searchType);
@@ -64,13 +65,13 @@ public class ViewAdminMemberPageServlet extends HttpServlet {
 		session.setAttribute(Session.SEARCH_USER_INFO, searchUser);
 		UserListVO users = userBiz.getAllUsers(searchUser);
 
-		String viewPath = "/WEB-INF/view/adminMember.jsp";
+		String viewPath = "/WEB-INF/view/admin/adminMember.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 		request.setAttribute("users", users.getUsers());
 		request.setAttribute("pager", users.getPager());
 
 		PageExplorer pageExplorer = new ClassicPageExplorer(users.getPager());
-		String pager = pageExplorer.getPagingList("pageNo", "[@]", "<<", ">>", "searchForm");
+		String pager = pageExplorer.getPagingList("pageNo", "[@]", "<<", ">>", "pagingForm");
 
 		request.setAttribute("paging", pager);
 		request.setAttribute("searchUser", searchUser);

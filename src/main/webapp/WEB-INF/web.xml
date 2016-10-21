@@ -468,7 +468,10 @@
 		<url-pattern>/adminArticle</url-pattern>
 	</servlet-mapping>
 	<servlet>
+<<<<<<< HEAD
 
+=======
+>>>>>>> b34437332f5ad1ad4f51359766415c85008a329e
 		<description></description>
 		<display-name>ViewCategoryListPageServlet</display-name>
 		<servlet-name>ViewCategoryListPageServlet</servlet-name>
@@ -532,13 +535,59 @@
 		<description></description>
 		<display-name>DoDeleteTeamServlet</display-name>
 		<servlet-name>DoDeleteTeamServlet</servlet-name>
+<<<<<<< HEAD
 		<servlet-class>net.Y5M2.team.web.DoDeleteTeamServlet</servlet-class>
+=======
+		<servlet-class>net.Y5M2.user.web.DoDeleteTeamServlet</servlet-class>
+>>>>>>> b34437332f5ad1ad4f51359766415c85008a329e
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>DoDeleteTeamServlet</servlet-name>
 		<url-pattern>/doDeleteTeam</url-pattern>
 	</servlet-mapping>
 	<servlet>
+<<<<<<< HEAD
+=======
+		<display-name>ViewUserListPageServlet</display-name>
+		<servlet-name>ViewUserListPageServlet</servlet-name>
+		<servlet-class>net.Y5M2.user.web.ViewUserListPageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ViewUserListPageServlet</servlet-name>
+		<url-pattern>/userList</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>ViewAdminSignUpPageServlet</display-name>
+		<servlet-name>ViewAdminSignUpPageServlet</servlet-name>
+		<servlet-class>net.Y5M2.admin.web.ViewAdminSignUpPageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ViewAdminSignUpPageServlet</servlet-name>
+		<url-pattern>/adminSignUp</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>DoAdminSignUpServlet</display-name>
+		<servlet-name>DoAdminSignUpServlet</servlet-name>
+		<servlet-class>net.Y5M2.admin.web.DoAdminSignUpServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DoAdminSignUpServlet</servlet-name>
+		<url-pattern>/doAdminSignUp</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>DoRemoveUserServlet</display-name>
+		<servlet-name>DoRemoveUserServlet</servlet-name>
+		<servlet-class>net.Y5M2.admin.web.DoRemoveUserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DoRemoveUserServlet</servlet-name>
+		<url-pattern>/adminUserRemove</url-pattern>
+	</servlet-mapping>
+	<servlet>
+>>>>>>> b34437332f5ad1ad4f51359766415c85008a329e
 		<description></description>
 		<display-name>DoDeleteTeamAdminServlet</display-name>
 		<servlet-name>DoDeleteTeamAdminServlet</servlet-name>
@@ -550,6 +599,28 @@
 	</servlet-mapping>
 	<servlet>
 		<description></description>
+<<<<<<< HEAD
+=======
+		<display-name>DoDeleteUserAdminServlet</display-name>
+		<servlet-name>DoDeleteUserAdminServlet</servlet-name>
+		<servlet-class>net.Y5M2.admin.web.DoDeleteUserAdminServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DoDeleteUserAdminServlet</servlet-name>
+		<url-pattern>/doDeleteUserAdmin</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>ViewModifyUserAdminPageServlet</display-name>
+		<servlet-name>ViewModifyUserAdminPageServlet</servlet-name>
+		<servlet-class>net.Y5M2.admin.web.ViewModifyUserAdminPageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ViewModifyUserAdminPageServlet</servlet-name>
+		<url-pattern>/adminMemberModify</url-pattern>
+	</servlet-mapping>
+	<servlet>
+>>>>>>> b34437332f5ad1ad4f51359766415c85008a329e
 		<display-name>DoModifyTeamAdmin</display-name>
 		<servlet-name>DoModifyTeamAdmin</servlet-name>
 		<servlet-class>net.Y5M2.admin.web.DoModifyTeamAdmin</servlet-class>
@@ -578,6 +649,7 @@
 		<servlet-name>DoCountTeamServlet</servlet-name>
 		<url-pattern>/countTeam</url-pattern>
 	</servlet-mapping>
+<<<<<<< HEAD
 	<error-page>
 		<error-code>404</error-code>
 		<location>/WEB-INF/view/error/404.jsp</location>
@@ -734,4 +806,16 @@
     <servlet-name>DoCheckTeamJoin</servlet-name>
     <url-pattern>/doCheckTeamJoin</url-pattern>
   </servlet-mapping>
+=======
+	<servlet>
+		<description></description>
+		<display-name>ViewAdminWriteArticlePageServlet</display-name>
+		<servlet-name>ViewAdminWriteArticlePageServlet</servlet-name>
+		<servlet-class>net.Y5M2.admin.web.ViewAdminWriteArticlePageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ViewAdminWriteArticlePageServlet</servlet-name>
+		<url-pattern>/adminArticleWrite</url-pattern>
+	</servlet-mapping>
+>>>>>>> b34437332f5ad1ad4f51359766415c85008a329e
 </web-app>

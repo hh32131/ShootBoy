@@ -22,5 +22,5 @@ public interface UserBiz {
 	public boolean deleteUser(UserVO userVO);
 	
 	public UserListVO getAllUsers(SearchUserVO searchUser);
-
+	
 }

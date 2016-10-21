@@ -60,14 +60,13 @@ public class ViewAdminTeamPageServlet extends HttpServlet {
 		TeamListVO teams = teamBiz.getAllTeam(searchTeam);
 		int count = teamBiz.getCountOfTeam(teamId);
 
-		String viewPath = "/WEB-INF/view/adminTeam.jsp";
+		String viewPath = "/WEB-INF/view/admin/adminTeam.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
-		//List<TeamVO> teams = adminBiz.getAllTeams();
 		request.setAttribute("team", teams.getTeams());
 		request.setAttribute("pager", teams.getPager());
 
 		PageExplorer pageExplorer = new ClassicPageExplorer(teams.getPager());
-		String pager = pageExplorer.getPagingList("pageNo", "[@]", "<<", ">>", "searchForm");
+		String pager = pageExplorer.getPagingList("pageNo", "[@]", "<<", ">>", "pagingForm");
 
 		request.setAttribute("paging", pager);
 		request.setAttribute("searchTeam", searchTeam);
