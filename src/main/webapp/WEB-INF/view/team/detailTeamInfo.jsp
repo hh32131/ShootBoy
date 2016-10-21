@@ -10,6 +10,7 @@
 			.ready(
 					function() {
 
+<<<<<<< HEAD
 						$("#password").hide();
 						$("#passwordConfirm").hide();
 
@@ -113,6 +114,63 @@
 										});
 
 					});
+=======
+				
+				$.post("/ShootBoy/doCheckPassword", {"password" : $("#password").val()} ,function(data){
+					if(data == "true"){
+						window.open("/ShootBoy/teamModify","","width=800, height=800")
+					}
+					else{
+						alert("비밀번호가 틀렸습니다.")
+					}
+				});
+			});
+		});
+		
+		$("#deleteTeam").click(function () {
+			$("#password").show();
+			$("#passwordConfirm").show();
+			
+			$("#passwordConfirm").click(function(){
+				$.post("/ShootBoy/doCheckPassword", {"password" : $("#password").val()} ,function(data){
+					if(data == "true"){
+						if ( confirm("정말로 팀을 해체 하시겠습니까?") ) {
+							alert("정상적으로 처리 되었습니다.");
+							location.href="/ShootBoy/doDeleteTeam?teamId=" + "${teamInfo.teamId}";
+						}
+					}
+					else{
+						alert("비밀번호가 틀렸습니다.")
+					}
+				});
+				
+			});
+
+		});
+		
+		$("#dropTeam").click(function () {
+			$("#password").show();
+			$("#passwordConfirm").show();
+			
+			$("#passwordConfirm").click(function(){
+				$.post("/ShootBoy/doCheckPassword", {"password" : $("#password").val()} ,function(data){
+					if(data == "true"){
+						if ( confirm("정말로 팀을 탈퇴 하시겠습니까?") ) {
+							alert("정상적으로 처리 되었습니다.");
+							location.href="/ShootBoy/doDrop?teamId=" + "${teamInfo.teamId}";
+						}
+					}
+					else{
+						alert("비밀번호가 틀렸습니다.")
+					}
+				});
+				
+			});
+		});
+		
+		
+	});	
+>>>>>>> 0acab3d7cfa53316b1be44f2260b4391356e1d31
 </script>
 <div id="myPageLeftMenu">
 	<div class="mplmTitle">My Page</div>
@@ -145,6 +203,7 @@
 					style="font-size: 30px; width: 150px; margin-left: 80px; padding-top: 20px;">팀
 					앰블럼</div>
 			</div>
+<<<<<<< HEAD
 			<div id="teamDetailContainer"
 				style="display: inline-block; width: 400px; vertical-align: top; margin-left: 50px; padding-top: 20px;">
 				<div class="teamName" style="font-size: 20px; padding-bottom: 10px">팀명
@@ -163,6 +222,32 @@
 					${teamInfo.locationVO.locationName}</div>
 				<div class="teamInfo" style="font-size: 20px; padding-bottom: 10px">팀
 					설명 : ${userInfo.teamVO.teamInfo}</div>
+=======
+			<div id="teamDetailContainer" style="display: inline-block; width: 400px; 
+					vertical-align: top; margin-left: 50px; padding-top: 20px;">
+				<div class="teamName" style="font-size: 20px; padding-bottom: 10px">팀명 : ${userInfo.teamVO.teamName}</div>
+				<div class="teamCount" style="font-size: 20px; padding-bottom: 10px">팀원수 : ${userInfo.teamVO.teamCount}</div>
+				<div class="teamPoints" style="font-size: 20px; padding-bottom: 10px">팀 포인트 : ${userInfo.teamVO.teamPoint}</div>
+				<div class="teamCreatedDate" style="font-size: 20px; padding-bottom: 10px">팀 생성일 : ${userInfo.teamVO.createDate}</div>
+				<div class="teamLocation" style="font-size: 20px; padding-bottom: 10px">팀 지역 : ${teamInfo.locationVO.parentLocationName} - ${teamInfo.locationVO.locationName}</div>
+				<div class="teamInfo" style="font-size: 20px; padding-bottom: 10px">팀 설명 : ${userInfo.teamVO.teamInfo}</div>
+			</div>
+			<div id="teamModify" style=" float: right; margin-right: 100px;"><input type="button" id="modifyBtn" name="modifyBtn" value="수정" 
+					style="margin-top: 20px; width: 200px;" >
+
+					<c:choose>
+						<c:when test="${userInfo.levelId eq '3'}">
+							<div> <input type="button" id="deleteTeam" name="deleteTeam" value="팀 해체" /> </div>
+						</c:when>
+						<c:otherwise>
+							<div> <input type="button" id="dropTeam" name="dropTeam" value="팀 탈퇴" /> </div>
+						</c:otherwise>
+					</c:choose>
+					
+
+			<div><input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요">
+				<input type="button" id="passwordConfirm" name="passwordConfirm" value="비밀번호 확인" style="margin-left: 30px;">
+>>>>>>> 0acab3d7cfa53316b1be44f2260b4391356e1d31
 			</div>
 			<div id="teamModify" style="float: right; margin-right: 100px;">
 				<input type="button" id="modifyBtn" name="modifyBtn" value="수정"
@@ -188,7 +273,22 @@
 						style="margin-left: 30px;">
 				</div>
 			</div>
+<<<<<<< HEAD
 			<div class="warning"></div>
+=======
+		</c:if>
+		<c:if test="${sessionScope._USER_INFO_.levelId eq 3}">
+			<c:forEach items="${joins}" var="join" >
+			<tr>
+				<td>${join.userVO.userName}</td>
+				<td>${join.userVO.email}</td>
+				<td>${join.userVO.phoneNumber}</td>
+				<td>${join.userVO.age}</td>
+				<td>${join.userVO.position}</td>
+				<td>${join.userVO.locationVO.locationName}</td>
+			</tr>
+			</c:forEach>
+>>>>>>> 0acab3d7cfa53316b1be44f2260b4391356e1d31
 		</c:if>
 		<c:if test="${empty userInfo.teamId}">
 			<p style="font-size: 20px; color: red;">팀에 가입하지 않았습니다!</p>

@@ -10,6 +10,7 @@
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/hsh.css" />
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/signUp.css">
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/page.css">
+<link rel="stylesheet" type="text/css" href="/ShootBoy/css/board.css">
 
 <title>Shoot Boy</title>
 </head>
@@ -27,9 +28,9 @@ $(document).ready(function(){
 <body>
 	<h1>
 		<a href="/ShootBoy/main"><img class="headerImg"
-			src="/ShootBoy/img/팀로고.png" /></a> Shoot Boy
+			src="/ShootBoy/img/팀로고.png" />Shoot Boy</a>
 	</h1>
-
+	<bgsound src="[Abba] Happy New Year.wma" loop="0">
 	<div id="mainHeader">
 		<c:choose>
 			<c:when test="${empty sessionScope._USER_INFO_}">
@@ -62,9 +63,9 @@ $(document).ready(function(){
 
 					<li><a href="#">Match</a>
 						<ul>
-							<li><a href="#">매치보드</a></li>
-							<li><a href="#">매치신청</a></li>
-							<li><a href="#">매치 신청 관리</a></li>
+							<li><a href="/ShootBoy/matchBoard">매치보드</a></li>
+							<li><a href="/ShootBoy/matchApply">매치신청</a></li>
+							<li><a href="/ShootBoy/matchApplyManagement">매치 신청 관리</a></li>
 						</ul></li>
 
 					<li><a href="#">Team</a>
@@ -89,8 +90,8 @@ $(document).ready(function(){
 			</div>
 			<div class="cycle-slideshow" data-cycle-timeout=2000>
 				<img src="/ShootBoy/img/경기장.png">
-				<img src="/ShootBoy/img/메시.jpg">
 				<img src="/ShootBoy/img/호날두.jpg">
+				<img src="/ShootBoy/img/메시.jpg">				
 				<img src="/ShootBoy/img/손흥민.jpg">
 			</div>		
 		</div>
