@@ -110,13 +110,13 @@
 	width: 80px;
 }
 
-.initBtn {
-	float: right;
-	margin-right: 30px;
+.initBtn, .functionBtn {
+	display: inline-block;
 }
 
 #initBtn{
-	padding:5px;
+	margin-left: 29px;
+	padding:10px;
 	border:1px solid #ccc;
 	background:#fafafa;
 	text-decoration:none;
