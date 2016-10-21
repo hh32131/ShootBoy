@@ -14,42 +14,31 @@ import net.Y5M2.team.biz.TeamBiz;
 import net.Y5M2.team.biz.TeamBizImpl;
 import net.Y5M2.user.vo.UserVO;
 
-public class DoDeleteTeamServlet extends HttpServlet {
+public class DoDropTeam extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private TeamBiz teamBiz;
-	public DoDeleteTeamServlet() {
-		super();
-		teamBiz = new TeamBizImpl();
-	}
+    private TeamBiz teamBiz;
+    public DoDropTeam() {
+        super();
+        teamBiz = new TeamBizImpl();
+    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String teamId = Param.getStringParam(request, "teamId");
-<<<<<<< HEAD
-		String userId = Param.getStringParam(request, "userId");
-	
-		HttpSession session = request.getSession();
-		session.invalidate();
-		
-		boolean isSuccess = teamBiz.deleteTeam(teamId);
-		
-=======
 		HttpSession session = request.getSession();
 		UserVO userVO = (UserVO) session.getAttribute(Session.USER_INFO);
-		boolean isSuccess = teamBiz.deleteTeam(teamId, userVO, request);
->>>>>>> e27e6fca1a79d021144ccfc3f92ce216dd69518c
+		
+		boolean isSuccess = teamBiz.dropTeam(teamId,userVO,request);
 		if ( isSuccess ) {
 			response.sendRedirect("/ShootBoy/userInfo");
 		}
 		else{
 			response.sendRedirect("/ShootBoy/detailTeamInfo?errorCode=1");
 		}
+		
 	}
 
 }

@@ -28,12 +28,55 @@
 			});
 		});
 		
+<<<<<<< HEAD
 		$("#deleteTeamBtn").click(function () {
 			if ( confirm("정말로 팀을 해체 하시겠습니까?") ) {
 				alert("정상적으로 처리 되었습니다.");
 				location.href="/ShootBoy/doDeleteTeam?teamId=${teamInfo.teamId}&&userId=${userInfo.teamId}";
 			}
+=======
+		$("#deleteTeam").click(function () {
+			$("#password").show();
+			$("#passwordConfirm").show();
+			
+			$("#passwordConfirm").click(function(){
+				$.post("/ShootBoy/doCheckPassword", {"password" : $("#password").val()} ,function(data){
+					if(data == "true"){
+						if ( confirm("정말로 팀을 해체 하시겠습니까?") ) {
+							alert("정상적으로 처리 되었습니다.");
+							location.href="/ShootBoy/doDeleteTeam?teamId=" + "${teamInfo.teamId}";
+						}
+					}
+					else{
+						alert("비밀번호가 틀렸습니다.")
+					}
+				});
+				
+			});
+>>>>>>> e27e6fca1a79d021144ccfc3f92ce216dd69518c
 		});
+		
+		$("#dropTeam").click(function () {
+			$("#password").show();
+			$("#passwordConfirm").show();
+			
+			$("#passwordConfirm").click(function(){
+				$.post("/ShootBoy/doCheckPassword", {"password" : $("#password").val()} ,function(data){
+					if(data == "true"){
+						if ( confirm("정말로 팀을 탈퇴 하시겠습니까?") ) {
+							alert("정상적으로 처리 되었습니다.");
+							location.href="/ShootBoy/doDrop?teamId=" + "${teamInfo.teamId}";
+						}
+					}
+					else{
+						alert("비밀번호가 틀렸습니다.")
+					}
+				});
+				
+			});
+		});
+		
+		
 	});	
 </script>
 	<div id="myPageLeftMenu">
@@ -67,12 +110,35 @@
 			</div>
 			<div id="teamModify" style=" float: right; margin-right: 100px;"><input type="button" id="modifyBtn" name="modifyBtn" value="수정" 
 					style="margin-top: 20px; width: 200px;" >
+<<<<<<< HEAD
 			<div> <input type="button" id="deleteTeamBtn" name="deleteTeamBtn" value="팀 해체" /> </div>
+=======
+					<c:choose>
+						<c:when test="${userInfo.levelId eq '3'}">
+							<div> <input type="button" id="deleteTeam" name="deleteTeam" value="팀 해체" /> </div>
+						</c:when>
+						<c:otherwise>
+							<div> <input type="button" id="dropTeam" name="dropTeam" value="팀 탈퇴" /> </div>
+						</c:otherwise>
+					</c:choose>
+					
+>>>>>>> e27e6fca1a79d021144ccfc3f92ce216dd69518c
 			<div><input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요">
 				<input type="button" id="passwordConfirm" name="passwordConfirm" value="비밀번호 확인" style="margin-left: 30px;">
 			</div>
 			</div>
-		<div class="warning"></div>
+		</c:if>
+		<c:if test="${sessionScope._USER_INFO_.levelId eq 3}">
+			<c:forEach items="${joins}" var="join" >
+			<tr>
+				<td>${join.getUserVO().userName}</td>
+				<td>${join.getUserVO().email}</td>
+				<td>${join.getUserVO().phoneNumber}</td>
+				<td>${join.getUserVO().age}</td>
+				<td>${join.getUserVO().position}</td>
+				<td>${join.getUserVO().getLocationVO().locationName}</td>
+			</tr>
+			</c:forEach>
 		</c:if>
 		<c:if test="${empty userInfo.teamId}">
 		<p style="font-size: 20px; color: red;">팀에 가입하지 않았습니다!</p>
