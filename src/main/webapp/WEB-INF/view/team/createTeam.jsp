@@ -72,8 +72,6 @@
 			
 			if (confirm("생성하시겠습니까?")) {
 				// 나중에 한번더 확인 하기!
-				console.log($("#teamNameCheck").length);
-				
 				if ( $("#teamNameCheck").text().length < 13 ) {
 					alert("중복체크를 해주시기 바랍니다.");
 				}

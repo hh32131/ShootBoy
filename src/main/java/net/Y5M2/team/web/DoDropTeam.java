@@ -16,20 +16,12 @@ import net.Y5M2.user.vo.UserVO;
 
 public class DoDropTeam extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-<<<<<<< HEAD
-	private TeamBiz teamBiz;
-	
-	public DoDropTeam() {
-		super();
-		teamBiz = new TeamBizImpl();
-	}
-=======
+
     private TeamBiz teamBiz;
     public DoDropTeam() {
         super();
         teamBiz = new TeamBizImpl();
     }
->>>>>>> 0acab3d7cfa53316b1be44f2260b4391356e1d31
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -42,17 +34,7 @@ public class DoDropTeam extends HttpServlet {
 		String teamId = Param.getStringParam(request, "teamId");
 		HttpSession session = request.getSession();
 		UserVO userVO = (UserVO) session.getAttribute(Session.USER_INFO);
-<<<<<<< HEAD
 
-		boolean isSuccess = teamBiz.dropTeam(teamId, userVO, request);
-		if (isSuccess) {
-			response.sendRedirect("/ShootBoy/userInfo");
-		} else {
-			response.sendRedirect("/ShootBoy/detailTeamInfo?errorCode=1");
-		}
-
-=======
-		
 		boolean isSuccess = teamBiz.dropTeam(teamId,userVO,request);
 		if ( isSuccess ) {
 			response.sendRedirect("/ShootBoy/userInfo");
@@ -61,7 +43,6 @@ public class DoDropTeam extends HttpServlet {
 			response.sendRedirect("/ShootBoy/detailTeamInfo?errorCode=1");
 		}
 		
->>>>>>> 0acab3d7cfa53316b1be44f2260b4391356e1d31
 	}
 
 }
