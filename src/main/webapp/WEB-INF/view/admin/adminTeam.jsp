@@ -32,6 +32,8 @@
 			$("#pagingForm > .searchKeyword").val(searchKeyword);
 			movePage(0);
 		});
+		
+		
 	});
 	
 	function openWin() {

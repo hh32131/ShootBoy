@@ -35,7 +35,6 @@
 				 
 				 $("#teamModifyBtn").click(function() {
 					
-					
 					 var select = $(".select-check:checked").val();
 					 var checkTeam = $(".select-check:checked").length;
 					 if(checkTeam  == 1  ) {
@@ -112,9 +111,7 @@
 							<tr>	
 								<td class="td_check">
 									<div class="checks check" id = "checkTeam" name= "checkTeam">
-										
 										<input type="checkbox" class="select-check" data-selectid="${team.teamId}" name="select-check" value="${team.teamId}">
-										
 										<label for="select-check"></label>
 									</div>
 								</td>

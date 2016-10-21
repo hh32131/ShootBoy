@@ -13,14 +13,10 @@ public interface AdminBiz {
   public List<TeamVO> getAllTeams();
 
   public List<BoardVO> getAllBoard();
-<<<<<<< HEAD
 
   public boolean deleteUser(String userId);
   
   public UserVO getUserOne(String userId);
   
-=======
-  
   public int getCountOfTeam(String teamId);
->>>>>>> 5978e8e2db6741fc5a7bd5d677ae919e69c37e91
 }

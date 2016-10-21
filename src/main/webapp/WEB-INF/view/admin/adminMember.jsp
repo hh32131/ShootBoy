@@ -8,6 +8,13 @@
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
 	$().ready(function() {
+		
+		$(".userCode").click(function() {
+				var teamid = $(this).data("userId");
+				window.open("/ShootBoy/userDetail?userId=" + userid, "", "width=500, height= 500");
+		});
+		
+		
 		$("#searchType").change(function() {
 			alert($("#searchType option:selected").text());
 		});
@@ -29,12 +36,17 @@
 			});
 		});
 		
-		$("#modifyBtn").click(functoin() {
-			$.post("/ShootBoy//adminMemeberModify", $("#checkBoxForm").get(), function(data) {
-				alert( "" + data );
-				location.reload();
-			});
-		});
+		 $("#modifyBtn").click(function() {
+				
+			 var select = $(".select-check:checked").val();
+			 var checkTeam = $(".select-check:checked").length;
+			 if(checkTeam  == 1  ) {
+						window.open("/ShootBoy/adminMemberModify?userId=" + select, "", "width=500, height= 500");
+			 } 
+			 else {
+				 alert(" 수정할 팀을 한팀 선택해 주세요");
+			 }
+		});	 
 				
 		$("#checkAll").click(function(){
 	        var chk = $(this).is(":checked");
@@ -42,6 +54,10 @@
 		    else $(".check input").prop('checked', false);
 		}); 
 	});
+	
+	function openWin() {
+		window.open("/ShootBoy/adminMemberModify", "", "width=900, height= 600");
+	}
 </script>
 	<jsp:include page="/WEB-INF/view/commons/adminHeader.jsp" />
 	
@@ -66,7 +82,7 @@
 				<input type="text" class="searchKeyword" id="searchKeyword" name="searchKeyword" value="${searchUser.searchKeyword}"/>
 				<input type="button" class="searchBtn" id="searchBtn" value="검색"/>
 				<input type="button" id="signUpBtn" value="등록"/>
-				<input type="button" id="modifyBtn" value="수정"/>
+				<input type="button" id="modifyBtn" value="수정" onclick="openWin()"/>
 				<input type="button" id="deleteBtn" value="삭제"/>
 				<div class="clear"></div>
 			</form>
@@ -104,11 +120,18 @@
 							<tr>
 								<td class="td_check">
 									<div class="checks check">
-										<input type="checkbox" id="select-check" name="select-check" value="${users.userId}">
+										<input type="checkbox" class="select-check" data-selectid="${users.userId}" name="select-check" value="${users.userId}">
 										<label for="select-check"></label>
 									</div>
 								</td>
-								<td class="td_userEmail"> ${users.email } </td>
+								<td class="td_userEmail">
+									<input type="hidden" value="${users.email }">
+									<span>
+										<a href="javascript:void(0);" class="userCode" data-teamid="${users.email }"> 
+											${users.email }
+										</a>
+									</span>
+								</td>
 								<td class="td_userName"> ${users.userName } </td>
 								<td class="td_userPhone"> ${users.phoneNumber } </td>
 								<td class="td_userAge"> ${users.age } </td>
