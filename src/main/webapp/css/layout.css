@@ -16,7 +16,7 @@ body, textarea, p, dt, dd, li, select, div {
 }
 
 body { 
-	width: 1150px;
+	width: 980px;
 	padding-top: 20px;
 	margin: 0 auto;
 }
@@ -27,6 +27,7 @@ body {
 	margin-left: 10px;
 	margin-top: 10px;
 }
+
 a {
 	text-decoration: none;
 	color: #666;
@@ -38,7 +39,7 @@ a:HOVER {
 }
 
 .cycle-slideshow {
-	width: 900px;
+	width: 800px;
 	height: 299px;
 	border-radius: 4px 4px 4px 4px;
 	display: inline-block;
@@ -60,7 +61,7 @@ h1 {
 
 .mainRight {
 	float: right;
-	padding-right: 100px;
+	margin-right: 30px;
 }
 
 .warning {
@@ -312,7 +313,7 @@ h1 {
 
 .login {
 	display: inline-block;
-	margin-right:110px;
+	margin-right:80px;
 	float: right;
 }
 
@@ -388,7 +389,7 @@ h1 {
 }
 
 #bannerImg {
-	margin-right:120px;
+	margin-right:80px;
 	margin-top:50px;
 	float: right;
 }
