@@ -86,6 +86,21 @@
 			<div>
 				<input type="text" id="boardSubject" name="boardSubject" placeholder="제목을 입력하세요." 
 						style="width:400px; height: 25px; font-size: 15px;"/>
+				<div>
+					<select id="categoryId" id="categoryId" >
+						<option>카테고리를 선택해주세요</option>
+						<option value="${categoryId == '0'}" >Community</option>
+						<option value="${categoryId == '11'}" >공지사항</option>
+						<option value="${categoryId == '12'}" >가입인사</option>
+						<option value="${categoryId == '13'}" >자유게시판</option>
+						<option value="${categoryId == '14'}" >국내축구소식</option>
+						<option value="${categoryId == '15'}" >해외축구소식</option>
+						<option value="${categoryId == '16'}" >축구동영상</option>
+						<option value="${categoryId == '17'}" >축구갤러리</option>
+						<option value="${categoryId == '18'}" >매치경기후기</option>
+						<option value="${categoryId == '19'}" >모집게시판</option>
+					</select>		
+				</div>
 			</div>
 			<div style="height: 10px;">
 			</div>
