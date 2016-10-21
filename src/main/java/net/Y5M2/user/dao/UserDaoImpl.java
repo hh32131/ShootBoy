@@ -667,6 +667,8 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 				query.append(" SET		TEAM_ID = ? ");
 				query.append(" 			, LV_ID = '2' ");
 				query.append(" WHERE	TEAM_ID = ? ");
+				query.append(" AND		LV_ID = '2' ");
+				
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				pstmt.setString(1, null);

@@ -614,4 +614,14 @@
     <servlet-name>DoCheckTeamJoin</servlet-name>
     <url-pattern>/doCheckTeamJoin</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoAdmitJoinId</display-name>
+    <servlet-name>DoAdmitJoinId</servlet-name>
+    <servlet-class>net.Y5M2.teamjoin.web.ajax.DoAdmitJoinId</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoAdmitJoinId</servlet-name>
+    <url-pattern>/doAdmitJoinId</url-pattern>
+  </servlet-mapping>
 </web-app>
