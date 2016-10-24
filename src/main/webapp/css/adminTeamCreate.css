@@ -1,0 +1,45 @@
+@CHARSET "UTF-8";
+
+.teamCreate-header .teamCreate-top {
+	background-color: #282828;
+}
+
+.teamCreate-top {
+	padding-bottom: 25px;
+}
+
+.teamCreate-admin-logo {
+	text-align: center;
+	font-weight: bold;
+	font-size: 22px;
+}
+
+.teamCreate-shootboy-main {
+	
+	text-align: center;
+}
+.logo-text{
+	color: #ebebeb;
+	text-decoration: none;
+}
+
+.main-text{
+	color: #ebebeb;
+	text-decoration: none;
+}
+.bottom {
+	text-align: center;
+	color: #ebebeb;
+	text-decoration: none;
+	margin-bottom: 20px;
+}
+
+.teamCreate-title{
+	font-weight: bold;
+	font-size: 15px;
+}
+
+#createTeamWrapper {
+	margin-left: 115px;
+	
+}

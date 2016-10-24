@@ -38,17 +38,17 @@
 			 var select = $(".select-check:checked").val();
 			 var checkTeam = $(".select-check:checked").length;
 			 if(checkTeam  == 1  ) {
-						window.open("/ShootBoy/adminTeamModify?teamId=" + select, "", "width=500, height= 500");
+						window.open("/ShootBoy/adminTeamModify?teamId=" + select, "", "width=400, height= 500");
 			 } 
 			 else {
-				 alert(" 수정할 팀을 한팀 선택해 주세요");
+				 alert("수정할 팀을 한팀 선택해 주세요");
 			 }
 		});	 
 		
 	});
 	
 	function openWin() {
-		window.open("/ShootBoy/createTeam", "", "width=900, height= 600");
+		window.open("/ShootBoy/adminTeamCreate", "", "width=600, height= 600");
 	}
 </script>
 	<jsp:include page="/WEB-INF/view/commons/adminHeader.jsp" />
@@ -59,7 +59,7 @@
 
 		<div class="listAll">
 			<c:set var="list" value="teams"/>
-			<p class="textAll">전체 목록 | 총 회원수 ${count}개</p>
+			<p class="textAll">전체 목록 | 총 팀수 ${count}개</p>
 		</div>
 		
 		<div class="search-tool"> 
