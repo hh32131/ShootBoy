@@ -239,17 +239,20 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 			public PreparedStatement query(Connection conn) throws SQLException {
 				
 				StringBuffer query = new StringBuffer();
-				query.append(" SELECT	BOARD_ID ");
-				query.append(" 			, BOARD_SBJ ");
-				query.append(" 			, HIT_CNT ");
-				query.append(" 			, BOARD_CONT ");
-				query.append(" 			, USR_ID ");
-				query.append(" 			, CTGR_ID ");
-				query.append(" 			, FILE_NM ");
-				query.append(" 			, TO_CHAR(CRT_DT, 'YYYY-MM-DD HH24:MI:SS') CRT_DT ");
-				query.append(" 			, TO_CHAR(LTST_MDFY_DT, 'YYYY-MM-DD HH24:MI:SS') LTST_MDFY_DT ");
-				query.append(" FROM		BOARD ");
-				query.append(" WHERE	BOARD_ID = ? ");
+				query.append(" SELECT	B.BOARD_ID ");
+				query.append(" 			, B.BOARD_SBJ ");
+				query.append(" 			, B.HIT_CNT ");
+				query.append(" 			, B.BOARD_CONT ");
+				query.append(" 			, B.USR_ID ");
+				query.append(" 			, B.CTGR_ID ");
+				query.append(" 			, B.FILE_NM ");
+				query.append(" 			, U.USR_NM ");
+				query.append(" 			, TO_CHAR(B.CRT_DT, 'YYYY-MM-DD HH24:MI:SS') CRT_DT ");
+				query.append(" 			, TO_CHAR(B.LTST_MDFY_DT, 'YYYY-MM-DD HH24:MI:SS') LTST_MDFY_DT ");
+				query.append(" FROM		BOARD B ");
+				query.append(" 			, USR U ");
+				query.append(" WHERE	B.USR_ID = U.USR_ID ");
+				query.append(" AND		BOARD_ID = ? ");
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				pstmt.setString(1, boardId);
@@ -261,6 +264,7 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 			public Object makeObject(ResultSet rs) throws SQLException {
 				
 				BoardVO board = null;
+				UserVO user = null;
 				if( rs.next() ) {
 
 					board = new BoardVO();
@@ -274,6 +278,8 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 					board.setCreateDate(rs.getString("CRT_DT"));
 					board.setModifyDate(rs.getString("LTST_MDFY_DT"));
 					
+					user = board.getUserVO();
+					user.setUserName(rs.getString("USR_NM"));
 				}
 				
 				return board;

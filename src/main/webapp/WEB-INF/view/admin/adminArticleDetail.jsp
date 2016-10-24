@@ -28,14 +28,16 @@
 <body>
 	 
 	<h1>${board.boardSubject}</h1>
-	${board.hitCount}
-	${board.userVO.userName} 
-	${board.categoryId}
-	${board.createDate}
+	조회수 : ${board.hitCount}
+	작성자 : ${board.getUserVO().userName} 
+	카테고리 : ${board.categoryId}
+	날짜 : ${board.createDate}
+	<div class="file-name" style="float: right;">
+		<a href="/ShootBoy/board/doDownload?boardId=${board.boardId}">${board.fileName}</a>
+	</div>
 	<hr/>
 	${board.boardContent} 
 	
-	<a href="/ShootBoy/board/doDownload?boardId=${board.boardId}">${board.fileName}파일명</a>
 	<br/>
 	<div></div>	<hr/>
 		<c:forEach items="${replays}" var="replay" >

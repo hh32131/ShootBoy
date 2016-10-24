@@ -20,7 +20,7 @@
 						function() {
 							var boardid = $(this).data("boardid");
 							window.open("/ShootBoy/adminArticleDetail?boardId="
-									+ boardid, "", "width=500, height= 500");
+									+ boardid, "", "width=800, height= 900");
 						});
 
 				$("#searchType").change(function() {
