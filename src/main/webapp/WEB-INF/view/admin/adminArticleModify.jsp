@@ -65,6 +65,12 @@
 	<form id="modifyForm" name="modifyForm" enctype="multipart/form-data">
 		<input type="hidden" name="boardId" value="${board.boardId}" />
 		<div>
+			<select name="categoryId" id="categoryId">
+				<option>카테고리를 선택해주세요</option>
+				<c:forEach var="cate" items="${category }">
+					<option value="${cate.categoryId }">${cate.categoryName }</option>
+				</c:forEach>
+			</select>
 			<input type="text" id="boardSubject" name="boardSubject"
 				placeholder="제목을 입력하세요." value="${board.boardSubject}" />
 		</div>

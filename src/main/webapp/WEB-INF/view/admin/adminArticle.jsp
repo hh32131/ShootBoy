@@ -6,6 +6,7 @@
 <link rel="stylesheet" type="text/css"	href="/ShootBoy/css/adminPage.css" />
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
+<<<<<<< HEAD
 	$().ready(
 			function() {
 				$("#checkAll").click(function() {
@@ -36,39 +37,66 @@
 										location.reload();
 									});
 						});
-
-				$("#modifyBtn").click(
-						function() {
-							var select = $(".select-check:checked").val();
-							var checkBoard = $(".select-check:checked").length;
-							if (checkBoard == 1) {
-								window.open(
-										"/ShootBoy/adminArticleModify?boardId="
-												+ select, "",
-										"width=600, height= 600");
-							} else {
-								alert(" 수정할 게시물을 선택해 주세요");
-							}
-						});
-
-				$("#searchBtn").click(
-						function() {
-							var searchType = $("#searchForm > .searchType")
-									.val();
-							var searchKeyword = $(
-									"#searchForm > .searchKeyword").val();
-
-							$("#pagingForm > .searchType").val(searchType);
-							$("#pagingForm > .searchKeyword")
-									.val(searchKeyword);
-
-							movePage(0);
-						});
-
-				$("#writeBtn").click(function() {
-					window.open("/ShootBoy/adminArticleWrite", "ADMINSIGNUP", "width=600, height= 600");
-				})
+=======
+	$().ready(function() {
+		$("#checkAll").click(function() {
+			var chk = $(this).is(":checked");
+			if (chk)
+				$(".check input").prop('checked', true);
+			else
+				$(".check input").prop('checked', false);
 			});
+>>>>>>> 7d0820a3fb3fcbfe5d1f514f9e5e367c049c9478
+
+		$(".boardCode").click(function() {
+			var boardid = $(this).data("boardid");
+			window.open("/ShootBoy/adminArticleDetail?boardId=" + boardid, "", "width=500, height= 500");
+		});
+
+		$("#searchType").change(function() {
+			alert($("#searchType option:selected").text());
+		});
+				
+		$("#modifyBtn").click(function() {
+			var select = $(".select-check:checked").val();
+			var checkBoard = $(".select-check:checked").length;
+			if (checkBoard == 1) {
+				window.open("/ShootBoy/adminArticleModify?boardId="+ select, "","width=600, height= 600");
+			} else {
+				alert(" 수정할 게시물을 선택해 주세요");
+			}
+		});
+
+		$("#deleteBtn").click(function() {
+			$.post("/ShootBoy/doAdminArticleDelete", $("#checkBoxForm").serialize(),function(data) {
+				alert("" + data);
+				location.reload();
+			});
+		});
+
+		$("#modifyBtn").click(function() {
+			var select = $(".select-check:checked").val();
+			var checkBoard = $(".select-check:checked").length;
+			if (checkBoard == 1) {
+				window.open("/ShootBoy/adminArticleModify?boardId=" + select, "", "width=500, height= 500");
+			} 
+			else {
+				alert(" 수정할 게시물을 선택해 주세요");
+			}
+		});
+
+		$("#searchBtn").click(function() {
+			var searchType = $("#searchForm > .searchType").val();
+			var searchKeyword = $("#searchForm > .searchKeyword").val();
+			$("#pagingForm > .searchType").val(searchType);
+			$("#pagingForm > .searchKeyword").val(searchKeyword);
+			movePage(0);
+		});
+		
+		$("#writeBtn").click(function() {
+			window.open("/ShootBoy/adminArticleWrite", "ADMINSIGNUP", "width=600, height= 600");
+		});
+	});
 </script>
 <jsp:include page="/WEB-INF/view/commons/adminHeader.jsp" />
 
@@ -77,7 +105,7 @@
 
 	<div class="listAll">
 		<c:set var="list" value="boards" />
-		<p class="textAll">전체 목록 | 총 게시물 ${fn:length(list)}개</p>
+		<p class="textAll">전체 목록 | 총 경기수 ${count}개</p>
 	</div>
 
 	<div class="search-tool">
@@ -132,14 +160,13 @@
 							</td>
 							<c:set var="number" value="${fn:split(boards.boardId,'-')[2]}" />
 							<fmt:parseNumber var="number" type="number" value="${number}" />
-							<td class="td_boardId">
-								<input type="hidden" value="${boards.boardId }"> 
+							<td class="td_boardId"> ${number}</td>
+							<td class="td_boardSubject">
+							<input type="hidden" value="${boards.boardId }"> 
 								<span> 
-									<a href="javascript:void(0)" class="boardCode" data-boardid="${boards.boardId }"> ${number} </a>
+									<a href="javascript:void(0)" class="boardCode" data-boardid="${boards.boardId }"> ${boards.boardSubject} [${boards.replayHitCount}] </a>
 								</span>
 							</td>
-							<td class="td_boardSubject">${boards.boardSubject}
-								[${boards.replayHitCount}]</td>
 							<td class="td_userName">${boards.userVO.userName }</td>
 							<td class="td_createDate">${boards.createDate}</td>
 							<td class="td_hitCount">${boards.hitCount}</td>

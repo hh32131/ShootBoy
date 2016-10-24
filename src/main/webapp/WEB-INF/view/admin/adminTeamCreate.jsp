@@ -31,11 +31,11 @@
 			$.post("/ShootBoy/doCheckTeamName", 
 					{ "teamName" : $("#teamName").val() }, function(data){
 				if(data=="false") {
-					$("#teamNameCheck").html("사용 가능한 팀 이름입니다.")
+					alert('사용 가능');
 					$("#teamCreateBtn").slideDown();
 				}
 				else {
-					$("#teamNameCheck").html("중복된 팀 이름입니다.")
+					alert('사용 불가');
 					$("#teamCreateBtn").hide();
 				}
 			});

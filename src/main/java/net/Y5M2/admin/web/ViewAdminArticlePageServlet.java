@@ -68,12 +68,13 @@ public class ViewAdminArticlePageServlet extends HttpServlet {
 		categoryVO.setCategoryId(categoryId);
 		session.setAttribute(Session.SEARCH_BOARD_INFO, searchBoard);
 		BoardListVO boards = boardBiz.getAllBoards(searchBoard, categoryVO);
-		int count = adminBiz.getCountOfBoards(boardId);
+		int count = adminBiz.getCountOfBoards();
 		
 		String viewPath = "/WEB-INF/view/admin/adminArticle.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 		request.setAttribute("boards", boards.getBoards());
 		request.setAttribute("pager", boards.getPager());
+		request.setAttribute("count", count);
 
 		PageExplorer pageExplorer = new ClassicPageExplorer(boards.getPager());
 		String pager = pageExplorer.getPagingList("pageNo", "[@]", "<<", ">>", "pagingForm");

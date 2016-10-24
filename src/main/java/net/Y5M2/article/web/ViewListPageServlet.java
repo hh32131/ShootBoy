@@ -23,7 +23,6 @@ public class ViewListPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private BoardBiz boardBiz;
-	
 
 	public ViewListPageServlet() {
 		super();

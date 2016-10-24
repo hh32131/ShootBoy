@@ -39,6 +39,7 @@ public class DoModifyAdminArticleServlet extends HttpServlet {
 		String subject = multipartRequest.getParameter("boardSubject");
 		String content = multipartRequest.getParameter("boardContent");
 		String fileDeleteBtn = multipartRequest.getParameter("fileDeleteBtn");
+		String categoryId = multipartRequest.getParameter("categoryId");
 
 		content = content.replaceAll("\n", "<br/>").replaceAll("\r", "");
 
@@ -46,7 +47,8 @@ public class DoModifyAdminArticleServlet extends HttpServlet {
 		board.setBoardId(boardId);
 		board.setBoardSubject(subject);
 		board.setBoardContent(content);
-
+		board.setCategoryId(categoryId);
+		
 		if (fileDeleteBtn != null && fileDeleteBtn.equals("delete")) {
 			String fileName = boardBiz.getFileNmaeOfArticleBy(boardId);
 			File file = new File("D:\\board\\uploadFile\\" + fileName);

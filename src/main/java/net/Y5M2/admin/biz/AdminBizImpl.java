@@ -107,14 +107,14 @@ public class AdminBizImpl implements AdminBiz {
 	public BoardVO getBoardOne(String boardId) {
 		return boardDao.getBoardAt(boardId);
 	}
-
-	@Override
-	public int getCountOfUsers(String userId) {
-		return userDao.getCountOfUser(userId);
+	
+  	@Override
+	public int getCountOfUsers() {
+		return userDao.getCountOfUsers();
 	}
 
 	@Override
-	public int getCountOfBoards(String boardId) {
-		return boardDao.getCountOfBoards(boardId);
+	public int getCountOfBoards() {
+		return boardDao.getCountOfBoards();
 	}
 }

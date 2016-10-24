@@ -16,7 +16,7 @@ import net.Y5M2.category.vo.CategoryVO;
 public class ViewAdminArticleWritePageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private CategoryBiz biz;
-	
+
 	public ViewAdminArticleWritePageServlet() {
 		super();
 		biz = new CategoryBizImpl();
@@ -29,15 +29,12 @@ public class ViewAdminArticleWritePageServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		List<CategoryVO> category = biz.getAllCategoryList();
-		
+
 		String viewPath = "/WEB-INF/view/admin/adminArticleWrite.jsp";
-		
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
-		
 		request.setAttribute("category", category);
-		
 		rd.forward(request, response);
 	}
 

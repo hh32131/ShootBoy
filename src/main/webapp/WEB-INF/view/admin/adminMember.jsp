@@ -51,7 +51,7 @@
 		}); 
 		
 		$("#writeBtn").click(function() {
-			window.open("/ShootBoy/adminSignUp", "ADMINSIGNUP", "width=450, height= 600");
+			window.open("/ShootBoy/adminSignUp", "ADMINSIGNUP", "width=600, height= 600");
 		});
 	});
 </script>
@@ -64,7 +64,7 @@
 		
 		<div class="listAll">
 			<c:set var="list" value="users"/>
-			<p class="textAll">전체 목록 | 총 회원수 ${fn:length(list)}개</p>
+			<p class="textAll">전체 목록 | 총 회원수 ${count}개</p>
 		</div>
 
 	<div class="search-tool">
