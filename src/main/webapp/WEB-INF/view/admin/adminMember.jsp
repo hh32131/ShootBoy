@@ -51,7 +51,7 @@
 		}); 
 		
 		$("#writeBtn").click(function() {
-			window.open("/ShootBoy/adminSignUp", "ADMINSIGNUP", "width=600, height= 600");
+			window.open("/ShootBoy/adminSignUp", "ADMINSIGNUP", "width=550, height= 700");
 		});
 	});
 </script>

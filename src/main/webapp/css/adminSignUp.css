@@ -43,7 +43,7 @@
 	color: #c6152c;
 	font-weight: bold;
 	font-size: 13px;
-	margin-bottom: 5px;
+	margin-bottom: 15px;
 }
 
 #signUpForm {
@@ -65,12 +65,12 @@
 	height: 200px;
 }
 
-
 #email, #userName, #password1, #password2, #passwordHintKey 
 	  , #passwordHintValue, #phoneNumber, #age, #position
 	  , #locationId, #leafCategory, #signBtn {
 	margin: 5px;
 	width: 200px;
+	height: 23px;
 }
 
 #email {
@@ -127,7 +127,8 @@
 	border:1px solid #ccc;
 	background:#fafafa;
 	text-decoration:none;
-	cursor:pointer
+	cursor:pointer;
+	height: 40px;
 }
 
 #cancelBtn {
@@ -136,4 +137,13 @@
 	background:#fafafa;
 	text-decoration:none;
 	cursor:pointer
+}
+
+#checkUserEmail {
+	padding:4px;
+	border:1px solid #ccc;
+	background:#fafafa;
+	text-decoration:none;
+	cursor:pointer;
+	margin-left: 10px;
 }

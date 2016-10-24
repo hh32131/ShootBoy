@@ -15,6 +15,8 @@
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
 	$().ready(function() {
+		isVisibleButton();
+		
 		$("#cancelBtn").click(function() {
 			window.close();
 		});
@@ -26,6 +28,7 @@
 				$("#leafCategory option").remove();
 				$("#leafCategory").html(data);
 			});
+			isVisibleButton(); 
 		});
 		
 		$("#checkUserEmail").click(function () {
@@ -40,6 +43,7 @@
 					$("#signBtn").hide();
 				}
 			});
+			isVisibleButton();
 		});
 
 		$("#userName").keyup(function() {
@@ -50,6 +54,7 @@
 				$(this).addClass("pass");
 				$(this).removeClass("warning");
 			}
+			isVisibleButton();
 		});
 		$("#password1").keyup(function() {
 			if ($(this).val() == "") {
@@ -67,6 +72,7 @@
 				$("#password2").addClass("pass");
 				$("#password2").removeClass("warning");
 			}
+			isVisibleButton();
 		});
 		$("#password2").keyup(function() {
 			if ($(this).val() == "") {
@@ -84,6 +90,7 @@
 				$("#password1").addClass("pass");
 				$("#password1").removeClass("warning");
 			}
+			isVisibleButton();
 		});
 
 		$("#phoneNumber").keyup(function() {
@@ -104,6 +111,7 @@
 				$(this).addClass("pass");
 				$(this).removeClass("warning");
 			}
+			isVisibleButton();
 		});
 
 		$("#position").change(function() {
@@ -114,6 +122,7 @@
 				$(this).addClass("pass");
 				$(this).removeClass("warning");
 			}
+			isVisibleButton();
 		});
 
 		$("#passwordHintKey").change(function() {
@@ -124,6 +133,7 @@
 				$(this).addClass("pass");
 				$(this).removeClass("warning");
 			}
+			isVisibleButton();
 		});
 
 		$("#passwordHintValue").keyup(function() {
@@ -134,6 +144,7 @@
 				$(this).addClass("pass");
 				$(this).removeClass("warning");
 			}
+			isVisibleButton();
 		});
 
 		$("#leafCategory").change(function() {
@@ -144,6 +155,7 @@
 				$(this).addClass("pass");
 				$(this).removeClass("warning");
 			}
+			isVisibleButton();
 		});
 	
 		$("#signBtn").click(function() {
@@ -153,6 +165,14 @@
 			}).submit();
 		});
 	});
+	
+	function isVisibleButton() {
+		if ($(".pass").length == 10) {
+			$("#signBtn").slideDown();
+		} else {
+			$("#signBtn").hide();
+		}
+	};
 </script>
 <title>Administrator</title>
 <body>
@@ -180,7 +200,7 @@
 				placeholder="아이디를 입력하세요">
 				<input type="button" id="checkUserEmail" name="checkUserEmail" value="중복체크" />
 			</div>
-			<br /> 이름 <input type="text" id="userName" name="userName"
+				이름 <input type="text" id="userName" name="userName"
 				placeholder="이름을 입력하세요"> <br /> 비밀번호 <input type="password"
 				id="password1" name="password1" placeholder="비밀번호를 입력하세요"> <br />
 			비밀번호 확인 <input type="password" id="password2" name="password2"

@@ -6,38 +6,7 @@
 <link rel="stylesheet" type="text/css"	href="/ShootBoy/css/adminPage.css" />
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
-<<<<<<< HEAD
-	$().ready(
-			function() {
-				$("#checkAll").click(function() {
-					var chk = $(this).is(":checked");
-					if (chk)
-						$(".check input").prop('checked', true);
-					else
-						$(".check input").prop('checked', false);
-				});
 
-				$(".boardCode").click(
-						function() {
-							var boardid = $(this).data("boardid");
-							window.open("/ShootBoy/adminArticleDetail?boardId="
-									+ boardid, "", "width=800, height= 900");
-						});
-
-				$("#searchType").change(function() {
-					alert($("#searchType option:selected").text());
-				});
-
-				$("#deleteBtn").click(
-						function() {
-							$.post("/ShootBoy/doAdminArticleDelete", $(
-									"#checkBoxForm").serialize(),
-									function(data) {
-										alert("" + data);
-										location.reload();
-									});
-						});
-=======
 	$().ready(function() {
 		$("#checkAll").click(function() {
 			var chk = $(this).is(":checked");
@@ -46,11 +15,11 @@
 			else
 				$(".check input").prop('checked', false);
 			});
->>>>>>> 7d0820a3fb3fcbfe5d1f514f9e5e367c049c9478
+
 
 		$(".boardCode").click(function() {
 			var boardid = $(this).data("boardid");
-			window.open("/ShootBoy/adminArticleDetail?boardId=" + boardid, "", "width=500, height= 500");
+			window.open("/ShootBoy/adminArticleDetail?boardId=" + boardid, "", "width=700, height= 800");
 		});
 
 		$("#searchType").change(function() {
