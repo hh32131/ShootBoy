@@ -78,11 +78,7 @@
 
 	<div class="listAll">
 		<c:set var="list" value="boards" />
-<<<<<<< HEAD
 		<p class="textAll">전체 목록 | 총 게시물 ${fn:length(list)}개</p>
-=======
-		<p class="textAll">전체 목록 | 총 경기수 ${count}개</p>
->>>>>>> 66e084ccc53035db12979cf6b7727b844c6a8b44
 	</div>
 
 	<div class="search-tool">
@@ -95,10 +91,7 @@
 			</select> <input type="text" class="searchKeyword" name="searchKeyword"
 				id="searchKeyword" value="${searchBoard.searchKeyword}" /> <input
 				type="button" id="searchBtn" value="검색" />
-			<div class="initBtn">
-				<input type="button" id="initBtn" value="초기화"
-					onclick="location='/ShootBoy/adminList/init'" />
-			</div>
+			
 			<div class="clear"></div>
 		</form>
 	</div>

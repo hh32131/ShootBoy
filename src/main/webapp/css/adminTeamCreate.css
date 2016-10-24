@@ -43,3 +43,75 @@
 	margin-left: 115px;
 	
 }
+.team-name {
+	margin-bottom: 5px;
+}
+
+.location {
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+#locationId, #leafLocation {
+	width: 170px;
+	height: 25px;
+	vertical-align: middle;
+}
+
+.team-name, .teamNameCheck {
+	display: inline-block;
+	
+}
+
+#teamInfo {
+	width: 350px;
+	height: 250px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+.filebox label {
+  display: inline-block;
+  line-height: normal; 
+  padding:5px;
+  vertical-align: middle;
+  background-color: #fafafa;
+  cursor: pointer;
+  border:1px solid #ccc;
+  text-decoration:none;
+  font-size: 14px;
+}
+
+.filebox input[type="file"] {  /* 파일 필드 숨기기 */
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip:rect(0,0,0,0);
+  border: 0;
+}
+
+#checkTeamName {
+	border:1px solid #ccc;
+	background:#fafafa;
+	text-decoration:none;
+	cursor:pointer
+}
+#teamCreateBtn {
+	padding:10px;
+	border:1px solid #ccc;
+	background:#fafafa;
+	text-decoration:none;
+	cursor:pointer
+}
+#backBtn {
+	padding:10px;
+	border:1px solid #ccc;
+	background:#fafafa;
+	text-decoration:none;
+	cursor:pointer
+}
+.btn {
+	float: right;
+	margin-right: 115px;
+}

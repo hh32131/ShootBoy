@@ -16,6 +16,7 @@ import net.Y5M2.location.vo.LocationVO;
 public class ViewCreateTeamPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private LocationBiz locationBiz;
+	
 	public ViewCreateTeamPageServlet() {
 		super();
 		locationBiz = new LocationBizImpl();
