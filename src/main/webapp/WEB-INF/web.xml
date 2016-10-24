@@ -815,4 +815,24 @@
     <servlet-name>DoJoinRefuse</servlet-name>
     <url-pattern>/doJoinRefuse</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoMatchApply</display-name>
+    <servlet-name>DoMatchApply</servlet-name>
+    <servlet-class>net.Y5M2.match.web.DoMatchApply</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoMatchApply</servlet-name>
+    <url-pattern>/doMatchApply</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoSelectMatch</display-name>
+    <servlet-name>DoSelectMatch</servlet-name>
+    <servlet-class>net.Y5M2.match.web.ajax.DoSelectMatch</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoSelectMatch</servlet-name>
+    <url-pattern>/doSelectMatch</url-pattern>
+  </servlet-mapping>
 </web-app>

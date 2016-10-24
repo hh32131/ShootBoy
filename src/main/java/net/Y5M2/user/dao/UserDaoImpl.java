@@ -652,7 +652,6 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 				query.append(" SET		TEAM_ID = ? ");
 				query.append(" 			, LV_ID = '2' ");
 				query.append(" WHERE	TEAM_ID = ? ");
-				query.append(" AND		LV_ID = '2' ");
 				
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
@@ -790,6 +789,32 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 				
 				return pstmt;
 			}
+		});
+	}
+	
+	@Override
+	public int UserTeamIdDrop(String teamId, UserVO userVO) {
+		
+		return insert(new Query() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				StringBuffer query = new StringBuffer();
+				query.append(" UPDATE	USR ");
+				query.append(" SET		TEAM_ID = ? ");
+				query.append(" 			, LV_ID = '2' ");
+				query.append(" WHERE	TEAM_ID = ? ");
+				query.append(" AND		USR_ID = ? ");
+				
+				
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				pstmt.setString(1, null);
+				pstmt.setString(2, teamId);
+				pstmt.setString(3, userVO.getUserId());
+				
+				return pstmt;
+
+				}
 		});
 	}
 	

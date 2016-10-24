@@ -36,8 +36,12 @@
 				$.post("/ShootBoy/doCheckPassword", {"password" : $("#password").val()} ,function(data){
 					if(data == "true"){
 						if ( confirm("정말로 팀을 해체 하시겠습니까?") ) {
-							alert("정상적으로 처리 되었습니다.");
 							location.href="/ShootBoy/doDeleteTeam?teamId=${teamInfo.teamId}";
+							alert("정상적으로 처리 되었습니다.");
+<<<<<<< HEAD
+							location.href="/ShootBoy/doDeleteTeam?teamId=${teamInfo.teamId}";
+=======
+>>>>>>> 75c35b8b0fe6d3b41537782094fba2607809d8e7
 						}
 					}
 					else{

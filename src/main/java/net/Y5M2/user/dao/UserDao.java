@@ -37,5 +37,7 @@ public interface UserDao {
 	public UserVO getUserOne(String userId);
 
 	public int deleteUserTwo(String userId);
+
+	public int UserTeamIdDrop(String teamId, UserVO userVO);
 	
 }
