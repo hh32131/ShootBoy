@@ -21,9 +21,9 @@ public class MatchBizImpl implements MatchBiz {
 	}
 	
 	@Override
-	public List<MatchVO> getMatchApplyTeamsOf() {
+	public List<MatchVO> getMatchApplyTeamsOf(String locationId, String beginDate, String endDate) {
 
-		return matchDao.getMatchApplyTeamsOf();
+		return matchDao.getMatchApplyTeamsOf(locationId,beginDate,endDate);
 	}
 	
 }

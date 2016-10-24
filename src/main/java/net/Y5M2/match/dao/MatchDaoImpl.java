@@ -25,17 +25,18 @@ public class MatchDaoImpl extends DaoSupport implements MatchDao {
 			public PreparedStatement query(Connection conn) throws SQLException {
 				StringBuffer query = new StringBuffer();
 				query.append(" INSERT INTO MATCH ( ");
-				query.append(" MATCH_ID, TEAM_ID, SCDL, LCTN_ID, ");
+				query.append(" MATCH_ID, TEAM_ID, SCDL, LCTN_ID, PRNT_LCNT_ID, ");
 				query.append(" CRT_DT, TEAM_POINT, ATEAM_ID, PLAYFIELD ) ");
 				query.append(" VALUES ( ");
 				query.append(" 'MA-' || TO_CHAR(SYSDATE, 'YYYYMMDD') || '-' || LPAD(MATCH_ID_SEQ.NEXTVAL,6,0), ");
-				query.append(" ?, TO_DATE(?,'YYYY-MM-DD'), ?, SYSDATE, 0, 0, ? ) ");
+				query.append(" ?, TO_DATE(?,'YYYY-MM-DD'), ?, ?, SYSDATE, 0, 0, ? ) ");
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				pstmt.setString(1, matchVO.getTeamId());
 				pstmt.setString(2, matchVO.getSchedule());
 				pstmt.setString(3, matchVO.getLocationId());
-				pstmt.setString(4, matchVO.getPlayField());
+				pstmt.setString(4, matchVO.getParentLocaionId());
+				pstmt.setString(5, matchVO.getPlayField());
 				
 				return pstmt;
 			}
@@ -43,7 +44,7 @@ public class MatchDaoImpl extends DaoSupport implements MatchDao {
 	}
 	
 	@Override
-	public List<MatchVO> getMatchApplyTeamsOf() {
+	public List<MatchVO> getMatchApplyTeamsOf(String locationId, String beginDate, String endDate) {
 
 		return selectList(new QueryAndResult() {
 			
@@ -62,21 +63,25 @@ public class MatchDaoImpl extends DaoSupport implements MatchDao {
 				query.append(" 			, T.TEAM_PHOTO ");
 				query.append(" 			, T.LCTN_ID ");
 				query.append(" 			, T.TEAM_INFO ");
-				query.append(" 			, L.LCNT_NM ");
-				query.append(" 			, L.PRNT_LCNT_NM ");
+				query.append(" 			, L.LCTN_NM ");
+				query.append(" 			, L.PRNT_LCTN_NM ");
 				query.append(" FROM		MATCH M ");
 				query.append(" 			, TEAM T ");
 				query.append(" 			, LCTN L ");
 				query.append(" WHERE	M.TEAM_ID = T.TEAM_ID ");
-				query.append(" AND		M.LOCATION_ID = T.LOCATION_ID ");
+				query.append(" AND		M.LCTN_ID = L.LCTN_ID ");
 				query.append(" AND		M.ATEAM_ID = '0' ");
 				
+				if(locationId != null){
+					query.append(" AND		PRNT_LCNT_ID = ? ");
+				}
 				
-				query.append(" AND		LOCATION_ID = ? ");
-				query.append(" AND		SCDL <= ? ");
-				query.append(" AND		SCDL >= ? ");
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				int index = 1;
+				if(locationId != null){
+					pstmt.setString(index++, locationId);
+				}
 				
 				
 				return pstmt;
@@ -108,12 +113,12 @@ public class MatchDaoImpl extends DaoSupport implements MatchDao {
 					teamVO.setTeamInfo(rs.getString("TEAM_INFO"));
 					
 					locationVO = teamVO.getLocationVO();
-					locationVO.setLocationName(rs.getString("LCNT_NM"));
-					locationVO.setParentLocationName(rs.getString("PRNT_LCNT_NM"));
+					locationVO.setLocationName(rs.getString("LCTN_NM"));
+					locationVO.setParentLocationName(rs.getString("PRNT_LCTN_NM"));
 					
 					locationVO = matchTeam.getLocationVO();
-					locationVO.setLocationName(rs.getString("LCNT_NM"));
-					locationVO.setParentLocationName(rs.getString("PRNT_LCNT_NM"));
+					locationVO.setLocationName(rs.getString("LCTN_NM"));
+					locationVO.setParentLocationName(rs.getString("PRNT_LCTN_NM"));
 				
 					matchTeams.add(matchTeam);
 					

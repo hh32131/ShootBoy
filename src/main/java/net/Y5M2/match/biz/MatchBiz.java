@@ -8,6 +8,6 @@ public interface MatchBiz {
 
 	public boolean applyMatch(MatchVO matchVO);
 
-	public List<MatchVO> getMatchApplyTeamsOf();
+	public List<MatchVO> getMatchApplyTeamsOf(String locationId, String beginDate, String endDate);
 
 }

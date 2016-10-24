@@ -8,21 +8,18 @@
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/match.css">
 <script type="text/javascript">
 	$().ready(function(){
+		var locationId = $(".location").data("");
+		
 		$("#matchEnroll").click(function(){
 			window.open("/ShootBoy/matchApply","","width=500, height=500");
 		});
 		
 		$(".location").click(function(){
-			var locationId = $(this).data("value");
-			$.post("/ShootBoy/doSelectMatch","locationId",function(data){
+			$.post("/ShootBoy/doSelectMatch",{"locationId":$(this).data("value")},function(data){
 				$("#matchList").html(data);
-				if($("")){
-					
-				}
 			});
-			
 		});
-		
+	
 	});
 </script>
 <body>
@@ -35,6 +32,7 @@
 		</div>
 	</div>
 	
+	<form id="filter" name="filter">
 	<div class="myInfoText"><h1>매치 보드</h1>
 		<hr class="myPageline">
 	<div id="locationNavi">
@@ -49,8 +47,9 @@
 		  <li><a class="location" href="javascript:void(0);" data-value="10">경상</a></li>
 		</ul>
 	</div>
-	<a href="javascript:void(0);" id="matchEnroll">매치등록</a>
 	<div id="matchList" ></div>
 	</div>
+	</form>
+	<a href="javascript:void(0);" id="matchEnroll">매치등록</a>
 </body>
 </html>

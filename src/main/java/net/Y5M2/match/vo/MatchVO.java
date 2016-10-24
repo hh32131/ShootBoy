@@ -12,7 +12,7 @@ public class MatchVO {
 	private String matchPoint;
 	private String locationId;
 	private String playField;
-	
+	private String parentLocaionId;
 	
 	private LocationVO locationVO;
 	private TeamVO teamVO;
@@ -101,6 +101,16 @@ public class MatchVO {
 	public void setTeamVO(TeamVO teamVO) {
 		this.teamVO = teamVO;
 	}
+
+	public String getParentLocaionId() {
+		return parentLocaionId;
+	}
+
+	public void setParentLocaionId(String parentLocaionId) {
+		this.parentLocaionId = parentLocaionId;
+	}
+	
+	
 	
 	
 }
