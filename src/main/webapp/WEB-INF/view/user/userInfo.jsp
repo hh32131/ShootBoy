@@ -36,7 +36,7 @@
 					
 				$.post("/ShootBoy/doCheckPassword", {"password" : $("#password").val()} ,function(data){
 					if(data == "true"){
-						if( confirm("정말로 탈퇴 하시겠습니까?") ) {
+						if( confirm("정말로 탈퇴 하시겠습니까? 팀장이 탈퇴할 경우 팀이 해체됩니다.") ) {
 							alert("정상적으로 처리 되었습니다.");
 							location.href="/ShootBoy/doDeleteUser?userId=${userInfo.userId}&&teamId=${userInfo.teamId}";
 						}
@@ -46,11 +46,26 @@
 					}
 				});
 			});
+		});
+		
+		$("#deleteUserTwo").click(function() {
+			$("#password").show();
+			$("#passwordConfirm").show();
 			
-			
-			
-			
-			
+			$("#passwordConfirm").click(function(){
+					
+				$.post("/ShootBoy/doCheckPassword", {"password" : $("#password").val()} ,function(data){
+					if(data == "true"){
+						if( confirm("정말로 탈퇴 하시겠습니까?") ) {
+							alert("정상적으로 처리 되었습니다.");
+							location.href="/ShootBoy/doDeleteUserTwoServlet?userId=${userInfo.userId}";
+						}
+					}
+					else{
+						alert("비밀번호가 틀렸습니다.")
+					}
+				});
+			});
 		});
 	});
 </script>
@@ -82,7 +97,10 @@
 				</c:if>
 				<div id="userInfoBtn">
 					<div style="display: inline-block;"><input type="button" id="modifyBtn" name="modifyBtn" value="수정" ></div>
+					<c:if test="${sessionScope._USER_INFO_.levelId eq '3'}">
 					<div style="display: inline-block;"><input type="button" id="deleteUser" name="deleteUser" value="회원탈퇴" /></div>
+					</c:if>
+					<div style="display: inline-block;"><input type="button" id="deleteUserTwo" name="deleteUserTwo" value="회원탈퇴" /></div>
 				</div>
 				<div id="inline"><input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요"></div>
 				<div id="inline"><input type="button" id="passwordConfirm" name="passwordConfirm" value="비밀번호 확인"></div>

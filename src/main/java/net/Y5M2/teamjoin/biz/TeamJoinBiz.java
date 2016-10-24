@@ -15,6 +15,8 @@ public interface TeamJoinBiz {
 
 	public boolean admitJoinId(String joinId, String teamId);
 
+	public boolean refuseJoin(String refuseId);
+
 	
 
 }

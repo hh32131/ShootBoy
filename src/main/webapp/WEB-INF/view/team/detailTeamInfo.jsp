@@ -70,20 +70,20 @@
 		
 		
 		$("#joinAdmit").click(function(){
-			
-			
 			if(confirm("가입을 승인하시겠습니까?")){
 				$.post("/ShootBoy/doAdmitJoinId",{"joinIds": $(".joinApplyId:checked").val(), "teamId":"${userInfo.teamId}"},function(data){
-					
-					
-					
+					$("#join").html(data);
 				});
 			}
 			
 		});
 		
-		$("#joinReject").click(function(){
-			
+		$("#joinRefuse").click(function(){
+			if(confirm("가입을 거절하시겠습니까?")){
+				$.post("/ShootBoy/doJoinRefuse",{"joinIds": $(".joinApplyId:checked").val(), "teamId":"${userInfo.teamId}"},function(data){
+					$("#join").html(data);
+				});
+			}
 		});
 		
 	});	
@@ -135,7 +135,8 @@
 		</c:if>
 		<c:if test="${sessionScope._USER_INFO_.levelId eq 3 and !empty joins}">
 		<input type="button" id="joinAdmit" name="joinAdmit" value="승인" >
-		<input type="button" id="joinReject" name="joinReject" value="거절" >
+		<input type="button" id="joinRefuse" name="joinRefuse" value="거절" >
+		<div id="join"></div>
 			<c:forEach items="${joins}" var="join" >
 			<tr>
 				<td><input type="checkbox" class="joinApplyId" name="joinApplyId" value="${join.userVO.userId}" ></td>

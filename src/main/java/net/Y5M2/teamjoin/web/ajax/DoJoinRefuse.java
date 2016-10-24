@@ -8,16 +8,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.Y5M2.support.Param;
 import net.Y5M2.teamjoin.biz.TeamJoinBiz;
 import net.Y5M2.teamjoin.biz.TeamJoinBizImpl;
 
-public class DoAdmitJoinId extends HttpServlet {
+public class DoJoinRefuse extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private TeamJoinBiz  teamJoinBiz;
-
+    private TeamJoinBiz teamJoinBiz;
 	
-    public DoAdmitJoinId() {
+	
+    public DoJoinRefuse() {
         super();
         teamJoinBiz = new TeamJoinBizImpl();
     }
@@ -28,30 +27,26 @@ public class DoAdmitJoinId extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String[] joinIds = request.getParameterValues("joinIds");
-		String teamId = Param.getStringParam(request, "teamId");
-		
-		if(joinIds==null || joinIds.length == 0){
-			
-		}
 		PrintWriter out = response.getWriter();
-		for (String joinId : joinIds) {
+		
+		for (String refuseId : joinIds) {
 			
-			boolean isSuccess = teamJoinBiz.admitJoinId(joinId, teamId);
+			boolean isSuccess = teamJoinBiz.refuseJoin(refuseId);
 			if(isSuccess){
 				out.write("<script type='text/javascript'>");
 				out.write(" document.location.reload(); ");
 				out.write("</script>");
 				out.flush();
 				out.close();
+
 			}
 			else{
 				out.write("<script type='text/javascript'>");
-				out.write(" alert('회원가입승인에 실패했습니다.'); ");
+				out.write(" alert('회원가입거절에 실패했습니다.'); ");
 				out.write("</script>");
 				out.flush();
 				out.close();
 			}
-			
 		}
 	}
 
