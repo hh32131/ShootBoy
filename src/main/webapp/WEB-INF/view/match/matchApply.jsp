@@ -43,12 +43,16 @@
 			<td>토</td>
 		</tr>
 		<tr>
+		<c:set var="year" value="${nowYearAndMonthyear.year}"></c:set>
+		<c:forEach var="year" begin="1" end="${year}" step="1">
+				<td>&nbsp;</td>
+		</c:forEach>
 		<c:set var="day" value="${nowYearAndMonth.day-1}"></c:set>
 		<c:forEach var="date" begin="1" end="${day}" step="1">
 			<td>&nbsp;</td>
 		</c:forEach>
 		
-		<c:forEach var="date" begin="1" end="${maxDate }" step="1">
+		<c:forEach var="date" begin="1" end="${maxDate}" step="1">
 			<c:set var="day" value="${day+1}"></c:set>
 			
 				<td>${date}</td>
