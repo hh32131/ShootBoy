@@ -801,4 +801,14 @@
 		<servlet-name>ViewAdminArticleDetailPageServlet</servlet-name>
 		<url-pattern>/adminArticleDetail</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>DoWriteAdminArticleServlet</display-name>
+		<servlet-name>DoWriteAdminArticleServlet</servlet-name>
+		<servlet-class>net.Y5M2.admin.web.DoWriteAdminArticleServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DoWriteAdminArticleServlet</servlet-name>
+		<url-pattern>/doWriteAdminArticle</url-pattern>
+	</servlet-mapping>
 </web-app>
