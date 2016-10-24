@@ -65,14 +65,10 @@
 
 							movePage(0);
 						});
-<<<<<<< HEAD
-=======
 
 				$("#writeBtn").click(function() {
 					location.href = "/ShootBoy/adminArticleWrite";
 				})
-
->>>>>>> 457eec6b8795cee0458506ae94413aca2eaeb760
 			});
 </script>
 <jsp:include page="/WEB-INF/view/commons/adminHeader.jsp" />
@@ -82,7 +78,7 @@
 
 	<div class="listAll">
 		<c:set var="list" value="boards" />
-		<p class="textAll">전체 목록 | 총 경기수 ${fn:length(list)}개</p>
+		<p class="textAll">전체 목록 | 총 경기수 ${count}개</p>
 	</div>
 
 	<div class="search-tool">
@@ -95,14 +91,10 @@
 			</select> <input type="text" class="searchKeyword" name="searchKeyword"
 				id="searchKeyword" value="${searchBoard.searchKeyword}" /> <input
 				type="button" id="searchBtn" value="검색" />
-<<<<<<< HEAD
-
-=======
 			<div class="initBtn">
 				<input type="button" id="initBtn" value="초기화"
 					onclick="location='/ShootBoy/adminList/init'" />
 			</div>
->>>>>>> 457eec6b8795cee0458506ae94413aca2eaeb760
 			<div class="clear"></div>
 		</form>
 	</div>
@@ -144,11 +136,12 @@
 							</td>
 							<c:set var="number" value="${fn:split(boards.boardId,'-')[2]}" />
 							<fmt:parseNumber var="number" type="number" value="${number}" />
-							<td class="td_boardId"><input type="hidden"
-								value="${boards.boardId }"> <span> <a
-									href="javascript:void(0)" class="boardCode"
-									data-boardid="${boards.boardId }"> ${number} </a>
-							</span></td>
+							<td class="td_boardId">
+								<input type="hidden" value="${boards.boardId }"> 
+								<span> 
+									<a href="javascript:void(0)" class="boardCode" data-boardid="${boards.boardId }"> ${number} </a>
+								</span>
+							</td>
 							<td class="td_boardSubject">${boards.boardSubject}
 								[${boards.replayHitCount}]</td>
 							<td class="td_userName">${boards.userVO.userName }</td>
@@ -163,20 +156,18 @@
 		</table>
 		<div style="padding-top: 5px;">
 			<form id="pagingForm" name="pagingForm">
-				${paging} <input type="hidden" class="searchType" name="searchType"
-					value="${ searchBoard.searchType }" /> <input type="hidden"
-					class="searchKeyword" name="searchKeyword"
-					value="${searchBoard.searchKeyword}" />
+				${paging} 
+				<input type="hidden" class="searchType" name="searchType" value="${ searchBoard.searchType }" /> 
+				<input type="hidden" class="searchKeyword" name="searchKeyword" value="${searchBoard.searchKeyword}" />
 			</form>
 		</div>
 		<div class="initBtn">
-			<input type="button" id="initBtn" value="전체 보기"
-				onclick="location='/ShootBoy/adminList/init'" />
+			<input type="button" id="initBtn" value="전체 보기"  onclick="location='/ShootBoy/adminList/init'" />
 		</div>
 		<div class="functionBtn">
-			<input type="button" id="writeBtn" value="등 록" /> <input
-				type="button" id="modifyBtn" value="선택 수정" /> <input type="button"
-				id="deleteBtn" value="선택 삭제" />
+			<input type="button" id="writeBtn" value="등 록" /> 
+			<input type="button" id="modifyBtn" value="선택 수정" /> 
+			<input type="button" id="deleteBtn" value="선택 삭제" />
 		</div>
 	</div>
 </div>

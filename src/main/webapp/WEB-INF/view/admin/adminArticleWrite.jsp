@@ -22,12 +22,10 @@
 				"method": "post",
 				"action": "/ShootBoy/doWriteAdminArticle"
 			}).submit();
+		});
 			
 		$("#backBtn").click(function() {
-				
-			location.href = "/ShootBoy/adminArticle";
-			
-			});
+			location.href="/ShootBoy/adminArticle";
 		});
 	});
 </script>

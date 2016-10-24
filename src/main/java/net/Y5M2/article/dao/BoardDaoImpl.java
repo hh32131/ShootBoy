@@ -482,4 +482,28 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 		});
 	}
 
+	@Override
+	public int getCountOfBoards(String boardId) {
+		return insert(new QueryAndResult() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				
+				StringBuffer query = new StringBuffer();
+				query.append(" SELECT	COUNT(1) CNT ");
+				query.append(" FROM		BOARD ");
+
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+			
+				return pstmt;
+			}
+			
+			@Override
+			public Object makeObject(ResultSet rs) throws SQLException {
+				rs.next();
+				return rs.getInt("CNT");
+			}
+		});
+	}
+
 }
