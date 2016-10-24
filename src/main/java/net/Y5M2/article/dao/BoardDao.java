@@ -26,6 +26,6 @@ public interface BoardDao {
 	
 	public List<BoardVO> getAllBoard();
 
-	public int getCountOfBoards(String boardId);
+	public int getCountOfBoards();
 
 }

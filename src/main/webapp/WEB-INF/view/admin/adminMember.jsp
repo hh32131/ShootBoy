@@ -63,8 +63,7 @@
 		</div>
 		
 		<div class="listAll">
-			<c:set var="list" value="users"/>
-			<p class="textAll">전체 목록 | 총 회원수 ${fn:length(list)}개</p>
+			<p class="textAll">전체 목록 | 총 회원수 개</p>
 		</div>
 
 	<div class="search-tool">
@@ -144,8 +143,8 @@
 			</div>
 		<div class="functionBtn">
 			<input type="button" id="writeBtn" value="등 록"  />
-			<input type="button" id="modifyBtn" value="선택 수정" onclick="location='#'" /> 
-			<input type="button" id="deleteBtn" value="선택 삭제" onclick="location='#'" />
+			<input type="button" id="modifyBtn" value="선택 수정" /> 
+			<input type="button" id="deleteBtn" value="선택 삭제" />
 		</div>
 	</div>
 </div>

@@ -26,7 +26,7 @@ public interface AdminBiz {
   
   public int getCountOfUsers(String userId);
   
-  public int getCountOfBoards(String boardId);
+  public int getCountOfBoards();
   
   public BoardVO getBoardOne(String boardId);
 }

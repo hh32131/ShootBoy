@@ -77,8 +77,7 @@
 	<div class="page-title">게시판 관리</div>
 
 	<div class="listAll">
-		<c:set var="list" value="boards" />
-		<p class="textAll">전체 목록 | 총 경기수 ${count}개</p>
+		<p class="textAll">전체 목록 | 총 게시물 ${count}개</p>
 	</div>
 
 	<div class="search-tool">

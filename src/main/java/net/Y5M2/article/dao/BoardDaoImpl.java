@@ -483,7 +483,7 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 	}
 
 	@Override
-	public int getCountOfBoards(String boardId) {
+	public int getCountOfBoards() {
 		return insert(new QueryAndResult() {
 			
 			@Override
@@ -492,9 +492,9 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				StringBuffer query = new StringBuffer();
 				query.append(" SELECT	COUNT(1) CNT ");
 				query.append(" FROM		BOARD ");
-
+				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
-			
+				
 				return pstmt;
 			}
 			

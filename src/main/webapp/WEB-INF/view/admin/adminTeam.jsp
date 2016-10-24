@@ -58,7 +58,6 @@
 		</div>
 
 		<div class="listAll">
-			<c:set var="list" value="teams"/>
 			<p class="textAll">전체 목록 | 총 팀 ${count}개</p>
 		</div>
 		
