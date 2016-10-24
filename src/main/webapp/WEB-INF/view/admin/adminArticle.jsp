@@ -65,14 +65,11 @@
 
 							movePage(0);
 						});
-<<<<<<< HEAD
 
 				$("#writeBtn").click(function() {
 					location.href = "/ShootBoy/adminArticleWrite";
 				})
 
-=======
->>>>>>> dbc75181ac04dc7a158637078827eb3dd908b36d
 			});
 </script>
 <jsp:include page="/WEB-INF/view/commons/adminHeader.jsp" />
@@ -82,11 +79,7 @@
 
 	<div class="listAll">
 		<c:set var="list" value="boards" />
-<<<<<<< HEAD
 		<p class="textAll">전체 목록 | 총 경기수 ${fn:length(list)}개</p>
-=======
-		<p class="textAll">전체 목록 | 총 경기수 ${count}개</p>
->>>>>>> dbc75181ac04dc7a158637078827eb3dd908b36d
 	</div>
 
 	<div class="search-tool">
@@ -99,14 +92,11 @@
 			</select> <input type="text" class="searchKeyword" name="searchKeyword"
 				id="searchKeyword" value="${searchBoard.searchKeyword}" /> <input
 				type="button" id="searchBtn" value="검색" />
-<<<<<<< HEAD
 			<div class="initBtn">
 				<input type="button" id="initBtn" value="초기화"
 					onclick="location='/ShootBoy/adminList/init'" />
 			</div>
-=======
 
->>>>>>> dbc75181ac04dc7a158637078827eb3dd908b36d
 			<div class="clear"></div>
 		</form>
 	</div>

@@ -42,12 +42,18 @@
 			<td>금</td>
 			<td>토</td>
 		</tr>
+		
+		<c:set var="month" value="${nowYearAndMonth.month}"></c:set>
+		<c:forEach var="month" begin="1" end="${month}" step="1">
+				<button ></button>
+		</c:forEach>
+		
 		<tr>
-		<c:set var="year" value="${nowYearAndMonthyear.year}"></c:set>
-		<c:forEach var="year" begin="1" end="${year}" step="1">
+		<c:set var="day" value="${nowYearAndMonth.day-1}"></c:set>
+		<c:forEach var="month" begin="1" end="${month}" step="1">
 				<td>&nbsp;</td>
 		</c:forEach>
-		<c:set var="day" value="${nowYearAndMonth.day-1}"></c:set>
+		
 		<c:forEach var="date" begin="1" end="${day}" step="1">
 			<td>&nbsp;</td>
 		</c:forEach>
