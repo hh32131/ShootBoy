@@ -1,15 +1,90 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="/ShootBoy/css/adminModify.css">
+
 <title>Insert title here</title>
+<script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
+<script type="text/javascript">
+	$().ready(function(){
+		
+		$("#cancelBtn").click(function() {
+			window.close();
+		});
+		
+		$("#locationId").on("change", function() {
+			$.post("/ShootBoy/checkLocation", {
+				"locationId" : $("#locationId").val()
+			}, function(data) {
+				$("#leafCategory option").remove();
+				$("#leafCategory").html(data);
+				
+				var locationId = "${userInfo.locationId}";
+				if ( $("#leafCategory > option[value='"+locationId+"'").text() != "" ) {
+					$("#leafCategory").val(locationId);
+				}
+			});
+		});
+		
+		$("#locationId").val("${userInfo.locationVO.parentLocationId}")
+		$("#locationId").change();
+		$("#position").val("${userInfo.position}")
+		$("#age").val("${userInfo.age}")
+		
+		$("#userName").keyup(function() {
+			if ($(this).val() == "") {
+				alert("이름을 입력해주세요");
+				return;
+			} 
+		});
+		
+		$("#password").keyup(function() {
+			if ($(this).val() == "") {
+				alert("비밀번호를 입력해주세요");
+				return;
+			} 
+		});
+		
+		$("#phoneNumber").keyup(function() {
+			if ($(this).val() == "") {
+				alert("전화번호를 입력해주세요");
+				return;
+			} 
+		});
+		
+		$("#modifyBtn").click(function(){
+			$("#userModifyForm").attr({
+				"method": "post",
+				"action": "/ShootBoy/doAdminMemberModify"
+			}).submit();
+		});
+	});
+
+</script>
 </head>
 <body>
-
 	<div id="userModifyWrapper">
-		<div id="userModifyHeader"><h2>회원정보 수정</h2></div>
+		<div class="modify-header">
+			<div class="modify-top">
+				<div class="modify-admin-logo">
+					<a href="/ShootBoy/admin" class="logo-text">ADMINISTRATOR</a>
+				</div>
+				
+				<div class="modify-shootboy-main">
+					<a href="/ShootBoy/main" class="main-text"> ShootBoy </a> 
+				</div>
+			</div>
+			
+			<div class="bottom">
+				<p class="modify-title">회원 수정</p> 
+			</div>
+		</div>
+		
+		
 		<form id="userModifyForm" name="userModifyForm">
 			<input type="hidden" id="email" name="email" value="${userInfo.email}">
 			이름 <input type="text" id="userName" name="userName" value="${userInfo.userName}" style="font-size: 15px;"> <br /><br/>
@@ -46,11 +121,9 @@
 			상세 지역 <select name="leafCategory" id="leafCategory" style="font-size: 15px;">
 					</select><br/><br/>
 			<div id="btn">
-				<input type="button" id="modifyBtn" value="수정"> 
-				<input type="button" id="cancelBtn" value="취소" onclick="location.href='/ShootBoy/detailUserInfo'" >
+				<input type="button" id="modifyBtn" value="수 정"> 
+				<input type="button" id="cancelBtn" value="취 소">
 			</div>
 		</form>
 	</div>
-
-</body>
-</html>
+<jsp:include page="/WEB-INF/view/commons/adminFooter.jsp" />

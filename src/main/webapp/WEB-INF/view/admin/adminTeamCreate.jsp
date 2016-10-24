@@ -1,18 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="/ShootBoy/css/layout.css">
-<link rel="stylesheet" type="text/css" href="/ShootBoy/css/page.css">
+<title>Administrator</title>
+<link rel="stylesheet" type="text/css" href="/ShootBoy/css/adminTeamCreate.css">
 
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
-
+	
 	$(document).ready(function() {
 		
 		$("#locationId").change(function(){
@@ -32,11 +31,11 @@
 			$.post("/ShootBoy/doCheckTeamName", 
 					{ "teamName" : $("#teamName").val() }, function(data){
 				if(data=="false") {
-					$("#teamNameCheck").html("사용 가능한 팀 이름입니다.")
+					alert('사용 가능');
 					$("#teamCreateBtn").slideDown();
 				}
 				else {
-					$("#teamNameCheck").html("중복된 팀 이름입니다.")
+					alert('사용 불가');
 					$("#teamCreateBtn").hide();
 				}
 			});
@@ -90,50 +89,58 @@
 	function closeWin() {
 		close();
 	}
-	
 </script>
 </head>
 <body>
-	<div id="createTeamWrapper" style= "margin: 0 auto; width: 600px">
-		<div class="createTeamText" style="color: #518cf0;">
-		<h1>CREATE TEAM</h1></div>
+	<div class="teamCreate-header">
+		<div class="teamCreate-top">
+			<div class="teamCreate-admin-logo">
+				<a href="/ShootBoy/admin" class="logo-text">ADMINISTRATOR</a>
+			</div>
+			<div class="teamCreate-shootboy-main">
+				<a href="/ShootBoy/main" class="main-text"> ShootBoy </a> 
+			</div>
+		</div>
+		
+		<div class="bottom">
+			<p class="teamCreate-title">팀 생성</p> 
+		</div>
+	</div>
+	<div id="createTeamWrapper" >
 		<form id="craeteTeamForm" name="createTeamForm"	enctype="multipart/form-data" >
 			<div>
-				<div class="inline-block" style="border-radius: 8px;">
-					<input type="text"
-						style=" width: 255px; height: 25px; border-radius: 8px; margin-bottom: 20px;"
-						id="teamName" name="teamName" placeholder="팀명" />
-					<div id="teamNameCheck">
+				<div class="team-name" >
+					<input type="text" id="teamName" name="teamName" placeholder="팀명" />
+					<div class="teamNameCheck">
 						<input type="button" id="checkTeamName" name="checkTeamName" value="중복체크" />
 					</div>
 				</div>
-	
-				<div class="inline-block">
-					<input type="text"
-						style=" width: 75px; height: 30px; border-radius: 8px;"
-						id="teamCount" name="teamCount" placeholder="팀원 수" />
+				<div class="team-member">
+					<input type="text" id="teamCount" name="teamCount" placeholder="팀원 수" />
 				</div>
 			</div>
-		<select id="locationId" name="locationId" style="border-radius: 5px">
-			<option>거주 지역을 선택하세요</option>
-			<c:forEach items="${location}" var="location">
-				<option value="${location.locationId}">${location.locationName}</option>
-			</c:forEach>
-	 	</select>
-		<select name="leafLocation" id="leafLocation" style="border-radius: 5px; margin-bottom: 20px;">
-			<option>상세 지역을 선택하세요 </option>
-		</select>
-			<div style="height: 8px;"></div>
-			<div>
-				<textarea id="teamInfo" name="teamInfo"
-					style="width: 350px; height: 250px; border-radius: 10px; margin-bottom:20px;
-					font-size: 15px;" placeholder="소개글을 입력하세요."></textarea>
+			
+			<div class="location">
+				<select id="locationId" name="locationId" >
+					<option>거주 지역을 선택하세요</option>
+					<c:forEach items="${location}" var="location">
+						<option value="${location.locationId}">${location.locationName}</option>
+					</c:forEach>
+			 	</select>
+				<select name="leafLocation" id="leafLocation" >
+					<option> 상세 지역을 선택하세요 </option>
+				</select>
 			</div>
-			<input type="file" id="file" name="file" style="width: 220px; back" /> 
-			<input type="button" id="teamCreateBtn" 
-					name="teamCreateBtn" value="팀 생성" 
-					style="margin-left: 60px; width: 60px; border-radius: 200px; "/>			  
+			<div class="filebox">
+  				<label for="fileBtn">파일 업로드</label>
+ 				 <input type="file" id="fileBtn" name="file" back /> 
+			</div>
+			<textarea id="teamInfo" name="teamInfo"	placeholder="소개글을 입력하세요."></textarea>
+			<div class="btn">
+				<input type="button" id="teamCreateBtn" name="teamCreateBtn" value="팀 생성"/>			  
+				<input type="button" id="backBtn" name="backBtn" value="취소"/>
+			</div>
 		</form>
 	</div>
-</body>
-</html>
+
+<jsp:include page="/WEB-INF/view/commons/adminFooter.jsp" />

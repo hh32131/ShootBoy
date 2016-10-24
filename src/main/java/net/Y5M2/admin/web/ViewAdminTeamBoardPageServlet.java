@@ -8,11 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ViewAdminWriteArticlePageServlet extends HttpServlet {
+public class ViewAdminTeamBoardPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public ViewAdminWriteArticlePageServlet() {
-
+    public ViewAdminTeamBoardPageServlet() {
+        super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -20,12 +20,13 @@ public class ViewAdminWriteArticlePageServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		String viewPath = "/WEB-INF/view/admin/adminArticleWrite.jsp";
+		
+		String viewPath = "/WEB-INF/view/admin/adminTeamBoard.jsp";
 		
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 		
 		rd.forward(request, response);
+		
 	}
 
 }

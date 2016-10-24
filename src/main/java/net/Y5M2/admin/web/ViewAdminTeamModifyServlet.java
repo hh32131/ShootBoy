@@ -44,7 +44,7 @@ public class ViewAdminTeamModifyServlet extends HttpServlet {
 		
 		List<LocationVO> location = locationBiz.getLocations(locationVO);
 		
-		String viewPath = "/WEB-INF/view/team/teamModify.jsp";
+		String viewPath = "/WEB-INF/view/admin/adminTeamModify.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 		
 		request.setAttribute("location", location);

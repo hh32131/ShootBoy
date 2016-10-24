@@ -641,10 +641,11 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 			}
 		});
 	}
+
 	@Override
 	public int UserTemaIdDelete(String teamId) {
 		return insert(new Query() {
-			
+
 			@Override
 			public PreparedStatement query(Connection conn) throws SQLException {
 				StringBuffer query = new StringBuffer();
@@ -652,18 +653,21 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 				query.append(" SET		TEAM_ID = ? ");
 				query.append(" 			, LV_ID = '2' ");
 				query.append(" WHERE	TEAM_ID = ? ");
+<<<<<<< HEAD
 				
 				
+=======
+
+>>>>>>> 09ad50b9ad28d50d4844e1de251d43e95057b0f5
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				pstmt.setString(1, null);
 				pstmt.setString(2, teamId);
-				
+
 				return pstmt;
 
-				}
+			}
 		});
 	}
-	
 
 	@Override
 	public int adminPageDeleteUser(String userId) {
@@ -723,8 +727,10 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 				query.append(" 			, TEAM T ");
 				query.append(" WHERE	U.LCTN_ID = L.LCTN_ID ");
 				query.append(" AND		U.TEAM_ID = T.TEAM_ID(+) ");
+				query.append(" AND		U.USR_ID = ? ");
 
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				pstmt.setString(1, userId);
 
 				return pstmt;
 			}
@@ -768,7 +774,31 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 					teamVO.setTeamInfo(rs.getString("TEAM_INFO"));
 					teamVO.setLocationId(rs.getString("LCTN_ID"));
 				}
-				return userId;
+				return userVO;
+			}
+		});
+	}
+
+	@Override
+	public int getCountOfUsers() {
+		return (int) selectOne(new QueryAndResult() {
+
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+
+				StringBuffer query = new StringBuffer();
+				query.append(" SELECT	COUNT(1) CNT ");
+				query.append(" FROM		USR ");
+
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+
+				return pstmt;
+			}
+
+			@Override
+			public Object makeObject(ResultSet rs) throws SQLException {
+				rs.next();
+				return rs.getInt("CNT");
 			}
 		});
 	}

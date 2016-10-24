@@ -41,7 +41,6 @@
 				}
 				isVisibleButton();
 			});
-
 		});
 
 		$("#userName").keyup(function() {
@@ -160,16 +159,27 @@
 		});
 
 		$("#signBtn").click(function() {
+<<<<<<< HEAD
 			
 			
+=======
+
+			if($("#checkbox").checked == false) {
+				alert("가입약관에 동의하세요!");
+			}
+>>>>>>> 09ad50b9ad28d50d4844e1de251d43e95057b0f5
 			$("#signUpForm").attr({
 				"method" : "post",
 				"action" : "/ShootBoy/doSignUp"
 			}).submit();
+<<<<<<< HEAD
 			
 		});
 
 
+=======
+		});
+>>>>>>> 09ad50b9ad28d50d4844e1de251d43e95057b0f5
 	});
 
 	function isVisibleButton() {
