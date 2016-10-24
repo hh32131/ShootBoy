@@ -37,7 +37,7 @@
 					if(data == "true"){
 						if ( confirm("정말로 팀을 해체 하시겠습니까?") ) {
 							alert("정상적으로 처리 되었습니다.");
-							location.href="/ShootBoy/doDeleteTeam?teamId=" + "${teamInfo.teamId}";
+							location.href="/ShootBoy/doDeleteTeam?teamId=${teamInfo.teamId}";
 						}
 					}
 					else{
@@ -57,7 +57,7 @@
 					if(data == "true"){
 						if ( confirm("정말로 팀을 탈퇴 하시겠습니까?") ) {
 							alert("정상적으로 처리 되었습니다.");
-							location.href="/ShootBoy/doDrop?teamId=" + "${teamInfo.teamId}";
+							location.href="/ShootBoy/doDrop?teamId=${teamInfo.teamId}";
 						}
 					}
 					else{
@@ -71,11 +71,7 @@
 		$("#joinAdmit").click(function(){
 			if(confirm("가입을 승인하시겠습니까?")){
 				$.post("/ShootBoy/doAdmitJoinId",{"joinIds": $(".joinApplyId:checked").val(), "teamId":"${userInfo.teamId}"},function(data){
-<<<<<<< HEAD
-					
-=======
 					$("#join").html(data);
->>>>>>> 63cfbb538ffc82ea49539dc54fcf70cf4a97200a
 				});
 			}
 			
@@ -122,13 +118,13 @@
 			</div>
 			<div id="teamModify" style=" float: right; margin-right:40px; width: 200px;">
 				<input type="button" id="modifyBtn" name="modifyBtn" value="수정" 
-						style="margin-top: 20px; width: 50px;" />
+						style="margin-top: 20px; width: 50px; display: inline-block;" />
 					<c:choose>
 						<c:when test="${userInfo.levelId eq '3'}">
-							<div> <input type="button" id="deleteTeam" name="deleteTeam" value="팀 해체" /> </div>
+							<div id="deleteTeam"> <input type="button" id="deleteTeam" name="deleteTeam" value="팀 해체" /> </div>
 						</c:when>
 						<c:otherwise>
-							<div> <input type="button" id="dropTeam" name="dropTeam" value="팀 탈퇴" /> </div>
+							<div id="dropTeam"> <input type="button" id="dropTeam" name="dropTeam" value="팀 탈퇴" /> </div>
 						</c:otherwise>
 					</c:choose>
 					

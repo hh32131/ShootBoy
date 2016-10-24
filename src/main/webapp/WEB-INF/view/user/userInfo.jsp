@@ -97,10 +97,14 @@
 				</c:if>
 				<div id="userInfoBtn">
 					<div style="display: inline-block;"><input type="button" id="modifyBtn" name="modifyBtn" value="수정" ></div>
-					<c:if test="${sessionScope._USER_INFO_.levelId eq '3'}">
+					<c:choose>
+						<c:when test="${sessionScope._USER_INFO_.levelId eq '3'}">
 					<div style="display: inline-block;"><input type="button" id="deleteUser" name="deleteUser" value="회원탈퇴" /></div>
-					</c:if>
+					</c:when>
+					<c:otherwise>
 					<div style="display: inline-block;"><input type="button" id="deleteUserTwo" name="deleteUserTwo" value="회원탈퇴" /></div>
+					</c:otherwise>
+					</c:choose>
 				</div>
 				<div id="inline"><input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요"></div>
 				<div id="inline"><input type="button" id="passwordConfirm" name="passwordConfirm" value="비밀번호 확인"></div>
