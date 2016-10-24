@@ -775,8 +775,8 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 	}
 
 	@Override
-	public int getCountOfUser(String userId) {
-		return insert(new QueryAndResult() {
+	public int getCountOfUsers() {
+return (int) selectOne(new QueryAndResult() {
 			
 			@Override
 			public PreparedStatement query(Connection conn) throws SQLException {

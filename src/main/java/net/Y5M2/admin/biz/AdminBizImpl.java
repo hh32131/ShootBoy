@@ -109,8 +109,8 @@ public class AdminBizImpl implements AdminBiz {
 	}
 
 	@Override
-	public int getCountOfUsers(String userId) {
-		return userDao.getCountOfUser(userId);
+	public int getCountOfUsers() {
+		return userDao.getCountOfUsers();
 	}
 
 	@Override

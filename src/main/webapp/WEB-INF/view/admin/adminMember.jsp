@@ -63,7 +63,7 @@
 		</div>
 		
 		<div class="listAll">
-			<p class="textAll">전체 목록 | 총 회원수 개</p>
+			<p class="textAll">전체 목록 | 총 회원수 ${count }개</p>
 		</div>
 
 	<div class="search-tool">

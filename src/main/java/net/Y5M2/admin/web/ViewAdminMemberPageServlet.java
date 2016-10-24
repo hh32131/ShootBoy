@@ -64,6 +64,7 @@ public class ViewAdminMemberPageServlet extends HttpServlet {
 
 		session.setAttribute(Session.SEARCH_USER_INFO, searchUser);
 		UserListVO users = userBiz.getAllUsers(searchUser);
+		int count = adminBiz.getCountOfUsers();
 
 		String viewPath = "/WEB-INF/view/admin/adminMember.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
@@ -75,6 +76,7 @@ public class ViewAdminMemberPageServlet extends HttpServlet {
 
 		request.setAttribute("paging", pager);
 		request.setAttribute("searchUser", searchUser);
+		request.setAttribute("count", count);
 		rd.forward(request, response);
 	}
 
