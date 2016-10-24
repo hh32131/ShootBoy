@@ -66,9 +66,9 @@
 			<div class="mplmFour"><a href="/ShootBoy/message">메시지함</a></div>
 		</div>
 	</div>
-	
-	<div class="myInfoText"><h1>내 정보</h1>
-		<hr class="myPageline">
+
+	<div class="myInfoText" style="width:700px;"><h1>내 정보</h1>
+		<hr class="myPageline" style="width: 680px; margin-right: 100px;">
 			<c:if test="${!empty userInfo.userId}">
 			<div id="userInfoWrapper">
 				<div class="name" style="font-size: 20px; margin-bottom: 15px;">이름 : ${userInfo.userName}</div>

@@ -160,18 +160,13 @@
 		});
 
 		$("#signBtn").click(function() {
-			if($("#checkboxOne").is(":checked") == false) {
-				alert("회원가입약관에 동의하세요!");
-			}
-			else if($("#checkboxTwo").is(":checked") == false) {
-				alert("개인정보취급방침에 동의하세요!");
-			}
-			else {
+			
+			
 			$("#signUpForm").attr({
 				"method" : "post",
 				"action" : "/ShootBoy/doSignUp"
 			}).submit();
-			}
+			
 		});
 
 

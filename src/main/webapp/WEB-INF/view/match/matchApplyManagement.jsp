@@ -16,8 +16,8 @@
 		</div>
 	</div>
 	
-	<div class="myInfoText"><h1>매치 신청 관리</h1>
-		<hr class="myPageline">
+	<div class="myInfoText" style="width:700px;"><h1>매치 신청 관리</h1>
+		<hr class="myPageline" style="width: 680px; margin-right: 100px;">
 	<div id="locationNavi"></div>
 	</div>
 </body>

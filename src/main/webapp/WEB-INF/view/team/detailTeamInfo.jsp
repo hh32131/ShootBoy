@@ -68,14 +68,9 @@
 			});
 		});
 		
-		
 		$("#joinAdmit").click(function(){
-			
-			
 			if(confirm("가입을 승인하시겠습니까?")){
 				$.post("/ShootBoy/doAdmitJoinId",{"joinIds": $(".joinApplyId:checked").val(), "teamId":"${userInfo.teamId}"},function(data){
-					
-					
 					
 				});
 			}
@@ -97,28 +92,29 @@
 			<div class="mplmFour"><a href="/ShootBoy/message">메시지함</a></div>
 		</div>
 	</div>
-	
-	<div class="myInfoText" style="display: inline-block; width: 800px;"><h1>팀 정보</h1>
-		<hr class="myPageline">
-		<div id="teamDetailwrapper" style="padding-top: 20px;">
-		<c:if test="${!empty userInfo.teamId}">
+
+	<div class="myInfoText" style="display: inline-block; width: 700px;"><h1>팀 정보</h1>
+		<hr class="myPageline" style="width: 680px; margin-right: 100px;">
+		<div id="teamDetailwrapper" style="padding-top: 20px; width: 500px; margin-left: 100px;">
+			<c:if test="${!empty userInfo.teamId}">
 			<div id="teamImg" style="display: inline-block;">
 				<img src="/ShootBoy/showImage?teamId=${userInfo.teamId}" 
-						style="width: 300px; height: 300px;
+						style="width: 200px; height: 200px;
 						border-radius: 150px;">
-			<div class="teamPhoto" style="font-size: 30px; width: 150px; margin-left: 80px; padding-top: 20px;">팀 앰블럼</div>	
+			<div class="teamPhoto" style="font-size: 30px; width: 150px; margin-left: 35px; padding-top: 20px;">팀 앰블럼</div>	
 			</div>
-			<div id="teamDetailContainer" style="display: inline-block; width: 400px; 
+			<div id="teamDetailContainer" style="display: inline-block; width: 200px; 
 					vertical-align: top; margin-left: 50px; padding-top: 20px;">
 				<div class="teamName" style="font-size: 20px; padding-bottom: 10px">팀명 : ${userInfo.teamVO.teamName}</div>
 				<div class="teamCount" style="font-size: 20px; padding-bottom: 10px">팀원수 : ${userInfo.teamVO.teamCount}</div>
 				<div class="teamPoints" style="font-size: 20px; padding-bottom: 10px">팀 포인트 : ${userInfo.teamVO.teamPoint}</div>
-				<div class="teamCreatedDate" style="font-size: 20px; padding-bottom: 10px">팀 생성일 : ${userInfo.teamVO.createDate}</div>
+				<div class="teamCreatedDate" style="font-size: 20px; padding-bottom: 10px">팀 생성일 : </br>${userInfo.teamVO.createDate}</div>
 				<div class="teamLocation" style="font-size: 20px; padding-bottom: 10px">팀 지역 : ${teamInfo.locationVO.parentLocationName} - ${teamInfo.locationVO.locationName}</div>
 				<div class="teamInfo" style="font-size: 20px; padding-bottom: 10px">팀 설명 : ${userInfo.teamVO.teamInfo}</div>
 			</div>
-			<div id="teamModify" style=" float: right; margin-right: 100px;"><input type="button" id="modifyBtn" name="modifyBtn" value="수정" 
-					style="margin-top: 20px; width: 200px;" >
+			<div id="teamModify" style=" float: right; margin-right:40px; width: 200px;">
+				<input type="button" id="modifyBtn" name="modifyBtn" value="수정" 
+						style="margin-top: 20px; width: 50px;" />
 					<c:choose>
 						<c:when test="${userInfo.levelId eq '3'}">
 							<div> <input type="button" id="deleteTeam" name="deleteTeam" value="팀 해체" /> </div>
@@ -129,7 +125,7 @@
 					</c:choose>
 					
 			<div><input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요">
-				<input type="button" id="passwordConfirm" name="passwordConfirm" value="비밀번호 확인" style="margin-left: 30px;">
+				<input type="button" id="passwordConfirm" name="passwordConfirm" value="비밀번호 확인" style="margin-right:40px;">
 			</div>
 			</div>
 		</c:if>

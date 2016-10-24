@@ -203,8 +203,9 @@
 						class="time">2010.12.24</span></li>
 					<li><a href="#">이것은 첫 번째 탭의 공지사항 목록 입니다.</a> <span
 						class="time">2010.12.24</span></li>
-					<li class="more"><a href="#">공지사항 더보기</a></li>
-				</ul></li>
+					<li class="more"><a href="/ShootBoy/list?categoryId=${categoryId = 11}">공지사항 더보기</a></li>
+				</ul>
+			</li>
 
 			<li><a href="#"><span>자유게시판</span></a>
 				<ul>
@@ -214,7 +215,7 @@
 						class="time">2010.12.24</span></li>
 					<li><a href="#">이것은 두 번째 탭의 자유게시판 목록 입니다.</a> <span
 						class="time">2010.12.24</span></li>
-					<li class="more"><a href="#">자유게시판 더보기</a></li>
+					<li class="more"><a href="/ShootBoy/list?categoryId=${categoryId = 13}">자유게시판 더보기</a></li>
 				</ul></li>
 
 			<li><a href="#"><span>국내축구소식</span></a>
@@ -225,8 +226,9 @@
 						class="time">2010.12.24</span></li>
 					<li><a href="#">이것은 세 번째 탭의 국내축구소식 목록 입니다.</a> <span
 						class="time">2010.12.24</span></li>
-					<li class="more"><a href="#">국내축구소식 더보기</a></li>
-				</ul></li>
+					<li class="more"><a href="/ShootBoy/list?categoryId=${categoryId = 14}">국내축구소식 더보기</a></li>
+				</ul>
+			</li>
 
 			<li><a href="#"><span>해외축구소식</span></a>
 				<ul>
@@ -236,8 +238,9 @@
 						class="time">2010.12.24</span></li>
 					<li><a href="#">이것은 네 번째 탭의 해외축구소식 목록 입니다.</a> <span
 						class="time">2010.12.24</span></li>
-					<li class="more"><a href="#">해외축구소식 더보기</a></li>
-				</ul></li>
+					<li class="more"><a href="/ShootBoy/list?categoryId=${categoryId = 15}">해외축구소식 더보기</a></li>
+				</ul>
+			</li>
 			</ul>	
 		</div>
 	</div>

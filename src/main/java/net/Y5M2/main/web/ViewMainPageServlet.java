@@ -24,6 +24,7 @@ public class ViewMainPageServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		String viewPath = "/WEB-INF/view/main.jsp";
+		
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 		rd.forward(request, response);
 	}

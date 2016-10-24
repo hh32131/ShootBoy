@@ -94,18 +94,16 @@
 }
 
 #signBtn {
-	margin-right: 50px;
-	background-color: #d7ba31;
+	background-color: #bc7412;
 	border-radius: 4px 4px 4px 4px;
 }
 
 #signBtn:HOVER, #cancelBtn:HOVER {
-	margin-right: 50px;
 	background-color: #eadb95;
 	border-radius: 4px 4px 4px 4px;	
 }
 
 #cancelBtn {
-	background-color: #d7ba31;
+	background-color: #bc7412;
 	border-radius: 4px 4px 4px 4px;
 }
