@@ -64,7 +64,7 @@
 		
 		<div class="listAll">
 			<c:set var="list" value="users"/>
-			<p class="textAll">전체 목록 | 총 회원수 ${fn:length(list)}개</p>
+			<p class="textAll">전체 목록 | 총 회원수 ${count}개</p>
 		</div>
 
 	<div class="search-tool">

@@ -64,12 +64,14 @@ public class ViewAdminMemberPageServlet extends HttpServlet {
 
 		session.setAttribute(Session.SEARCH_USER_INFO, searchUser);
 		UserListVO users = userBiz.getAllUsers(searchUser);
+		int count = adminBiz.getCountOfUsers();
 
 		String viewPath = "/WEB-INF/view/admin/adminMember.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 		request.setAttribute("users", users.getUsers());
 		request.setAttribute("pager", users.getPager());
-
+		request.setAttribute("count", count);
+		
 		PageExplorer pageExplorer = new ClassicPageExplorer(users.getPager());
 		String pager = pageExplorer.getPagingList("pageNo", "[@]", "<<", ">>", "pagingForm");
 

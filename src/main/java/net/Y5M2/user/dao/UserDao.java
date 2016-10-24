@@ -34,4 +34,5 @@ public interface UserDao {
 
 	public UserVO getUserOne(String userId);
 	
+	public int getCountOfUsers();
 }
