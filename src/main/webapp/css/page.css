@@ -208,3 +208,39 @@
 #deleteTeamBtn:HOVER {
 	background-color: red;
 }
+
+#joinContainer {
+	width: 680px;
+	margin-left: 280px;
+}
+
+.joinRightBtn {
+	float: right;
+	vertical-align: top;
+	display: inline-block;
+}
+
+#joinAdmit{
+	color:#fff;
+	background-color: #59acff;
+}
+
+#joinAdmit:HOVER {
+	background-color: #1e8eff;
+}
+
+#joinRefuse {
+	color:#fff;
+	background-color: #ff8ec7;
+}
+
+#joinRefuse:HOVER {
+	background-color: #ff46a3;
+}
+
+#join {
+	font-size:13px;
+	width: 550px;
+	float: left;
+	display: inline-block;
+}

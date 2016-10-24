@@ -17,23 +17,6 @@
 <script type="text/javascript">
 $().ready(function(){
 	
-<<<<<<< HEAD
-	<div class="myInfoText" style="width:700px;"><h1>매치 신청</h1>
-		<hr class="myPageline" style="width: 680px; margin-right: 100px;">
-	<div id="locationNavi">
-		<ul>
-		  <li><a class="active" href="#">전체</a></li>
-		  <li><a href="#">서울</a></li>
-		  <li><a href="#">경기</a></li>
-		  <li><a href="#">강원</a></li>
-		  <li><a href="#">충청</a></li>
-		  <li><a href="#">전라</a></li>
-		  <li><a href="#">경상</a></li>
-		  <li><a href="#">제주</a></li>
-		</ul>
-	</div>
-	</div>
-=======
 	$("#locationId").change(function() {
 		$.post("/ShootBoy/checkLocation", {
 			"locationId" : $("#locationId").val()
@@ -42,8 +25,7 @@ $().ready(function(){
 			$("#leafCategory").html(data);
 		});
 	});
->>>>>>> 75c35b8b0fe6d3b41537782094fba2607809d8e7
-	
+
 	$("#matchBtn").click(function(){
 		$("#matchForm").attr({
 			"method":"post",

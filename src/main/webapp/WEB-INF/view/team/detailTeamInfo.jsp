@@ -38,10 +38,6 @@
 						if ( confirm("정말로 팀을 해체 하시겠습니까?") ) {
 							location.href="/ShootBoy/doDeleteTeam?teamId=${teamInfo.teamId}";
 							alert("정상적으로 처리 되었습니다.");
-<<<<<<< HEAD
-							location.href="/ShootBoy/doDeleteTeam?teamId=${teamInfo.teamId}";
-=======
->>>>>>> 75c35b8b0fe6d3b41537782094fba2607809d8e7
 						}
 					}
 					else{
@@ -97,7 +93,6 @@
 			<div class="mplmOne"><a href="/ShootBoy/userInfo">내 정보</a></div>
 			<div class="mplmTwo"><img src="/ShootBoy/img/화살표.jpg" class="arrow"><a href="/ShootBoy/detailTeamInfo">팀 정보</a></div>
 			<div class="mplmThree"><a href="/ShootBoy/teamMatchInfo">팀 매치 정보</a></div>
-			<div class="mplmFour"><a href="/ShootBoy/message">메시지함</a></div>
 		</div>
 	</div>
 
@@ -108,7 +103,7 @@
 			<div id="teamImg" style="display: inline-block;">
 				<img src="/ShootBoy/showImage?teamId=${userInfo.teamId}" 
 						style="width: 200px; height: 200px;
-						border-radius: 150px;">
+						border-radius: 150px; margin-top: 10px;">
 			<div class="teamPhoto" style="font-size: 30px; width: 150px; margin-left: 35px; padding-top: 20px;">팀 앰블럼</div>	
 			</div>
 			<div id="teamDetailContainer" style="display: inline-block; width: 200px; 
@@ -137,27 +132,35 @@
 			</div>
 			</div>
 		</c:if>
-		<c:if test="${sessionScope._USER_INFO_.levelId eq 3 and !empty joins}">
-		<input type="button" id="joinAdmit" name="joinAdmit" value="승인" >
-		<input type="button" id="joinRefuse" name="joinRefuse" value="거절" >
-		<div id="join"></div>
-			<c:forEach items="${joins}" var="join" >
-			<tr>
-				<td><input type="checkbox" class="joinApplyId" name="joinApplyId" value="${join.userVO.userId}" ></td>
-				<td>${join.getUserVO().userName}</td>
-				<td>${join.getUserVO().email}</td>
-				<td>${join.getUserVO().phoneNumber}</td>
-				<td>${join.getUserVO().age}</td>
-				<td>${join.getUserVO().position}</td>
-				<td>${join.getUserVO().getLocationVO().locationName}</td>
-			</tr>
-			</c:forEach>
-		</c:if>
+		</div>
 		<c:if test="${empty userInfo.teamId}">
 		<p style="font-size: 20px; color: red;">팀에 가입하지 않았습니다!</p>
 		</c:if>
-		</div>
-</div>
+	</div>
+	
+		<c:if test="${sessionScope._USER_INFO_.levelId eq 3 and !empty joins}">
+			<div id="joinContainer">
+			<hr/>
+				<p style="font-size: 20px; margin-bottom: 20px; color: #000;">팀원</p>
+				<c:forEach items="${joins}" var="join" >
+					<div id="join">
+						<input type="checkbox" class="joinApplyId" name="joinApplyId" value="${join.userVO.userId}" >
+						이름 : ${join.getUserVO().userName} |
+						아이디 : ${join.getUserVO().email} |
+						전화번호 : ${join.getUserVO().phoneNumber} |
+						나이 : ${join.getUserVO().age} |
+						포지션 : ${join.getUserVO().position} |
+						지역 : ${join.getUserVO().getLocationVO ().locationName}
+					</div>
+					<div class="joinRightBtn">
+						<input type="button" id="joinAdmit" name="joinAdmit" value="승인" >
+						<input type="button" id="joinRefuse" name="joinRefuse" value="거절" >
+					</div>
+					<div class="clear"></div>
+				</c:forEach>
+			</div>
+		</c:if>
+
 	<div class="clear">
 	<div style="padding-top: 60px;">
 		<jsp:include page="/WEB-INF/view/commons/footer.jsp"></jsp:include>

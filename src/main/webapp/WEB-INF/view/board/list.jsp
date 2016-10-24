@@ -128,12 +128,7 @@
 								<c:set var="number" value="${fn:split(boards.boardId,'-')[2]}" />
 								<fmt:parseNumber var="number" type="number" value="${number}" />
 								<th class="boardContent">${number}</th>
-								<th class="boardContent"><a
-<<<<<<< HEAD
-									href="/ShootBoy/board/detail?boardId=${boards.boardId}&&categoryId=${categoryId}">
-=======
-									href="/ShootBoy/board/detail?boardId=${boards.boardId}&& categoryId=${categoryId}">
->>>>>>> 75c35b8b0fe6d3b41537782094fba2607809d8e7
+								<th class="boardContent"><a href="/ShootBoy/board/detail?boardId=${boards.boardId}&&categoryId=${categoryId}">
 										${boards.boardSubject} [${boards.replayHitCount}] </a></th>
 								<th class="boardContent">${boards.userVO.userName}</th>
 								<th class="boardContent">${boards.createDate}</th>

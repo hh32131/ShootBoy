@@ -264,12 +264,8 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 			public Object makeObject(ResultSet rs) throws SQLException {
 				
 				BoardVO board = null;
-<<<<<<< HEAD
 				UserVO user = null;
 				if( rs.next() ) {
-=======
-				if(rs.next()) {
->>>>>>> 75c35b8b0fe6d3b41537782094fba2607809d8e7
 
 					board = new BoardVO();
 					board.setBoardId(rs.getString("BOARD_ID"));
