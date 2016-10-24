@@ -378,7 +378,7 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 	}
 
 	@Override
-	public int UserTemaIdUpdate(TeamVO teamVO, UserVO userInfo) {
+	public int UserTemaIdUpdate(String teamId, String userId) {
 
 		return insert(new Query() {
 
@@ -387,12 +387,12 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 				StringBuffer query = new StringBuffer();
 				query.append(" UPDATE	USR ");
 				query.append(" SET		TEAM_ID = ? ");
+				query.append(" 			, LV_ID = '3' ");
 				query.append(" WHERE	USR_ID = ? ");
 
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
-				pstmt.setString(1, teamVO.getTeamId());
-				pstmt.setString(2, userInfo.getUserId());
-
+				pstmt.setString(1, teamId);
+				pstmt.setString(2, userId);
 				return pstmt;
 
 			}
@@ -641,6 +641,28 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 			}
 		});
 	}
+	@Override
+	public int UserTemaIdDelete(String teamId) {
+		return insert(new Query() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				StringBuffer query = new StringBuffer();
+				query.append(" UPDATE	USR ");
+				query.append(" SET		TEAM_ID = ? ");
+				query.append(" 			, LV_ID = '2' ");
+				query.append(" WHERE	TEAM_ID = ? ");
+				
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				pstmt.setString(1, null);
+				pstmt.setString(2, teamId);
+				
+				return pstmt;
+
+				}
+		});
+	}
+	
 
 	@Override
 	public int adminPageDeleteUser(String userId) {
@@ -753,21 +775,37 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public int getCountOfUsers() {
 		return (int) selectOne(new QueryAndResult() {
 
 			@Override
 			public PreparedStatement query(Connection conn) throws SQLException {
 
+=======
+	public int getCountOfUser(String userId) {
+		return insert(new QueryAndResult() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				
+>>>>>>> e73764ea7a70014e2107664083f2144c4fdf9228
 				StringBuffer query = new StringBuffer();
 				query.append(" SELECT	COUNT(1) CNT ");
 				query.append(" FROM		USR ");
 
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+<<<<<<< HEAD
 
 				return pstmt;
 			}
 
+=======
+			
+				return pstmt;
+			}
+			
+>>>>>>> e73764ea7a70014e2107664083f2144c4fdf9228
 			@Override
 			public Object makeObject(ResultSet rs) throws SQLException {
 				rs.next();

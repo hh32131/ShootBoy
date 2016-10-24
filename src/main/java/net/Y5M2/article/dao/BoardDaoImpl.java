@@ -470,20 +470,36 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public int getCountOfBoards() {
 		return (int) selectOne(new QueryAndResult() {
 
 			@Override
 			public PreparedStatement query(Connection conn) throws SQLException {
+=======
+	public int getCountOfBoards(String boardId) {
+		return insert(new QueryAndResult() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				
+>>>>>>> e73764ea7a70014e2107664083f2144c4fdf9228
 				StringBuffer query = new StringBuffer();
 				query.append(" SELECT	COUNT(1) CNT ");
 				query.append(" FROM		BOARD ");
 
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+<<<<<<< HEAD
 
 				return pstmt;
 			}
 
+=======
+			
+				return pstmt;
+			}
+			
+>>>>>>> e73764ea7a70014e2107664083f2144c4fdf9228
 			@Override
 			public Object makeObject(ResultSet rs) throws SQLException {
 				rs.next();
@@ -491,4 +507,8 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 			}
 		});
 	}
+<<<<<<< HEAD
+=======
+
+>>>>>>> e73764ea7a70014e2107664083f2144c4fdf9228
 }

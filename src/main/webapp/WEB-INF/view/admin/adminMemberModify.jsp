@@ -82,7 +82,7 @@
 			<div class="bottom">
 				<p class="modify-title">회원 수정</p> 
 			</div>
-	</div>
+		</div>
 		
 		
 		<form id="userModifyForm" name="userModifyForm">

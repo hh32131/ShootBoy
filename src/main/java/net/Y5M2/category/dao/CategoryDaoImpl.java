@@ -58,7 +58,12 @@ public class CategoryDaoImpl extends DaoSupport implements CategoryDao {
 	public boolean isCategoryLeafNode(String categoryId) {
 		return getCategoryList(categoryId).size() == 0;
 	}
+<<<<<<< HEAD
 	
+=======
+
+	@Override
+>>>>>>> e73764ea7a70014e2107664083f2144c4fdf9228
 	public List<CategoryVO> getAllCategoryList() {
 		return selectList(new QueryAndResult() {
 			

@@ -9,6 +9,8 @@ public interface CategoryDao {
 	public List<CategoryVO> getCategoryList(String parentCategoryId);
 
 	public boolean isCategoryLeafNode(String categoryId);
+	
+	public List<CategoryVO> getAllCategoryList();
 
 	public List<CategoryVO> getAllCategoryList();
 

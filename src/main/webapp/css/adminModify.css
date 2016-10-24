@@ -57,18 +57,26 @@
 
 #age {
 	margin-left: 40px;
+	width: 100px;
+	vertical-align: middle;
 }
 
 #position {
 	margin-left: 24px;
+	width: 140px;
+	vertical-align: middle;
 }
 
 #locationId {
 	margin-left: 3px;
+	width: 120px;
+	vertical-align: middle;
 }
 
 #leafCategory{
 	margin-left: 3px;
+	width: 120px;
+	vertical-align: middle;
 }
 
 #modifyBtn {

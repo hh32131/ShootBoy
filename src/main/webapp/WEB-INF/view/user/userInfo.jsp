@@ -15,20 +15,42 @@
 			$("#passwordConfirm").show();
 			
 			$("#passwordConfirm").click(function(){
-				if($("#password").val()==${userInfo.password}) {
-					window.open("/ShootBoy/userModify","","width=600px,height=700px");
-				}
-				else{
-					$("div.warning").html("<p>비밀번호가 틀렸습니다.</p>")
-				}
+					
+				$.post("/ShootBoy/doCheckPassword", {"password" : $("#password").val()} ,function(data){
+					if(data == "true"){
+						window.open("/ShootBoy/userModify","","width=600px,height=700px")
+					}
+					else{
+						alert("비밀번호가 틀렸습니다.")
+					}
+				});
 			});
 			
 		});
+		
 		$("#deleteUser").click(function() {
-			if( confirm("정말로 탈퇴 하시겠습니까?") ) {
-				alert("정상적으로 처리 되었습니다.");
-				location.href="/ShootBoy/doDeleteUser?userId=${userInfo.userId}&&teamId=${userInfo.teamId}";
-			}
+			$("#password").show();
+			$("#passwordConfirm").show();
+			
+			$("#passwordConfirm").click(function(){
+					
+				$.post("/ShootBoy/doCheckPassword", {"password" : $("#password").val()} ,function(data){
+					if(data == "true"){
+						if( confirm("정말로 탈퇴 하시겠습니까?") ) {
+							alert("정상적으로 처리 되었습니다.");
+							location.href="/ShootBoy/doDeleteUser?userId=${userInfo.userId}&&teamId=${userInfo.teamId}";
+						}
+					}
+					else{
+						alert("비밀번호가 틀렸습니다.")
+					}
+				});
+			});
+			
+			
+			
+			
+			
 		});
 	});
 </script>
@@ -58,10 +80,12 @@
 				<c:if test="${!empty userInfo.teamId}">
 				<div class="team" style="font-size: 20px; margin-bottom: 15px;">팀 : ${userInfo.teamVO.teamName}</div>
 				</c:if>
-				<div><input type="button" id="modifyBtn" name="modifyBtn" value="수정" ></div>
+				<div id="userInfoBtn">
+					<div style="display: inline-block;"><input type="button" id="modifyBtn" name="modifyBtn" value="수정" ></div>
+					<div style="display: inline-block;"><input type="button" id="deleteUser" name="deleteUser" value="회원탈퇴" /></div>
+				</div>
 				<div id="inline"><input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요"></div>
 				<div id="inline"><input type="button" id="passwordConfirm" name="passwordConfirm" value="비밀번호 확인"></div>
-				<div><input type="button" id="deleteUser" name="deleteUser" value="회원탈퇴" /></div>
 				<div class="warning"></div>
 			</div>
 			</c:if>

@@ -702,4 +702,24 @@
     <servlet-name>ViewAdminArticleDetailPageServlet</servlet-name>
     <url-pattern>/adminArticleDetail</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewTeamCreatePageServlet</display-name>
+    <servlet-name>ViewTeamCreatePageServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.ViewTeamCreatePageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewTeamCreatePageServlet</servlet-name>
+    <url-pattern>/adminTeamCreate</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoCheckTeamName</display-name>
+    <servlet-name>DoCheckTeamName</servlet-name>
+    <servlet-class>net.Y5M2.team.web.ajax.DoCheckTeamName</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoCheckTeamName</servlet-name>
+    <url-pattern>/doCheckTeamName</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -141,7 +141,7 @@
 		</div>
 		<div class="initBtn">
 				<input type="button" id="initBtn" value="전체보기" onclick="location='/ShootBoy/adminUser/init'" />
-			</div>
+		</div>
 		<div class="functionBtn">
 			<input type="button" id="writeBtn" value="등 록"  />
 			<input type="button" id="modifyBtn" value="선택 수정" onclick="location='#'" /> 

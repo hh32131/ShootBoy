@@ -25,7 +25,11 @@ public class CategoryBizImpl implements CategoryBiz{
 	}
 
 	@Override
+<<<<<<< HEAD
 	public List<CategoryVO> getAllCategoryList() {
+=======
+	public List<CategoryVO> getAllCategoryList( ) {
+>>>>>>> e73764ea7a70014e2107664083f2144c4fdf9228
 		return categoryDao.getAllCategoryList();
 	}
 

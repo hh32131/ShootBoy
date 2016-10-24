@@ -47,6 +47,7 @@ public class ViewAdminArticlePageServlet extends HttpServlet {
 		int searchType = Param.getIntParam(request, "searchType");
 		String searchKeyword = Param.getStringParam(request, "searchKeyword");
 		String categoryId = Param.getStringParam(request, "categoryId","0");
+		String boardId = Param.getStringParam(request, "boardId");
 
 		SearchBoardVO searchBoard = null;
 
@@ -67,7 +68,11 @@ public class ViewAdminArticlePageServlet extends HttpServlet {
 		categoryVO.setCategoryId(categoryId);
 		session.setAttribute(Session.SEARCH_BOARD_INFO, searchBoard);
 		BoardListVO boards = boardBiz.getAllBoards(searchBoard, categoryVO);
+<<<<<<< HEAD
 		int count = adminBiz.getCountOfBoards();
+=======
+		int count = adminBiz.getCountOfBoards(boardId);
+>>>>>>> e73764ea7a70014e2107664083f2144c4fdf9228
 		
 		String viewPath = "/WEB-INF/view/admin/adminArticle.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
@@ -79,6 +84,7 @@ public class ViewAdminArticlePageServlet extends HttpServlet {
 		String pager = pageExplorer.getPagingList("pageNo", "[@]", "<<", ">>", "pagingForm");
 
 		request.setAttribute("categoryId", categoryId);
+		request.setAttribute("count", count);
 		request.setAttribute("paging", pager);
 		request.setAttribute("searchBoard", searchBoard);
 		rd.forward(request, response);

@@ -2,10 +2,17 @@
     pageEncoding="UTF-8"%>
 
 <jsp:include page="/WEB-INF/view/commons/header.jsp"></jsp:include>
-<link rel="stylesheet" type="text/css" href="/ShootBoy/css/page.css">
 
+<link rel="stylesheet" type="text/css" href="/ShootBoy/css/page.css">
+<link rel="stylesheet" type="text/css" href="/ShootBoy/css/match.css">
+
+<script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
+
+
+<script type='text/javascript'>
+
+</script>
 <body>
-	
 	<div id="myPageLeftMenu">
 		<div class="mplmTitle">My Page</div>
 		<div id="myPageLeftMenuTwo">
@@ -19,6 +26,5 @@
 	<div class="myInfoText"><h1>팀 매치 정보</h1>
 		<hr class="myPageline">
 	</div>
-	
 </body>
 </html>
