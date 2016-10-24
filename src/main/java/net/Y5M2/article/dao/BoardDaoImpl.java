@@ -381,6 +381,10 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				if (board.getFileName() != null) {
 					query.append(" , FILE_NM = ? ");
 				}
+				
+				if ( board.getCategoryId() != null ) {
+					query.append(" , CTGR_ID = ? ");
+				}
 
 				query.append(" WHERE	BOARD_ID = ? ");
 
@@ -398,6 +402,10 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 
 				if (board.getFileName() != null) {
 					pstmt.setString(index++, board.getFileName());
+				}
+				
+				if ( board.getCategoryId() != null ) {
+					pstmt.setString(index++, board.getCategoryId());
 				}
 
 				pstmt.setString(index++, board.getBoardId());

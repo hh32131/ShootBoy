@@ -20,25 +20,19 @@
 			window.open("/ShootBoy/adminArticleDetail?boardId=" + boardid, "", "width=500, height= 500");
 		});
 
-<<<<<<< HEAD
 		$("#searchType").change(function() {
 			alert($("#searchType option:selected").text());
 		});
-=======
-				$("#modifyBtn").click(
-						function() {
-							var select = $(".select-check:checked").val();
-							var checkBoard = $(".select-check:checked").length;
-							if (checkBoard == 1) {
-								window.open(
-										"/ShootBoy/adminArticleModify?boardId="
-												+ select, "",
-										"width=600, height= 600");
-							} else {
-								alert(" 수정할 게시물을 선택해 주세요");
-							}
-						});
->>>>>>> 3dab294c70abb7eb78e38f2bb5c9332c1d6e617b
+				
+		$("#modifyBtn").click(function() {
+			var select = $(".select-check:checked").val();
+			var checkBoard = $(".select-check:checked").length;
+			if (checkBoard == 1) {
+				window.open("/ShootBoy/adminArticleModify?boardId="+ select, "","width=600, height= 600");
+			} else {
+				alert(" 수정할 게시물을 선택해 주세요");
+			}
+		});
 
 		$("#deleteBtn").click(function() {
 			$.post("/ShootBoy/doAdminArticleDelete", $("#checkBoxForm").serialize(),function(data) {
@@ -67,17 +61,9 @@
 		});
 		
 		$("#writeBtn").click(function() {
-            location.href = "/ShootBoy/adminArticleWrite";
-        })
+			window.open("/ShootBoy/adminArticleWrite", "ADMINSIGNUP", "width=600, height= 600");
+		});
 	});
-
-<<<<<<< HEAD
-=======
-				$("#writeBtn").click(function() {
-					window.open("/ShootBoy/adminArticleWrite", "ADMINSIGNUP", "width=600, height= 600");
-				})
-			});
->>>>>>> 3dab294c70abb7eb78e38f2bb5c9332c1d6e617b
 </script>
 <jsp:include page="/WEB-INF/view/commons/adminHeader.jsp" />
 
@@ -141,14 +127,13 @@
 							</td>
 							<c:set var="number" value="${fn:split(boards.boardId,'-')[2]}" />
 							<fmt:parseNumber var="number" type="number" value="${number}" />
-							<td class="td_boardId">
-								<input type="hidden" value="${boards.boardId }"> 
+							<td class="td_boardId"> ${number}</td>
+							<td class="td_boardSubject">
+							<input type="hidden" value="${boards.boardId }"> 
 								<span> 
-									<a href="javascript:void(0)" class="boardCode" data-boardid="${boards.boardId }"> ${number} </a>
+									<a href="javascript:void(0)" class="boardCode" data-boardid="${boards.boardId }"> ${boards.boardSubject} [${boards.replayHitCount}] </a>
 								</span>
 							</td>
-							<td class="td_boardSubject">${boards.boardSubject}
-								[${boards.replayHitCount}]</td>
 							<td class="td_userName">${boards.userVO.userName }</td>
 							<td class="td_createDate">${boards.createDate}</td>
 							<td class="td_hitCount">${boards.hitCount}</td>
