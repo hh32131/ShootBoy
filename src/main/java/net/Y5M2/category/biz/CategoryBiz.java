@@ -22,6 +22,4 @@ public interface CategoryBiz {
 
 	public List<CategoryVO> getAllCategoryList();
 	
-	public List<CategoryVO> getAllCategoryList();
-	
 }

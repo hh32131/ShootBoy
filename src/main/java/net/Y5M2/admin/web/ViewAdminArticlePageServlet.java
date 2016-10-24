@@ -68,11 +68,7 @@ public class ViewAdminArticlePageServlet extends HttpServlet {
 		categoryVO.setCategoryId(categoryId);
 		session.setAttribute(Session.SEARCH_BOARD_INFO, searchBoard);
 		BoardListVO boards = boardBiz.getAllBoards(searchBoard, categoryVO);
-<<<<<<< HEAD
 		int count = adminBiz.getCountOfBoards();
-=======
-		int count = adminBiz.getCountOfBoards(boardId);
->>>>>>> e73764ea7a70014e2107664083f2144c4fdf9228
 		
 		String viewPath = "/WEB-INF/view/admin/adminArticle.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);

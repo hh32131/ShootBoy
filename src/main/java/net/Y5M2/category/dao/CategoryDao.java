@@ -12,6 +12,4 @@ public interface CategoryDao {
 	
 	public List<CategoryVO> getAllCategoryList();
 
-	public List<CategoryVO> getAllCategoryList();
-
 }

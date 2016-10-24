@@ -43,7 +43,6 @@
 			}
 		});
 
-<<<<<<< HEAD
 		$("#searchBtn").click(function() {
 			var searchType = $("#searchForm > .searchType").val();
 			var searchKeyword = $("#searchForm > .searchKeyword").val();
@@ -56,15 +55,7 @@
             location.href = "/ShootBoy/adminArticleWrite";
         })
 	});
-=======
-							movePage(0);
-						});
 
-				$("#writeBtn").click(function() {
-					location.href = "/ShootBoy/adminArticleWrite";
-				})
-			});
->>>>>>> e73764ea7a70014e2107664083f2144c4fdf9228
 </script>
 <jsp:include page="/WEB-INF/view/commons/adminHeader.jsp" />
 
@@ -73,11 +64,7 @@
 
 	<div class="listAll">
 		<c:set var="list" value="boards" />
-<<<<<<< HEAD
 		<p class="textAll">전체 목록 | 총 경기수 ${count}개</p>
-=======
-		<p class="textAll">전체 목록 | 총 게시물 ${fn:length(list)}개</p>
->>>>>>> e73764ea7a70014e2107664083f2144c4fdf9228
 	</div>
 
 	<div class="search-tool">
