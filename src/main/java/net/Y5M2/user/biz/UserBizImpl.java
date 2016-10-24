@@ -132,4 +132,11 @@ public class UserBizImpl implements UserBiz {
 		return userList;
 	}
 	
+	@Override
+	public boolean deleteUserTwo(String userId) {
+
+		return userDao.deleteUserTwo(userId)>0;
+	}
+	
+	
 }

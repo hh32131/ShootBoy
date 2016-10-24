@@ -773,4 +773,24 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 			}
 		});
 	}
+	@Override
+	public int deleteUserTwo(String userId) {
+
+		return insert(new Query() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				StringBuffer query = new StringBuffer();
+				query.append(" DELETE ");
+				query.append(" FROM		USR ");
+				query.append(" WHERE	USR_ID =? ");
+				
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				pstmt.setString(1, userId);
+				
+				return pstmt;
+			}
+		});
+	}
+	
 }
