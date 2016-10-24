@@ -228,6 +228,7 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				StringBuffer query = new StringBuffer();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 09ad50b9ad28d50d4844e1de251d43e95057b0f5
@@ -236,15 +237,31 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 =======
 >>>>>>> e1fec08353118a70614c18f93f23ae3824311cc5
 >>>>>>> dfa539019c4406e8296db3bbf8ff1c6ebfa3aa54
+=======
+
+=======
+>>>>>>> e1fec08353118a70614c18f93f23ae3824311cc5
+=======
+=======
+
+>>>>>>> 09ad50b9ad28d50d4844e1de251d43e95057b0f5
+>>>>>>> 3d6357742778b22b345a4554e5e367236f1290cf
+>>>>>>> 388b9faed6f5f8a56ab1111fa8e1335526337065
 				query.append(" SELECT	B.BOARD_ID ");
 				query.append(" 			, B.BOARD_SBJ ");
 				query.append(" 			, B.HIT_CNT ");
 				query.append(" 			, B.BOARD_CONT ");
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 				query.append(" 			, U.USR_NM ");
 =======
 >>>>>>> dfa539019c4406e8296db3bbf8ff1c6ebfa3aa54
+=======
+=======
+				query.append(" 			, U.USR_NM ");
+>>>>>>> 3d6357742778b22b345a4554e5e367236f1290cf
+>>>>>>> 388b9faed6f5f8a56ab1111fa8e1335526337065
 				query.append(" 			, B.USR_ID ");
 				query.append(" 			, B.CTGR_ID ");
 				query.append(" 			, B.FILE_NM ");
@@ -253,23 +270,42 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				query.append(" 			, B.CTGR_ID ");
 				query.append(" 			, B.FILE_NM ");
 <<<<<<< HEAD
+<<<<<<< HEAD
 				query.append(" 			, U.USR_NM ");
 >>>>>>> 09ad50b9ad28d50d4844e1de251d43e95057b0f5
 =======
 >>>>>>> e1fec08353118a70614c18f93f23ae3824311cc5
 >>>>>>> dfa539019c4406e8296db3bbf8ff1c6ebfa3aa54
+=======
+>>>>>>> e1fec08353118a70614c18f93f23ae3824311cc5
+=======
+				query.append(" 			, U.USR_NM ");
+>>>>>>> 09ad50b9ad28d50d4844e1de251d43e95057b0f5
+>>>>>>> 3d6357742778b22b345a4554e5e367236f1290cf
+>>>>>>> 388b9faed6f5f8a56ab1111fa8e1335526337065
 				query.append(" 			, TO_CHAR(B.CRT_DT, 'YYYY-MM-DD HH24:MI:SS') CRT_DT ");
 				query.append(" 			, TO_CHAR(B.LTST_MDFY_DT, 'YYYY-MM-DD HH24:MI:SS') LTST_MDFY_DT ");
 				query.append(" FROM		BOARD B ");
 				query.append(" 			, USR U ");
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+				query.append(" WHERE	B.USR_ID = U.USR_ID ");
+				query.append(" AND		BOARD_ID = ? ");
+=======
+				query.append(" WHERE	BOARD_ID = ? ");
+				query.append(" AND		B.USR_ID = U.USR_ID ");
+>>>>>>> e1fec08353118a70614c18f93f23ae3824311cc5
+=======
+>>>>>>> 388b9faed6f5f8a56ab1111fa8e1335526337065
 				query.append(" WHERE	BOARD_ID = ? ");
 				query.append(" AND		B.USR_ID = U.USR_ID ");
 =======
 				query.append(" WHERE	B.USR_ID = U.USR_ID ");
 				query.append(" AND		BOARD_ID = ? ");
 >>>>>>> 09ad50b9ad28d50d4844e1de251d43e95057b0f5
+<<<<<<< HEAD
 =======
 				query.append(" WHERE	B.USR_ID = U.USR_ID ");
 				query.append(" AND		BOARD_ID = ? ");
@@ -278,6 +314,9 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				query.append(" AND		B.USR_ID = U.USR_ID ");
 >>>>>>> e1fec08353118a70614c18f93f23ae3824311cc5
 >>>>>>> dfa539019c4406e8296db3bbf8ff1c6ebfa3aa54
+=======
+>>>>>>> 3d6357742778b22b345a4554e5e367236f1290cf
+>>>>>>> 388b9faed6f5f8a56ab1111fa8e1335526337065
 				
 
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
@@ -292,6 +331,7 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				BoardVO board = null;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 09ad50b9ad28d50d4844e1de251d43e95057b0f5
@@ -300,6 +340,16 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 =======
 >>>>>>> e1fec08353118a70614c18f93f23ae3824311cc5
 >>>>>>> dfa539019c4406e8296db3bbf8ff1c6ebfa3aa54
+=======
+
+=======
+>>>>>>> e1fec08353118a70614c18f93f23ae3824311cc5
+=======
+=======
+
+>>>>>>> 09ad50b9ad28d50d4844e1de251d43e95057b0f5
+>>>>>>> 3d6357742778b22b345a4554e5e367236f1290cf
+>>>>>>> 388b9faed6f5f8a56ab1111fa8e1335526337065
 				UserVO user = null;
 				if( rs.next() ) {
 
@@ -317,11 +367,21 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 					board.setModifyDate(rs.getString("LTST_MDFY_DT"));
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+=======
+					user = board.getUserVO();
+					user.setUserName(rs.getString("USR_NM"));
+>>>>>>> e1fec08353118a70614c18f93f23ae3824311cc5
+=======
+>>>>>>> 388b9faed6f5f8a56ab1111fa8e1335526337065
 					user = board.getUserVO();
 					user.setUserName(rs.getString("USR_NM"));
 =======
 
 >>>>>>> 09ad50b9ad28d50d4844e1de251d43e95057b0f5
+<<<<<<< HEAD
 =======
 
 =======
@@ -329,6 +389,9 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 					user.setUserName(rs.getString("USR_NM"));
 >>>>>>> e1fec08353118a70614c18f93f23ae3824311cc5
 >>>>>>> dfa539019c4406e8296db3bbf8ff1c6ebfa3aa54
+=======
+>>>>>>> 3d6357742778b22b345a4554e5e367236f1290cf
+>>>>>>> 388b9faed6f5f8a56ab1111fa8e1335526337065
 					
 					user = board.getUserVO();
 					user.setUserName(rs.getString("USR_NM"));

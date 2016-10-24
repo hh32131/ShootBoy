@@ -38,14 +38,23 @@ public interface UserDao {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+	public int getCountOfUsers();
+>>>>>>> 388b9faed6f5f8a56ab1111fa8e1335526337065
 =======
 	public int getCountOfUsers();
 =======
+<<<<<<< HEAD
 >>>>>>> dfa539019c4406e8296db3bbf8ff1c6ebfa3aa54
+=======
+>>>>>>> 3d6357742778b22b345a4554e5e367236f1290cf
+>>>>>>> 388b9faed6f5f8a56ab1111fa8e1335526337065
 	public int deleteUserTwo(String userId);
 
 	public int UserTeamIdDrop(String teamId, UserVO userVO);
 	
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 	public int getCountOfUsers();
@@ -53,4 +62,12 @@ public interface UserDao {
 =======
 >>>>>>> e1fec08353118a70614c18f93f23ae3824311cc5
 >>>>>>> dfa539019c4406e8296db3bbf8ff1c6ebfa3aa54
+=======
+>>>>>>> e1fec08353118a70614c18f93f23ae3824311cc5
+=======
+=======
+	public int getCountOfUsers();
+>>>>>>> 09ad50b9ad28d50d4844e1de251d43e95057b0f5
+>>>>>>> 3d6357742778b22b345a4554e5e367236f1290cf
+>>>>>>> 388b9faed6f5f8a56ab1111fa8e1335526337065
 }
