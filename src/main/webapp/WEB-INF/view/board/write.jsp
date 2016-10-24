@@ -1,18 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 			
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="/ShootBoy/css/layout.css" />
+<jsp:include page="/WEB-INF/view/commons/header.jsp"></jsp:include>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
 	$(document).ready(function () {
-		moveToCenter();
-		$("#goBackBtn").click(function() {
-			location.href="/ShootBoy/list";
-			
+		
+		$("#goBackBtn").click(function() {			
+			location.href="/ShootBoy/list?categoryId=${categoryId}";		
 		});
 		
 		$("#writeBtn").click(function() {
@@ -32,42 +29,79 @@
 			}).submit();
 		});
 	});
- 	function moveToCenter() {
- 		
- 		var windowHeight = $(window).height();
- 		var wrapperHeight = $("#wrapper").height();
- 		var middlePosition = (parseInt(windowHeight) / 2) 
- 								- (parseInt(wrapperHeight) / 2);
- 		
- 		$("#wrapper").css({
- 			"position": "relative"
- 			, "top": middlePosition + "px"
- 		});
- 		};
 </script>
 
-<title>Insert title here</title>
-</head>
 <body>
-
-	<div id="wrapper" style="width: 700px;">
-		<div><h1>WRITE BOARD</h1></div>
+	<div id="boardWrapper">
+		<div id="myPageLeftMenu">
+			<div class="mplmTitle">Community</div>
+				<div id="myPageLeftMenuTwo">
+					<div class="mplmOne"><c:if test="${categoryId eq 11}"><img src="/ShootBoy/img/화살표.jpg" class="arrow"></c:if><a href="/ShootBoy/list?categoryId=11">공지사항</a></div>
+					<div class="mplmTwo"><c:if test="${categoryId eq 12}"><img src="/ShootBoy/img/화살표.jpg" class="arrow"></c:if><a href="/ShootBoy/list?categoryId=12">가입인사</a></div>
+					<div class="mplmThree"><c:if test="${categoryId eq 13}"><img src="/ShootBoy/img/화살표.jpg" class="arrow"></c:if><a href="/ShootBoy/list?categoryId=13">자유게시판</a></div>
+					<div class="mplmFour"><c:if test="${categoryId eq 14}"><img src="/ShootBoy/img/화살표.jpg" class="arrow"></c:if><a href="/ShootBoy/list?categoryId=14">국내축구소식</a></div>
+					<div class="mplmFour"><c:if test="${categoryId eq 15}"><img src="/ShootBoy/img/화살표.jpg" class="arrow"></c:if><a href="/ShootBoy/list?categoryId=15">해외축구소식</a></div>
+					<div class="mplmFour"><c:if test="${categoryId eq 16}"><img src="/ShootBoy/img/화살표.jpg" class="arrow"></c:if><a href="/ShootBoy/list?categoryId=16">축구동영상</a></div>
+					<div class="mplmFour"><c:if test="${categoryId eq 17}"><img src="/ShootBoy/img/화살표.jpg" class="arrow"></c:if><a href="/ShootBoy/list?categoryId=17">축구갤러리</a></div>
+					<div class="mplmFour"><c:if test="${categoryId eq 18}"><img src="/ShootBoy/img/화살표.jpg" class="arrow"></c:if><a href="/ShootBoy/list?categoryId=18">매치경기후기</a></div>
+					<div class="mplmFour"><c:if test="${categoryId eq 19}"><img src="/ShootBoy/img/화살표.jpg" class="arrow"></c:if><a href="/ShootBoy/list?categoryId=19">모집게시판</a></div>
+				</div>
+		</div>
+		<div class="boardText" style="margin-top: 20px;">
+		<c:choose >
+			<c:when test="${categoryId == '0'}">
+				<h1>Community</h1>
+			</c:when>
+			<c:when test="${categoryId == '11'}">
+				<h1>공지사항</h1>
+			</c:when>
+			<c:when test="${categoryId == '12'}">
+				<h1>가입인사</h1>
+			</c:when>
+			<c:when test="${categoryId == '13'}">
+				<h1>자유게시판</h1>
+			</c:when>
+			<c:when test="${categoryId == '14'}">
+				<h1>국내축구소식</h1>
+			</c:when>
+			<c:when test="${categoryId == '15'}">
+				<h1>해외축구소식</h1>
+			</c:when>
+			<c:when test="${categoryId == '16'}">
+				<h1>축구동영상</h1>
+			</c:when>
+			<c:when test="${categoryId == '17'}">
+				<h1>축구갤러리</h1>
+			</c:when>
+			<c:when test="${categoryId == '18'}">
+				<h1>매치경기후기</h1>
+			</c:when>
+			<c:when test="${categoryId == '19'}">
+				<h1>모집게시판</h1>
+				</c:when>
+			</c:choose>
+		<hr style="border: 1px solid; margin-bottom: 20px;"/>
 		<form id="writeForm" name="writeForm" enctype="multipart/form-data">
 			<input type="hidden" id="categoryId" name="categoryId" value="${categoryId}" >
 			<div>
-				<input type="text"  style="width:700px; height: 25px; border-radius: 10px;" id="boardSubject" name="boardSubject" placeholder="제목을 입력하세요." />
+				<input type="text" id="boardSubject" name="boardSubject" placeholder="제목을 입력하세요." 
+						style="width:400px; height: 25px; font-size: 15px;"/>
 			</div>
 			<div style="height: 10px;">
 			</div>
 			<div>
-				<textarea id="boardContent" style="width:700px; height: 250px; border-radius: 10px;" name="boardContent" placeholder="내용을 입력하세요."></textarea>
+				<textarea id="boardContent" name="boardContent" placeholder="내용을 입력하세요."
+							style="width:700px; height: 250px; font-size: 15px; margin-bottom: 30px;" ></textarea>
 			</div>
 			<div>
 				<input type="file" id="file" name="file"/>
-				<input type="button" id="goBackBtn" name="goBackBtn" value="뒤로가기" />
-				<input type="button" id="writeBtn" name="writeBtn" value="글쓰기" />
+				<div class="listBtn" style="float: right; margin-right: 65px;">
+					<input type="button" id="goBackBtn" name="goBackBtn" value="뒤로가기" />
+					<input type="button" id="writeBtn" name="writeBtn" value="글쓰기" />
+				</div>
 			</div>
 		</form>
 	</div>
+</div>
 </body>
 </html>

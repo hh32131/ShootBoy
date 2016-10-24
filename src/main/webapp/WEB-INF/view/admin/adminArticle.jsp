@@ -65,6 +65,14 @@
 
 							movePage(0);
 						});
+<<<<<<< HEAD
+=======
+
+				$("#writeBtn").click(function() {
+					location.href = "/ShootBoy/adminArticleWrite";
+				})
+
+>>>>>>> 457eec6b8795cee0458506ae94413aca2eaeb760
 			});
 </script>
 <jsp:include page="/WEB-INF/view/commons/adminHeader.jsp" />
@@ -87,7 +95,14 @@
 			</select> <input type="text" class="searchKeyword" name="searchKeyword"
 				id="searchKeyword" value="${searchBoard.searchKeyword}" /> <input
 				type="button" id="searchBtn" value="검색" />
+<<<<<<< HEAD
 
+=======
+			<div class="initBtn">
+				<input type="button" id="initBtn" value="초기화"
+					onclick="location='/ShootBoy/adminList/init'" />
+			</div>
+>>>>>>> 457eec6b8795cee0458506ae94413aca2eaeb760
 			<div class="clear"></div>
 		</form>
 	</div>

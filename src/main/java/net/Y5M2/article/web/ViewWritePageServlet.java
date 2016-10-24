@@ -8,12 +8,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.Y5M2.category.vo.CategoryVO;
 import net.Y5M2.support.Param;
 
 public class ViewWritePageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
+	
 	public ViewWritePageServlet() {
 		super();
 	}

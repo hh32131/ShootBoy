@@ -50,16 +50,22 @@
 			}
 		});
 
-		$("#signInBtn").click(function() {
+		
+		$("#signInBtn").click(function(){
+			$.post("/ShootBoy/doSignIn",$("#signInForm").serialize(), function(data){
+				$("#passwordreturn").html(data);
+			});
+		
+		/* $("#signInBtn").click(function() {
 			$("#signInForm").attr({
 				"method" : "post",
 				"action" : "/ShootBoy/doSignIn"
-			}).submit();
-		});
+			}).submit(); */
+		}); 
 	});
 
 	function openWin() {
-		window.open("http://localhost:8080/ShootBoy/createTeam", "",
+		window.open("/ShootBoy/createTeam", "",
 				"width=900, height= 600");
 	}
 </script>
@@ -258,6 +264,7 @@
 						</form>
 						<div class="joinButton">
 							<input type="button" id="signInBtn" value="로그인" />
+							<div id="passwordreturn"></div>
 						</div>
 					</div>
 					<div>
