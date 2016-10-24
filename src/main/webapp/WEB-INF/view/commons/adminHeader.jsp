@@ -18,7 +18,7 @@
 			</div>
 			
 			<div class="top-right">
-				<a > 관리자 정보 </a>  |  <a>기본 환경</a>  |  <a> ShootBoy </a>  |  <a style="color: red"> 로그인 </a>
+				<a > 관리자 정보 </a>  |  <a>기본 환경</a>  |  <a href="/ShootBoy/main" style="color:#fff; text-decoration: none;"> ShootBoy </a>  |  <a style="color: red"> 로그인 </a>
 			</div>
 		</div>
 		
