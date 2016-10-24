@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.Y5M2.article.biz.BoardBiz;
 import net.Y5M2.article.biz.BoardBizImpl;
+import net.Y5M2.article.vo.BoardVO;
 import net.Y5M2.support.Param;
 
 public class DoDeleteServlet extends HttpServlet {
@@ -31,11 +32,14 @@ public class DoDeleteServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		String boardId = Param.getStringParam(request, "boardId");
+		String categoryId = Param.getStringParam(request, "categoryId");
+		
+		BoardVO board = new BoardVO();
+		board.setCategoryId(categoryId);
 		
 		boolean isSuccess = boardBiz.deleteBoard(boardId);
 		if ( isSuccess ) {
-		
-			response.sendRedirect("/ShootBoy/list");
+			response.sendRedirect("/ShootBoy/list?categoryId="+categoryId);
 		}
 		else {
 			response.sendRedirect("/ShootBoy/board/detail?boardId="+boardId);

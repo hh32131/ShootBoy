@@ -36,5 +36,12 @@ public interface UserDao {
 
 	public UserVO getUserOne(String userId);
 
+<<<<<<< HEAD
 	public int getCountOfUsers();
+=======
+	public int deleteUserTwo(String userId);
+
+	public int UserTeamIdDrop(String teamId, UserVO userVO);
+	
+>>>>>>> e1fec08353118a70614c18f93f23ae3824311cc5
 }

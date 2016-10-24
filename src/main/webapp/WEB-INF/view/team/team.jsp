@@ -33,18 +33,17 @@
 				href="/ShootBoy/remove">전체 팀 보기</a>
 		</div>
 	</div>
+</div>	
+
+<div class="allTeamText" style="width:700px;"><h1>All TEAM</h1>
+	<hr class="teamline" style="width: 680px; margin-right: 100px;">
 </div>
 
-<div class="allTeamText">
-	<h1>All TEAM</h1>
-	<hr class="teamline">
-</div>
-
-<div id="allTeamWrapper" style="width: 700px; margin-left: 280px;">
+<div id="allTeamWrapper" style="width: 700px; margin-left: 260px;">
 
 	<table>
 		<tr>
-			<c:forEach items="${team}" var="team" varStatus="j">
+			<c:forEach items="${team}" var="team" varStatus="j" >
 				<c:if test="${ j.index gt 0 && j.index % 5 eq 0 }">
 					<tr></tr>
 				</c:if>

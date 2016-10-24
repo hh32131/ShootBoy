@@ -28,9 +28,9 @@ $(document).ready(function(){
 <body>
 	<h1>
 		<a href="/ShootBoy/main"><img class="headerImg"
-			src="/ShootBoy/img/팀로고.png" />Shoot Boy</a>
+			src="/ShootBoy/img/팀로고.png" /><span>	Shoot Boy</span></a>
 	</h1>
-	<bgsound src="[Abba] Happy New Year.wma" loop="0">
+	
 	<div id="mainHeader">
 		<c:choose>
 			<c:when test="${empty sessionScope._USER_INFO_}">
@@ -56,7 +56,6 @@ $(document).ready(function(){
 							<li><a href="/ShootBoy/userInfo">내 정보</a></li>
 							<li><a href="/ShootBoy/detailTeamInfo">팀 정보</a></li>
 							<li><a href="/ShootBoy/teamMatchInfo">팀 매치 정보</a></li>
-							<li><a href="/ShootBoy/message">메시지함</a></li>
 						</c:if>
 						</ul>
 					</li>

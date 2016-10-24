@@ -13,4 +13,8 @@ public interface TeamJoinDao {
 
 	public List<TeamJoinVO> getTeamJoinId(String teamId);
 
+	public int admitJoinId(String joinId, String teamId);
+
+	public int deleteTeamJoinId(String userId);
+	
 }

@@ -44,6 +44,7 @@
 		$("#findPasswordWrapper").css({
 			"position": "relative"
 			, "top": middlePosition + "px"
+			, "margin": "0 auto"
 		});
 	}
 

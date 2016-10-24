@@ -5,7 +5,7 @@
 	<hr>
 	<div id="footerContainer">
 		<div class="footerOne">
-			<a href="" id="introduction">슛보이소개</a><a href="" id="agreement">
+			<a href="/ShootBoy/main" id="introduction">슛보이소개</a><a href="" id="agreement">
 				이용약관</a><a href=""> 개인정보취급방침</a><a href=""> 사이트맵</a>
 		</div>
 		<div class="footerTwo">프로젝트명 : Shoot Boy</div>

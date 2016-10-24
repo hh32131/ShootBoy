@@ -653,7 +653,12 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 				query.append(" SET		TEAM_ID = ? ");
 				query.append(" 			, LV_ID = '2' ");
 				query.append(" WHERE	TEAM_ID = ? ");
+<<<<<<< HEAD
 
+=======
+				
+				
+>>>>>>> e1fec08353118a70614c18f93f23ae3824311cc5
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				pstmt.setString(1, null);
 				pstmt.setString(2, teamId);
@@ -797,4 +802,50 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 			}
 		});
 	}
+	@Override
+	public int deleteUserTwo(String userId) {
+
+		return insert(new Query() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				StringBuffer query = new StringBuffer();
+				query.append(" DELETE ");
+				query.append(" FROM		USR ");
+				query.append(" WHERE	USR_ID =? ");
+				
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				pstmt.setString(1, userId);
+				
+				return pstmt;
+			}
+		});
+	}
+	
+	@Override
+	public int UserTeamIdDrop(String teamId, UserVO userVO) {
+		
+		return insert(new Query() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				StringBuffer query = new StringBuffer();
+				query.append(" UPDATE	USR ");
+				query.append(" SET		TEAM_ID = ? ");
+				query.append(" 			, LV_ID = '2' ");
+				query.append(" WHERE	TEAM_ID = ? ");
+				query.append(" AND		USR_ID = ? ");
+				
+				
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				pstmt.setString(1, null);
+				pstmt.setString(2, teamId);
+				pstmt.setString(3, userVO.getUserId());
+				
+				return pstmt;
+
+				}
+		});
+	}
+	
 }

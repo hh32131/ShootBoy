@@ -226,21 +226,36 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 			public PreparedStatement query(Connection conn) throws SQLException {
 
 				StringBuffer query = new StringBuffer();
+<<<<<<< HEAD
 
+=======
+>>>>>>> e1fec08353118a70614c18f93f23ae3824311cc5
 				query.append(" SELECT	B.BOARD_ID ");
 				query.append(" 			, B.BOARD_SBJ ");
 				query.append(" 			, B.HIT_CNT ");
 				query.append(" 			, B.BOARD_CONT ");
+<<<<<<< HEAD
 				query.append(" 			, B.USR_ID ");
 				query.append(" 			, B.CTGR_ID ");
 				query.append(" 			, B.FILE_NM ");
 				query.append(" 			, U.USR_NM ");
+=======
+				query.append(" 			, U.USR_NM ");
+				query.append(" 			, B.USR_ID ");
+				query.append(" 			, B.CTGR_ID ");
+				query.append(" 			, B.FILE_NM ");
+>>>>>>> e1fec08353118a70614c18f93f23ae3824311cc5
 				query.append(" 			, TO_CHAR(B.CRT_DT, 'YYYY-MM-DD HH24:MI:SS') CRT_DT ");
 				query.append(" 			, TO_CHAR(B.LTST_MDFY_DT, 'YYYY-MM-DD HH24:MI:SS') LTST_MDFY_DT ");
 				query.append(" FROM		BOARD B ");
 				query.append(" 			, USR U ");
+<<<<<<< HEAD
 				query.append(" WHERE	B.USR_ID = U.USR_ID ");
 				query.append(" AND		BOARD_ID = ? ");
+=======
+				query.append(" WHERE	BOARD_ID = ? ");
+				query.append(" AND		B.USR_ID = U.USR_ID ");
+>>>>>>> e1fec08353118a70614c18f93f23ae3824311cc5
 				
 
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
@@ -253,7 +268,10 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 			public Object makeObject(ResultSet rs) throws SQLException {
 
 				BoardVO board = null;
+<<<<<<< HEAD
 
+=======
+>>>>>>> e1fec08353118a70614c18f93f23ae3824311cc5
 				UserVO user = null;
 				if( rs.next() ) {
 
@@ -269,7 +287,12 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 					board.setFileName(rs.getString("FILE_NM"));
 					board.setCreateDate(rs.getString("CRT_DT"));
 					board.setModifyDate(rs.getString("LTST_MDFY_DT"));
+<<<<<<< HEAD
 
+=======
+					user = board.getUserVO();
+					user.setUserName(rs.getString("USR_NM"));
+>>>>>>> e1fec08353118a70614c18f93f23ae3824311cc5
 					
 					user = board.getUserVO();
 					user.setUserName(rs.getString("USR_NM"));
