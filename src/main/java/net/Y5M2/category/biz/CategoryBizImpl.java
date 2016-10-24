@@ -24,4 +24,9 @@ public class CategoryBizImpl implements CategoryBiz{
 		return categoryDao.isCategoryLeafNode(categoryId);
 	}
 
+	@Override
+	public List<CategoryVO> getAllCategoryList() {
+		return categoryDao.getAllCategoryList();
+	}
+
 }

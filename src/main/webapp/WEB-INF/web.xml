@@ -670,7 +670,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>DoWriteAdminArticleServlet</servlet-name>
-    <url-pattern>/doAdminArticleWrite</url-pattern>
+    <url-pattern>/doWriteAdminArticle</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>

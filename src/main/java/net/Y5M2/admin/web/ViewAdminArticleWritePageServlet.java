@@ -1,39 +1,44 @@
 package net.Y5M2.admin.web;
 
 import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class ViewAdminArticleWritePageServlet
- */
+import net.Y5M2.category.biz.CategoryBiz;
+import net.Y5M2.category.biz.CategoryBizImpl;
+import net.Y5M2.category.vo.CategoryVO;
+
 public class ViewAdminArticleWritePageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ViewAdminArticleWritePageServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	private CategoryBiz biz;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	public ViewAdminArticleWritePageServlet() {
+		super();
+		biz = new CategoryBizImpl();
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doPost(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		List<CategoryVO> category = biz.getAllCategoryList();
+
+		String viewPath = "/WEB-INF/view/admin/adminArticleWrite.jsp";
+
+		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
+
+		request.setAttribute("category", category);
+
+		rd.forward(request, response);
 	}
 
 }

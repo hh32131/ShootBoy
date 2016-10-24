@@ -7,65 +7,54 @@
 	href="/ShootBoy/css/adminPage.css" />
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
-	$().ready(
-			function() {
-				$("#checkAll").click(function() {
-					var chk = $(this).is(":checked");
-					if (chk)
-						$(".check input").prop('checked', true);
-					else
-						$(".check input").prop('checked', false);
-				});
-
-				$(".boardCode").click(
-						function() {
-							var boardid = $(this).data("boardid");
-							window.open("/ShootBoy/adminArticleDetail?boardId="
-									+ boardid, "", "width=500, height= 500");
-						});
-
-				$("#searchType").change(function() {
-					alert($("#searchType option:selected").text());
-				});
-
-				$("#deleteBtn").click(
-						function() {
-							$.post("/ShootBoy/doAdminArticleDelete", $(
-									"#checkBoxForm").serialize(),
-									function(data) {
-										alert("" + data);
-										location.reload();
-									});
-						});
-
-				$("#modifyBtn").click(
-						function() {
-							var select = $(".select-check:checked").val();
-							var checkBoard = $(".select-check:checked").length;
-							if (checkBoard == 1) {
-								window.open(
-										"/ShootBoy/adminArticleModify?boardId="
-												+ select, "",
-										"width=500, height= 500");
-							} else {
-								alert(" 수정할 게시물을 선택해 주세요");
-							}
-						});
-
-				$("#searchBtn").click(
-						function() {
-							var searchType = $("#searchForm > .searchType")
-									.val();
-							var searchKeyword = $(
-									"#searchForm > .searchKeyword").val();
-
-							$("#pagingForm > .searchType").val(searchType);
-							$("#pagingForm > .searchKeyword")
-									.val(searchKeyword);
-
-							movePage(0);
-						});
+	$().ready(function() {
+		$("#checkAll").click(function() {
+			var chk = $(this).is(":checked");
+			if (chk)
+				$(".check input").prop('checked', true);
+			else
+				$(".check input").prop('checked', false);
 			});
+
+		$(".boardCode").click(function() {
+			var boardid = $(this).data("boardid");
+			window.open("/ShootBoy/adminArticleDetail?boardId=" + boardid, "", "width=500, height= 500");
+		});
+
+		$("#searchType").change(function() {
+			alert($("#searchType option:selected").text());
+		});
+
+		$("#deleteBtn").click(function() {
+			$.post("/ShootBoy/doAdminArticleDelete", $("#checkBoxForm").serialize(),function(data) {
+				alert("" + data);
+				location.reload();
+			});
+		});
+
+		$("#modifyBtn").click(function() {
+			var select = $(".select-check:checked").val();
+			var checkBoard = $(".select-check:checked").length;
+			if (checkBoard == 1) {
+				window.open("/ShootBoy/adminArticleModify?boardId=" + select, "", "width=500, height= 500");
+			} 
+			else {
+				alert(" 수정할 게시물을 선택해 주세요");
+			}
+		});
+
+		$("#searchBtn").click(function() {
+			var searchType = $("#searchForm > .searchType").val();
+			var searchKeyword = $("#searchForm > .searchKeyword").val();
+			$("#pagingForm > .searchType").val(searchType);
+			$("#pagingForm > .searchKeyword").val(searchKeyword);
+			movePage(0);
+		});
+		
+		$("#writeBtn").click(function() {
+            location.href = "/ShootBoy/adminArticleWrite";
+        })
+	});
 </script>
 <jsp:include page="/WEB-INF/view/commons/adminHeader.jsp" />
 
@@ -159,9 +148,9 @@
 				onclick="location='/ShootBoy/adminList/init'" />
 		</div>
 		<div class="functionBtn">
-			<input type="button" id="writeBtn" value="등 록" /> <input
-				type="button" id="modifyBtn" value="선택 수정" /> <input type="button"
-				id="deleteBtn" value="선택 삭제" />
+			<input type="button" id="writeBtn" value="등 록" /> 
+			<input type="button" id="modifyBtn" value="선택 수정" /> 
+			<input type="button" id="deleteBtn" value="선택 삭제" />
 		</div>
 	</div>
 </div>

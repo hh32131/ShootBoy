@@ -19,5 +19,7 @@ public interface CategoryBiz {
 	 * @return
 	 */
 	public boolean isCategoryLeafNode(String categoryId);
+
+	public List<CategoryVO> getAllCategoryList();
 	
 }
