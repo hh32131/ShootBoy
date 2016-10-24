@@ -34,9 +34,10 @@
 			</li>
 				
 			<li class="dropdown">
-			  	<a href="/ShootBoy/removeTeam" class="dropbtn">팀 관리</a>
+			  	<a href="/ShootBoy/adminTeam" class="dropbtn">팀 관리</a>
 			  		<div class="dropdown-content">
-				  		<a href="/ShootBoy/removeTeam">팀 관리 </a>
+				  		<a href="/ShootBoy/adminTeam">팀 관리 </a>
+				  		<a href="/ShootBoy/adminTeamBoard">팀 게시판</a>
 				  	</div>
 			</li>
 			
@@ -50,7 +51,7 @@
 			<li class="dropdown">
 			    <a href="/ShootBoy/adminArticle" class="dropbtn">게시판 관리</a>
 				    <div class="dropdown-content">
-				      <a href="/ShootBoy/adminArticle/init">게시판 관리</a>
+				      <a href="/ShootBoy/adminArticle">게시판 관리</a>
 				    </div>
 			</li>
 		</div>

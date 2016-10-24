@@ -3,8 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<link rel="stylesheet" type="text/css"
-	href="/ShootBoy/css/adminPage.css" />
+<link rel="stylesheet" type="text/css"	href="/ShootBoy/css/adminPage.css" />
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
 	$().ready(
@@ -46,7 +45,7 @@
 								window.open(
 										"/ShootBoy/adminArticleModify?boardId="
 												+ select, "",
-										"width=500, height= 500");
+										"width=600, height= 600");
 							} else {
 								alert(" 수정할 게시물을 선택해 주세요");
 							}
@@ -67,7 +66,7 @@
 						});
 
 				$("#writeBtn").click(function() {
-					location.href = "/ShootBoy/adminArticleWrite";
+					window.open("/ShootBoy/adminArticleWrite", "ADMINSIGNUP", "width=600, height= 600");
 				})
 			});
 </script>
@@ -162,7 +161,7 @@
 			<input type="button" id="initBtn" value="전체 보기"  onclick="location='/ShootBoy/adminList/init'" />
 		</div>
 		<div class="functionBtn">
-			<input type="button" id="writeBtn" value="등 록" /> 
+			<input type="button" id="writeBtn" value="등 록"  /> 
 			<input type="button" id="modifyBtn" value="선택 수정" /> 
 			<input type="button" id="deleteBtn" value="선택 삭제" />
 		</div>

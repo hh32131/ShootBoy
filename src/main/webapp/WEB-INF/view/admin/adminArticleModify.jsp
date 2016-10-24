@@ -5,7 +5,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="/ShootBoy/css/adminArticleModify.css">
+
+<title>Administrator</title>
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
 		$(document).ready(function() {
@@ -37,10 +39,28 @@
 				}).submit();
 
 			});
+			
+			$("#backBtn").click(function() {
+				window.close();
+			});
 		});
 	</script>
 </head>
 <body>
+	<div class="modify-header">
+		<div class="modify-top">
+			<div class="modify-admin-logo">
+				<a href="/ShootBoy/admin" class="logo-text">ADMINISTRATOR</a>
+			</div>
+			<div class="modify-shootboy-main">
+				<a href="/ShootBoy/main" class="main-text"> ShootBoy </a> 
+			</div>
+		</div>
+		<div class="bottom">
+			<p class="modify-title">게시물 수정</p> 
+		</div>
+	</div>
+
 
 	<form id="modifyForm" name="modifyForm" enctype="multipart/form-data">
 		<input type="hidden" name="boardId" value="${board.boardId}" />
@@ -59,20 +79,9 @@
 				${board.fileName}
 			</div>
 		</c:if>
-		<div>
-			<div class="left">
-				<input type="file" id="file" name="file" />
-			</div>
-			<div class="right">
-				<div class="inline">
-					<input type="button" id="goBackBtn" value="뒤로가기" />
-				</div>
-				<div class="inline">
-					<input type="button" id="modifyBtn" value="수정" />
-				</div>
-			</div>
-			<div class="clear"></div>
-		</div>
+			<input type="file" id="file" name="file" />
+			<input type="button" id="modifyBtn" value="수 정" />
+			<input type="button" id="backBtn" value="취 소" />
 	</form>
 </body>
 </html>

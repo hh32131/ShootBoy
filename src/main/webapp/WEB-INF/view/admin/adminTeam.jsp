@@ -38,7 +38,7 @@
 			 var select = $(".select-check:checked").val();
 			 var checkTeam = $(".select-check:checked").length;
 			 if(checkTeam  == 1  ) {
-						window.open("/ShootBoy/adminTeamModify?teamId=" + select, "", "width=400, height= 500");
+				window.open("/ShootBoy/adminTeamModify?teamId=" + select, "", "width=710, height= 800");
 			 } 
 			 else {
 				 alert("수정할 팀을 한팀 선택해 주세요");

@@ -1,0 +1,80 @@
+@CHARSET "UTF-8";
+
+body {
+	margin: 0 auto;
+}
+
+.modify-header .modify-top {
+	background-color: #282828;
+}
+
+.modify-top {
+	padding-bottom: 25px;
+}
+
+.modify-admin-logo {
+	text-align: center;
+	font-weight: bold;
+	font-size: 22px;
+}
+
+.modify-shootboy-main {
+	
+	text-align: center;
+}
+.logo-text{
+	color: #ebebeb;
+	text-decoration: none;
+}
+
+.main-text{
+	color: #ebebeb;
+	text-decoration: none;
+}
+.bottom {
+	text-align: center;
+	color: #ebebeb;
+	text-decoration: none;
+	background-color: #3a3a3a;
+	padding-top: 2.5px;
+	padding-bottom: 2.5px;
+	margin-bottom: 20px;
+	
+}
+
+.modify-title{
+	font-weight: bold;
+	font-size: 15px;
+}
+
+#modifyForm {
+	margin-left: 30px;
+}
+
+#boardSubject {
+	width: 502px;
+	height: 25px;
+	margin-bottom: 5px;
+}
+
+#boardContent {
+	width: 500px;
+	height: 250px;	
+}
+
+#modifyBtn{
+	padding:10px;
+	border:1px solid #ccc;
+	background:#fafafa;
+	text-decoration:none;
+	cursor:pointer;
+	margin-left: 150px;
+}
+
+#backBtn{
+	padding:10px;
+	border:1px solid #ccc;
+	background:#fafafa;
+	text-decoration:none;
+	cursor:pointer;
+}
