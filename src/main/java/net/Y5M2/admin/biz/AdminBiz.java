@@ -24,5 +24,9 @@ public interface AdminBiz {
   
   public int getCountOfTeam(String teamId);
   
+  public int getCountOfUsers();
+  
+  public int getCountOfBoards();
+  
   public BoardVO getBoardOne(String boardId);
 }

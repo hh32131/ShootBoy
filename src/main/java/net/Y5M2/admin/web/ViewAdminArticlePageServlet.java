@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import net.Y5M2.admin.biz.AdminBiz;
+import net.Y5M2.admin.biz.AdminBizImpl;
 import net.Y5M2.article.biz.BoardBiz;
 import net.Y5M2.article.biz.BoardBizImpl;
 import net.Y5M2.article.vo.BoardListVO;
@@ -24,10 +26,12 @@ public class ViewAdminArticlePageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private BoardBiz boardBiz;
+	private AdminBiz adminBiz;
 	
 	public ViewAdminArticlePageServlet() {
 		super();
 		boardBiz = new BoardBizImpl();
+		adminBiz = new AdminBizImpl();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -63,11 +67,13 @@ public class ViewAdminArticlePageServlet extends HttpServlet {
 		categoryVO.setCategoryId(categoryId);
 		session.setAttribute(Session.SEARCH_BOARD_INFO, searchBoard);
 		BoardListVO boards = boardBiz.getAllBoards(searchBoard, categoryVO);
-
+		int count = adminBiz.getCountOfBoards();
+		
 		String viewPath = "/WEB-INF/view/admin/adminArticle.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 		request.setAttribute("boards", boards.getBoards());
 		request.setAttribute("pager", boards.getPager());
+		request.setAttribute("count", count);
 
 		PageExplorer pageExplorer = new ClassicPageExplorer(boards.getPager());
 		String pager = pageExplorer.getPagingList("pageNo", "[@]", "<<", ">>", "pagingForm");

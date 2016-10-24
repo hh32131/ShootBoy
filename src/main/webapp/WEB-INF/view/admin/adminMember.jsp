@@ -64,7 +64,7 @@
 		
 		<div class="listAll">
 			<c:set var="list" value="users"/>
-			<p class="textAll">전체 목록 | 총 회원수 ${fn:length(list)}개</p>
+			<p class="textAll">전체 목록 | 총 회원수 ${count}개</p>
 		</div>
 
 	<div class="search-tool">
@@ -77,9 +77,7 @@
 			</select> <input type="text" class="searchKeyword" id="searchKeyword"
 				name="searchKeyword" value="${searchUser.searchKeyword}" /> <input
 				type="button" class="searchBtn" id="searchBtn" value="검색" />
-			<div class="initBtn">
-				<input type="button" id="initBtn" value="초기화" onclick="location='/ShootBoy/adminUser/init'" />
-			</div>
+			
 			<div class="clear"></div>
 		</form>
 	</div>
@@ -141,6 +139,9 @@
 				<input type="hidden" class="searchKeyword" name="searchKeyword" value="${searchUser.searchKeyword}" />
 			</form>
 		</div>
+		<div class="initBtn">
+				<input type="button" id="initBtn" value="전체보기" onclick="location='/ShootBoy/adminUser/init'" />
+			</div>
 		<div class="functionBtn">
 			<input type="button" id="writeBtn" value="등 록"  />
 			<input type="button" id="modifyBtn" value="선택 수정" onclick="location='#'" /> 

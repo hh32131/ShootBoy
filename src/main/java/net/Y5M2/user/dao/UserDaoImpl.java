@@ -723,10 +723,10 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 				query.append(" WHERE	U.LCTN_ID = L.LCTN_ID ");
 				query.append(" AND		U.TEAM_ID = T.TEAM_ID(+) ");
 				query.append(" AND		U.USR_ID = ? ");
-				
+
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				pstmt.setString(1, userId);
-				
+
 				return pstmt;
 			}
 
@@ -770,6 +770,30 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 					teamVO.setLocationId(rs.getString("LCTN_ID"));
 				}
 				return userVO;
+			}
+		});
+	}
+
+	@Override
+	public int getCountOfUsers() {
+		return (int) selectOne(new QueryAndResult() {
+
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+
+				StringBuffer query = new StringBuffer();
+				query.append(" SELECT	COUNT(1) CNT ");
+				query.append(" FROM		USR ");
+
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+
+				return pstmt;
+			}
+
+			@Override
+			public Object makeObject(ResultSet rs) throws SQLException {
+				rs.next();
+				return rs.getInt("CNT");
 			}
 		});
 	}
