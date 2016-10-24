@@ -12,7 +12,9 @@
 			<div class="mplmOne"><a href="/ShootBoy/userInfo">내 정보</a></div>
 			<div class="mplmTwo"><a href="/ShootBoy/teamInfo">팀 정보</a></div>
 			<div class="mplmThree"><a href="/ShootBoy/teamMatchInfo">팀 매치 정보</a></div>
-			<div class="mplmFour"><img src="/ShootBoy/img/화살표.jpg" class="arrow"><a href="/ShootBoy/message">메시지함</a></div>
+			<div class="mplmFour"><a href="/ShootBoy/message">메시지함</a></div>
+			<div class="mplmFour"><a href="/ShootBoy/teamBoard">팀 게시판</a></div>
+			
 		</div>
 	</div>
 	
