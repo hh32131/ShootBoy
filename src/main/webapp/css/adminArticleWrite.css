@@ -1,0 +1,64 @@
+@CHARSET "UTF-8";
+
+.articleWrite-header .articleWrite-top {
+	background-color: #282828;
+}
+
+.articleWrite-top {
+	padding-bottom: 25px;
+}
+
+.articleWrite-admin-logo {
+	text-align: center;
+	font-weight: bold;
+	font-size: 22px;
+}
+
+.articleWrite-shootboy-main {
+	
+	text-align: center;
+}
+.logo-text{
+	color: #ebebeb;
+	text-decoration: none;
+}
+
+.main-text{
+	color: #ebebeb;
+	text-decoration: none;
+}
+.bottom {
+	text-align: center;
+	color: #ebebeb;
+	text-decoration: none;
+	margin-bottom: 20px;
+}
+
+.articleWrite-title{
+	font-weight: bold;
+	font-size: 15px;
+}
+
+#writeForm {
+	margin-left: 30px;
+}
+
+#categoryId{
+	height: 25px;	
+}
+
+#boardSubject, #categoryId {
+	margin-bottom: 5px;
+}
+
+#writeBtn, #backBtn {
+	padding:10px;
+	border:1px solid #ccc;
+	background:#fafafa;
+	text-decoration:none;
+	cursor:pointer;
+}
+
+#backBtn{
+	margin-right: 46px;
+}

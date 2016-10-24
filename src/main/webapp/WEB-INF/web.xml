@@ -722,4 +722,14 @@
     <servlet-name>DoCheckTeamName</servlet-name>
     <url-pattern>/doCheckTeamName</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewAdminTeamBoardPageServlet</display-name>
+    <servlet-name>ViewAdminTeamBoardPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.ViewAdminTeamBoardPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewAdminTeamBoardPageServlet</servlet-name>
+    <url-pattern>/adminTeamBoard</url-pattern>
+  </servlet-mapping>
 </web-app>
