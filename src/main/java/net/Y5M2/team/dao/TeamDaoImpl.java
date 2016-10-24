@@ -472,6 +472,4 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 			}
 		});
 	}
-	
-	
 }
