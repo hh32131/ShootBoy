@@ -54,7 +54,7 @@
 	<br/>
 	<a href="javascript:void(0);" id="deleteBtn">삭제</a> 
 	<a href="/ShootBoy/board/modify?boardId=${board.boardId}">수정</a> 
-	<a href="/ShootBoy/list">목록보기</a>
+	<a href="/ShootBoy/list?categoryId=${categoryId}">목록보기</a>
 	<div></div>	<hr/>
 	<c:forEach items="${replays}" var="replay" >
 		<div></div>

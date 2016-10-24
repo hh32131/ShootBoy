@@ -13,7 +13,7 @@ public interface BoardBiz {
 	 * @param searchBoard
 	 * @return
 	 */
-	public BoardListVO getAllBoards(SearchBoardVO searchBoard, CategoryVO categoryVO );
+	public BoardListVO getAllBoards(SearchBoardVO searchBoard, CategoryVO categoryVO);
 
 	/**
 	 * 게시판 글쓰기
@@ -30,7 +30,6 @@ public interface BoardBiz {
 	 * @return
 	 */
 	public BoardVO getBoardAt(String boardId);
-
 
 	/**
 	 * 게시판 글 삭제

@@ -59,7 +59,11 @@
 
 		<div class="listAll">
 			<c:set var="list" value="teams"/>
+<<<<<<< HEAD
 			<p class="textAll">전체 목록 | 총 팀수 ${count}개</p>
+=======
+			<p class="textAll">전체 목록 | 총 팀 ${count}개</p>
+>>>>>>> 66e084ccc53035db12979cf6b7727b844c6a8b44
 		</div>
 		
 		<div class="search-tool"> 

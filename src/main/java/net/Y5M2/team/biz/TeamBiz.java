@@ -2,6 +2,7 @@ package net.Y5M2.team.biz;
 
 
 import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
 
 import net.Y5M2.team.vo.SearchTeamVO;
 import net.Y5M2.team.vo.TeamListVO;
@@ -18,14 +19,19 @@ public interface TeamBiz {
 	
 	public String getFileNmaeOfTeamBy(String teamId);
 
-	public String getFileNameOfTeam(String teamId);
+	public boolean updateTeamInfo(TeamVO teamVO, ServletRequest request, UserVO userInfo );
 
-	public boolean updateTeamInfo(TeamVO teamVO);
+	public String getFileNameOfTeam(String teamId);
+	
+	public boolean deleteTeam(String teamId, UserVO userVO, ServletRequest request);
+
+	public boolean dropTeam(String teamId, UserVO userVO, HttpServletRequest request);
 	
 	public boolean deleteTeam(String teamId);
 	
 	public int getCountOfTeam(String teamId);
-
+	
+	public boolean isExsistTeam(String teamName);
 
 
 }

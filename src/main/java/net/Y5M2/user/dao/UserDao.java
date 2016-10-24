@@ -22,7 +22,7 @@ public interface UserDao {
 
 	public UserVO getUserInfoForModify(UserVO userInfo);
 
-	public int UserTemaIdUpdate(TeamVO teamVO, UserVO userInfo);
+	public int UserTemaIdUpdate(String teamId, String userId);
 
 	public int deleteUser(UserVO userVO);
 
@@ -30,8 +30,12 @@ public interface UserDao {
 
 	public int getCountOfUsers(SearchUserVO searchUser);
 
+	public int UserTemaIdDelete(String teamId);
+
 	public int adminPageDeleteUser(String userId);
 
 	public UserVO getUserOne(String userId);
+
+	public int getCountOfUser(String userId);
 	
 }

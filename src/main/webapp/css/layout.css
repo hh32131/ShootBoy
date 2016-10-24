@@ -350,8 +350,9 @@ h1 {
 }
 
 #signInBtn {
+	color:#fff;
 	height: 50px;
-	background-color: #dbdbdb;
+	background-color: #000;
 	border-radius: 4px 4px 4px 4px;
 }
 
@@ -393,7 +394,8 @@ h1 {
 }
 
 #teamCreateBtn, #signOutBtn {
-	background-color: #c0c0c0;
+	color:#fff;
+	background-color: #000000;
 	border-radius: 4px 4px 4px 4px;
 }
 

@@ -19,15 +19,9 @@
 		});
 		
 		$("#nextBtn").click(function(){
-			if($("#answer").val()=="${userInfo.passwordAnswer}"){
-				if(confirm("비밀번호는 '${userInfo.password}' 입니다. 확인을 누르면 홈화면으로 이동됩니다." )){
-					location.href="/ShootBoy/main"
-				}
-				
-			}
-			else{
-				alert("질문의 답이 틀렸습니다.");
-			}
+			$.post("/ShootBoy/doCheckPasswordHint",$("#findForm").serialize(),function(data){
+				alert(data);
+			});
 		});
 	});
 	
@@ -49,12 +43,13 @@
 		<a href="/ShootBoy/main" >홈</a> | <a href="/ShootBoy/signIn" >로그인</a>
 	</div>
 	<div id="findTwoWrapper">
-		<form id="findForm">
+		<form id="findForm" name="findForm">
 			<div class="passwordFind"><span>비밀번호 찾기</span>
 				<hr style="border: 1px solid">
 			</div>
 			<div class="findTextOne"><span>비밀번호 찾기 힌트입니다</span></div>
 			<div class="findTextTwo"><span>힌트 : ${userInfo.passwordHint}</span></div>
+			<input type="hidden" id="email" name ="email" value="${userInfo.email}" >
 			<input type="text" id="answer" name="answer" placeholder="비밀번호 힌트의 답을 입력하세요">
 			<div><input type="button" id="nextBtn" name="nextBtnTwo" value="다음"></div>
 		</form>

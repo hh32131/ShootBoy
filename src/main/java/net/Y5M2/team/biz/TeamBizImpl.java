@@ -39,7 +39,8 @@ public class TeamBizImpl implements TeamBiz {
 		
 		if(isSuccess) {
 			TeamVO teamInfo = teamDao.getTeamInfoForUpdate(teamVO.getTeamName());
-			boolean isUpdateSuccess = userDao.UserTemaIdUpdate(teamInfo, userInfo)>0;
+			
+			boolean isUpdateSuccess = userDao.UserTemaIdUpdate(teamInfo.getTeamId(), userInfo.getUserId())>0;
 			if(isUpdateSuccess){
 				HttpSession session = ((HttpServletRequest)request).getSession();
 				session.removeAttribute(Session.USER_INFO);
@@ -89,7 +90,7 @@ public class TeamBizImpl implements TeamBiz {
 		return teamInfo.getTeamPhoto();
 	}
 	@Override
-	public boolean updateTeamInfo(TeamVO teamVO) {
+	public boolean updateTeamInfo(TeamVO teamVO, ServletRequest request, UserVO userInfo) {
 		TeamVO originalTeamInfo = teamDao.getTeamAt(teamVO.getTeamId());
 		
 		int teamModify = 5;
@@ -120,9 +121,60 @@ public class TeamBizImpl implements TeamBiz {
 		if(teamModify==0){
 			return true;
 		}
+		boolean isSuccess = teamDao.updateTeamInfo(teamVO) > 0;
+		if(isSuccess){
+			HttpSession session = ((HttpServletRequest)request).getSession();
+			session.removeAttribute(Session.USER_INFO);
+			UserVO UserVO = userDao.getUserInfoForModify(userInfo);
+			session.setAttribute(Session.USER_INFO, UserVO);
+			
+			return true;
+		}
+		else{
+			return false;
+			
+		}
+	}
+
+	@Override
+	public boolean deleteTeam(String teamId,UserVO userVO, ServletRequest request) {
+
+		boolean isSuccess = userDao.UserTemaIdDelete(teamId)>0;
+		if(isSuccess){
+			HttpSession session = ((HttpServletRequest)request).getSession();
+			session.removeAttribute(Session.USER_INFO);
+			UserVO userInfo = userDao.getUserBy(userVO);
+			session.setAttribute(Session.USER_INFO, userInfo);
+			return teamDao.deleteTeam(teamId) > 0;
+		}
 		
+		return false;
+	}
+	
+	@Override
+	public boolean dropTeam(String teamId, UserVO userVO, HttpServletRequest request) {
 		
-		return teamDao.updateTeamInfo(teamVO)>0;
+		boolean isSuccess = userDao.UserTemaIdDelete(teamId)>0;
+		
+		if(isSuccess){
+			HttpSession session = ((HttpServletRequest)request).getSession();
+			session.removeAttribute(Session.USER_INFO);
+			UserVO userInfo = userDao.getUserBy(userVO);
+			session.setAttribute(Session.USER_INFO, userInfo);
+			return true;
+		}
+		
+		return false;
+	}
+
+	@Override
+	public boolean isExsistTeam(String teamName) {
+		return teamDao.isExsistTeam(teamName) > 0;
+	}
+
+	@Override
+	public int getCountOfTeam(String teamId) {
+		return teamDao.getCountOfTeam(teamId);
 	}
 
 	@Override
@@ -130,8 +182,4 @@ public class TeamBizImpl implements TeamBiz {
 		return teamDao.deleteTeam(teamId) > 0;
 	}
 
-	@Override
-	public int getCountOfTeam(String teamId) {
-		return teamDao.getCountOfTeam(teamId);
-	}
 }

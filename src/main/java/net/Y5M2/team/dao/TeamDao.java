@@ -20,7 +20,6 @@ public interface TeamDao {
 	 */
 	public List<TeamVO> getAllTeams();
 	
-	
 	public TeamVO getTeamAt(String teamId);
 
 	public TeamVO getTeamInfoForUpdate(String teamName);
@@ -32,5 +31,7 @@ public interface TeamDao {
 	public int getCountOfTeams(SearchTeamVO searchTeam);
 	
 	public int getCountOfTeam(String teamId);
+	
+	public int isExsistTeam(String teamName);
 	
 }
