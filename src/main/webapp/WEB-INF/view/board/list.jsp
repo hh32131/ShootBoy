@@ -132,7 +132,7 @@
 								<fmt:parseNumber var="number" type="number" value="${number}" />
 								<th class="boardContent">${number}</th>
 								<th class="boardContent"><a
-									href="/ShootBoy/board/detail?boardId=${boards.boardId} && categoryId=${categoryId}">
+									href="/ShootBoy/board/detail?boardId=${boards.boardId}&& categoryId=${categoryId}">
 										${boards.boardSubject} [${boards.replayHitCount}] </a></th>
 								<th class="boardContent">${boards.userVO.userName}</th>
 								<th class="boardContent">${boards.createDate}</th>
