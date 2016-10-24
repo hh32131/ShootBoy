@@ -154,7 +154,7 @@ public class TeamBizImpl implements TeamBiz {
 	@Override
 	public boolean dropTeam(String teamId, UserVO userVO, HttpServletRequest request) {
 		
-		boolean isSuccess = userDao.UserTemaIdDelete(teamId)>0;
+		boolean isSuccess = userDao.UserTeamIdDrop(teamId, userVO)>0;
 		
 		if(isSuccess){
 			HttpSession session = ((HttpServletRequest)request).getSession();

@@ -36,8 +36,8 @@
 				$.post("/ShootBoy/doCheckPassword", {"password" : $("#password").val()} ,function(data){
 					if(data == "true"){
 						if ( confirm("정말로 팀을 해체 하시겠습니까?") ) {
+							location.href="/ShootBoy/doDeleteTeam?teamId=${teamInfo.teamId}";
 							alert("정상적으로 처리 되었습니다.");
-							location.href="/ShootBoy/doDeleteTeam?teamId=" + "${teamInfo.teamId}";
 						}
 					}
 					else{
@@ -57,7 +57,7 @@
 					if(data == "true"){
 						if ( confirm("정말로 팀을 탈퇴 하시겠습니까?") ) {
 							alert("정상적으로 처리 되었습니다.");
-							location.href="/ShootBoy/doDrop?teamId=" + "${teamInfo.teamId}";
+							location.href="/ShootBoy/doDrop?teamId=${teamInfo.teamId}";
 						}
 					}
 					else{
