@@ -160,26 +160,45 @@
 
 		$("#signBtn").click(function() {
 <<<<<<< HEAD
+<<<<<<< HEAD
 			
 			
 =======
+=======
+>>>>>>> dfa539019c4406e8296db3bbf8ff1c6ebfa3aa54
 
 			if($("#checkbox").checked == false) {
 				alert("가입약관에 동의하세요!");
 			}
+<<<<<<< HEAD
 >>>>>>> 09ad50b9ad28d50d4844e1de251d43e95057b0f5
+=======
+=======
+			
+			
+>>>>>>> e1fec08353118a70614c18f93f23ae3824311cc5
+>>>>>>> dfa539019c4406e8296db3bbf8ff1c6ebfa3aa54
 			$("#signUpForm").attr({
 				"method" : "post",
 				"action" : "/ShootBoy/doSignUp"
 			}).submit();
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+		});
+=======
+>>>>>>> dfa539019c4406e8296db3bbf8ff1c6ebfa3aa54
 			
 		});
 
 
+<<<<<<< HEAD
 =======
 		});
 >>>>>>> 09ad50b9ad28d50d4844e1de251d43e95057b0f5
+=======
+>>>>>>> e1fec08353118a70614c18f93f23ae3824311cc5
+>>>>>>> dfa539019c4406e8296db3bbf8ff1c6ebfa3aa54
 	});
 
 	function isVisibleButton() {

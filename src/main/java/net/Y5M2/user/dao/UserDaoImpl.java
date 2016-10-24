@@ -654,11 +654,19 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 				query.append(" 			, LV_ID = '2' ");
 				query.append(" WHERE	TEAM_ID = ? ");
 <<<<<<< HEAD
+<<<<<<< HEAD
 				
 				
 =======
 
 >>>>>>> 09ad50b9ad28d50d4844e1de251d43e95057b0f5
+=======
+
+=======
+				
+				
+>>>>>>> e1fec08353118a70614c18f93f23ae3824311cc5
+>>>>>>> dfa539019c4406e8296db3bbf8ff1c6ebfa3aa54
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				pstmt.setString(1, null);
 				pstmt.setString(2, teamId);

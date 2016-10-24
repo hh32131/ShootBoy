@@ -25,6 +25,10 @@
     <filter-class>net.Y5M2.filter.EncodingFilter</filter-class>
   </filter>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> dfa539019c4406e8296db3bbf8ff1c6ebfa3aa54
   <filter-mapping>
     <filter-name>EncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
@@ -740,8 +744,12 @@
     <filter-name>SessionFilter</filter-name>
     <url-pattern>/teamMatchInfo</url-pattern>
   </filter-mapping>
+<<<<<<< HEAD
 =======
 >>>>>>> 09ad50b9ad28d50d4844e1de251d43e95057b0f5
+=======
+>>>>>>> e1fec08353118a70614c18f93f23ae3824311cc5
+>>>>>>> dfa539019c4406e8296db3bbf8ff1c6ebfa3aa54
   <filter-mapping>
     <filter-name>EncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
@@ -1113,8 +1121,11 @@
     <servlet-name>ViewTeamInfoModify</servlet-name>
     <url-pattern>/teamModify</url-pattern>
 <<<<<<< HEAD
+<<<<<<< HEAD
   </filter-mapping>
 =======
+=======
+>>>>>>> dfa539019c4406e8296db3bbf8ff1c6ebfa3aa54
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -1433,7 +1444,13 @@
     <servlet-name>ViewTeamCreatePageServlet</servlet-name>
     <url-pattern>/adminTeamCreate</url-pattern>
   </servlet-mapping>
+<<<<<<< HEAD
 >>>>>>> 09ad50b9ad28d50d4844e1de251d43e95057b0f5
+=======
+=======
+  </filter-mapping>
+>>>>>>> e1fec08353118a70614c18f93f23ae3824311cc5
+>>>>>>> dfa539019c4406e8296db3bbf8ff1c6ebfa3aa54
   <servlet>
     <description></description>
     <display-name>DoCheckTeamName</display-name>
@@ -1455,6 +1472,10 @@
     <url-pattern>/adminTeamBoard</url-pattern>
   </servlet-mapping>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> dfa539019c4406e8296db3bbf8ff1c6ebfa3aa54
   <servlet>
     <description></description>
     <display-name>DoAdmitJoinId</display-name>
@@ -1515,6 +1536,10 @@
     <servlet-name>DoSelectMatch</servlet-name>
     <url-pattern>/doSelectMatch</url-pattern>
   </servlet-mapping>
+<<<<<<< HEAD
 =======
 >>>>>>> 09ad50b9ad28d50d4844e1de251d43e95057b0f5
+=======
+>>>>>>> e1fec08353118a70614c18f93f23ae3824311cc5
+>>>>>>> dfa539019c4406e8296db3bbf8ff1c6ebfa3aa54
 </web-app>
