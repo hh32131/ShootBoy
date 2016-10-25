@@ -115,3 +115,7 @@
 	float: right;
 	margin-right: 115px;
 }
+
+#teamName, #checkTeamName{
+    display: inline-block;
+}

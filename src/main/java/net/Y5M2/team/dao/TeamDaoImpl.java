@@ -49,6 +49,7 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 		});
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<TeamVO> getAllTeam(SearchTeamVO searchTeam) {
 		return selectList(new QueryAndResult() {
@@ -61,9 +62,9 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 				query.append(" 			, T.TEAM_CNT ");
 				query.append(" 			, T.TEAM_NM ");
 				query.append(" 			, T.TEAM_PHOTO ");
-				query.append(" 			, T.CRT_DT ");
+				query.append("			, TO_CHAR(T.CRT_DT, 'YYYY-MM-DD HH24:MI:SS' ) CRT_DT ");
+				query.append("   		, TO_CHAR(T.LTST_MODY_DT, 'YYYY-DD-MM HH24:MI:SS') LTST_MDFY_DT  ");
 				query.append(" 			, T.TEAM_POINT ");
-				query.append(" 			, T.LTST_MODY_DT ");
 				query.append(" 			, T.TEAM_INFO ");
 				query.append(" 			, L.LCTN_ID ");
 				query.append(" 			, L.LCTN_NM ");
@@ -130,7 +131,7 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 					teamVO.setTeamPhoto(rs.getString("TEAM_PHOTO"));
 					teamVO.setCreateDate(rs.getString("CRT_DT"));
 					teamVO.setTeamPoint(rs.getInt("TEAM_POINT"));
-					teamVO.setLatestModifyDate(rs.getString("LTST_MODY_DT"));
+					teamVO.setLatestModifyDate(rs.getString("LTST_MDFY_DT"));
 					teamVO.setTeamInfo(rs.getString("TEAM_INFO"));
 					
 					locationVO = teamVO.getLocationVO();
@@ -156,9 +157,9 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 				query.append(" 			, T.TEAM_CNT ");
 				query.append(" 			, T.TEAM_NM ");
 				query.append(" 			, T.TEAM_PHOTO ");
-				query.append(" 			, T.CRT_DT ");
+				query.append("			, TO_CHAR(T.CRT_DT, 'YYYY-MM-DD HH24:MI:SS' ) CRT_DT ");
+				query.append("   		, TO_CHAR(T.LTST_MODY_DT, 'YYYY-DD-MM HH24:MI:SS') LTST_MDFY_DT  ");
 				query.append(" 			, T.TEAM_POINT ");
-				query.append(" 			, T.LTST_MODY_DT ");
 				query.append(" 			, T.TEAM_INFO ");
 				query.append(" 			, T.LCTN_ID ");
 				query.append(" 			, L.LCTN_NM ");
@@ -188,7 +189,7 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 					team.setTeamPhoto(rs.getString("TEAM_PHOTO"));
 					team.setCreateDate(rs.getString("CRT_DT"));
 					team.setTeamPoint(rs.getInt("TEAM_POINT"));
-					team.setLatestModifyDate(rs.getString("LTST_MODY_DT"));
+					team.setLatestModifyDate(rs.getString("LTST_MDFY_DT"));
 					team.setTeamInfo(rs.getString("TEAM_INFO"));
 					team.setLocationId(rs.getString("LCTN_ID"));
 					
@@ -216,9 +217,9 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 				query.append(" 			, T.TEAM_CNT ");
 				query.append(" 			, T.TEAM_NM ");
 				query.append(" 			, T.TEAM_PHOTO ");
-				query.append(" 			, T.CRT_DT ");
 				query.append(" 			, T.TEAM_POINT ");
-				query.append(" 			, T.LTST_MODY_DT ");
+				query.append("			, TO_CHAR(T.CRT_DT, 'YYYY-MM-DD HH24:MI:SS' ) CRT_DT ");
+				query.append("   		, TO_CHAR(T.LTST_MODY_DT, 'YYYY-DD-MM HH24:MI:SS') LTST_MDFY_DT  ");
 				query.append(" 			, T.TEAM_INFO ");
 				query.append(" 			, T.LCTN_ID ");
 				query.append(" 			, L.LCTN_NM ");
@@ -249,7 +250,7 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 					team.setTeamPhoto(rs.getString("TEAM_PHOTO"));
 					team.setCreateDate(rs.getString("CRT_DT"));
 					team.setTeamPoint(rs.getInt("TEAM_POINT"));
-					team.setLatestModifyDate(rs.getString("LTST_MODY_DT"));
+					team.setLatestModifyDate(rs.getString("LTST_MDFY_DT"));
 					team.setTeamInfo(rs.getString("TEAM_INFO"));
 					team.setLocationId(rs.getString("LCTN_ID"));
 					
@@ -387,6 +388,7 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 		});
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<TeamVO> getAllTeams() {
 		return selectList(new QueryAndResult() {
@@ -399,9 +401,9 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 				query.append(" 			, T.TEAM_CNT ");
 				query.append(" 			, T.TEAM_NM ");
 				query.append(" 			, T.TEAM_PHOTO ");
-				query.append(" 			, T.CRT_DT ");
 				query.append(" 			, T.TEAM_POINT ");
-				query.append(" 			, T.LTST_MODY_DT ");
+				query.append("			, TO_CHAR(T.CRT_DT, 'YYYY-MM-DD HH24:MI:SS' ) CRT_DT ");
+				query.append("   		, TO_CHAR(T.LTST_MODY_DT, 'YYYY-DD-MM HH24:MI:SS') LTST_MDFY_DT  ");
 				query.append(" 			, T.TEAM_INFO ");
 				query.append(" 			, L.LCTN_ID ");
 				query.append(" 			, L.LCTN_NM ");
@@ -432,7 +434,7 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 					teamVO.setTeamPoint(rs.getInt("TEAM_POINT"));
 					teamVO.setTeamInfo(rs.getString("TEAM_INFO"));
 					teamVO.setCreateDate(rs.getString("CRT_DT"));
-					teamVO.setLatestModifyDate(rs.getString("LTST_MODY_DT"));
+					teamVO.setLatestModifyDate(rs.getString("LTST_MDFY_DT"));
 					
 					locationVO = teamVO.getLocationVO();
 					locationVO.setLocationId(rs.getString("LCTN_ID"));

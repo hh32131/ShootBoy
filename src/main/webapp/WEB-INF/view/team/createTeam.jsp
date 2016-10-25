@@ -100,10 +100,8 @@
 		<form id="craeteTeamForm" name="createTeamForm"	enctype="multipart/form-data" >
 			<div>
 				<div class="inline-block" style="border-radius: 8px;">
-					<input type="text"
-						style=" width: 255px; height: 25px; border-radius: 8px; margin-bottom: 20px;"
-						id="teamName" name="teamName" placeholder="팀명" />
-						<div id="teamNameCheck"></div>
+					<input type="text" style=" width: 255px; height: 25px; border-radius: 8px; margin-bottom: 20px;" id="teamName" name="teamName" placeholder="팀명" />
+					<div id="teamNameCheck"></div>
 					<input type="button" id="checkTeamName" name="checkTeamName" value="중복체크" />
 				</div>
 	

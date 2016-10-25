@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/admin.css" />
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/adminMain.css" />
 
@@ -65,7 +67,9 @@
 					<c:forEach var="teams" items="${teams}" begin="0" end="4" step="1">
 						<tbody>
 							<tr>
-								<td class="td_teamId"> ${teams.teamId } </td>
+								<c:set var="number" value="${fn:split(teams.teamId,'-')[2]}" />
+								<fmt:parseNumber var="number" type="number" value="${number}" />
+								<td class="td_teamId"> ${number}</td>
 								<td class="td_teamName"> ${teams.teamName} </td>
 								<td class="td_teamInfo"> ${teams.teamInfo} </td>
 								<td class="td_team-memberCnt"> ${teams.teamCount} </td>
@@ -127,10 +131,8 @@
 				<table>
 					<thead>
 						<tr>
-							<th scope="col"> 게시판 </th>
 							<th scope="col"> 게시물 번호 </th>
 							<th scope="col"> 제 목 </th>
-							<th scope="col"> 회원 아이디 </th>
 							<th scope="col"> 이름 </th>
 							<th scope="col"> 날짜 </th>
 							
@@ -139,11 +141,11 @@
 					<c:forEach var="boards" items="${boards}" begin="0" end="4" step="1">
 						<tbody>
 							<tr>
-								<td class="td_board"> 게시판 </td>
-								<td class="td_boardId"> ${boards.boardId} </td>
+								<c:set var="number" value="${fn:split(boards.boardId,'-')[2]}" />
+								<fmt:parseNumber var="number" type="number" value="${number}" />
+								<td class="td_boardId"> ${number}</td>
 								<td class="td_boardSubject"> ${boards.boardSubject} </td>
-								<td class="td_username"> 닉네임 </td>
-								<td class="td_userId"> 이름 </td>
+								<td class="td_username"> ${boards.userVO.userName } </td>
 								<td class="td_createDate"> ${boards.createDate} </td>
 							</tr>
 						</tbody>	

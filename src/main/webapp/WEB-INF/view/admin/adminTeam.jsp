@@ -112,10 +112,14 @@
 									</div>
 								</td>
 								<td class="td_teamId">
-									<input type="hidden" value="${team.teamId}">
-									<span><a href="javascript:void(0);" class="teamCode" data-teamid="${team.teamId}"> ${team.teamId }</a></span>
+									<c:set var="number" value="${fn:split(team.teamId,'-')[2]}" />
+									<fmt:parseNumber var="number" type="number" value="${number}" />
+									${number }
 								</td>
-								<td class="td_teamName"> ${team.teamName} </td>
+								<td class="td_teamName"> 
+									<input type="hidden" value="${team.teamId}">
+									<span><a href="javascript:void(0);" class="teamCode" data-teamid="${team.teamId}"> ${team.teamName}</a></span>
+								</td>
 								<td class="td_team-memberCnt"> ${team.teamCount} </td>
 								<td class="td_teamPhoto"> ${team.teamPhoto} </td>
 								<td class="td_team-date"> ${team.createDate} </td>
