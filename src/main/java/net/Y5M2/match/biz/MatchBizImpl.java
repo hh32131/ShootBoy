@@ -25,5 +25,10 @@ public class MatchBizImpl implements MatchBiz {
 
 		return matchDao.getMatchApplyTeamsOf(locationId,beginDate,endDate);
 	}
+
+	@Override
+	public List<MatchVO> getAllMatchTeam(String teamId) {
+		return matchDao.getAllMatchTeam(teamId);
+	}
 	
 }

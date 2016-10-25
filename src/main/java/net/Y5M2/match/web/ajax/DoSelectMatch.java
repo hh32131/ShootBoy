@@ -32,8 +32,6 @@ public class DoSelectMatch extends HttpServlet {
 		String beginDate = Param.getStringParam(request, "beginDate");
 		String endDate = Param.getStringParam(request, "endDate");
 		
-		
-		
 		PrintWriter out = response.getWriter();
 		StringBuffer list = new StringBuffer();
 		List<MatchVO> matchTeams = matchBiz.getMatchApplyTeamsOf(locationId,beginDate,endDate);

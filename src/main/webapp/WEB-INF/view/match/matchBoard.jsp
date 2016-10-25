@@ -15,14 +15,28 @@
 		});
 		
 		$(".location").click(function(){
-			$.post("/ShootBoy/doSelectMatch",{"locationId":$(this).data("value")},function(data){
+			$.post("/ShootBoy/doSelectMatch",{"locationId":$(this).data("value")}, function(data){
 				$("#matchList").html(data);
 			});
 		});
 	
+		$(".applyBtn").click(function() {
+			$.post("/ShootBoy/doCheckMatchRequest", "", function(data) {
+				if (data =="false") {
+					if( confirm("신청하시겠습니까?") ) {
+						location.href="/ShootBoy/doMatchRequest?teamId=${teamId}";
+					}
+				}
+				else {
+					alert("이미 신청한 팀이 있습니다.");
+				}
+			});
+		});
 	});
+	
 </script>
 <body>
+
 	<div id="myPageLeftMenu">
 		<div class="mplmTitle">My Page</div>
 		<div id="myPageLeftMenuTwo">
@@ -47,7 +61,9 @@
 		</ul>
 	</div>
 	<div id="matchList" ></div>
+		<input type="hidden" id="teamId" name="teamId" value="${teamId}">
 	</div>
+	
 	</form>
 	<a href="javascript:void(0);" id="matchEnroll">매치등록</a>
 </body>

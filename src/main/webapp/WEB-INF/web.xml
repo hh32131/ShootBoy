@@ -705,7 +705,7 @@
     <servlet-name>DoCheckTeamJoin</servlet-name>
     <url-pattern>/doCheckTeamJoin</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <description></description>
     <display-name>DoTeamJoin</display-name>
     <servlet-name>DoTeamJoin</servlet-name>
@@ -902,5 +902,45 @@
   <servlet-mapping>
     <servlet-name>DoSelectMatch</servlet-name>
     <url-pattern>/doSelectMatch</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewMatchListPageServlet</display-name>
+    <servlet-name>ViewMatchListPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.match.web.ViewMatchListPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewMatchListPageServlet</servlet-name>
+    <url-pattern>/matchList</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoMatchRequerst</display-name>
+    <servlet-name>DoMatchRequerst</servlet-name>
+    <servlet-class>net.Y5M2.match.web.DoMatchRequerst</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoMatchRequerst</servlet-name>
+    <url-pattern>/doMatchRequerst</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoMatchRequest</display-name>
+    <servlet-name>DoMatchRequest</servlet-name>
+    <servlet-class>net.Y5M2.teammatch.web.DoMatchRequest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoMatchRequest</servlet-name>
+    <url-pattern>/doMatchRequest</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoCheckMatchRequest</display-name>
+    <servlet-name>DoCheckMatchRequest</servlet-name>
+    <servlet-class>net.Y5M2.teammatch.web.ajax.DoCheckMatchRequest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoCheckMatchRequest</servlet-name>
+    <url-pattern>/doCheckMatchRequest</url-pattern>
   </servlet-mapping>
 </web-app>
