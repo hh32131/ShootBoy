@@ -29,6 +29,7 @@
 				"method": "post",
 				"action": "/ShootBoy/doWriteAdminArticle"
 			}).submit();
+			
 		});
 			
 		$("#backBtn").click(function() {

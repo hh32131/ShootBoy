@@ -2,6 +2,7 @@ package net.Y5M2.admin.web;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -75,10 +76,16 @@ public class DoWriteAdminArticleServlet extends HttpServlet {
 			response.sendRedirect("/ShootBoy/board/write?errorCode=1");
 			return;
 		}
+		PrintWriter out = response.getWriter();
 		
 		boolean isSuccess = boardBiz.writeBoard(board);
 		if (isSuccess) {
-			response.sendRedirect("/ShootBoy/adminArticle");
+			out.write(" <script type='text/javascript'> ");
+			out.write(" window.opener.location.reload(); ");
+			out.write(" window.close(); ");
+			out.write(" </script> ");
+			out.flush();
+			out.close();
 		} else {
 			response.sendRedirect("/ShootBoy/list?errorCode=2");
 		}
