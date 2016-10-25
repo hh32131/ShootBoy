@@ -242,9 +242,14 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				query.append(" 			, TO_CHAR(B.LTST_MDFY_DT, 'YYYY-MM-DD HH24:MI:SS') LTST_MDFY_DT ");
 				query.append(" FROM		BOARD B ");
 				query.append(" 			, USR U ");
+<<<<<<< HEAD
 
 				query.append(" WHERE	B.USR_ID = U.USR_ID ");
 				query.append(" AND		BOARD_ID = ? ");
+=======
+				query.append(" WHERE	BOARD_ID = ? ");
+				query.append(" AND		B.USR_ID = U.USR_ID ");
+>>>>>>> c76dae37d3a86be809a959d3aae21745a1328e8e
 
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				pstmt.setString(1, boardId);
@@ -257,7 +262,10 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 
 				BoardVO board = null;
 				UserVO user = null;
+<<<<<<< HEAD
 
+=======
+>>>>>>> c76dae37d3a86be809a959d3aae21745a1328e8e
 				if( rs.next() ) {
 
 					board = new BoardVO();
@@ -270,6 +278,11 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 					board.setFileName(rs.getString("FILE_NM"));
 					board.setCreateDate(rs.getString("CRT_DT"));
 					board.setModifyDate(rs.getString("LTST_MDFY_DT"));
+<<<<<<< HEAD
+=======
+					user = board.getUserVO();
+					user.setUserName(rs.getString("USR_NM"));
+>>>>>>> c76dae37d3a86be809a959d3aae21745a1328e8e
 
 					user = board.getUserVO();
 					user.setUserName(rs.getString("USR_NM"));

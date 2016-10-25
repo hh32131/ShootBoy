@@ -38,7 +38,11 @@ $(document).ready(function(){
 					<a href="/ShootBoy/main">홈</a> | <a href="/ShootBoy/signUp">회원가입</a> | <a href="/ShootBoy/signIn">로그인</a>
 				</div>
 			</c:when>
-			
+			<c:when test="${sessionScope._USER_INFO_.levelId eq '1' }">
+			<div class="mainRight">
+				<a href="/ShootBoy/main">홈</a> | <a href="/ShootBoy/logout">로그아웃</a> | <a href="/ShootBoy/admin">administer</a>
+			</div>
+			</c:when>
 			<c:otherwise>
 				<div class="mainRight">
 					<a href="/ShootBoy/main">홈</a> | <a href="/ShootBoy/logout">로그아웃</a>
