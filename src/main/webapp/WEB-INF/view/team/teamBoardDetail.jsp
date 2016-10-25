@@ -14,6 +14,12 @@ $(document).ready(function() {
 			location.href="/ShootBoy/doDeleteTeamBoard?teamBoardId=${teamBoards.teamBoardId}";
 		}
 	});
+	
+	$("#modyBtn").click(function() {
+		if (confirm("\"${teamBoards.teamBoardSubject}\"를 수정하시겠습니까?")) {
+			location.href="/ShootBoy/teamBoardModify?teamBoardId=${teamBoards.teamBoardId}";
+		}
+	});
 });
 	console.log("${teamBoards.teamId}");
 </script>
@@ -32,12 +38,14 @@ $(document).ready(function() {
 	<h1>제목: ${teamBoards.teamBoardSubject}</h1>
 	<h2>팀 이름: ${teamBoards.teamVO.teamName}</h2>
 	<h2>작성자: ${teamBoards.userVO.userName}</h2>
-	<h2>조회수: ${teamBoards.teamBoardRecommendCount}</h2>
+	<h2>조회수: ${teamBoards.teamBoardRecommendCount} <a href="/ShootBoy/doDownloadFile?teamBoards=${teamBoards.teamBoardId}" style="float: right;">${teamBoards.fileName}</a></h2>
 	<hr/>
 	<h3>${teamBoards.teamBoardContent}</h3>
 	
 	<div>	
-		<input type="button" id="deleteBtn" name="deleteBtn" value="삭제" />
+		<input type="button" id="deleteBtn" name="deleteBtn" value="삭제" />		
+		<input type="button" id="modyBtn" name="modyBtn" value="수정" />
+		
 	</div>
 
 	

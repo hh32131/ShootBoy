@@ -4,6 +4,7 @@ package net.Y5M2.team.biz;
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 
+import net.Y5M2.article.vo.BoardVO;
 import net.Y5M2.team.vo.SearchTeamVO;
 import net.Y5M2.team.vo.TeamBoardListVO;
 import net.Y5M2.team.vo.TeamBoardVO;
@@ -45,6 +46,15 @@ public interface TeamBiz {
 	public boolean isExsistTeam(String teamName);
 	
 	public boolean deleteTeamBoard(String teamBoardId);
+	
+	public boolean modifyTeamBoard(TeamBoardVO teamBoardVO);
+	
+	public TeamBoardVO getTeamBoardForModify(String teamBoardId);
+	
+	public String getFileNameOfTeamBoardBy(String teamBoardId);
+
+
+
 
 
 }

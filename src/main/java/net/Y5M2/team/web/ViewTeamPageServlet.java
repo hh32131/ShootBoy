@@ -34,7 +34,7 @@ public class ViewTeamPageServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String viewPath = "/WEB-INF/view/team/teamBoad.jsp";
+		String viewPath = "/WEB-INF/view/team/team.jsp";
 		
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 		rd.forward(request, response);

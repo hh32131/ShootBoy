@@ -502,7 +502,6 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 			}
 		});
 	}
-<<<<<<< HEAD
 
 	@Override
 	public List<TeamBoardVO> getAllTeamBoards(SearchTeamVO searchTeam) {
@@ -740,7 +739,116 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 			}
 		});
 	}
-=======
->>>>>>> 5d1156206db11f99f8fc4b4419eb4ee9acf27f92
+
+	@Override
+	public int modifyTeamBoard(TeamBoardVO teamBoardVO) {
+		return insert(new Query() {
+
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+
+				StringBuffer query = new StringBuffer();
+				query.append(" UPDATE	TBOARD ");
+				query.append(" SET		LTST_MODY_DT = SYSDATE ");
+
+				if (teamBoardVO.getTeamBoardSubject() != null) {
+					query.append(" , TBOARD_SUB = ? ");
+				}
+
+				if (teamBoardVO.getTeamBoardContent() != null) {
+					query.append(" , TBOARD_CONT = ? ");
+				}
+
+				if (teamBoardVO.getFileName() != null) {
+					query.append(" , FILE_NM = ? ");
+				}
+				query.append(" WHERE	TBOARD_ID = ? ");
+
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+
+				int index = 1;
+
+				if (teamBoardVO.getTeamBoardSubject() != null) {
+					pstmt.setString(index++, teamBoardVO.getTeamBoardSubject());
+				}
+
+				if (teamBoardVO.getTeamBoardContent() != null) {
+					pstmt.setString(index++, teamBoardVO.getTeamBoardSubject());
+				}
+
+				if (teamBoardVO.getFileName() != null) {
+					pstmt.setString(index++, teamBoardVO.getFileName());
+				}
+
+				pstmt.setString(index++, teamBoardVO.getTeamBoardId());
+
+				return pstmt;
+			}
+		});
+	}
+
+	@Override
+	public TeamBoardVO getTeamBoardForModify(String teamBoardId) {
+		return (TeamBoardVO) selectOne(new QueryAndResult() {
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				
+				StringBuffer query = new StringBuffer();
+				
+				query.append(" SELECT			TB.TBOARD_ID ");
+				query.append(" 					,U.USR_ID ");
+				query.append(" 					,TB.TBOARD_SUB ");
+				query.append(" 					,TB.RCMD_CNT ");
+				query.append(" 					,TB.TBOARD_CONT ");
+				query.append(" 					,TB.CRT_DT ");
+				query.append(" 					,U.USR_NM ");
+				query.append(" 					,TB.LTST_MODY_DT ");
+				query.append(" 					,T.TEAM_ID ");
+				query.append(" 					,T.TEAM_NM ");
+				query.append(" 					,TB.FILE_NM ");
+				query.append(" 					,TB.REPLY_HIT_CNT ");
+				query.append(" FROM		TEAM T, TBOARD TB, USR U ");
+				query.append(" WHERE	U.USR_ID = TB.USR_ID ");
+				query.append(" AND		TB.TEAM_ID = T.TEAM_ID ");
+				query.append(" AND		TB.TBOARD_ID = ? ");
+				
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				pstmt.setString(1, teamBoardId);
+				
+				return pstmt;
+			}
+			
+			@Override
+			public Object makeObject(ResultSet rs) throws SQLException {
+				TeamBoardVO teamBoardVO =null;
+				UserVO userVO = null;
+				TeamVO teamVO = null;
+				if( rs.next() ) {
+					teamBoardVO = new TeamBoardVO();
+					
+					teamBoardVO.setTeamBoardId(rs.getString("TBOARD_ID"));	
+					teamBoardVO.setTeamBoardSubject(rs.getString("TBOARD_SUB"));	
+					teamBoardVO.setTeamBoardRecommendCount(rs.getInt("RCMD_CNT"));
+					teamBoardVO.setTeamBoardContent(rs.getString("TBOARD_CONT"));
+					teamBoardVO.setCreateDate(rs.getString("CRT_DT"));
+					teamBoardVO.setTeamId(rs.getString("TEAM_ID"));
+					teamBoardVO.setLatestModifyDate(rs.getString("LTST_MODY_DT"));
+					teamBoardVO.setFileName(rs.getString("FILE_NM"));
+					teamBoardVO.setReplyHitCount(rs.getInt("REPLY_HIT_CNT"));
+					
+					teamVO = teamBoardVO.getTeamVO();
+					teamVO.setTeamId(rs.getString("TEAM_ID"));
+					teamVO.setTeamName(rs.getString("TEAM_NM"));
+
+					
+					userVO = teamBoardVO.getUserVO();
+					userVO.setUserId(rs.getString("USR_ID"));
+					userVO.setUserName(rs.getString("USR_NM"));
+				
+				}
+				return teamBoardVO;
+			}
+		});
+	}
 }
 	

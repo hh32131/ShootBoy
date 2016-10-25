@@ -6,8 +6,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-
-
+import net.Y5M2.article.vo.BoardVO;
 import net.Y5M2.constants.Session;
 import net.Y5M2.support.pager.Pager;
 import net.Y5M2.support.pager.PagerFactory;
@@ -225,6 +224,48 @@ public class TeamBizImpl implements TeamBiz {
 	public boolean deleteTeamBoard(String teamBoardId) {
 		return teamDao.deleteTeamBoard(teamBoardId) > 0;
 
+	}
+
+	@Override
+	public boolean modifyTeamBoard(TeamBoardVO teamBoardVO) {
+		TeamBoardVO originalBoard = teamDao.getTeamBoardAt(teamBoardVO.getTeamBoardId());
+		int modifyCount = 3;
+		if ( originalBoard.getTeamBoardSubject().equals(teamBoardVO.getTeamBoardSubject()) ) {
+			teamBoardVO.setTeamBoardSubject(null);
+			modifyCount--;
+		}
+		
+		if ( originalBoard.getTeamBoardContent().equals(teamBoardVO.getTeamBoardContent()) ) {
+			teamBoardVO.setTeamBoardContent(null);
+			modifyCount--;
+		}
+		
+		if ( originalBoard.getFileName() == null ) {
+			originalBoard.setFileName("");
+		}
+		
+		if ( originalBoard.getFileName().equals(teamBoardVO.getFileName()) ) {
+			teamBoardVO.setFileName(null);
+			modifyCount--;
+		}
+		
+		if ( modifyCount == 0 ) {
+			return true;
+		}
+		
+		return teamDao.modifyTeamBoard(teamBoardVO) > 0;
+	}
+
+	@Override
+	public TeamBoardVO getTeamBoardForModify(String teamBoardId) {
+		return teamDao.getTeamBoardForModify(teamBoardId);
+
+	}
+	
+	@Override
+	public String getFileNameOfTeamBoardBy(String teamBoardId) {
+		TeamBoardVO teamBoardVO = teamDao.getTeamBoardAt(teamBoardId);
+		return teamBoardVO.getFileName();
 	}
 
 }

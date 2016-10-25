@@ -60,11 +60,7 @@ $(document).ready(function(){
 							<li><a href="/ShootBoy/userInfo">내 정보</a></li>
 							<li><a href="/ShootBoy/detailTeamInfo">팀 정보</a></li>
 							<li><a href="/ShootBoy/teamMatchInfo">팀 매치 정보</a></li>
-<<<<<<< HEAD
-							<li><a href="/ShootBoy/message">메시지함</a></li>
 							<li><a href="/ShootBoy/teamBoard">팀 게시판</a></li>
-=======
->>>>>>> 5d1156206db11f99f8fc4b4419eb4ee9acf27f92
 						</c:if>
 						</ul>
 					</li>
