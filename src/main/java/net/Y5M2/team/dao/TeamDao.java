@@ -3,6 +3,7 @@ package net.Y5M2.team.dao;
 import java.util.List;
 
 import net.Y5M2.team.vo.SearchTeamVO;
+import net.Y5M2.team.vo.TeamBoardVO;
 import net.Y5M2.team.vo.TeamVO;
 
 public interface TeamDao {
@@ -21,7 +22,15 @@ public interface TeamDao {
 	public List<TeamVO> getAllTeams();
 	
 	public TeamVO getTeamAt(String teamId);
+	
 
+	public int hitCountUpdate(String teamBoardId);
+	
+	public List<TeamBoardVO> getAllTeamBoards(SearchTeamVO searchTeam);
+	public TeamBoardVO getTeamBoardAt(String teamBoardId);
+	public int addTeamBoard(TeamBoardVO teamBoardVO);
+	
+	
 	public TeamVO getTeamInfoForUpdate(String teamName);
 
 	public int updateTeamInfo(TeamVO teamVO);
@@ -33,5 +42,11 @@ public interface TeamDao {
 	public int getCountOfTeam(String teamId);
 	
 	public int isExsistTeam(String teamName);
+	
+	public int deleteTeamBoard(String teamBoardId);
+
+
+
+
 	
 }

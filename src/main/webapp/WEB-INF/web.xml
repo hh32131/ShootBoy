@@ -636,10 +636,6 @@
     <error-code>404</error-code>
     <location>/WEB-INF/view/error/404.jsp</location>
   </error-page>
-  <error-page>
-    <error-code>500</error-code>
-    <location>/WEB-INF/view/error/500.jsp</location>
-  </error-page>
   <servlet>
     <description></description>
     <display-name>DoCheckPasswordHint</display-name>
@@ -794,5 +790,45 @@
   <servlet-mapping>
     <servlet-name>ViewTeamBoardPageServlet</servlet-name>
     <url-pattern>/teamBoard</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoWriteTeamBoardServlet</display-name>
+    <servlet-name>DoWriteTeamBoardServlet</servlet-name>
+    <servlet-class>net.Y5M2.team.web.DoWriteTeamBoardServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoWriteTeamBoardServlet</servlet-name>
+    <url-pattern>/doWriteTeamBoard</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewWriteTeamBoardPageServlet</display-name>
+    <servlet-name>ViewWriteTeamBoardPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.team.web.ViewWriteTeamBoardPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewWriteTeamBoardPageServlet</servlet-name>
+    <url-pattern>/teamBoardWrite</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewDetailTeamBoardPageServlet</display-name>
+    <servlet-name>ViewDetailTeamBoardPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.team.web.ViewDetailTeamBoardPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewDetailTeamBoardPageServlet</servlet-name>
+    <url-pattern>/detailTeamBoard</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoDeleteTeamBoardServlet</display-name>
+    <servlet-name>DoDeleteTeamBoardServlet</servlet-name>
+    <servlet-class>net.Y5M2.team.web.DoDeleteTeamBoardServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoDeleteTeamBoardServlet</servlet-name>
+    <url-pattern>/doDeleteTeamBoard</url-pattern>
   </servlet-mapping>
 </web-app>

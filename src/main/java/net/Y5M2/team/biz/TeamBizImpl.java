@@ -14,6 +14,8 @@ import net.Y5M2.support.pager.PagerFactory;
 import net.Y5M2.team.dao.TeamDao;
 import net.Y5M2.team.dao.TeamDaoImpl;
 import net.Y5M2.team.vo.SearchTeamVO;
+import net.Y5M2.team.vo.TeamBoardListVO;
+import net.Y5M2.team.vo.TeamBoardVO;
 import net.Y5M2.team.vo.TeamListVO;
 import net.Y5M2.team.vo.TeamVO;
 import net.Y5M2.user.dao.UserDao;
@@ -180,6 +182,49 @@ public class TeamBizImpl implements TeamBiz {
 	@Override
 	public boolean deleteTeam(String teamId) {
 		return teamDao.deleteTeam(teamId) > 0;
+	}
+
+	@Override
+	public boolean addTeamBoard(TeamBoardVO teamBoardVO) {
+		
+		return teamDao.addTeamBoard(teamBoardVO)>0;
+		
+		
+
+	}
+
+	@Override
+	public TeamBoardListVO getAllTeamBoards(SearchTeamVO searchTeam, TeamBoardVO teamBoardVO) {
+		int totalCount = teamDao.getCountOfTeams(searchTeam);
+		Pager pager = PagerFactory.getPager(true, 20, 5);
+		pager.setTotalArticleCount(totalCount);
+		pager.setPageNumber(searchTeam.getPageNo());
+		
+		
+		searchTeam.setStartRowNumber(pager.getStartArticleNumber());
+		searchTeam.setEndRowNumber(pager.getEndArticleNumber());
+		
+		List<TeamBoardVO> teams = teamDao.getAllTeamBoards(searchTeam);
+		
+		TeamBoardListVO teamList = new TeamBoardListVO();
+		teamList.setPager(pager);
+		teamList.setTeams(teams);
+		
+		return teamList;
+	}
+
+	@Override
+	public TeamBoardVO getTeamBoardAt(String teamBoardId) {
+		teamDao.hitCountUpdate(teamBoardId);
+
+		return teamDao.getTeamBoardAt(teamBoardId);
+
+	}
+
+	@Override
+	public boolean deleteTeamBoard(String teamBoardId) {
+		return teamDao.deleteTeamBoard(teamBoardId) > 0;
+
 	}
 
 }

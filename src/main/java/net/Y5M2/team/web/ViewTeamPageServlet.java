@@ -34,8 +34,12 @@ public class ViewTeamPageServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String viewPath = "/WEB-INF/view/team/teamBoad.jsp";
 		
-		//List<TeamVO> team = teamBiz.getAllTeam(searchTeam);
+		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
+		rd.forward(request, response);
+		
+	
 		HttpSession session = request.getSession();
 		int pageNo = Param.getIntParam(request, "pageNo", -1);
 		int searchType = Param.getIntParam(request, "searchType");
@@ -43,7 +47,7 @@ public class ViewTeamPageServlet extends HttpServlet {
 		
 		SearchTeamVO searchTeam = null;
 		
-		if (pageNo == -1) {
+	if (pageNo == -1) {
 			searchTeam = (SearchTeamVO) session.getAttribute(Session.SEARCH_TEAM_INFO);
 			if (searchTeam == null) {
 				searchTeam = new SearchTeamVO();
@@ -59,8 +63,6 @@ public class ViewTeamPageServlet extends HttpServlet {
 		session.setAttribute(Session.SEARCH_TEAM_INFO, searchTeam);
 		TeamListVO teams = teamBiz.getAllTeam(searchTeam);
 
-		String viewPath = "/WEB-INF/view/team/team.jsp";
-		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 		request.setAttribute("team", teams.getTeams());
 		request.setAttribute("pager", teams.getPager());
 
@@ -69,7 +71,6 @@ public class ViewTeamPageServlet extends HttpServlet {
 
 		request.setAttribute("paging", pager);
 		request.setAttribute("searchTeam", searchTeam);
-		rd.forward(request, response);
 		
 	}
 }
