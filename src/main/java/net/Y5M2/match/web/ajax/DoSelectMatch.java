@@ -37,6 +37,7 @@ public class DoSelectMatch extends HttpServlet {
 		List<MatchVO> matchTeams = matchBiz.getMatchApplyTeamsOf(locationId,beginDate,endDate);
 		
 		for (MatchVO matchVO : matchTeams) {
+		
 			list.append(" <tr> ");
 			list.append(String.format(" <td rowspan='3'><img src='/ShootBoy/showImge?teamId=%s'></td> ", matchVO.getTeamId()));
 			list.append(String.format(" <td>%s</td> ",matchVO.getTeamVO().getTeamName()));
@@ -50,6 +51,7 @@ public class DoSelectMatch extends HttpServlet {
 			list.append(" <tr> ");
 			list.append(String.format(" <td colspan='2'>%s</td> ", matchVO.getTeamVO().getTeamInfo()));
 			list.append(" </tr> ");
+		
 		}
 		
 		out.write(list.toString());

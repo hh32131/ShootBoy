@@ -20,7 +20,7 @@
 			});
 		});
 	
-		$(".applyBtn").click(function() {
+		$("#applyBtn").click(function() {
 			$.post("/ShootBoy/doCheckMatchRequest", "", function(data) {
 				if (data =="false") {
 					if( confirm("신청하시겠습니까?") ) {
