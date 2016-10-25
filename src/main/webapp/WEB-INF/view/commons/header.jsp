@@ -67,7 +67,6 @@ $(document).ready(function(){
 					<li><a href="#">Match</a>
 						<ul>
 							<li><a href="/ShootBoy/matchBoard">매치보드</a></li>
-							<li><a href="/ShootBoy/matchApply">매치신청</a></li>
 							<li><a href="/ShootBoy/matchApplyManagement">매치 신청 관리</a></li>
 						</ul></li>
 
