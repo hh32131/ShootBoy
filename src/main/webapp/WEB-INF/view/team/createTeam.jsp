@@ -131,7 +131,7 @@
 			<input type="file" id="file" name="file" style="width: 220px; back" /> 
 			<input type="button" id="teamCreateBtn" 
 					name="teamCreateBtn" value="팀 생성" 
-					style="margin-left: 60px; width: 60px; border-radius: 200px; "/>			  
+					style="margin-left: 60px; width: 60px; border-radius: 200px; "/>
 		</form>
 	</div>
 </body>
