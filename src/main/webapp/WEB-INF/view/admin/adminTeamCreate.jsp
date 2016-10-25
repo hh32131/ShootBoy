@@ -11,7 +11,7 @@
 
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
-	
+
 	$(document).ready(function() {
 		
 		$("#locationId").change(function(){
@@ -29,13 +29,13 @@
 		
 		$("#checkTeamName").click(function () {
 			$.post("/ShootBoy/doCheckTeamName", 
-					{ "teamName" : $("#teamName").val() }, function(data){
+				{ "teamName" : $("#teamName").val() }, function(data){
 				if(data=="false") {
-					alert('사용 가능');
+					$("#teamNameCheck").html("사용 가능한 팀 이름입니다.")
 					$("#teamCreateBtn").slideDown();
 				}
 				else {
-					alert('사용 불가');
+					$("#teamNameCheck").html("중복된 팀 이름입니다.")
 					$("#teamCreateBtn").hide();
 				}
 			});
@@ -81,14 +81,13 @@
 					}).submit(); 
 				}
 			}
-			
 		});
-
 	});
 	
 	function closeWin() {
 		close();
 	}
+	
 </script>
 </head>
 <body>
@@ -111,10 +110,9 @@
 			<div>
 				<div class="team-name" >
 					<input type="text" id="teamName" name="teamName" placeholder="팀명" />
-					<div class="teamNameCheck">
-						<input type="button" id="checkTeamName" name="checkTeamName" value="중복체크" />
-					</div>
 				</div>
+				<input type="button" id="checkTeamName" name="checkTeamName" value="중복체크" />
+				<div id="teamNameCheck"></div>
 				<div class="team-member">
 					<input type="text" id="teamCount" name="teamCount" placeholder="팀원 수" />
 				</div>
