@@ -24,10 +24,6 @@
     <filter-name>EncodingFilter</filter-name>
     <filter-class>net.Y5M2.filter.EncodingFilter</filter-class>
   </filter>
-<<<<<<< HEAD
-
-=======
->>>>>>> c76dae37d3a86be809a959d3aae21745a1328e8e
   <filter-mapping>
     <filter-name>EncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
@@ -753,10 +749,6 @@
     <filter-name>SessionFilter</filter-name>
     <url-pattern>/teamMatchInfo</url-pattern>
   </filter-mapping>
-<<<<<<< HEAD
-
-=======
->>>>>>> c76dae37d3a86be809a959d3aae21745a1328e8e
   <filter-mapping>
     <filter-name>EncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
@@ -768,7 +760,6 @@
     <display-name>ViewAdminMemberModifyPageServlet</display-name>
     <servlet-name>ViewAdminMemberModifyPageServlet</servlet-name>
     <servlet-class>net.Y5M2.admin.web.ViewAdminMemberModifyPageServlet</servlet-class>
-<<<<<<< HEAD
   </servlet>
   <servlet-mapping>
     <servlet-name>ViewAdminMemberModifyPageServlet</servlet-name>
@@ -894,137 +885,9 @@
     <servlet-name>DoJoinRefuse</servlet-name>
     <url-pattern>/doJoinRefuse</url-pattern>
   </servlet-mapping>
+ 
   <servlet>
     <description></description>
-=======
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ViewAdminMemberModifyPageServlet</servlet-name>
-    <url-pattern>/adminMemberModify</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>DoModifyAdminMemberServlet</display-name>
-    <servlet-name>DoModifyAdminMemberServlet</servlet-name>
-    <servlet-class>net.Y5M2.admin.web.DoModifyAdminMemberServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DoModifyAdminMemberServlet</servlet-name>
-    <url-pattern>/doAdminMemberModify</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>DoModifyAdminArticleServlet</display-name>
-    <servlet-name>DoModifyAdminArticleServlet</servlet-name>
-    <servlet-class>net.Y5M2.admin.web.DoModifyAdminArticleServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DoModifyAdminArticleServlet</servlet-name>
-    <url-pattern>/doAdminArticleModify</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ViewAdminArticleModifyPageServlet</display-name>
-    <servlet-name>ViewAdminArticleModifyPageServlet</servlet-name>
-    <servlet-class>net.Y5M2.admin.web.ViewAdminArticleModifyPageServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ViewAdminArticleModifyPageServlet</servlet-name>
-    <url-pattern>/adminArticleModify</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>DoWriteAdminArticleServlet</display-name>
-    <servlet-name>DoWriteAdminArticleServlet</servlet-name>
-    <servlet-class>net.Y5M2.admin.web.DoWriteAdminArticleServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DoWriteAdminArticleServlet</servlet-name>
-    <url-pattern>/doWriteAdminArticle</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>DoDeleteArticleAdminServlet</display-name>
-    <servlet-name>DoDeleteArticleAdminServlet</servlet-name>
-    <servlet-class>net.Y5M2.admin.web.DoDeleteArticleAdminServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DoDeleteArticleAdminServlet</servlet-name>
-    <url-pattern>/doAdminArticleDelete</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ViewAdminArticleWritePageServlet</display-name>
-    <servlet-name>ViewAdminArticleWritePageServlet</servlet-name>
-    <servlet-class>net.Y5M2.admin.web.ViewAdminArticleWritePageServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ViewAdminArticleWritePageServlet</servlet-name>
-    <url-pattern>/adminArticleWrite</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ViewAdminArticleDetailPageServlet</display-name>
-    <servlet-name>ViewAdminArticleDetailPageServlet</servlet-name>
-    <servlet-class>net.Y5M2.admin.web.ViewAdminArticleDetailPageServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ViewAdminArticleDetailPageServlet</servlet-name>
-    <url-pattern>/adminArticleDetail</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ViewTeamCreatePageServlet</display-name>
-    <servlet-name>ViewTeamCreatePageServlet</servlet-name>
-    <servlet-class>net.Y5M2.admin.web.ViewTeamCreatePageServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ViewTeamCreatePageServlet</servlet-name>
-    <url-pattern>/adminTeamCreate</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ViewAdminTeamBoardPageServlet</display-name>
-    <servlet-name>ViewAdminTeamBoardPageServlet</servlet-name>
-    <servlet-class>net.Y5M2.admin.web.ViewAdminTeamBoardPageServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ViewAdminTeamBoardPageServlet</servlet-name>
-    <url-pattern>/adminTeamBoard</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>DoAdmitJoinId</display-name>
-    <servlet-name>DoAdmitJoinId</servlet-name>
-    <servlet-class>net.Y5M2.teamjoin.web.ajax.DoAdmitJoinId</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DoAdmitJoinId</servlet-name>
-    <url-pattern>/doAdmitJoinId</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>DoDeleteUserTwoServlet</display-name>
-    <servlet-name>DoDeleteUserTwoServlet</servlet-name>
-    <servlet-class>net.Y5M2.user.web.DoDeleteUserTwoServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DoDeleteUserTwoServlet</servlet-name>
-    <url-pattern>/doDeleteUserTwoServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>DoJoinRefuse</display-name>
-    <servlet-name>DoJoinRefuse</servlet-name>
-    <servlet-class>net.Y5M2.teamjoin.web.ajax.DoJoinRefuse</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DoJoinRefuse</servlet-name>
-    <url-pattern>/doJoinRefuse</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
->>>>>>> c76dae37d3a86be809a959d3aae21745a1328e8e
     <display-name>DoMatchApply</display-name>
     <servlet-name>DoMatchApply</servlet-name>
     <servlet-class>net.Y5M2.match.web.DoMatchApply</servlet-class>
@@ -1043,27 +906,5 @@
     <servlet-name>DoSelectMatch</servlet-name>
     <url-pattern>/doSelectMatch</url-pattern>
   </servlet-mapping>
-<<<<<<< HEAD
-  <servlet>
-   <description></description>
-   <display-name>DoCheckTeamJoin</display-name>
-   <servlet-name>DoCheckTeamJoin</servlet-name>
-   <servlet-class>net.Y5M2.teamjoin.web.ajax.DoCheckTeamJoin</servlet-class>
- </servlet>
- <servlet-mapping>
-   <servlet-name>DoCheckTeamJoin</servlet-name>
-   <url-pattern>/doCheckTeamJoin</url-pattern>
- </servlet-mapping>
-<servlet>
-   <description></description>
-   <display-name>DoTeamJoin</display-name>
-   <servlet-name>DoTeamJoin</servlet-name>
-   <servlet-class>net.Y5M2.teamjoin.web.DoTeamJoin</servlet-class>
- </servlet>
- <servlet-mapping>
-   <servlet-name>DoTeamJoin</servlet-name>
-   <url-pattern>/teamJoin</url-pattern>
- </servlet-mapping>
-=======
->>>>>>> c76dae37d3a86be809a959d3aae21745a1328e8e
+
 </web-app>

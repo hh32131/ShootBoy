@@ -163,19 +163,11 @@
 			if($("#checkbox").checked == false) {
 				alert("가입약관에 동의하세요!");
 			}
-<<<<<<< HEAD
-=======
-
->>>>>>> c76dae37d3a86be809a959d3aae21745a1328e8e
 			$("#signUpForm").attr({
 				"method" : "post",
 				"action" : "/ShootBoy/doSignUp"
 			}).submit();
 		});
-<<<<<<< HEAD
-=======
-
->>>>>>> c76dae37d3a86be809a959d3aae21745a1328e8e
 	});
 
 	function isVisibleButton() {
