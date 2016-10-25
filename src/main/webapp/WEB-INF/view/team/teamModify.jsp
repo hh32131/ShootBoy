@@ -63,7 +63,7 @@
 					<select name="leafCategory" id="leafCategory"></select>
 				</div>
 				<div class="teamIntroduce" style="vertical-align: top; font-size: 20px;">팀 소개</div><textarea id="teamInfo" name="teamInfo" style="width: 250px; height: 200px; border-radius: 10px;">${teamInfo.teamInfo}</textarea>
-				<input type="button" id="modifyBtn" value="수정" style="float: right; margin-left: 20px;"> 
+				<input type="button" id="modifyBtn" value="수정" style="float: right; margin-right: 240px;"> 
 			</div>
 			</form>
 	</div>
