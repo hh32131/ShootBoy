@@ -31,14 +31,9 @@
 		</div>
 	</div>
 	
-<<<<<<< HEAD
 	<form id="filter" name="filter">
-	<div class="myInfoText"><h1>매치 보드</h1>
-		<hr class="myPageline">
-=======
 	<div class="myInfoText" style="width:700px;"><h1>매치 보드</h1>
 		<hr class="myPageline" style="width: 680px; margin-right: 100px;">
->>>>>>> 3850cd6332bcac2eb6268aaba784d41eb90c1bd1
 	<div id="locationNavi">
 		<ul>
 		  <li><a class="active" href="#">전체</a></li>
