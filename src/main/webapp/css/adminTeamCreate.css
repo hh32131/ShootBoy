@@ -117,5 +117,9 @@
 }
 
 #teamName, #checkTeamName{
+<<<<<<< HEAD
 	display: inline-block;
+=======
+    display: inline-block;
+>>>>>>> 41a96881f55f62d9b4b86edd1841f739c86fdb56
 }

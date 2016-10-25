@@ -124,7 +124,8 @@
 								<div class="checks check" id="checkBoard" neame="checkBoard">
 									<input type="checkbox" class="select-check"
 										data-selectid="${boards.boardId }" name="select-check"
-										value="${boards.boardId }"> <label for="select-check"></label>
+										value="${boards.boardId }"> 
+										<label for="select-check"></label>
 								</div>
 							</td>
 							<c:set var="number" value="${fn:split(boards.boardId,'-')[2]}" />
