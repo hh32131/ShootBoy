@@ -103,4 +103,9 @@ public class BoardBizImpl implements BoardBiz{
 		return board.getFileName();
 	}
 
+	@Override
+	public List<BoardVO> getAllBoard() {
+		return boardDao.getAllBoard();
+	}
+
 }

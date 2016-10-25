@@ -29,4 +29,5 @@ public interface AdminBiz {
   public int getCountOfBoards();
   
   public BoardVO getBoardOne(String boardId);
+
 }

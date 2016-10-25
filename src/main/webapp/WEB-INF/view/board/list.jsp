@@ -148,6 +148,12 @@
 										style="color: #fff; font-size: 15px;">글쓰기</a>
 								</div>
 							</c:if>
+							<c:if test="${sessionScope._USER_INFO_.levelId eq '1' and categoryId eq '11'}">
+								<div class="boardRight">
+									<a href="/ShootBoy/write?categoryId=${categoryId}"
+										style="color: #fff; font-size: 15px;">글쓰기</a>
+								</div>
+							</c:if>
 					</div>
 					<div class="boardLeft">
 						<select id="searchType" name="searchType">

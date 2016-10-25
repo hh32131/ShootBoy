@@ -14,7 +14,7 @@
 							var teamid = $(this).data("teamid");
 							window.open(
 									"/ShootBoy/teamDetail?teamId=" + teamid,
-									"", "width=500, height= 700");
+									"", "width=450, height= 700");
 						});
 
 			});
@@ -39,7 +39,7 @@
 	<hr class="teamline" style="width: 680px; margin-right: 100px;">
 </div>
 
-<div id="allTeamWrapper" style="width: 700px; margin-left: 260px;">
+<div id="allTeamWrapper" style="width: 700px; margin-left: 255px;">
 
 	<table>
 		<tr>
@@ -63,11 +63,11 @@
 		</tr>
 	</table>
 	<c:if test="${empty sessionScope._USER_INFO_.teamId && !empty sessionScope._USER_INFO_}">
-	<button id="teamCreateBtn" onclick="openWin()" style="float: right;">팀생성하기</button>
+	<button id="teamCreateBtn" onclick="openWin()" style="margin-left: 200px; width: 300px;">팀 생성</button>
 	</c:if>
-			<form id="searchForm" name="searchForm">
+			<form id="searchForm" name="searchForm" style="margin-top: 20px;">
 			${paging}
-			<div style="padding-top: 5px;">
+			<div style="margin-top: 20px;">
 				<div class="right">
 				
 					<select id="searchType" name="searchType" style="font-size: 15px;">

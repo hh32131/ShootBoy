@@ -244,3 +244,15 @@
 	float: left;
 	display: inline-block;
 }
+
+#teamJoinBtn {
+	margin-top: 30px;
+	margin-right:20px;
+	float: right;
+	background-color: #db9342;
+	color: #fff;
+}
+
+#teamJoinBtn:HOVER {
+	background-color: #8d571b;
+}

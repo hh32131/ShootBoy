@@ -1,5 +1,7 @@
 package net.Y5M2.article.biz;
 
+import java.util.List;
+
 import net.Y5M2.article.vo.BoardListVO;
 import net.Y5M2.article.vo.BoardVO;
 import net.Y5M2.article.vo.SearchBoardVO;
@@ -62,5 +64,8 @@ public interface BoardBiz {
 	 * @return
 	 */
 	public String getFileNmaeOfArticleBy(String boardId);
+	
+	public List<BoardVO> getAllBoard();
+
 
 }
