@@ -11,12 +11,6 @@
 <script type="text/javascript">
 	$().ready(function() {
 		
-		$(".userCode").click(function() {
-				var teamid = $(this).data("userId");
-				window.open("/ShootBoy/userDetail?userId=" + userid, "", "width=500, height= 500");
-		});
-		
-		
 		$("#searchType").change(function() {
 			alert($("#searchType option:selected").text());
 		});
@@ -41,12 +35,12 @@
 		 $("#modifyBtn").click(function() {
 				
 			 var select = $(".select-check:checked").val();
-			 var checkTeam = $(".select-check:checked").length;
-			 if(checkTeam  == 1  ) {
+			 var checkUser = $(".select-check:checked").length;
+			 if(checkUser  == 1  ) {
 						window.open("/ShootBoy/adminMemberModify?userId=" + select, "", "width=500, height= 500");
 			 } 
 			 else {
-				 alert(" 수정할 팀을 한팀 선택해 주세요");
+				 alert(" 수정할 유저를 선택해 주세요");
 			 }
 		});	 
 				
@@ -57,12 +51,9 @@
 		}); 
 		
 		$("#writeBtn").click(function() {
-			window.open("/ShootBoy/adminSignUp", "ADMINSIGNUP", "width=450, height= 600");
+			window.open("/ShootBoy/adminSignUp", "ADMINSIGNUP", "width=550, height= 700");
 		});
 	});
-	
-	
-	
 </script>
 	<jsp:include page="/WEB-INF/view/commons/adminHeader.jsp" />
 	
@@ -73,7 +64,7 @@
 		
 		<div class="listAll">
 			<c:set var="list" value="users"/>
-			<p class="textAll">전체 목록 | 총 회원수 ${fn:length(list)}개</p>
+			<p class="textAll">전체 목록 | 총 회원수 ${count}개</p>
 		</div>
 
 	<div class="search-tool">
@@ -86,9 +77,7 @@
 			</select> <input type="text" class="searchKeyword" id="searchKeyword"
 				name="searchKeyword" value="${searchUser.searchKeyword}" /> <input
 				type="button" class="searchBtn" id="searchBtn" value="검색" />
-			<div class="initBtn">
-				<input type="button" id="initBtn" value="초기화" onclick="location='/ShootBoy/adminList/init'" />
-			</div>
+			
 			<div class="clear"></div>
 		</form>
 	</div>
@@ -104,8 +93,8 @@
 				<tr>
 					<th>
 						<div class="checks">
-							<input type="checkbox" id="select-check"> <label
-								for="select-check"></label>
+							<input type="checkbox" id="checkAll" name="checkAll" value="checkall">
+							<label for="select-check"></label>
 						</div>
 					</th>
 					<th>회원 이메일</th>
@@ -129,14 +118,7 @@
 										<label for="select-check"></label>
 									</div>
 								</td>
-								<td class="td_userEmail">
-									<input type="hidden" value="${users.email }">
-									<span>
-										<a href="javascript:void(0);" class="userCode" data-teamid="${users.email }"> 
-											${users.email }
-										</a>
-									</span>
-								</td>
+								<td class="td_userEmail"> ${users.email } </td>
 								<td class="td_userName"> ${users.userName } </td>
 								<td class="td_userPhone"> ${users.phoneNumber } </td>
 								<td class="td_userAge"> ${users.age } </td>
@@ -157,11 +139,13 @@
 				<input type="hidden" class="searchKeyword" name="searchKeyword" value="${searchUser.searchKeyword}" />
 			</form>
 		</div>
+		<div class="initBtn">
+				<input type="button" id="initBtn" value="전체보기" onclick="location='/ShootBoy/adminUser/init'" />
+		</div>
 		<div class="functionBtn">
 			<input type="button" id="writeBtn" value="등 록"  />
-			<input type="button" id="modifyBtn" value="선택 수정"
-				onclick="location='#'" /> <input type="button" id="deleteBtn"
-				value="선택 삭제" onclick="location='#'" />
+			<input type="button" id="modifyBtn" value="선택 수정"  /> 
+			<input type="button" id="deleteBtn" value="선택 삭제"  />
 		</div>
 	</div>
 </div>

@@ -34,7 +34,7 @@ public class ViewCategoryListPageServlet extends HttpServlet {
 		String parentCategoryId = Param.getStringParam(request, "parentCategoryId");
 		String categoryId = Param.getStringParam(request, "categoryId");
 	
-		String veiwPath = "/WEB-INF/view/commons/header.jsp";
+		String veiwPath = "/WEB-INF/view/board/write.jsp";
 		
 		List<CategoryVO> categories = null;
 		

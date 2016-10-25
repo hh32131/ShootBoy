@@ -8,11 +8,7 @@
 
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
-	$().ready(function() {
-		$("#searchType").change(function() {
-			alert($("#searchType option:selected").text());
-		});
-	});
+
 </script>
 <body>
 	<div id="boardWrapper">
@@ -75,7 +71,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="boardText" style="margin-top: 20px;">
+		
+		<div class="boardText" style="margin-top: 20px; width: 700px;">
 			<c:choose>
 				<c:when test="${categoryId == '0'}">
 					<h1>Community</h1>
@@ -108,7 +105,7 @@
 					<h1>모집게시판</h1>
 				</c:when>
 			</c:choose>
-			<hr style="border: 1px solid;" />
+			<hr style="border: 1px solid; width: 700px;" />
 
 			<div id="boardList">
 				<table class="boardGrid">
@@ -131,58 +128,50 @@
 								<c:set var="number" value="${fn:split(boards.boardId,'-')[2]}" />
 								<fmt:parseNumber var="number" type="number" value="${number}" />
 								<th class="boardContent">${number}</th>
-								<th class="boardContent"><a
-									href="/ShootBoy/board/detail?boardId=${boards.boardId}&& categoryId=${categoryId}">
+								<th class="boardContent"><a href="/ShootBoy/board/detail?boardId=${boards.boardId}&&categoryId=${categoryId}">
 										${boards.boardSubject} [${boards.replayHitCount}] </a></th>
 								<th class="boardContent">${boards.userVO.userName}</th>
 								<th class="boardContent">${boards.createDate}</th>
 								<th class="boardContent">${boards.hitCount}</th>
-								<td>${number}</td>
-								<td><a
-									href="/ShootBoy/board/detail?boardId=${boards.boardId}">
-										${boards.boardSubject} [${boards.replayHitCount}] </a></td>
-								<td>${boards.userVO.userName}</td>
-								<td>${boards.createDate}</td>
-								<td>${boards.hitCount}</td>
 							</tr>
 						</div>
 					</c:forEach>
 				</table>
 
 				<form id="searchForm" name="searchForm">
-					${paging}
+					<div id="paging" style="margin-bottom: 30px;">${paging}</div>
 					<div style="padding-top: 5px;">
-						<div class="boardRight">
-							<c:if
-								test="${categoryId ne '0' and !empty sessionScope._USER_INFO_.userId
+							<c:if test="${categoryId ne '0' and !empty sessionScope._USER_INFO_.userId
 										and categoryId ne '11'}">
-								<a href="/ShootBoy/write?categoryId=${categoryId}"
-									style="color: #fff; font-size: 15px;">글쓰기</a>
+								<div class="boardRight">
+									<a href="/ShootBoy/write?categoryId=${categoryId}"
+										style="color: #fff; font-size: 15px;">글쓰기</a>
+								</div>
 							</c:if>
-						</div>
-						<div class="boardLeft">
-							<select id="searchType" name="searchType">
-								<option value="1"
-									${ searchBoard.searchType eq 1 ? 'selected' : '' }>제목+내용</option>
-								<option value="2"
-									${ searchBoard.searchType eq 2 ? 'selected' : '' }>제목</option>
-								<option value="3"
-									${ searchBoard.searchType eq 3 ? 'selected' : '' }>내용</option>
-								<option value="4"
-									${ searchBoard.searchType eq 4 ? 'selected' : '' }>작성자</option>
-							</select> <input type="text" id="searchKeyword" name="searchKeyword"
-								value="${searchBoard.searchKeyword}" /> <input type="button"
-								id="searchBtn" value="검색" onclick="movePage(0)" /> <a
-								href="/ShootBoy/list?categoryId=${categoryId}"
-								style="font-size: 15px;"><c:remove var="_SEARCH_BOARD_INFO_"
-									scope="session" />목록보기</a>
-						</div>
+					</div>
+					<div class="boardLeft">
+						<select id="searchType" name="searchType">
+							<option value="1"
+								${ searchBoard.searchType eq 1 ? 'selected' : '' }>제목+내용</option>
+							<option value="2"
+								${ searchBoard.searchType eq 2 ? 'selected' : '' }>제목</option>
+							<option value="3"
+								${ searchBoard.searchType eq 3 ? 'selected' : '' }>내용</option>
+							<option value="4"
+								${ searchBoard.searchType eq 4 ? 'selected' : '' }>작성자</option>
+						</select> <input type="text" id="searchKeyword" name="searchKeyword"
+							value="${searchBoard.searchKeyword}" /> <input type="button"
+							id="searchBtn" value="검색" onclick="movePage(0)" /> <a
+							href="/ShootBoy/list?categoryId=${categoryId}"
+							style="font-size: 15px;"><c:remove var="_SEARCH_BOARD_INFO_"
+								scope="session" />목록보기</a>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
-
+</body>
+	
 	<div class="clear">
 		<div style="padding-top: 60px;">
 			<jsp:include page="/WEB-INF/view/commons/footer.jsp"></jsp:include>

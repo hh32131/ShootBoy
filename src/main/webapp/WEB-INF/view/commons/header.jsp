@@ -28,9 +28,9 @@ $(document).ready(function(){
 <body>
 	<h1>
 		<a href="/ShootBoy/main"><img class="headerImg"
-			src="/ShootBoy/img/팀로고.png" />Shoot Boy</a>
+			src="/ShootBoy/img/팀로고.png" /><span>	Shoot Boy</span></a>
 	</h1>
-	<bgsound src="[Abba] Happy New Year.wma" loop="0">
+	
 	<div id="mainHeader">
 		<c:choose>
 			<c:when test="${empty sessionScope._USER_INFO_}">
@@ -38,7 +38,11 @@ $(document).ready(function(){
 					<a href="/ShootBoy/main">홈</a> | <a href="/ShootBoy/signUp">회원가입</a> | <a href="/ShootBoy/signIn">로그인</a>
 				</div>
 			</c:when>
-			
+			<c:when test="${sessionScope._USER_INFO_.levelId eq '1' }">
+			<div class="mainRight">
+				<a href="/ShootBoy/main">홈</a> | <a href="/ShootBoy/logout">로그아웃</a> | <a href="/ShootBoy/admin">administer</a>
+			</div>
+			</c:when>
 			<c:otherwise>
 				<div class="mainRight">
 					<a href="/ShootBoy/main">홈</a> | <a href="/ShootBoy/logout">로그아웃</a>
@@ -56,7 +60,6 @@ $(document).ready(function(){
 							<li><a href="/ShootBoy/userInfo">내 정보</a></li>
 							<li><a href="/ShootBoy/detailTeamInfo">팀 정보</a></li>
 							<li><a href="/ShootBoy/teamMatchInfo">팀 매치 정보</a></li>
-							<li><a href="/ShootBoy/message">메시지함</a></li>
 						</c:if>
 						</ul>
 					</li>
@@ -64,7 +67,6 @@ $(document).ready(function(){
 					<li><a href="#">Match</a>
 						<ul>
 							<li><a href="/ShootBoy/matchBoard">매치보드</a></li>
-							<li><a href="/ShootBoy/matchApply">매치신청</a></li>
 							<li><a href="/ShootBoy/matchApplyManagement">매치 신청 관리</a></li>
 						</ul></li>
 

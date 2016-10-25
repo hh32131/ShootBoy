@@ -27,14 +27,18 @@
 		<div class="mplmTitle">My Page</div>
 		<div id="myPageLeftMenuTwo">
 			<div class="mplmOne"><img src="/ShootBoy/img/화살표.jpg" class="arrow"><a href="/ShootBoy/matchBoard">매치 보드</a></div>
-			<div class="mplmTwo"><a href="/ShootBoy/matchApply">매치 신청</a></div>
 			<div class="mplmThree"><a href="/ShootBoy/matchApplyManagement">매칭 신청 관리</a></div>
 		</div>
 	</div>
 	
+<<<<<<< HEAD
 	<form id="filter" name="filter">
 	<div class="myInfoText"><h1>매치 보드</h1>
 		<hr class="myPageline">
+=======
+	<div class="myInfoText" style="width:700px;"><h1>매치 보드</h1>
+		<hr class="myPageline" style="width: 680px; margin-right: 100px;">
+>>>>>>> 3850cd6332bcac2eb6268aaba784d41eb90c1bd1
 	<div id="locationNavi">
 		<ul>
 		  <li><a class="active" href="#">전체</a></li>

@@ -1,6 +1,7 @@
 package net.Y5M2.admin.web;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,19 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.Y5M2.admin.biz.AdminBiz;
-import net.Y5M2.admin.biz.AdminBizImpl;
-import net.Y5M2.support.Param;
-import net.Y5M2.user.vo.UserVO;
+import net.Y5M2.category.biz.CategoryBiz;
+import net.Y5M2.category.biz.CategoryBizImpl;
+import net.Y5M2.category.vo.CategoryVO;
 
-public class ViewAdminMemeberModifyPageServlet extends HttpServlet {
+public class ViewAdminArticleWritePageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private CategoryBiz biz;
 
-	private AdminBiz adminBiz;
-
-	public ViewAdminMemeberModifyPageServlet() {
+	public ViewAdminArticleWritePageServlet() {
 		super();
-		adminBiz = new AdminBizImpl();
+		biz = new CategoryBizImpl();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -31,11 +30,12 @@ public class ViewAdminMemeberModifyPageServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String userId = Param.getStringParam(request, "userId");
-		UserVO userVO = adminBiz.getUserOne(userId);
-		String viewPath = "/WEB-INF/view/admin/adminMemberModify.jsp";
+		List<CategoryVO> category = biz.getAllCategoryList();
+
+		String viewPath = "/WEB-INF/view/admin/adminArticleWrite.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
-		request.setAttribute("userInfo", userVO);
+		request.setAttribute("category", category);
 		rd.forward(request, response);
 	}
+
 }

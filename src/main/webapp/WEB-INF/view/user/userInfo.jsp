@@ -78,12 +78,11 @@
 			<div class="mplmOne"><img src="/ShootBoy/img/화살표.jpg" class="arrow"><a href="/ShootBoy/userInfo">내 정보</a></div>
 			<div class="mplmTwo"><a href="/ShootBoy/detailTeamInfo">팀 정보</a></div>
 			<div class="mplmThree"><a href="/ShootBoy/teamMatchInfo">팀 매치 정보</a></div>
-			<div class="mplmFour"><a href="/ShootBoy/message">메시지함</a></div>
 		</div>
 	</div>
-	
-	<div class="myInfoText"><h1>내 정보</h1>
-		<hr class="myPageline">
+
+	<div class="myInfoText" style="width:700px;"><h1>내 정보</h1>
+		<hr class="myPageline" style="width: 680px; margin-right: 100px;">
 			<c:if test="${!empty userInfo.userId}">
 			<div id="userInfoWrapper">
 				<div class="name" style="font-size: 20px; margin-bottom: 15px;">이름 : ${userInfo.userName}</div>
@@ -97,10 +96,14 @@
 				</c:if>
 				<div id="userInfoBtn">
 					<div style="display: inline-block;"><input type="button" id="modifyBtn" name="modifyBtn" value="수정" ></div>
-					<c:if test="${sessionScope._USER_INFO_.levelId eq '3'}">
+					<c:choose>
+						<c:when test="${sessionScope._USER_INFO_.levelId eq '3'}">
 					<div style="display: inline-block;"><input type="button" id="deleteUser" name="deleteUser" value="회원탈퇴" /></div>
-					</c:if>
+					</c:when>
+					<c:otherwise>
 					<div style="display: inline-block;"><input type="button" id="deleteUserTwo" name="deleteUserTwo" value="회원탈퇴" /></div>
+					</c:otherwise>
+					</c:choose>
 				</div>
 				<div id="inline"><input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요"></div>
 				<div id="inline"><input type="button" id="passwordConfirm" name="passwordConfirm" value="비밀번호 확인"></div>

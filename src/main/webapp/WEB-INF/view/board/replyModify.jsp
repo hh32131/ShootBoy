@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="/ShootBoy/css/board.css">
+
 <title>Insert title here</title>
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
@@ -17,7 +19,6 @@
 			}
 		});
 
-		
 		$("cancel").click(function() {
 			close();
 		});
@@ -28,8 +29,8 @@
 	<form id="modifyReplyForm" name="modifyReplyForm">
 		<input type="hidden" name="replyId" value="${replayVO.replayId}" />
 		<textarea id="replayContent" name="replayContent" >${replayVO.replayContent}</textarea>
-		<input type="button" id="check" name="check" value="수정하기" />
-		<input type="button" id="cancel" name="cancel" value="취소"/>
+		<div><input type="button" id="check" name="check" value="수정" />
+		<input type="button" id="cancel" name="cancel" value="취소"/></div>
 	</form>
 </body>
 </html>
