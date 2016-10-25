@@ -32,16 +32,18 @@ public class ViewModifyPageServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		String boardId = Param.getStringParam(request, "boardId");
+		String categoryId = Param.getStringParam(request, "categoryId");
+		
 		BoardVO board = boardBiz.getBoardForModify(boardId);
 		
 		String content = board.getBoardContent();
 		content = content.replaceAll("<br/>", "\n");
-						 
 		board.setBoardContent(content);
 		
 		String viewPath = "/WEB-INF/view/board/modify.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 		request.setAttribute("board", board);
+		request.setAttribute("categoryId", categoryId);
 		rd.forward(request, response);
 		
 	}

@@ -18,8 +18,8 @@
 		</div>
 	</div>
 	
-	<div class="myInfoText"><h1>메시지함</h1>
-		<hr class="myPageline">
+	<div class="myInfoText" style="width:700px;"><h1>메시지함</h1>
+		<hr class="myPageline" style="width: 680px; margin-right: 100px;">
 	</div>
 	
 </body>

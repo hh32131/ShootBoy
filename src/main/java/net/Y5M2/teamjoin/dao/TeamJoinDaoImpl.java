@@ -131,4 +131,46 @@ public class TeamJoinDaoImpl extends DaoSupport implements TeamJoinDao {
 		});
 	}
 	
+	@Override
+	public int admitJoinId(String joinId, String teamId) {
+
+		return insert(new Query() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				StringBuffer query = new StringBuffer();
+				query.append(" UPDATE	USR ");
+				query.append(" SET		TEAM_ID = ? ");
+				query.append(" WHERE	USR_ID = ? ");
+				
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				pstmt.setString(1, teamId);
+				pstmt.setString(2, joinId);
+				
+				return pstmt;
+			}
+		});
+	}
+	
+	@Override
+	public int deleteTeamJoinId(String userId) {
+
+		return insert(new Query() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				StringBuffer query = new StringBuffer();
+				query.append(" DELETE ");
+				query.append(" FROM		TJOIN ");
+				query.append(" WHERE	USR_ID = ? ");
+				
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				pstmt.setString(1, userId);
+				
+				return pstmt;
+			}
+		});
+	}
+	
+	
 }

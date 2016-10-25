@@ -32,4 +32,18 @@ public class TeamJoinBizImpl implements TeamJoinBiz {
 		return teamJoinDao.getTeamJoinId(teamId);
 	}
 	
+	@Override
+	public boolean admitJoinId(String joinId, String teamId) {
+		
+		teamJoinDao.deleteTeamJoinId(joinId);
+		
+		return teamJoinDao.admitJoinId(joinId, teamId)>0;
+	}
+	
+	@Override
+	public boolean refuseJoin(String refuseId) {
+
+		return teamJoinDao.deleteTeamJoinId(refuseId)>0;
+	}
+	
 }

@@ -51,6 +51,7 @@
 
 #userInfoWrapper {
 	margin-top:30px;
+	margin-right:100px;
 	border:2px solid #5d5d5d;
 	padding: 20px; 
 	border-radius: 30px;
@@ -66,6 +67,28 @@
 
 #modifyBtn:HOVER {
 	background-color: #005ab5;
+}
+
+#deleteTeam {
+	color:#fff;
+	font-size: 15px;
+	background-color:#ff4a4a;
+	display: inline-block;	
+}
+
+#deleteTeam:HOVER {
+	background-color: #ff0000;
+}
+
+#dropTeam {
+	color:#fff;
+	font-size: 15px;
+	background-color:#ff4a4a;
+	display: inline-block;	
+}
+
+#dropTeam:HOVER {
+	background-color: #ff0000;
 }
 
 #password {
@@ -122,6 +145,18 @@
 	background-color: #ff0000;
 }
 
+#deleteUserTwo {
+	color: #fff;
+	font-size: 15px;
+	width:100px;
+	background-color: #ff5151;
+	margin-bottom: 20px;
+}
+
+#deleteUserTwo:HOVER {
+	background-color: #ff0000;
+}
+
 #allTeamLeftMenuTwo {
 	border-top: none;
 	border-right:4px solid #1377c8;
@@ -172,4 +207,40 @@
 
 #deleteTeamBtn:HOVER {
 	background-color: red;
+}
+
+#joinContainer {
+	width: 680px;
+	margin-left: 280px;
+}
+
+.joinRightBtn {
+	float: right;
+	vertical-align: top;
+	display: inline-block;
+}
+
+#joinAdmit{
+	color:#fff;
+	background-color: #59acff;
+}
+
+#joinAdmit:HOVER {
+	background-color: #1e8eff;
+}
+
+#joinRefuse {
+	color:#fff;
+	background-color: #ff8ec7;
+}
+
+#joinRefuse:HOVER {
+	background-color: #ff46a3;
+}
+
+#join {
+	font-size:13px;
+	width: 550px;
+	float: left;
+	display: inline-block;
 }

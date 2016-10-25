@@ -36,7 +36,7 @@
 					
 				$.post("/ShootBoy/doCheckPassword", {"password" : $("#password").val()} ,function(data){
 					if(data == "true"){
-						if( confirm("정말로 탈퇴 하시겠습니까?") ) {
+						if( confirm("정말로 탈퇴 하시겠습니까? 팀장이 탈퇴할 경우 팀이 해체됩니다.") ) {
 							alert("정상적으로 처리 되었습니다.");
 							location.href="/ShootBoy/doDeleteUser?userId=${userInfo.userId}&&teamId=${userInfo.teamId}";
 						}
@@ -46,11 +46,26 @@
 					}
 				});
 			});
+		});
+		
+		$("#deleteUserTwo").click(function() {
+			$("#password").show();
+			$("#passwordConfirm").show();
 			
-			
-			
-			
-			
+			$("#passwordConfirm").click(function(){
+					
+				$.post("/ShootBoy/doCheckPassword", {"password" : $("#password").val()} ,function(data){
+					if(data == "true"){
+						if( confirm("정말로 탈퇴 하시겠습니까?") ) {
+							alert("정상적으로 처리 되었습니다.");
+							location.href="/ShootBoy/doDeleteUserTwoServlet?userId=${userInfo.userId}";
+						}
+					}
+					else{
+						alert("비밀번호가 틀렸습니다.")
+					}
+				});
+			});
 		});
 	});
 </script>
@@ -63,15 +78,18 @@
 			<div class="mplmOne"><img src="/ShootBoy/img/화살표.jpg" class="arrow"><a href="/ShootBoy/userInfo">내 정보</a></div>
 			<div class="mplmTwo"><a href="/ShootBoy/detailTeamInfo">팀 정보</a></div>
 			<div class="mplmThree"><a href="/ShootBoy/teamMatchInfo">팀 매치 정보</a></div>
+<<<<<<< HEAD
 			<div class="mplmFour"><a href="/ShootBoy/message">메시지함</a></div>
 			<div class="mplmFour"><a href="/ShootBoy/teamBoard">팀 게시판</a></div>
 			
 			
+=======
+>>>>>>> 5d1156206db11f99f8fc4b4419eb4ee9acf27f92
 		</div>
 	</div>
-	
-	<div class="myInfoText"><h1>내 정보</h1>
-		<hr class="myPageline">
+
+	<div class="myInfoText" style="width:700px;"><h1>내 정보</h1>
+		<hr class="myPageline" style="width: 680px; margin-right: 100px;">
 			<c:if test="${!empty userInfo.userId}">
 			<div id="userInfoWrapper">
 				<div class="name" style="font-size: 20px; margin-bottom: 15px;">이름 : ${userInfo.userName}</div>
@@ -85,7 +103,14 @@
 				</c:if>
 				<div id="userInfoBtn">
 					<div style="display: inline-block;"><input type="button" id="modifyBtn" name="modifyBtn" value="수정" ></div>
+					<c:choose>
+						<c:when test="${sessionScope._USER_INFO_.levelId eq '3'}">
 					<div style="display: inline-block;"><input type="button" id="deleteUser" name="deleteUser" value="회원탈퇴" /></div>
+					</c:when>
+					<c:otherwise>
+					<div style="display: inline-block;"><input type="button" id="deleteUserTwo" name="deleteUserTwo" value="회원탈퇴" /></div>
+					</c:otherwise>
+					</c:choose>
 				</div>
 				<div id="inline"><input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요"></div>
 				<div id="inline"><input type="button" id="passwordConfirm" name="passwordConfirm" value="비밀번호 확인"></div>

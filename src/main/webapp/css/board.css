@@ -52,20 +52,98 @@
 
 .boardRight {
 	float: right;
-	border:1px solid;
-	border-color: #aa3700;
-	background-color: #aa3700;
+	background-color: orange;
 	height: 20px;
+	margin-top: 5px;
 }
 
 .boardRight:HOVER {
-	border-color: #ff854a;
+	background-color: #ffb428;
 }
 
 #goBackBtn, #writeBtn {
-	background-color: #58b6e2;
+	background-color: orange;
 }
 
 #goBackBtn:HOVER, #writeBtn:HOVER {
-	background-color: #2497ce;
+	background-color: #ffb428;
 } 
+
+.boardTitle {
+	font-weight:bold;
+	font-size:15px;
+	vertical-align:top;
+	display: inline-block;
+}
+
+.boardListText {
+	font-size:15px;
+	vertical-align:top;
+	display: inline-block;
+}
+
+.boardCreateDate {
+	font-size:15px;
+	vertical-align:top;
+	display: inline-block;
+	float: right;
+}
+
+#boardDetail {
+	padding:20px;
+	vertical-align:top;
+	display:inline-block;
+	margin-top: 40px; 
+	width: 650px; 
+	border: 1px solid #c5c5c5;
+}
+
+#replayWriteBtn {
+	background-color:orange;
+	height: 30px;
+	vertical-align: top;
+}
+
+#replayWriteBtn:HOVER {
+	background-color:#ffb428;
+}
+
+#replayContent {
+	width: 400px;
+}
+
+#check, #cancel {
+	background-color:orange;
+}
+
+#cancel {
+	float: right;
+}
+
+#check:HOVER, #cancel:HOVER{
+	background-color:#ffb428;
+}
+
+#replayRight {
+	height:0;
+	float:right;
+}
+
+#paging {
+	margin-top:20px;
+	margin-left: 330px;
+}
+
+#modifyReplyForm {
+	margin:0 auto;
+	margin-top:50px;
+	width:400px;
+}
+
+#listModifyBtn {
+	background-color: #58b6e2;
+}
+
+#listModifyBtn:HOVER {
+	background-color: #2497ce;
+}

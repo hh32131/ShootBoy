@@ -502,6 +502,7 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 			}
 		});
 	}
+<<<<<<< HEAD
 
 	@Override
 	public List<TeamBoardVO> getAllTeamBoards(SearchTeamVO searchTeam) {
@@ -739,5 +740,7 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 			}
 		});
 	}
+=======
+>>>>>>> 5d1156206db11f99f8fc4b4419eb4ee9acf27f92
 }
 	

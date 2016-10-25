@@ -1,6 +1,7 @@
 package net.Y5M2.match.web;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,13 +9,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.Y5M2.match.web.CalendarHelper.CalDate;
+import net.Y5M2.location.biz.LocationBiz;
+import net.Y5M2.location.biz.LocationBizImpl;
+import net.Y5M2.location.vo.LocationVO;
 
 public class ViewMatchApply extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    private LocationBiz locationBiz;
     public ViewMatchApply() {
         super();
+        locationBiz = new LocationBizImpl();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -23,13 +27,14 @@ public class ViewMatchApply extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		CalDate nowYearAndMonth = CalendarHelper.getCalendarDate(2016, 2);
-		int maxDate = CalendarHelper.getMaxDate(nowYearAndMonth);
+		LocationVO locationVO = new LocationVO();
+		locationVO.setParentLocationId("0");
+		
+		List<LocationVO> location = locationBiz.getLocations(locationVO);
 		
 		String viewPath = "/WEB-INF/view/match/matchApply.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
-		request.setAttribute("nowYearAndMonth", nowYearAndMonth);
-		request.setAttribute("maxDate", maxDate);
+		request.setAttribute("location", location);
 		rd.forward(request, response);	
 	}
 

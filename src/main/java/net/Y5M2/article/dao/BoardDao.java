@@ -9,13 +9,13 @@ import net.Y5M2.category.vo.CategoryVO;
 public interface BoardDao {
 
 	public List<BoardVO> getAllBoards(SearchBoardVO searchBoard, CategoryVO categoryVO);
-	
+
 	public int getCountOfBoards(SearchBoardVO searchBoard, CategoryVO categoryVO);
-	
+
 	public int writeBoard(BoardVO boardVO);
 
 	public BoardVO getBoardAt(String boardId);
-	
+
 	public int hitCountUpdate(String boardId);
 
 	public int deleteBoard(String boardId);
@@ -23,7 +23,8 @@ public interface BoardDao {
 	public BoardVO getBoardForModify(String boardId);
 
 	public int modifyBoard(BoardVO board);
-	
+
 	public List<BoardVO> getAllBoard();
 
+	public int getCountOfBoards();
 }

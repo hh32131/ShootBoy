@@ -40,9 +40,7 @@ public class ViewDetailPageServlet extends HttpServlet {
 		String boardId = Param.getStringParam(request, "boardId");
 		String categoryId = Param.getStringParam(request, "categoryId");
 		
-		
 		BoardVO board = boardBiz.getBoardAt(boardId);
-		
 		List<ReplayVO> replays = replayBiz.getListReplays(boardId);
 		
 		String viewPath = "/WEB-INF/view/board/detail.jsp";

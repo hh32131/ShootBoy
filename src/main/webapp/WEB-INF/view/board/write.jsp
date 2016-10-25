@@ -47,7 +47,7 @@
 					<div class="mplmFour"><c:if test="${categoryId eq 19}"><img src="/ShootBoy/img/화살표.jpg" class="arrow"></c:if><a href="/ShootBoy/list?categoryId=19">모집게시판</a></div>
 				</div>
 		</div>
-		<div class="boardText" style="margin-top: 20px;">
+	<div class="boardText" style="margin-top: 20px;">
 		<c:choose >
 			<c:when test="${categoryId == '0'}">
 				<h1>Community</h1>
@@ -80,7 +80,7 @@
 				<h1>모집게시판</h1>
 				</c:when>
 			</c:choose>
-		<hr style="border: 1px solid; margin-bottom: 20px;"/>
+		<hr style="border: 1px solid; margin-bottom: 20px; width: 700px; margin-right: 100px;"/>
 		<form id="writeForm" name="writeForm" enctype="multipart/form-data">
 			<input type="hidden" id="categoryId" name="categoryId" value="${categoryId}" >
 			<div>
@@ -103,5 +103,9 @@
 		</form>
 	</div>
 </div>
-</body>
-</html>
+
+<div class="clear">
+	<div style="padding-top: 60px;">
+		<jsp:include page="/WEB-INF/view/commons/footer.jsp"></jsp:include>
+	</div>
+</div>

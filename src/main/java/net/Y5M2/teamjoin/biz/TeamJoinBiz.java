@@ -13,4 +13,10 @@ public interface TeamJoinBiz {
 
 	public List<TeamJoinVO> getTeamJoinId(String teamId);
 
+	public boolean admitJoinId(String joinId, String teamId);
+
+	public boolean refuseJoin(String refuseId);
+
+	
+
 }

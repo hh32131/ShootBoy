@@ -31,11 +31,11 @@
 			$.post("/ShootBoy/doCheckTeamName", 
 					{ "teamName" : $("#teamName").val() }, function(data){
 				if(data=="false") {
-					$("#teamNameCheck").html("사용 가능한 팀 이름입니다.")
-					$("#teamCreateBtn").slideDown();
+					$("#teamNameCheck").html("사용 가능한 팀 이름입니다.").css("color","blue");
+;					$("#teamCreateBtn").slideDown();
 				}
 				else {
-					$("#teamNameCheck").html("중복된 팀 이름입니다.")
+					$("#teamNameCheck").html("중복된 팀 이름입니다.").css("color","red");
 					$("#teamCreateBtn").hide();
 				}
 			});
@@ -101,16 +101,17 @@
 			<div>
 				<div class="inline-block" style="border-radius: 8px;">
 					<input type="text"
-						style=" width: 255px; height: 25px; border-radius: 8px; margin-bottom: 20px;"
+						style=" width: 255px; height: 25px; border-radius: 8px; margin-bottom: 5px;"
 						id="teamName" name="teamName" placeholder="팀명" />
-						<div id="teamNameCheck"></div>
-					<input type="button" id="checkTeamName" name="checkTeamName" value="중복체크" />
+						<div id="teamNameCheck" style="vertical-align: top; margin-bottom: 5px;"></div>
+					<input type="button" id="checkTeamName" name="checkTeamName" value="중복체크"
+							style="background-color: #000; color: #fff; margin-bottom: 20px;" />
 				</div>
 	
-				<div class="inline-block">
+				<div class="inline-block" style="vertical-align: top;">
 					<input type="text"
 						style=" width: 75px; height: 30px; border-radius: 8px;"
-						id="teamCount" name="teamCount" placeholder="팀원 수" />
+						id="teamCount" name="teamCount" placeholder="팀원 수"/>
 				</div>
 			</div>
 		<select id="locationId" name="locationId" style="border-radius: 5px">

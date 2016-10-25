@@ -3,7 +3,7 @@
 #signUpText {
 	float: left;
 	margin-left: 150px;
-	width: 900px;
+	width: 800px;
 	color: #bc7412;
 	margin-bottom: 30px;
 	margin-top: 10px;
@@ -11,7 +11,7 @@
 
 #signUpForm {
 	padding: 100px;
-	margin-left: 300px;
+	margin-left: 250px;
 }
 
 #signUpText #signUpClauseOne, #signUpClauseTwo {
@@ -23,7 +23,7 @@
 }
 
 #signUpText #clauseOne, #clauseTwo {
-	margin-left: 70px;
+	margin-left: 40px;
 	margin-top: 20px;
 	width:750px;	
 	height: 200px;
@@ -34,7 +34,7 @@
 }
 
 .line {
-	margin-top: 20px;
+	width:800px;
 	border: 1px solid #000;
 }
 
@@ -94,18 +94,16 @@
 }
 
 #signBtn {
-	margin-right: 50px;
-	background-color: #d7ba31;
+	background-color: #bc7412;
 	border-radius: 4px 4px 4px 4px;
 }
 
 #signBtn:HOVER, #cancelBtn:HOVER {
-	margin-right: 50px;
 	background-color: #eadb95;
 	border-radius: 4px 4px 4px 4px;	
 }
 
 #cancelBtn {
-	background-color: #d7ba31;
+	background-color: #bc7412;
 	border-radius: 4px 4px 4px 4px;
 }

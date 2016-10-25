@@ -35,5 +35,11 @@ public interface UserDao {
 	public int adminPageDeleteUser(String userId);
 
 	public UserVO getUserOne(String userId);
-	
+
+	public int getCountOfUsers();
+
+	public int deleteUserTwo(String userId);
+
+	public int UserTeamIdDrop(String teamId, UserVO userVO);
+
 }
