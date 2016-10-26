@@ -65,10 +65,10 @@ public class ViewTeamBoardPageServlet extends HttpServlet {
 			searchTeamBoard.setSearchType(searchType);
 			searchTeamBoard.setSearchKeyword(searchKeyword);
 		}
-		/*TeamBoardVO teamBoardVO = new TeamBoardVO();
-		teamBoardVO.setTeamBoardId(teamId);*/
+		TeamBoardVO teamBoardVO = new TeamBoardVO();
+		teamBoardVO.setTeamId(teamId);
 		session.setAttribute(Session.SEARCH_TEAM_INFO, searchTeamBoard);
-		TeamBoardListVO teamBoards = teamBiz.getAllTeamBoards(searchTeamBoard, teamId);
+		TeamBoardListVO teamBoards = teamBiz.getAllTeamBoards(searchTeamBoard, teamBoardVO);
 
 		String viewPath = "/WEB-INF/view/team/teamBoard.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);

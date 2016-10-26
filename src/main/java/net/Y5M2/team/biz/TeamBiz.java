@@ -20,8 +20,16 @@ public interface TeamBiz {
 
 	public TeamBoardVO getTeamBoardAt(String teamBoardId);
 
+<<<<<<< HEAD
 	public TeamBoardListVO getAllTeamBoards(SearchTeamVO searchTeam, String teamId);
 
+=======
+	
+	
+	public TeamBoardListVO getAllTeamBoards(SearchTeamVO searchTeam, TeamBoardVO teamBoardVO);
+	
+	
+>>>>>>> 236f2f2041d69894cf348f377c8504d231957f4b
 	public TeamVO getTeamAt(String teamId);
 
 	public String getFileNmaeOfTeamBy(String teamId);
@@ -43,6 +51,17 @@ public interface TeamBiz {
 	public boolean deleteTeamBoard(String teamBoardId);
 
 	public boolean modifyTeamBoard(TeamBoardVO teamBoardVO);
+<<<<<<< HEAD
+=======
+	
+	public TeamBoardVO getTeamBoardForModify(String teamBoardId);
+	
+	public String getFileNameOfTeamBoardBy(String teamBoardId);
+	
+	public int getCountOfTeamBoard(SearchTeamVO searchTeam);
+	
+	public int getCountOfTeamBoards(TeamBoardVO teamBoardVO);
+>>>>>>> 236f2f2041d69894cf348f377c8504d231957f4b
 
 	public TeamBoardVO getTeamBoardForModify(String teamBoardId);
 
