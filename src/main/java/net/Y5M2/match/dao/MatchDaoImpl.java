@@ -228,11 +228,18 @@ public class MatchDaoImpl extends DaoSupport implements MatchDao {
 	@Override
 	public List<MatchVO> getCompleteMatch(String teamId) {
 
+<<<<<<< HEAD
 		return selectList(new QueryAndResult() {
+=======
+	@Override
+	public int checkTheMatchTeam(MatchVO matchVO) {
+		return (int) selectOne(new QueryAndResult() {
+>>>>>>> 024479efcca4b12b056546aea06981ae67f827cc
 			
 			@Override
 			public PreparedStatement query(Connection conn) throws SQLException {
 				StringBuffer query = new StringBuffer();
+<<<<<<< HEAD
 				query.append(" SELECT	T.TEAM_PHOTO TEAM_PHOTO ");
 				query.append(" 			,T2.TEAM_PHOTO ATEAM_PHOTO ");
 				query.append(" 			,L.LCTN_NM ");
@@ -253,6 +260,14 @@ public class MatchDaoImpl extends DaoSupport implements MatchDao {
 				
 				pstmt.setString(1, teamId);
 				pstmt.setString(2, teamId);
+=======
+				query.append(" SELECT	COUNT(1) CNT ");
+				query.append(" FROM		MATCH ");
+				query.append(" WHERE	TEAM_ID = ?  ");
+				 
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				pstmt.setString(1, matchVO.getTeamId());
+>>>>>>> 024479efcca4b12b056546aea06981ae67f827cc
 				
 				return pstmt;
 			}
@@ -260,6 +275,7 @@ public class MatchDaoImpl extends DaoSupport implements MatchDao {
 			@Override
 			public Object makeObject(ResultSet rs) throws SQLException {
 				
+<<<<<<< HEAD
 				List<MatchVO> matchCompleteTeam = new ArrayList<MatchVO>();
 				TeamVO teamVO = null;
 				MatchVO matchVO = null;
@@ -287,4 +303,13 @@ public class MatchDaoImpl extends DaoSupport implements MatchDao {
 			}
 		});
 	}
+=======
+				
+				rs.next();
+				return rs.getInt("CNT");
+			}
+		});
+	}
+
+>>>>>>> 024479efcca4b12b056546aea06981ae67f827cc
 }

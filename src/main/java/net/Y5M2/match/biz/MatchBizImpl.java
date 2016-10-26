@@ -20,8 +20,12 @@ public class MatchBizImpl implements MatchBiz {
 	
 	@Override
 	public boolean applyMatch(MatchVO matchVO) {
-
-		return matchDao.applyMatch(matchVO)>0;
+		
+		boolean isSuccess = matchDao.checkTheMatchTeam(matchVO) < 3;
+		if ( isSuccess ) {
+			return matchDao.applyMatch(matchVO)  > 0;
+		}
+		return false;
 	}
 	
 	@Override

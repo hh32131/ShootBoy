@@ -56,7 +56,9 @@
 	<div class="myInfoText" style="width:700px;"><h1>매치 보드</h1>
 		<hr class="myPageline" style="width: 680px; margin-right: 100px;">
 	<div id="locationNavi">
+	<c:if test="${!empty sessionScope._USER_INFO_.userId and !empty sessionScope._USER_INFO_.teamId }">
 	<a href="javascript:void(0);" id="matchEnroll">매치등록</a>
+	</c:if>
 		<ul>
 		  <li><a class="active location" href="javascript:void(0);" data-value="0">전체</a></li>
 		  <li><a class="location" href="javascript:void(0);" data-value="4">서울</a></li>
