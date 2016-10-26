@@ -20,7 +20,8 @@
 			
 			<div class="top-right">
 				<a href="/ShootBoy/adminInfo" style="color:#a1a1a1; text-decoration: none;"> 관리자 정보 </a>  |  
-				<a href="/ShootBoy/adminSetting" style="color:#a1a1a1; text-decoration: none;">환경 설정</a>  |  
+				<a href="/ShootBoy/adminSetting" style="color:#a1a1a1; text-decoration: none;">환경 설정</a>  | 
+				<a href="/ShootBoy/main" style="color:#a1a1a1; text-decoration: none;">ShootBoy</a>  | 
 				<a href="/ShootBoy/signIn" style="color:red; text-decoration: none;">로그인</a>
 				
 			</div>
