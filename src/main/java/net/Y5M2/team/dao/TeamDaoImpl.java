@@ -168,7 +168,7 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 				query.append(" FROM		TEAM T ");
 				query.append(" 			, LCTN L ");
 				query.append(" WHERE	T.LCTN_ID = L.LCTN_ID ");
-				query.append(" AND	T.TEAM_ID = ? ");
+				query.append(" AND		T.TEAM_ID = ? ");
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				pstmt.setString(1, teamId);
@@ -412,6 +412,7 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 				query.append(" FROM		TEAM T ");
 				query.append(" 			, LCTN L ");
 				query.append(" WHERE	T.LCTN_ID = L.LCTN_ID ");
+				query.append(" ORDER	BY	CRT_DT DESC ");
 				
 				PreparedStatement pstmt =conn.prepareStatement(query.toString());
 				
