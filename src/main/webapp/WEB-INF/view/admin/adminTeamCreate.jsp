@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Administrator</title>
-<link rel="stylesheet" type="text/css" href="/ShootBoy/css/adminTeamCreate.css">
+<link rel="stylesheet" type="text/css"
+	href="/ShootBoy/css/adminTeamCreate.css">
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -17,13 +18,35 @@
 				$("#leafLocation").html(data); 
 			});
 		});
+<<<<<<< HEAD
 		
 		$("#backBtn").click(function() {
 			if (confirm("정말 취소하시겠습니까?")) {
 				closeWin();
+=======
+	});
+	
+	$("#backBtn").click(function() {
+		if (confirm("정말 취소하시겠습니까?")) {
+			closeWin();
+		}
+	});
+	
+	$("#checkTeamName").click(function () {
+		$.post("/ShootBoy/doCheckTeamName", 
+				{ "teamName" : $("#teamName").val() }, function(data){
+			if(data=="false") {
+				$("#teamNameCheck").html("사용 가능한 팀 이름입니다.").css("color","blue");
+				$("#teamCreateBtn").slideDown();
+			}
+			else {
+				$("#teamNameCheck").html("중복된 팀 이름입니다.").css("color","red");
+				$("#teamCreateBtn").hide();
+>>>>>>> 99c4dbb79257d4dedb93dcd61a3eb428b3c3ce6f
 			}
 		});
 		
+<<<<<<< HEAD
 		$("#checkTeamName").click(function () {
 			$.post("/ShootBoy/doCheckTeamName", 
 					{ "teamName" : $("#teamName").val() }, function(data){
@@ -37,6 +60,13 @@
 				}
 			});
 		});
+=======
+		else if ( $("#teamCount").val() == 0 ) {
+			alert("팀원수를 작성해주세요.");
+			$("#teamCount").focus();
+			return;
+		}
+>>>>>>> 99c4dbb79257d4dedb93dcd61a3eb428b3c3ce6f
 		
 		$("#teamCreateBtn").click(function() {
 				
@@ -57,6 +87,7 @@
 				$("#teamInfo").focus();
 				return;
 			}
+<<<<<<< HEAD
 			else if ( $("#locationId").val() == "거주 지역을 선택하세요" ) {
 				alert("거주 지역을 선택해주세요.");
 				return;
@@ -84,6 +115,16 @@
 	function closeWin() {
 		close();
 	}
+=======
+		}			
+	});
+});
+
+function closeWin() {
+	close();
+}
+
+>>>>>>> 99c4dbb79257d4dedb93dcd61a3eb428b3c3ce6f
 </script>
 </head>
 <body>
@@ -93,45 +134,48 @@
 				<a href="/ShootBoy/admin" class="logo-text">ADMINISTRATOR</a>
 			</div>
 			<div class="teamCreate-shootboy-main">
-				<a href="/ShootBoy/main" class="main-text"> ShootBoy </a> 
+				<a href="/ShootBoy/main" class="main-text"> ShootBoy </a>
 			</div>
 		</div>
-		
+
 		<div class="bottom">
-			<p class="teamCreate-title">팀 생성</p> 
+			<p class="teamCreate-title">팀 생성</p>
 		</div>
 	</div>
-	<div id="createTeamWrapper" >
-		<form id="craeteTeamForm" name="createTeamForm"	enctype="multipart/form-data" >
+	<div id="createTeamWrapper">
+		<form id="craeteTeamForm" name="createTeamForm"
+			enctype="multipart/form-data">
 			<div>
-				<div class="team-name" >
+				<div class="team-name">
 					<input type="text" id="teamName" name="teamName" placeholder="팀명" />
 				</div>
-				<input type="button" id="checkTeamName" name="checkTeamName" value="중복체크" />
+				<input type="button" id="checkTeamName" name="checkTeamName"
+					value="중복체크" />
 				<div id="teamNameCheck"></div>
 				<div class="team-member">
-					<input type="text" id="teamCount" name="teamCount" placeholder="팀원 수" />
+					<input type="text" id="teamCount" name="teamCount"
+						placeholder="팀원 수" />
 				</div>
 			</div>
-			
+
 			<div class="location">
-				<select id="locationId" name="locationId" >
+				<select id="locationId" name="locationId">
 					<option>거주 지역을 선택하세요</option>
 					<c:forEach items="${location}" var="location">
 						<option value="${location.locationId}">${location.locationName}</option>
 					</c:forEach>
-			 	</select>
-				<select name="leafLocation" id="leafLocation" >
-					<option> 상세 지역을 선택하세요 </option>
+				</select> <select name="leafLocation" id="leafLocation">
+					<option>상세 지역을 선택하세요</option>
 				</select>
 			</div>
 			<input type="file" id="file" name="file" />
-			<textarea id="teamInfo" name="teamInfo"	placeholder="소개글을 입력하세요."></textarea>
+			<textarea id="teamInfo" name="teamInfo" placeholder="소개글을 입력하세요."></textarea>
 			<div class="btn">
-				<input type="button" id="teamCreateBtn" name="teamCreateBtn" value="팀 생성"/>
-				<input type="button" id="backBtn" name="backBtn" value="취소"/>
+				<input type="button" id="teamCreateBtn" name="teamCreateBtn"
+					value="팀 생성" /> <input type="button" id="backBtn" name="backBtn"
+					value="취소" />
 			</div>
 		</form>
 	</div>
 
-<jsp:include page="/WEB-INF/view/commons/adminFooter.jsp" />
+	<jsp:include page="/WEB-INF/view/commons/adminFooter.jsp" />

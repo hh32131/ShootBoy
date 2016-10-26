@@ -178,6 +178,18 @@
 	margin-left: 50px;
 }
 
+.boardCode{
+	text-decoration: none;
+	color: #00509f;
+	font-weight: bold;
+	
+}
+.teamCode{
+	text-decoration: none;
+	color: #00509f;
+	font-weight: bold;
+}
+
 #pagingForm {
 	text-align:center;
 }
