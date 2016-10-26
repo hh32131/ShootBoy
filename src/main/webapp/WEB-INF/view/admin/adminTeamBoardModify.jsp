@@ -67,14 +67,8 @@
 		</div>
 	
 		<div>
-<<<<<<< HEAD
-			<input type="text" id="teamName" name="teamName" value="${teamBoardVO.teamVO.teamName }" readonly>
-			<input type="text" id="boardSubject" name="boardSubject" 
-			placeholder="제목을 입력하세요." value="${teamBoardVO.teamBoardSubject}" />
-=======
 			<input type="text" id="boardSubject" name="boardSubject"
 				placeholder="제목을 입력하세요." value="${teamBoardVO.teamBoardSubject}" />
->>>>>>> ba37037af2eb2b7c963eb5d70eda4e36a79b4b48
 		</div>
 		<div>
 			<textarea id="boardContent" name="boardContent"

@@ -31,21 +31,12 @@
 	작성자 : ${teamBoards.getUserVO().userName} 
 	날짜 : ${teamBoards.createDate}
 	<div class="file-name" style="float: right;">
-		<a href="/ShootBoy/board/doDownload?boardId=${teamBoards.teamBoardId}">${teamBoards.fileName}</a>
+		<a href="/ShootBoy/doDownloadFile?teamBoards=${teamBoards.teamBoardId}">${teamBoards.fileName}</a>
 	</div>
 	<hr/>
 	${teamBoards.teamBoardContent} 
 	
 	<br/>
 	<div></div>	<hr/>
-		<c:forEach items="${replays}" var="replay" >
-			<div></div>
-			<div style="display: inline-block; width: 400px;">${replay.replayContent}</div>
-			<div style="display: inline-block;">${replay.userVO.userName}</div>
-			<div style="display: inline-block;">${replay.createDate}</div>
-			<c:if test="${sessionScope._USER_INFO_.userId eq replay.userVO.userId}">
-				<a href="javascript:void(0);" class="replayDeleteBtn" data-replyid="${replay.replayId}" style="font-size: 11px;" >삭제</a>
-			</c:if>
-		</c:forEach>
 </body>
 </html>

@@ -4,7 +4,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/adminPage.css" />
-
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
 	$().ready(function() {
@@ -96,7 +95,8 @@
 					<th>팀이름</th>
 					<th>작성자</th>
 					<th>작성일</th>
-					<th>추천수</th>
+					<th>파일 이름</th>
+					<th>조회수</th>
 				</tr>
 			</thead>
 			
@@ -124,12 +124,13 @@
 						<td class="boardContent">
 							<input type="hidden" value="${teamBoards.teamBoardId }"> 
 							<span> 
-								<a href="javascript:void(0)" class="boardCode" data-boardid="${teamBoards.teamBoardId }"> ${teamBoards.teamBoardSubject} [${teamBoards.replayHitCount}] </a>
+								<a href="javascript:void(0)" class="boardCode" data-boardid="${teamBoards.teamBoardId }"> ${teamBoards.teamBoardSubject}</a>
 							</span>
 						</td>
 						<td class="boardContent">${teamBoards.teamVO.teamName }</td>
 						<td class="boardContent">${teamBoards.userVO.userName}</td>
 						<td class="boardContent">${teamBoards.createDate}</td>
+						<td class="boardContent">${teamBoards.fileName}</td>
 						<td class="boardContent">${teamBoards.teamBoardRecommendCount}</td>
 						</tr>
 					</tbody>
