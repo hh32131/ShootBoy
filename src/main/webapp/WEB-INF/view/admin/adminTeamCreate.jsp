@@ -10,6 +10,7 @@
 	href="/ShootBoy/css/adminTeamCreate.css">
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
+
 	$(document).ready(function() {
 		
 		$("#locationId").change(function(){
@@ -18,35 +19,13 @@
 				$("#leafLocation").html(data); 
 			});
 		});
-<<<<<<< HEAD
 		
 		$("#backBtn").click(function() {
 			if (confirm("정말 취소하시겠습니까?")) {
 				closeWin();
-=======
-	});
-	
-	$("#backBtn").click(function() {
-		if (confirm("정말 취소하시겠습니까?")) {
-			closeWin();
-		}
-	});
-	
-	$("#checkTeamName").click(function () {
-		$.post("/ShootBoy/doCheckTeamName", 
-				{ "teamName" : $("#teamName").val() }, function(data){
-			if(data=="false") {
-				$("#teamNameCheck").html("사용 가능한 팀 이름입니다.").css("color","blue");
-				$("#teamCreateBtn").slideDown();
-			}
-			else {
-				$("#teamNameCheck").html("중복된 팀 이름입니다.").css("color","red");
-				$("#teamCreateBtn").hide();
->>>>>>> 99c4dbb79257d4dedb93dcd61a3eb428b3c3ce6f
 			}
 		});
 		
-<<<<<<< HEAD
 		$("#checkTeamName").click(function () {
 			$.post("/ShootBoy/doCheckTeamName", 
 					{ "teamName" : $("#teamName").val() }, function(data){
@@ -60,13 +39,6 @@
 				}
 			});
 		});
-=======
-		else if ( $("#teamCount").val() == 0 ) {
-			alert("팀원수를 작성해주세요.");
-			$("#teamCount").focus();
-			return;
-		}
->>>>>>> 99c4dbb79257d4dedb93dcd61a3eb428b3c3ce6f
 		
 		$("#teamCreateBtn").click(function() {
 				
@@ -87,7 +59,6 @@
 				$("#teamInfo").focus();
 				return;
 			}
-<<<<<<< HEAD
 			else if ( $("#locationId").val() == "거주 지역을 선택하세요" ) {
 				alert("거주 지역을 선택해주세요.");
 				return;
@@ -115,16 +86,7 @@
 	function closeWin() {
 		close();
 	}
-=======
-		}			
-	});
-});
 
-function closeWin() {
-	close();
-}
-
->>>>>>> 99c4dbb79257d4dedb93dcd61a3eb428b3c3ce6f
 </script>
 </head>
 <body>
