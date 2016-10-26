@@ -1050,6 +1050,7 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+<<<<<<< HEAD
     <display-name>DoCheckList</display-name>
     <servlet-name>DoCheckList</servlet-name>
     <servlet-class>net.Y5M2.admin.web.ajax.DoCheckList</servlet-class>
@@ -1057,5 +1058,14 @@
   <servlet-mapping>
     <servlet-name>DoCheckList</servlet-name>
     <url-pattern>/doCheckList</url-pattern>
+=======
+    <display-name>DoRemoveTeamBoardServlet</display-name>
+    <servlet-name>DoRemoveTeamBoardServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.DoRemoveTeamBoardServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoRemoveTeamBoardServlet</servlet-name>
+    <url-pattern>/doRemoveTeamBoard</url-pattern>
+>>>>>>> cc8b373fca46f7f6b638f99b6105040753ab84ca
   </servlet-mapping>
 </web-app>

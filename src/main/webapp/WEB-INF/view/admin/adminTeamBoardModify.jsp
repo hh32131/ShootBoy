@@ -36,6 +36,8 @@
 			}).submit();
 		});
 		
+		$("#teamId").val("${teamBoardVO.teamId}");
+		
 		$("#backBtn").click(function() {
 			window.close();
 		});
@@ -61,7 +63,7 @@
 		<input type="hidden" name="teamBoardId" value="${teamBoardVO.teamBoardId}" />
 		<div>
 			<select name="teamId" id="teamId">
-				<option>카테고리를 선택해주세요</option>
+				<option>팀명을 선택해주세요</option>
 				<c:forEach var="team" items="${team }">
 					<option value="${team.teamId }">${team.teamName }</option>
 				</c:forEach>
