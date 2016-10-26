@@ -79,7 +79,6 @@ public class ViewAdminArticlePageServlet extends HttpServlet {
 		String pager = pageExplorer.getPagingList("pageNo", "[@]", "<<", ">>", "pagingForm");
 
 		request.setAttribute("categoryId", categoryId);
-		request.setAttribute("count", count);
 		request.setAttribute("paging", pager);
 		request.setAttribute("searchBoard", searchBoard);
 		rd.forward(request, response);

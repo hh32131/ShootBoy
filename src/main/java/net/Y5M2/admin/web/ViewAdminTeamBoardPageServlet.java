@@ -66,11 +66,13 @@ public class ViewAdminTeamBoardPageServlet extends HttpServlet {
 		teamBoardVO.setTeamId(teamId);
 		session.setAttribute(Session.SEARCH_TEAM_INFO, searchTeamBoard);
 		TeamBoardListVO teamBoards = adminBiz.getAllTeamBoards(searchTeamBoard, teamBoardVO);
+		int count = adminBiz.getCountOfTeamBoards();
 		
 		String viewPath = "/WEB-INF/view/admin/adminTeamBoard.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 		request.setAttribute("teamBoards", teamBoards.getTeamBoards());
 		request.setAttribute("pager", teamBoards.getPager());
+		request.setAttribute("count", count);
 
 		PageExplorer pageExplorer = new ClassicPageExplorer(teamBoards.getPager());
 		String pager = pageExplorer.getPagingList("pageNo", "[@]", "<<", ">>", "pagingForm");

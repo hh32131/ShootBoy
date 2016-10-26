@@ -146,4 +146,9 @@ public class AdminBizImpl implements AdminBiz {
 		return teamList;
 	}
 
+	@Override
+	public int getCountOfTeamBoards() {
+		return adminDao.getCountOfTeamBoards();
+	}
+
 }

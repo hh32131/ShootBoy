@@ -30,6 +30,8 @@ public interface AdminBiz {
 	public int getCountOfUsers();
 
 	public int getCountOfBoards();
+	
+	public int getCountOfTeamBoards();
 
 	public BoardVO getBoardOne(String boardId);
 	

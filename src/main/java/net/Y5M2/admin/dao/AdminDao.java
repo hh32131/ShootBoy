@@ -7,6 +7,8 @@ import net.Y5M2.team.vo.TeamBoardVO;
 
 public interface AdminDao {
 
-	List<TeamBoardVO> getAllTeamBoards(SearchTeamVO searchTeam, TeamBoardVO teamBoardVO);
+	public List<TeamBoardVO> getAllTeamBoards(SearchTeamVO searchTeam, TeamBoardVO teamBoardVO);
+
+	public int getCountOfTeamBoards();
 
 }
