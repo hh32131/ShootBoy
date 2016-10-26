@@ -36,17 +36,17 @@ public class DoModifyAdminTeamBoardServlet extends HttpServlet {
 		MultipartHttpServletRequest multipartRequest = new MultipartHttpServletRequest(request);
 
 		String teamBoardId = multipartRequest.getParameter("teamBoardId");
-		String teamBoardSubject = multipartRequest.getParameter("teamBoardSubject");
-		String teamBoardContent = multipartRequest.getParameter("teamBoardContent");
+		String teamBoardSubject = multipartRequest.getParameter("boardSubject");
+		String content = multipartRequest.getParameter("boardContent");
 		String fileDeleteBtn = multipartRequest.getParameter("fileDeleteBtn");
 		String teamId = multipartRequest.getParameter("teamId");
 
-		teamBoardContent = teamBoardContent.replaceAll("\n", "<br/>").replaceAll("\r", "");
+		content = content.replaceAll("\n", "<br/>").replaceAll("\r", "");
 
 		TeamBoardVO teamBoard = new TeamBoardVO();
 		teamBoard.setTeamBoardId(teamBoardId);
 		teamBoard.setTeamBoardSubject(teamBoardSubject);
-		teamBoard.setTeamBoardContent(teamBoardContent);
+		teamBoard.setTeamBoardContent(content);
 		teamBoard.setTeamId(teamId);
 
 		if (fileDeleteBtn != null && fileDeleteBtn.equals("delete")) {

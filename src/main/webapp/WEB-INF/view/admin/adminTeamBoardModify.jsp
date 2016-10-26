@@ -32,7 +32,7 @@
 			}
 				$("#modifyForm").attr({
 				"method" : "post",
-				"action" : "/ShootBoy/doModifyAdminTeamModify"
+				"action" : "/ShootBoy/doModifyAdminTeamBoard"
 			}).submit();
 		});
 		
