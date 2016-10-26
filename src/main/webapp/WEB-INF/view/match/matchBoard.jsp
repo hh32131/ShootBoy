@@ -14,6 +14,7 @@
 		});
 		
 		$(".location").click(function(){
+			console.log($(this).data("value"));
 			$.post("/ShootBoy/doSelectMatch",{"locationId":$(this).data("value")}, function(data){
 				$("#matchList").html(data);
 			});
@@ -39,6 +40,8 @@
 					});
 				}
 		});
+		
+		
 	});
 </script>
 <body>
@@ -55,7 +58,7 @@
 	<div id="locationNavi">
 	<a href="javascript:void(0);" id="matchEnroll">매치등록</a>
 		<ul>
-		  <li><a class="active" href="#">전체</a></li>
+		  <li><a class="active location" href="javascript:void(0);" data-value="0">전체</a></li>
 		  <li><a class="location" href="javascript:void(0);" data-value="4">서울</a></li>
 		  <li><a class="location" href="javascript:void(0);" data-value="5">경기</a></li>
 		  <li><a class="location" href="javascript:void(0);" data-value="6">강원</a></li>

@@ -13,4 +13,6 @@ public interface MatchDao {
 	public List<MatchVO> getAllMatchTeam(String teamId);
 
 	public int doMatch(String matchId, String awayTeamId);
+
+	public List<MatchVO> getCompleteMatch(String teamId);
 }

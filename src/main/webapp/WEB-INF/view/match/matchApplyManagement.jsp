@@ -35,7 +35,7 @@
 				<td rowspan="3"><img style="width: 200px; height: 200px;" src="/ShootBoy/showImage?teamId=${match.awayTeamId}" ></td>
 				<td>${match.teamVO.teamName}</td>
 				<td>${match.teamVO.teamCount}</td>
-				<td rowspan="3"><input type="button" class="matchBtn" name="matchBtn" data-matchid="${match.matchId}" data-awayteamid="${match.awayTeamId}" value="매치" ></td>
+				<td rowspan="3"><input type="button" class="matchBtn" name="matchBtn" data-matchid="${match.matchId}" data-awayteamid="${match.awayTeamId}" value="승인" ></td>
 			</tr>
 			<tr>
 				<td colspan="2">${match.teamVO.locationVO.locationName}-${match.teamVO.locationVO.parentLocationName}</td>

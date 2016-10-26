@@ -13,4 +13,6 @@ public interface MatchBiz {
 	public List<MatchVO> getAllMatchTeam(String teamId);
 
 	public boolean doMatch(String matchId, String awayTeamId);
+
+	public List<MatchVO> getCompleteMatch(String teamId);
 }

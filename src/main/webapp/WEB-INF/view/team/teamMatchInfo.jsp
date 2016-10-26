@@ -59,6 +59,10 @@
 		</div>
 		
 		<hr style="width: 600px;">
+		<c:forEach items="${completeMatch}" var="completeMatch">
+			${completeMatch.teamVO.teamPhoto}
+			${completeMatch.awayTeamVO.teamPhoto}
+		</c:forEach>
 	</div>
 
 <div class="clear">

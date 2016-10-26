@@ -12,6 +12,7 @@ import net.Y5M2.match.vo.MatchVO;
 import net.Y5M2.support.DaoSupport;
 import net.Y5M2.support.Query;
 import net.Y5M2.support.QueryAndResult;
+import net.Y5M2.team.vo.AwayTeamVO;
 import net.Y5M2.team.vo.TeamVO;
 
 public class MatchDaoImpl extends DaoSupport implements MatchDao {
@@ -74,13 +75,13 @@ public class MatchDaoImpl extends DaoSupport implements MatchDao {
 				query.append(" AND		M.LCTN_ID = L.LCTN_ID ");
 				query.append(" AND		M.ATEAM_ID = '0' ");
 
-				if (locationId != null) {
+				if (!locationId.equals("0")) {
 					query.append(" AND		PRNT_LCNT_ID = ? ");
 				}
 
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				int index = 1;
-				if (locationId != null) {
+				if (!locationId.equals("0")) {
 					pstmt.setString(index++, locationId);
 				}
 
@@ -223,5 +224,67 @@ public class MatchDaoImpl extends DaoSupport implements MatchDao {
 			}
 		});
 	}
+	
+	@Override
+	public List<MatchVO> getCompleteMatch(String teamId) {
 
+		return selectList(new QueryAndResult() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				StringBuffer query = new StringBuffer();
+				query.append(" SELECT	T.TEAM_PHOTO TEAM_PHOTO ");
+				query.append(" 			,T2.TEAM_PHOTO ATEAM_PHOTO ");
+				query.append(" 			,L.LCTN_NM ");
+				query.append(" 			,L.PRNT_LCTN_NM ");
+				query.append(" 			,TO_CHAR(M.SCDL, 'YYYY-MM-DD') SCDL ");
+				query.append(" FROM		TEAM T ");
+				query.append(" 			,TEAM T2 ");
+				query.append("			, MATCH M ");
+				query.append("			,LCTN L ");
+				query.append(" WHERE	T.TEAM_ID = M.TEAM_ID ");
+				query.append(" AND		M.ATEAM_ID = T2.TEAM_ID ");
+				query.append(" AND		M.LCTN_ID = L.LCTN_ID ");
+				query.append(" AND		M.ATEAM_ID != '0' ");
+				query.append(" AND		( M.TEAM_ID = ? ");
+				query.append(" OR		M.ATEAM_ID = ? ) ");
+
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				
+				pstmt.setString(1, teamId);
+				pstmt.setString(2, teamId);
+				
+				return pstmt;
+			}
+			
+			@Override
+			public Object makeObject(ResultSet rs) throws SQLException {
+				
+				List<MatchVO> matchCompleteTeam = new ArrayList<MatchVO>();
+				TeamVO teamVO = null;
+				MatchVO matchVO = null;
+				LocationVO locationVO = null;
+				AwayTeamVO awayTeamVO = null;
+				
+				while(rs.next()) {
+					matchVO = new MatchVO();
+					matchVO.setSchedule(rs.getString("SCDL"));
+					
+					teamVO = matchVO.getTeamVO();
+					teamVO.setTeamPhoto(rs.getString("TEAM_PHOTO"));
+					
+					awayTeamVO = matchVO.getAwayTeamVO();
+					awayTeamVO.setTeamPhoto(rs.getString("ATEAM_PHOTO"));
+					
+					locationVO = matchVO.getLocationVO();
+					locationVO.setLocationName(rs.getString("LCTN_NM"));
+					locationVO.setParentLocationName(rs.getString("PRNT_LCTN_NM"));
+					
+					matchCompleteTeam.add(matchVO);
+				}
+				
+				return matchCompleteTeam;
+			}
+		});
+	}
 }

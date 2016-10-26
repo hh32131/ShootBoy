@@ -42,4 +42,9 @@ public class MatchBizImpl implements MatchBiz {
 		return matchDao.doMatch(matchId, awayTeamId)>0;
 	}
 	
+	@Override
+	public List<MatchVO> getCompleteMatch(String teamId) {
+		return matchDao.getCompleteMatch(teamId);
+	}
+	
 }

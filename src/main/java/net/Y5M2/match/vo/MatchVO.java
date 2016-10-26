@@ -1,6 +1,7 @@
 package net.Y5M2.match.vo;
 
 import net.Y5M2.location.vo.LocationVO;
+import net.Y5M2.team.vo.AwayTeamVO;
 import net.Y5M2.team.vo.TeamVO;
 
 public class MatchVO {
@@ -16,10 +17,20 @@ public class MatchVO {
 	
 	private LocationVO locationVO;
 	private TeamVO teamVO;
+	private AwayTeamVO awayTeamVO;
 	
+	public AwayTeamVO getAwayTeamVO() {
+		return awayTeamVO;
+	}
+
+	public void setAwayTeamVO(AwayTeamVO awayTeamVO) {
+		this.awayTeamVO = awayTeamVO;
+	}
+
 	public MatchVO() {
 		locationVO = new LocationVO();
 		teamVO = new TeamVO();
+		awayTeamVO = new AwayTeamVO();
 	}
 
 	public String getMatchId() {
