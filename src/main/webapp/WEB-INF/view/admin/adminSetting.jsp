@@ -19,7 +19,7 @@
 	  $('input:radio[name=memberList]:input[value=' + gameSelect + ']').attr("checked", true);
 	  $('input:radio[name=memberList]:input[value=' + articleSelect + ']').attr("checked", true);
 	
-	  alert(gameSelect);
+	  confirm(memberSelect);
 	
 	});
 
