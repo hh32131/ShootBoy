@@ -594,6 +594,16 @@
     <url-pattern>/doDeleteUserAdmin</url-pattern>
   </servlet-mapping>
   <servlet>
+    <description></description>
+    <display-name>ViewModifyUserAdminPageServlet</display-name>
+    <servlet-name>ViewModifyUserAdminPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.ViewModifyUserAdminPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewModifyUserAdminPageServlet</servlet-name>
+    <url-pattern>/adminMemberModify</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <display-name>DoModifyTeamAdmin</display-name>
     <servlet-name>DoModifyTeamAdmin</servlet-name>
     <servlet-class>net.Y5M2.admin.web.DoModifyTeamAdmin</servlet-class>
@@ -625,10 +635,6 @@
   <error-page>
     <error-code>404</error-code>
     <location>/WEB-INF/view/error/404.jsp</location>
-  </error-page>
-  <error-page>
-    <error-code>500</error-code>
-    <location>/WEB-INF/view/error/500.jsp</location>
   </error-page>
   <servlet>
     <description></description>
@@ -697,14 +703,17 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>DoCheckTeamJoin</display-name>
-    <servlet-name>DoCheckTeamJoin</servlet-name>
-    <servlet-class>net.Y5M2.teamjoin.web.ajax.DoCheckTeamJoin</servlet-class>
+    <display-name>ViewAdminWriteArticlePageServlet</display-name>
+    <servlet-name>ViewAdminWriteArticlePageServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.ViewAdminWriteArticlePageServlet</servlet-class>
   </servlet>
+<<<<<<< HEAD
   <servlet-mapping>
     <servlet-name>DoCheckTeamJoin</servlet-name>
     <url-pattern>/doCheckTeamJoin</url-pattern>
   </servlet-mapping>
+=======
+>>>>>>> 5e273b9d403836f077f8985a3d7c8250a116575a
   <servlet>
     <description></description>
     <display-name>DoTeamJoin</display-name>
@@ -753,16 +762,6 @@
     <filter-name>EncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ViewAdminMemberModifyPageServlet</display-name>
-    <servlet-name>ViewAdminMemberModifyPageServlet</servlet-name>
-    <servlet-class>net.Y5M2.admin.web.ViewAdminMemberModifyPageServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ViewAdminMemberModifyPageServlet</servlet-name>
-    <url-pattern>/adminMemberModify</url-pattern>
-  </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>DoModifyAdminMemberServlet</display-name>
@@ -822,6 +821,56 @@
   <servlet-mapping>
     <servlet-name>ViewAdminArticleWritePageServlet</servlet-name>
     <url-pattern>/adminArticleWrite</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewTeamBoardPageServlet</display-name>
+    <servlet-name>ViewTeamBoardPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.team.web.ViewTeamBoardPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewTeamBoardPageServlet</servlet-name>
+    <url-pattern>/teamBoard</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoWriteTeamBoardServlet</display-name>
+    <servlet-name>DoWriteTeamBoardServlet</servlet-name>
+    <servlet-class>net.Y5M2.team.web.DoWriteTeamBoardServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoWriteTeamBoardServlet</servlet-name>
+    <url-pattern>/doWriteTeamBoard</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewWriteTeamBoardPageServlet</display-name>
+    <servlet-name>ViewWriteTeamBoardPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.team.web.ViewWriteTeamBoardPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewWriteTeamBoardPageServlet</servlet-name>
+    <url-pattern>/teamBoardWrite</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewDetailTeamBoardPageServlet</display-name>
+    <servlet-name>ViewDetailTeamBoardPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.team.web.ViewDetailTeamBoardPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewDetailTeamBoardPageServlet</servlet-name>
+    <url-pattern>/detailTeamBoard</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoDeleteTeamBoardServlet</display-name>
+    <servlet-name>DoDeleteTeamBoardServlet</servlet-name>
+    <servlet-class>net.Y5M2.team.web.DoDeleteTeamBoardServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoDeleteTeamBoardServlet</servlet-name>
+    <url-pattern>/doDeleteTeamBoard</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -905,6 +954,7 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+<<<<<<< HEAD
     <display-name>ViewMatchListPageServlet</display-name>
     <servlet-name>ViewMatchListPageServlet</servlet-name>
     <servlet-class>net.Y5M2.match.web.ViewMatchListPageServlet</servlet-class>
@@ -952,5 +1002,34 @@
   <servlet-mapping>
     <servlet-name>DoMatch</servlet-name>
     <url-pattern>/doMatch</url-pattern>
+=======
+    <display-name>ViewTeamBoardModifyPageServlet</display-name>
+    <servlet-name>ViewTeamBoardModifyPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.team.web.ViewTeamBoardModifyPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewTeamBoardModifyPageServlet</servlet-name>
+    <url-pattern>/teamBoardModify</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoModifyTeamBoardServlet</display-name>
+    <servlet-name>DoModifyTeamBoardServlet</servlet-name>
+    <servlet-class>net.Y5M2.team.web.DoModifyTeamBoardServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoModifyTeamBoardServlet</servlet-name>
+    <url-pattern>/doModifyTeamBoard</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoDownloadFileServlet</display-name>
+    <servlet-name>DoDownloadFileServlet</servlet-name>
+    <servlet-class>net.Y5M2.team.web.DoDownloadFileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoDownloadFileServlet</servlet-name>
+    <url-pattern>/doDownloadFile</url-pattern>
+>>>>>>> 5e273b9d403836f077f8985a3d7c8250a116575a
   </servlet-mapping>
 </web-app>
