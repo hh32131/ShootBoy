@@ -160,14 +160,14 @@
 
 		$("#signBtn").click(function() {
 
-			/* if($("input:checkBox[id='checkboxOne']").is(":checked") == false) {
+			if($("input:checkBox[id='checkboxOne']").is(":checked") == false) {
 				alert("회원가입약관에 동의하세요!");
-				$("#checkboxOne").focus();
+				return false;
 			}
 			if($("input:checkBox[id='checkboxTwo']").is(":checked") == false) {
 				alert("개인정보취급방침에 동의하세요!");
-				$("#checkboxTwo").focus();
-			} */
+				return false;
+			}
 
 			$("#signUpForm").attr({
 				"method" : "post",

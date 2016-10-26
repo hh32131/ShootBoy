@@ -3,26 +3,42 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <jsp:include page="/WEB-INF/view/commons/header.jsp"></jsp:include>
-
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/page.css">
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/match.css">
 <script type="text/javascript">
 	$().ready(function(){
+		var locationId = $(".location").data("");
+		
 		$("#matchEnroll").click(function(){
 			window.open("/ShootBoy/matchApply","","width=500, height=500");
 		});
 		
 		$(".location").click(function(){
-			var locationId = $(this).data("value");
-			$.post("/ShootBoy/doSelectMatch","locationId",function(data){
+			$.post("/ShootBoy/doSelectMatch",{"locationId":$(this).data("value")}, function(data){
 				$("#matchList").html(data);
-				if($("")){
-					
-				}
 			});
-			
 		});
-		
+	
+		$("#matchList").on("click",".applyBtn",function() {
+			var teamId = $(this).data("teamid");
+			var matchId = $(this).data("matchid");
+			var myTeamId = "${sessionScope._USER_INFO_.teamId}";
+				if(myTeamId==teamId){
+					alert("자신의 팀입니다.");
+				}
+				else{
+					$.post("/ShootBoy/doCheckMatchRequest", {"matchId":$(this).data("matchid")}, function(data) {
+						if (data =="false") {
+							if( confirm("신청하시겠습니까?") ) {
+								location.href="/ShootBoy/doMatchRequest?teamId="+teamId+"&&matchId="+matchId;
+							}
+						}
+						else {
+							alert("이미 신청하셨습니다.");
+						}
+					});
+				}
+		});
 	});
 </script>
 <body>
@@ -37,6 +53,7 @@
 	<div class="myInfoText" style="width:700px;"><h1>매치 보드</h1>
 		<hr class="myPageline" style="width: 680px; margin-right: 100px;">
 	<div id="locationNavi">
+	<a href="javascript:void(0);" id="matchEnroll">매치등록</a>
 		<ul>
 		  <li><a class="active" href="#">전체</a></li>
 		  <li><a class="location" href="javascript:void(0);" data-value="4">서울</a></li>
@@ -48,8 +65,14 @@
 		  <li><a class="location" href="javascript:void(0);" data-value="10">경상</a></li>
 		</ul>
 	</div>
-	<a href="javascript:void(0);" id="matchEnroll">매치등록</a>
 	<div id="matchList" ></div>
 	</div>
-</body>
-</html>
+	
+<div class="clear">
+	<div style="padding-top: 60px;">
+		<jsp:include page="/WEB-INF/view/commons/footer.jsp"></jsp:include>
+	</div>
+</div>
+
+	
+

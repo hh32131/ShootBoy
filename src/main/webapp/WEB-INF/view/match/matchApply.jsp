@@ -27,6 +27,17 @@ $().ready(function(){
 	});
 
 	$("#matchBtn").click(function(){
+		
+		if( $("#playingField").val() == "" ) {
+			alert("경기장 이름을 입력해주세요.");
+			return;
+		}
+		
+		else if ( $("#locationId").val() == "경기지역을 선택하세요" ) {
+			alert("경기 지역을 선택해주세요.");
+			return;
+		}
+		
 		$("#matchForm").attr({
 			"method":"post",
 			"action":"/ShootBoy/doMatchApply"

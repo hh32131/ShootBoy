@@ -30,6 +30,7 @@ public class DoMatchApply extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String locationId = Param.getStringParam(request, "locationId");
 		String leafCategory = Param.getStringParam(request, "leafCategory");
 		String playingField = Param.getStringParam(request, "playingField");
 		String schedule = Param.getStringParam(request, "schedule");
@@ -41,6 +42,7 @@ public class DoMatchApply extends HttpServlet {
 		matchVO.setSchedule(schedule);
 		matchVO.setPlayField(playingField);
 		matchVO.setLocationId(leafCategory);
+		matchVO.setParentLocaionId(locationId);
 		matchVO.setTeamId(userVO.getTeamId());
 		
 		PrintWriter out = response.getWriter();
