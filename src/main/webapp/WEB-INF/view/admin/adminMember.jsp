@@ -120,8 +120,8 @@
 								<td class="td_userPhone"> ${users.phoneNumber } </td>
 								<td class="td_userAge"> ${users.age } </td>
 								<td class="td_userPosition"> ${users.position } </td>
-								<td class="td_userLocation"> ${users.locationVO.locationName } </td>
-								<td class="td_userTeam"> ${users.teamVO.teamName } </td>
+								<td class="td_userLocation"> ${users.locationVO.locationName} </td>
+								<td class="td_userTeam"> ${users.teamVO.teamName} </td>
 								<td class="td_userGrade"> ${users.levelId } </td>
 								<td class="td_userJoindate"> ${users.createDate } </td>
 							</tr>
