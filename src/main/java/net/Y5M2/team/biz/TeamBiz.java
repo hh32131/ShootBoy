@@ -52,6 +52,10 @@ public interface TeamBiz {
 	public TeamBoardVO getTeamBoardForModify(String teamBoardId);
 	
 	public String getFileNameOfTeamBoardBy(String teamBoardId);
+	
+	public int getCountOfTeamBoard(SearchTeamVO searchTeam);
+	
+	public int getCountOfTeamBoards(String teamBoardId);
 
 
 

@@ -499,7 +499,7 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<TeamBoardVO> getAllTeamBoards(SearchTeamVO searchTeam) {
+	public List<TeamBoardVO> getAllTeamBoards(SearchTeamVO searchTeam, TeamBoardVO teamBoardVO) {
 		return selectList(new QueryAndResult() {
 
 			@Override
@@ -521,6 +521,7 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao {
 				query.append(" FROM		TEAM T, TBOARD TB, USR U ");
 				query.append(" WHERE	U.USR_ID = TB.USR_ID ");
 				query.append(" AND		TB.TEAM_ID = T.TEAM_ID ");
+				query.append(" AND 		TB.TEAM.ID = ? ");
 
 				if (searchTeam.getSearchType() == 1) {
 					query.append(" AND	( TB.TBOARD_SUB LIKE '%'|| ?|| '%' ");
@@ -534,12 +535,19 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao {
 				}
 
 				query.append(" ORDER	BY	CRT_DT DESC ");
+				
 				String pagingQuery = appendPagingQueryFormat(query.toString());
 
 				PreparedStatement pstmt = conn.prepareStatement(pagingQuery);
 
 				int index = 1;
+<<<<<<< HEAD
 				if (searchTeam.getSearchType() == 1) {
+=======
+				pstmt.setString(index++, teamBoardVO.getTeamId());
+				
+				if ( searchTeam.getSearchType() == 1 ) {
+>>>>>>> 531864993b9e17f5cdd32798491cadcf55077735
 					pstmt.setString(index++, searchTeam.getSearchKeyword());
 					pstmt.setString(index++, searchTeam.getSearchKeyword());
 				}
@@ -764,7 +772,7 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao {
 				}
 
 				if (teamBoardVO.getTeamBoardContent() != null) {
-					pstmt.setString(index++, teamBoardVO.getTeamBoardSubject());
+					pstmt.setString(index++, teamBoardVO.getTeamBoardContent());
 				}
 
 				if (teamBoardVO.getFileName() != null) {
@@ -840,4 +848,81 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao {
 			}
 		});
 	}
+
+	@Override
+	public int getCountOfTeamBoard(SearchTeamVO searchTeam) {
+		return (int) (selectOne(new QueryAndResult() {
+	
+		@Override
+		public PreparedStatement query(Connection conn) throws SQLException {
+			StringBuffer query = new StringBuffer();
+			query.append(" SELECT	COUNT(1) CNT ");
+			query.append(" FROM		TBOARD TB , USR U ");
+			query.append(" WHERE	TB.USR_ID = U.USR_ID ");
+	
+			if ( searchTeam.getSearchType() == 1 ) {
+				query.append(" AND	( TB.TBOARD_SUB LIKE '%'|| ?|| '%' ");
+				query.append(" OR	U.USR_NM LIKE '%' || ? || '%' ) ");
+			}
+			else if ( searchTeam.getSearchType() == 2 ) {
+				query.append(" AND	( TB.TBOARD_SUB LIKE '%'|| ?|| '%') ");
+			}
+			else if ( searchTeam.getSearchType() == 3 ) {
+				query.append(" AND	( U.USR_NM LIKE '%'|| ?|| '%') ");
+			}		
+								
+			PreparedStatement pstmt = conn.prepareStatement(query.toString());
+			
+			int index = 1;
+			if ( searchTeam.getSearchType() == 1 ) {
+				pstmt.setString(index++, searchTeam.getSearchKeyword());
+				pstmt.setString(index++, searchTeam.getSearchKeyword());
+			}
+			if ( searchTeam.getSearchType() == 2 ) {
+				pstmt.setString(index++, searchTeam.getSearchKeyword());
+			}
+			if ( searchTeam.getSearchType() == 3 ) {
+				pstmt.setString(index++, searchTeam.getSearchKeyword());
+			}
+	
+			
+			//pstmt.setInt(index++, searchTeam.getEndRowNumber());
+			//pstmt.setInt(index++, searchTeam.getStartRowNumber());
+			
+			return pstmt;
+	}
+	
+	@Override
+	public Object makeObject(ResultSet rs) throws SQLException {
+		rs.next();
+		return rs.getInt("CNT");
+	}
+}));
+	}
+
+	@Override
+	public int getCountOfTeamBoards(String teamBoardId) {
+return (int) selectOne(new QueryAndResult() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				
+				StringBuffer query = new StringBuffer();
+				query.append(" SELECT	COUNT(1) CNT ");
+				query.append(" FROM		TBOARD TB ");
+
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+			
+				return pstmt;
+			}
+			
+			@Override
+			public Object makeObject(ResultSet rs) throws SQLException {
+				rs.next();
+				return rs.getInt("CNT");
+			}
+		});
+	}
+	
+	
 }

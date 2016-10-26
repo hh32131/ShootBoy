@@ -61,7 +61,7 @@ $().ready(function () {
 			</table>
 			
 			<form id="searchForm" name="searchForm">
-			${paging} 
+			${paging} <br/>
 			<input type="hidden" id="teamId" name="teamId" value="${teamId}" />
 			<input type="button" id="writeBtn" name="writeBtn" value="글쓰기" />
 			
@@ -79,14 +79,11 @@ $().ready(function () {
 					<a href="/ShootBoy/list/init">처음으로</a>
 				</div>
 			</div>
+			</form>
 			</div>
 				<div class="clear"></div>
 			</div>
-			</form>
-		</div>
 		<hr/>
-		</div>
-	</div>
 	
 	<div class="clear">
 	<div style="padding-top: 60px;">
