@@ -65,7 +65,7 @@ public class ViewTeamBoardPageServlet extends HttpServlet {
 			searchTeamBoard.setSearchKeyword(searchKeyword);
 		}
 		TeamBoardVO teamBoardVO = new TeamBoardVO();
-		teamBoardVO.setTeamId(teamId);
+		teamBoardVO.setTeamBoardId(teamBoardId);
 		session.setAttribute(Session.SEARCH_TEAM_INFO, searchTeamBoard);
 		TeamBoardListVO teamBoards = teamBiz.getAllTeamBoards(searchTeamBoard, teamBoardVO);
 
@@ -74,14 +74,10 @@ public class ViewTeamBoardPageServlet extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 		request.setAttribute("teamBoards", teamBoards.getTeamBoards());
 		request.setAttribute("pager", teamBoards.getPager());
-
 		
-
 		
 		PageExplorer pageExplorer = new ClassicPageExplorer(teamBoards.getPager());
 		String pager = pageExplorer.getPagingList("pageNo", "[@]", "<<", ">>", "searchForm");
-
-
 		
 		request.setAttribute("teamId", teamId);
 		request.setAttribute("paging", pager);

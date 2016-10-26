@@ -35,7 +35,7 @@ public class DoModifyTeamBoardServlet extends HttpServlet {
 		String teamBoardSubject = multipartRequest.getParameter("teamBoardSubject");
 		String teamBoardContent = multipartRequest.getParameter("teamBoardContent");
 		String fileDeleteBtn = multipartRequest.getParameter("fileDeleteBtn");
-		
+
 		teamBoardContent = teamBoardContent.replaceAll("\n", "<br/>").replaceAll("\r", "");
 		
 		TeamBoardVO teamBoard = new TeamBoardVO();
@@ -65,10 +65,10 @@ public class DoModifyTeamBoardServlet extends HttpServlet {
 		
 		boolean isSuccess = teamBiz.modifyTeamBoard(teamBoard);
 		if ( isSuccess ) {
-			response.sendRedirect("/ShootBoy/teamBoardModify?teamBoardId="+teamBoardId);
+			response.sendRedirect("/ShootBoy/detailTeamBoard?teamBoardId="+teamBoardId);
 		}
 		else{
-			response.sendRedirect("/ShootBoy/teamBoardModify?errorCode=1&&teamBoardId=" + teamBoardId);
+			response.sendRedirect("/ShootBoy/detailTeamBoard?errorCode=1&&teamBoardId=" + teamBoardId);
 		}
 	}
 

@@ -6,7 +6,6 @@ import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import net.Y5M2.article.vo.BoardVO;
 import net.Y5M2.constants.Session;
 import net.Y5M2.support.pager.Pager;
 import net.Y5M2.support.pager.PagerFactory;
@@ -178,6 +177,8 @@ public class TeamBizImpl implements TeamBiz {
 		return teamDao.getCountOfTeam(teamId);
 	}
 
+	
+	
 	@Override
 	public boolean deleteTeam(String teamId) {
 		return teamDao.deleteTeam(teamId) > 0;
@@ -194,8 +195,8 @@ public class TeamBizImpl implements TeamBiz {
 
 	@Override
 	public TeamBoardListVO getAllTeamBoards(SearchTeamVO searchTeam, TeamBoardVO teamBoardVO) {
-		int totalCount = teamDao.getCountOfTeams(searchTeam);
-		Pager pager = PagerFactory.getPager(true, 20, 5);
+		int totalCount = teamDao.getCountOfTeamBoard(searchTeam);
+		Pager pager = PagerFactory.getPager(true, 10, 5);
 		pager.setTotalArticleCount(totalCount);
 		pager.setPageNumber(searchTeam.getPageNo());
 		
@@ -203,7 +204,7 @@ public class TeamBizImpl implements TeamBiz {
 		searchTeam.setStartRowNumber(pager.getStartArticleNumber());
 		searchTeam.setEndRowNumber(pager.getEndArticleNumber());
 		
-		List<TeamBoardVO> teams = teamDao.getAllTeamBoards(searchTeam);
+		List<TeamBoardVO> teams = teamDao.getAllTeamBoards(searchTeam, teamBoardVO);
 		
 		TeamBoardListVO teamList = new TeamBoardListVO();
 		teamList.setPager(pager);
@@ -266,6 +267,17 @@ public class TeamBizImpl implements TeamBiz {
 	public String getFileNameOfTeamBoardBy(String teamBoardId) {
 		TeamBoardVO teamBoardVO = teamDao.getTeamBoardAt(teamBoardId);
 		return teamBoardVO.getFileName();
+	}
+
+	@Override
+	public int getCountOfTeamBoard(SearchTeamVO searchTeam) {
+		return teamDao.getCountOfTeamBoard(searchTeam);
+	}
+
+	@Override
+	public int getCountOfTeamBoards(String teamBoardId) {
+		return teamDao.getCountOfTeamBoards(teamBoardId);
+
 	}
 
 }

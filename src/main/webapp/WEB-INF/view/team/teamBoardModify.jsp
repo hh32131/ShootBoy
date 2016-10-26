@@ -58,7 +58,7 @@ $(document).ready(function () {
 				<textarea id="teamBoardContent" name="teamBoardContent" placeholder="내용을 입력하세요."
 							style="width:700px; height: 250px; font-size: 15px; margin-bottom: 30px;" >${teamBoard.teamBoardContent}</textarea>
 			</div>
-				<c:if test="${not empty teamBoard.fileName }">
+				<c:if test="${not empty teamBoard.fileName}">
 				<div style="padding-top: 10px; padding-bottom: 10px;">
 					<input type="checkbox" id="fileDeleteBtn" name="fileDeleteBtn" value="delete" /> 
 					<img src="/ShootBoy/img/soccer.png" style="width: 12px;" /> 
