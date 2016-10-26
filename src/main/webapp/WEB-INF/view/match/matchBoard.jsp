@@ -39,6 +39,28 @@
 					});
 				}
 		});
+		
+		$("#matchList").on("click", ".cancelBtn", function() {
+			var teamId = $(this).data("teamid");
+			var matchId = $(this).data("matchid");
+			var myTeamId = "${sessionScope._USER_INFO_.teamId}";
+			if ( myTeamId == teamId ) {
+				if(confirm("삭제하시겠습니까?")){
+					$.post("/ShootBoy/doDeleteTeamMatch", {"matchId":$(this).data("matchid")}, function(data) {
+						if(data=="true"){
+							alert("삭제하였습니다.");
+							window.location.reload();
+						}
+						else{
+							alert("매치 취소에 실패했습니다. 관리자에게 문의하세요");
+						}
+					});
+				}
+			}
+			else {
+				alert("해당 팀이 아닙니다.");
+			}
+		});
 	});
 </script>
 <body>
@@ -53,9 +75,11 @@
 	<div class="myInfoText" style="width:700px;"><h1>매치 보드</h1>
 		<hr class="myPageline" style="width: 680px; margin-right: 100px;">
 	<div id="locationNavi">
+	
 	<c:if test="${!empty sessionScope._USER_INFO_.userId and !empty sessionScope._USER_INFO_.teamId }">
 	<a href="javascript:void(0);" id="matchEnroll">매치등록</a>
 	</c:if>
+	
 		<ul>
 		  <li><a class="active" href="#">전체</a></li>
 		  <li><a class="location" href="javascript:void(0);" data-value="4">서울</a></li>
@@ -68,6 +92,7 @@
 		</ul>
 	</div>
 	<div id="matchList" ></div>
+	
 	</div>
 	
 <div class="clear">

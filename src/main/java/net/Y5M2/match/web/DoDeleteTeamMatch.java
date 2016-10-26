@@ -1,4 +1,4 @@
-package net.Y5M2.teammatch.web.ajax;
+package net.Y5M2.match.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,18 +10,19 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import net.Y5M2.constants.Session;
+import net.Y5M2.match.biz.MatchBiz;
+import net.Y5M2.match.biz.MatchBizImpl;
 import net.Y5M2.support.Param;
-import net.Y5M2.teammatch.biz.TeamMatchBiz;
-import net.Y5M2.teammatch.biz.TeamMatchBizImpl;
 import net.Y5M2.user.vo.UserVO;
 
-public class DoCheckMatchRequest extends HttpServlet {
+public class DoDeleteTeamMatch extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	private TeamMatchBiz teamMatchBiz;
-	public DoCheckMatchRequest() {
+	
+	private MatchBiz matchBiz;
+	
+	public DoDeleteTeamMatch() {
 		super();
-		teamMatchBiz = new TeamMatchBizImpl();
+		matchBiz = new MatchBizImpl();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -37,7 +38,7 @@ public class DoCheckMatchRequest extends HttpServlet {
 		String teamId = userVO.getTeamId();
 		String matchId = Param.getStringParam(request, "matchId");
 		
-		boolean isSuccess = teamMatchBiz.isExistTeam(teamId, matchId);
+		boolean isSuccess = matchBiz.deleteTeamMatch(teamId, matchId);
 		PrintWriter out = response.getWriter();
 		out.write(isSuccess+"");
 		out.flush();

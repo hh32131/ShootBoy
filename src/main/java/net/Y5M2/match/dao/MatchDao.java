@@ -16,4 +16,6 @@ public interface MatchDao {
 	
 	public int checkTheMatchTeam(MatchVO matchVO);
 	
+	public int deleteTeamMatch(String teamId, String matchId);
+	
 }

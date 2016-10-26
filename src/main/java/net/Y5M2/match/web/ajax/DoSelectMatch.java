@@ -43,6 +43,7 @@ public class DoSelectMatch extends HttpServlet {
 			list.append(String.format(" <td>%s</td> ",matchVO.getTeamVO().getTeamName()));
 			list.append(String.format(" <td>%s-%s</td> ",matchVO.getTeamVO().getLocationVO().getParentLocationName(), matchVO.getTeamVO().getLocationVO().getLocationName()));
 			list.append(String.format(" <td rowspan='3'><a href='javascript:void(0);' class='applyBtn' data-teamid='%s' data-matchid='%s' >신청</a></td> ",matchVO.getTeamId(),matchVO.getMatchId()));
+			list.append(String.format(" <input type='button' class='cancelBtn' name='cancelBtn' data-teamid='%s' data-matchid='%s' value='취소' ", matchVO.getTeamId(), matchVO.getMatchId()));
 			list.append(" </tr> ");
 			list.append(" <tr> ");
 			list.append(String.format(" <td>%s(%s-%s)</td> ",matchVO.getPlayField(),matchVO.getLocationVO().getParentLocationName(),matchVO.getLocationVO().getLocationName()));

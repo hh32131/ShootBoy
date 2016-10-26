@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import net.Y5M2.constants.Session;
+import net.Y5M2.match.dao.MatchDao;
+import net.Y5M2.match.dao.MatchDaoImpl;
 import net.Y5M2.support.pager.Pager;
 import net.Y5M2.support.pager.PagerFactory;
 import net.Y5M2.team.dao.TeamDao;
@@ -24,10 +26,12 @@ public class TeamBizImpl implements TeamBiz {
 
 	private TeamDao teamDao;
 	private UserDao userDao;
+	private MatchDao matchDao;
 	
 	public TeamBizImpl() {
 		teamDao = new TeamDaoImpl();
 		userDao = new UserDaoImpl();
+		matchDao = new MatchDaoImpl();
 	}
 	
 	@Override
@@ -137,7 +141,7 @@ public class TeamBizImpl implements TeamBiz {
 	}
 
 	@Override
-	public boolean deleteTeam(String teamId,UserVO userVO, ServletRequest request) {
+	public boolean deleteTeam(String teamId,UserVO userVO, ServletRequest request, String matchId) {
 
 		boolean isSuccess = userDao.UserTemaIdDelete(teamId)>0;
 		if(isSuccess){
@@ -145,6 +149,7 @@ public class TeamBizImpl implements TeamBiz {
 			session.removeAttribute(Session.USER_INFO);
 			UserVO userInfo = userDao.getUserBy(userVO);
 			session.setAttribute(Session.USER_INFO, userInfo);
+			matchDao.deleteTeamMatch(teamId, matchId);
 			return teamDao.deleteTeam(teamId) > 0;
 		}
 		
@@ -161,6 +166,7 @@ public class TeamBizImpl implements TeamBiz {
 			session.removeAttribute(Session.USER_INFO);
 			UserVO userInfo = userDao.getUserBy(userVO);
 			session.setAttribute(Session.USER_INFO, userInfo);
+			
 			return true;
 		}
 		

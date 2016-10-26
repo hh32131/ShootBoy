@@ -14,4 +14,7 @@ public interface MatchBiz {
 
 	public boolean doMatch(String matchId, String awayTeamId);
 	
+	public boolean deleteTeamMatch(String teamId, String matchId);
+	
+	
 }

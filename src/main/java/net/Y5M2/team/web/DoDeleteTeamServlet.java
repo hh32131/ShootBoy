@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import net.Y5M2.constants.Session;
+import net.Y5M2.match.vo.MatchVO;
 import net.Y5M2.support.Param;
 import net.Y5M2.team.biz.TeamBiz;
 import net.Y5M2.team.biz.TeamBizImpl;
@@ -31,10 +32,12 @@ public class DoDeleteTeamServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		String teamId = Param.getStringParam(request, "teamId");
+		String matchId = Param.getStringParam(request, "matchId");
 
 		HttpSession session = request.getSession();
 		UserVO userVO = (UserVO) session.getAttribute(Session.USER_INFO);
-		boolean isSuccess = teamBiz.deleteTeam(teamId, userVO, request);
+		
+		boolean isSuccess = teamBiz.deleteTeam(teamId, userVO, request, matchId);
 		if ( isSuccess ) {
 			response.sendRedirect("/ShootBoy/userInfo");
 		}

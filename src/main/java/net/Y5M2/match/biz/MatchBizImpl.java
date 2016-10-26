@@ -45,5 +45,11 @@ public class MatchBizImpl implements MatchBiz {
 		
 		return matchDao.doMatch(matchId, awayTeamId)>0;
 	}
+
+	@Override
+	public boolean deleteTeamMatch(String teamId, String matchId) {
+		return matchDao.deleteTeamMatch(teamId, matchId) > 0;
+	}
+
 	
 }
