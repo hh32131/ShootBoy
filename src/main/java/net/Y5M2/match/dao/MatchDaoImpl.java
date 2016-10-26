@@ -315,4 +315,26 @@ public class MatchDaoImpl extends DaoSupport implements MatchDao {
 		});
 	}
 
+	@Override
+	public int deleteTeamMatch(String teamId, String matchId) {
+		return insert(new Query() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				
+				StringBuffer query = new StringBuffer(); 
+			
+				query.append(" DELETE ");
+				query.append(" FROM		MATCH ");
+				query.append(" WHERE	TEAM_ID = ?");
+				query.append(" AND		MATCH_ID = ? ");
+				
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				pstmt.setString(1, teamId);
+				pstmt.setString(2, matchId);
+				return pstmt;
+			}
+		});
+	}
+
 }

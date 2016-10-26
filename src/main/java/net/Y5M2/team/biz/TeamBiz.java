@@ -21,11 +21,8 @@ public interface TeamBiz {
 	public TeamListVO getAllTeam(SearchTeamVO searchTeam);
 	
 	public TeamBoardVO getTeamBoardAt(String teamBoardId);
-
-	
 	
 	public TeamBoardListVO getAllTeamBoards(SearchTeamVO searchTeam, TeamBoardVO teamBoardVO);
-	
 	
 	public TeamVO getTeamAt(String teamId);
 	
@@ -35,7 +32,7 @@ public interface TeamBiz {
 
 	public String getFileNameOfTeam(String teamId);
 	
-	public boolean deleteTeam(String teamId, UserVO userVO, ServletRequest request);
+	public boolean deleteTeam(String teamId, UserVO userVO, ServletRequest request, String matchId);
 
 	public boolean dropTeam(String teamId, UserVO userVO, HttpServletRequest request);
 	
