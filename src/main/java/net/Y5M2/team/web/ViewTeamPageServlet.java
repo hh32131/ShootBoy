@@ -1,6 +1,7 @@
 package net.Y5M2.team.web;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,6 +18,7 @@ import net.Y5M2.team.biz.TeamBiz;
 import net.Y5M2.team.biz.TeamBizImpl;
 import net.Y5M2.team.vo.SearchTeamVO;
 import net.Y5M2.team.vo.TeamListVO;
+import net.Y5M2.team.vo.TeamVO;
 
 public class ViewTeamPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -34,6 +36,13 @@ public class ViewTeamPageServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+<<<<<<< HEAD
+=======
+		String viewPath = "/WEB-INF/view/team/team.jsp";
+		
+		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
+		
+>>>>>>> 024479efcca4b12b056546aea06981ae67f827cc
 		
 	
 		HttpSession session = request.getSession();
@@ -62,15 +71,19 @@ public class ViewTeamPageServlet extends HttpServlet {
 		request.setAttribute("team", teams.getTeams());
 		request.setAttribute("pager", teams.getPager());
 
+		
 		PageExplorer pageExplorer = new ClassicPageExplorer(teams.getPager());
 		String pager = pageExplorer.getPagingList("pageNo", "[@]", "<<", ">>", "searchForm");
 
 		request.setAttribute("paging", pager);
 		request.setAttribute("searchTeam", searchTeam);
+<<<<<<< HEAD
 		
 		String viewPath = "/WEB-INF/view/team/team.jsp";
 		
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
+=======
+>>>>>>> 024479efcca4b12b056546aea06981ae67f827cc
 		rd.forward(request, response);
 	}
 }

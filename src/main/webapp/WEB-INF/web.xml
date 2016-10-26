@@ -1031,4 +1031,33 @@
 		<servlet-name>DoDownloadFileServlet</servlet-name>
 		<url-pattern>/doDownloadFile</url-pattern>
 	</servlet-mapping>
+	<servlet>
+        <description></description>
+        <display-name>ViewWriteTeamBoardPageServlet</display-name>
+        <servlet-name>ViewWriteTeamBoardPageServlet</servlet-name>
+        <servlet-class>net.Y5M2.team.web.ViewWriteTeamBoardPageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewWriteTeamBoardPageServlet</servlet-name>
+        <url-pattern>/teamBoardWrite</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <description></description>
+        <display-name>DoWriteTeamBoardServlet</display-name>
+        <servlet-name>DoWriteTeamBoardServlet</servlet-name>
+        <servlet-class>net.Y5M2.team.web.DoWriteTeamBoardServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DoWriteTeamBoardServlet</servlet-name>
+        <url-pattern>/doWriteTeamBoard</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <display-name>ViewTeamBoardPageServlet</display-name>
+        <servlet-name>ViewTeamBoardPageServlet</servlet-name>
+        <servlet-class>net.Y5M2.team.web.ViewTeamBoardPageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewTeamBoardPageServlet</servlet-name>
+        <url-pattern>/teamBoard</url-pattern>
+    </servlet-mapping>
 </web-app>
