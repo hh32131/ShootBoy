@@ -8,18 +8,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.Y5M2.article.biz.BoardBiz;
-import net.Y5M2.article.biz.BoardBizImpl;
+import net.Y5M2.team.biz.TeamBiz;
+import net.Y5M2.team.biz.TeamBizImpl;
 
-public class DoDeleteArticleAdminServlet extends HttpServlet {
+public class DoDeleteAdminTeamBoardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	private BoardBiz boardBiz;
-
-	public DoDeleteArticleAdminServlet() {
-		super();
-		boardBiz = new BoardBizImpl();
-	}
+       
+	private TeamBiz teamBiz;
+	
+    public DoDeleteAdminTeamBoardServlet() {
+        super();
+        teamBiz = new TeamBizImpl();
+    }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -37,7 +37,7 @@ public class DoDeleteArticleAdminServlet extends HttpServlet {
 			return;
 		} else {
 			for (int i = 0; i < checkbox.length; i++) {
-				boardBiz.deleteBoard(checkbox[i]);
+				teamBiz.deleteTeamBoard(checkbox[i]);
 			}
 			out.print("삭제했습니다. ");
 		}
@@ -45,4 +45,5 @@ public class DoDeleteArticleAdminServlet extends HttpServlet {
 		out.flush();
 		out.close();
 	}
+
 }

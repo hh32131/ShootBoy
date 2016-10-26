@@ -47,7 +47,6 @@ public class ViewAdminArticlePageServlet extends HttpServlet {
 		int searchType = Param.getIntParam(request, "searchType");
 		String searchKeyword = Param.getStringParam(request, "searchKeyword");
 		String categoryId = Param.getStringParam(request, "categoryId","0");
-		String boardId = Param.getStringParam(request, "boardId");
 
 		SearchBoardVO searchBoard = null;
 

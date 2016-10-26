@@ -14,7 +14,6 @@ public class TeamVO {
 	private String teamInfo;
 	private String locationId;
 	
-
 	private LocationVO locationVO;
 	
 	public TeamVO() {

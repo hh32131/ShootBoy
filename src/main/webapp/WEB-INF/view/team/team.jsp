@@ -62,7 +62,7 @@
 			</c:forEach>
 		</tr>
 	</table>
-	<c:if test="${empty sessionScope._USER_INFO_.teamId}">
+	<c:if test="${empty sessionScope._USER_INFO_.teamId && !empty sessionScope._USER_INFO_}">
 	<button id="teamCreateBtn" onclick="openWin()" style="float: right;">팀생성하기</button>
 	</c:if>
 			<form id="searchForm" name="searchForm">

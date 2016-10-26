@@ -1,4 +1,4 @@
-package net.Y5M2.admin.web;
+package net.Y5M2.team.web;
 
 import java.io.IOException;
 
@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import net.Y5M2.admin.biz.AdminBiz;
-import net.Y5M2.admin.biz.AdminBizImpl;
 import net.Y5M2.constants.Session;
 import net.Y5M2.support.Param;
 import net.Y5M2.support.pager.ClassicPageExplorer;
@@ -20,17 +18,15 @@ import net.Y5M2.team.biz.TeamBizImpl;
 import net.Y5M2.team.vo.SearchTeamVO;
 import net.Y5M2.team.vo.TeamBoardListVO;
 import net.Y5M2.team.vo.TeamBoardVO;
+import net.Y5M2.user.vo.UserVO;
 
-public class ViewAdminTeamBoardPageServlet extends HttpServlet {
+public class ViewTeamBoardPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
 	private TeamBiz teamBiz;
-	private AdminBiz adminBiz;
-	
-	public ViewAdminTeamBoardPageServlet() {
+
+	public ViewTeamBoardPageServlet() {
 		super();
 		teamBiz = new TeamBizImpl();
-		adminBiz = new AdminBizImpl();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -45,9 +41,17 @@ public class ViewAdminTeamBoardPageServlet extends HttpServlet {
 		int pageNo = Param.getIntParam(request, "pageNo", -1);
 		int searchType = Param.getIntParam(request, "searchType");
 		String searchKeyword = Param.getStringParam(request, "searchKeyword");
-		String teamId = Param.getStringParam(request, "teamId");
+		
+		/* String teamId = Param.getStringParam(request, "teamId"); */
+		/*String teamId = Param.getStringParam(request, "teamId");*/
+		
+		/*String teamBoardId = Param.getStringParam(request, "teamBoardId");*/
 
-        SearchTeamVO searchTeamBoard = null;
+		String teamBoardId = Param.getStringParam(request, "teamBoardId");
+
+		UserVO userVO = (UserVO) session.getAttribute(Session.USER_INFO);
+		String teamId = userVO.getTeamId();
+		SearchTeamVO searchTeamBoard = null;
 
 		if (pageNo == -1) {
 			searchTeamBoard = (SearchTeamVO) session.getAttribute(Session.SEARCH_TEAM_INFO);
@@ -61,21 +65,20 @@ public class ViewAdminTeamBoardPageServlet extends HttpServlet {
 			searchTeamBoard.setSearchType(searchType);
 			searchTeamBoard.setSearchKeyword(searchKeyword);
 		}
-
 		TeamBoardVO teamBoardVO = new TeamBoardVO();
 		teamBoardVO.setTeamId(teamId);
 		session.setAttribute(Session.SEARCH_TEAM_INFO, searchTeamBoard);
-		TeamBoardListVO teamBoards = adminBiz.getAllTeamBoards(searchTeamBoard, teamBoardVO);
-		
-		String viewPath = "/WEB-INF/view/admin/adminTeamBoard.jsp";
+		TeamBoardListVO teamBoards = teamBiz.getAllTeamBoards(searchTeamBoard, teamBoardVO);
+
+		String viewPath = "/WEB-INF/view/team/teamBoard.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 		request.setAttribute("teamBoards", teamBoards.getTeamBoards());
 		request.setAttribute("pager", teamBoards.getPager());
 
 		PageExplorer pageExplorer = new ClassicPageExplorer(teamBoards.getPager());
-		String pager = pageExplorer.getPagingList("pageNo", "[@]", "<<", ">>", "pagingForm");
+		String pager = pageExplorer.getPagingList("pageNo", "[@]", "<<", ">>", "searchForm");
 
-		request.setAttribute("team", teamId);
+		request.setAttribute("teamId", teamId);
 		request.setAttribute("paging", pager);
 		request.setAttribute("searchTeam", searchTeamBoard);
 		rd.forward(request, response);

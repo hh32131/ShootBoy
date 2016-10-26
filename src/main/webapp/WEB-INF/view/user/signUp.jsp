@@ -160,13 +160,20 @@
 
 		$("#signBtn").click(function() {
 
-			if($("#checkbox").checked == false) {
-				alert("가입약관에 동의하세요!");
+			/* if($("input:checkBox[id='checkboxOne']").is(":checked") == false) {
+				alert("회원가입약관에 동의하세요!");
+				$("#checkboxOne").focus();
 			}
+			if($("input:checkBox[id='checkboxTwo']").is(":checked") == false) {
+				alert("개인정보취급방침에 동의하세요!");
+				$("#checkboxTwo").focus();
+			} */
+
 			$("#signUpForm").attr({
 				"method" : "post",
 				"action" : "/ShootBoy/doSignUp"
 			}).submit();
+
 		});
 	});
 
@@ -230,7 +237,7 @@
 신규 서비스(제품) 개발 및 맞춤 서비스 제공, 이벤트 및 광고성 정보 제공 및 참여기회 제공 , 인구통계학적 특성에 따른 서비스 제공 및 광고 게재 , 서비스의 유효성 확인, 접속빈도 파악 또는 회원의 서비스 이용에 대한 통계 등을 목적으로 개인정보를 처리합니다.
 </textarea>
 	<div id="checkbox">
-		<input type="checkbox">  위의 개인정보취급방침에 동의합니다.
+		<input type="checkbox" id="checkboxTwo">  위의 개인정보취급방침에 동의합니다.
 	</div>
 	<hr class="lineTwo">
 </div>

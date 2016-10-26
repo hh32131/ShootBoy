@@ -93,21 +93,23 @@
 			<div class="mplmOne"><a href="/ShootBoy/userInfo">내 정보</a></div>
 			<div class="mplmTwo"><img src="/ShootBoy/img/화살표.jpg" class="arrow"><a href="/ShootBoy/detailTeamInfo">팀 정보</a></div>
 			<div class="mplmThree"><a href="/ShootBoy/teamMatchInfo">팀 매치 정보</a></div>
+			<div class="mplmFour"><a href="/ShootBoy/teamBoard">팀 게시판</a></div>
+			
 		</div>
 	</div>
 
 	<div class="myInfoText" style="display: inline-block; width: 700px;"><h1>팀 정보</h1>
 		<hr class="myPageline" style="width: 680px; margin-right: 100px;">
-		<div id="teamDetailwrapper" style="padding-top: 20px; width: 500px; margin-left: 100px;">
+		<div id="teamDetailwrapper" style="padding-top: 20px; width: 700px; margin-left: 30px;">
 			<c:if test="${!empty userInfo.teamId}">
-			<div id="teamImg" style="display: inline-block;">
+			<div id="teamImg" style="display: inline-block; margin-right: 100px;">
 				<img src="/ShootBoy/showImage?teamId=${userInfo.teamId}" 
 						style="width: 200px; height: 200px;
 						border-radius: 150px; margin-top: 10px;">
-			<div class="teamPhoto" style="font-size: 30px; width: 150px; margin-left: 35px; padding-top: 20px;">팀 앰블럼</div>	
+			<div class="teamPhoto" style="font-size: 25px; width: 150px; margin-left: 45px; padding-top: 20px;">팀 앰블럼</div>	
 			</div>
-			<div id="teamDetailContainer" style="display: inline-block; width: 200px; 
-					vertical-align: top; margin-left: 50px; padding-top: 20px;">
+			<div id="teamDetailContainer" style="display: inline-block; width: 350px; 
+					vertical-align: top; padding-top: 20px; margin-right: 30px;">
 				<div class="teamName" style="font-size: 20px; padding-bottom: 10px">팀명 : ${userInfo.teamVO.teamName}</div>
 				<div class="teamCount" style="font-size: 20px; padding-bottom: 10px">팀원수 : ${userInfo.teamVO.teamCount}</div>
 				<div class="teamPoints" style="font-size: 20px; padding-bottom: 10px">팀 포인트 : ${userInfo.teamVO.teamPoint}</div>
@@ -115,7 +117,7 @@
 				<div class="teamLocation" style="font-size: 20px; padding-bottom: 10px">팀 지역 : ${teamInfo.locationVO.parentLocationName} - ${teamInfo.locationVO.locationName}</div>
 				<div class="teamInfo" style="font-size: 20px; padding-bottom: 10px">팀 설명 : ${userInfo.teamVO.teamInfo}</div>
 			</div>
-			<div id="teamModify" style=" float: right; margin-right:40px; width: 200px;">
+			<div id="teamModify" style=" float: right; margin-right:190px; width: 200px;">
 				<input type="button" id="modifyBtn" name="modifyBtn" value="수정" 
 						style="margin-top: 20px; width: 50px; display: inline-block;" />
 					<c:choose>
