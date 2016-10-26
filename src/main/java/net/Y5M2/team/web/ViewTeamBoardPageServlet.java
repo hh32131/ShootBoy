@@ -41,13 +41,11 @@ public class ViewTeamBoardPageServlet extends HttpServlet {
 		int pageNo = Param.getIntParam(request, "pageNo", -1);
 		int searchType = Param.getIntParam(request, "searchType");
 		String searchKeyword = Param.getStringParam(request, "searchKeyword");
-<<<<<<< HEAD
+		
 		/* String teamId = Param.getStringParam(request, "teamId"); */
-=======
 		/*String teamId = Param.getStringParam(request, "teamId");*/
 		
 		/*String teamBoardId = Param.getStringParam(request, "teamBoardId");*/
->>>>>>> 0a99b633146f5b8a49ddb009310dff32a80ffedf
 
 		String teamBoardId = Param.getStringParam(request, "teamBoardId");
 

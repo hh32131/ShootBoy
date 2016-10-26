@@ -175,8 +175,6 @@ public class TeamBizImpl implements TeamBiz {
 		return teamDao.getCountOfTeam(teamId);
 	}
 
-	
-	
 	@Override
 	public boolean deleteTeam(String teamId) {
 		return teamDao.deleteTeam(teamId) > 0;
@@ -198,14 +196,9 @@ public class TeamBizImpl implements TeamBiz {
 
 		searchTeam.setStartRowNumber(pager.getStartArticleNumber());
 		searchTeam.setEndRowNumber(pager.getEndArticleNumber());
-<<<<<<< HEAD
 
-		List<TeamBoardVO> teams = teamDao.getAllTeamBoards(searchTeam, teamBoardVO);
-=======
-		
 		List<TeamBoardVO> teams = teamDao.getAllTeamBoards(searchTeam, teamId);
->>>>>>> 0a99b633146f5b8a49ddb009310dff32a80ffedf
-		
+
 		TeamBoardListVO teamList = new TeamBoardListVO();
 		teamList.setPager(pager);
 		teamList.setTeams(teams);
@@ -215,6 +208,7 @@ public class TeamBizImpl implements TeamBiz {
 
 	@Override
 	public TeamBoardVO getTeamBoardAt(String teamBoardId) {
+	
 		teamDao.hitCountUpdate(teamBoardId);
 
 		return teamDao.getTeamBoardAt(teamBoardId);
@@ -277,7 +271,6 @@ public class TeamBizImpl implements TeamBiz {
 	@Override
 	public int getCountOfTeamBoards(String teamBoardId) {
 		return teamDao.getCountOfTeamBoards(teamBoardId);
-
 	}
 
 }
