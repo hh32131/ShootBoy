@@ -37,15 +37,7 @@ public class ViewTeamPageServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-<<<<<<< HEAD
-		String viewPath = "/WEB-INF/view/team/team.jsp";
-		
-		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 
-=======
-		
-	
->>>>>>> 352b9f60c86e702ecf7097492920b1121fef193a
 		HttpSession session = request.getSession();
 		int pageNo = Param.getIntParam(request, "pageNo", -1);
 		int searchType = Param.getIntParam(request, "searchType");
