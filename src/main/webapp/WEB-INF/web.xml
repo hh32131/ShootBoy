@@ -964,16 +964,6 @@
 	</servlet-mapping>
 	<servlet>
 		<description></description>
-		<display-name>DoMatchRequerst</display-name>
-		<servlet-name>DoMatchRequerst</servlet-name>
-		<servlet-class>net.Y5M2.match.web.DoMatchRequerst</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>DoMatchRequerst</servlet-name>
-		<url-pattern>/doMatchRequerst</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<description></description>
 		<display-name>DoMatchRequest</display-name>
 		<servlet-name>DoMatchRequest</servlet-name>
 		<servlet-class>net.Y5M2.teammatch.web.DoMatchRequest</servlet-class>
