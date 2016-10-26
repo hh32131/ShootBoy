@@ -74,7 +74,6 @@
 					$("#join").html(data);
 				});
 			}
-			
 		});
 		
 		$("#joinRefuse").click(function(){
