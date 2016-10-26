@@ -9,10 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import net.Y5M2.constants.Session;
-import net.Y5M2.match.vo.MatchVO;
 import net.Y5M2.support.Param;
 import net.Y5M2.teammatch.biz.TeamMatchBiz;
 import net.Y5M2.teammatch.biz.TeamMatchBizImpl;
+import net.Y5M2.user.vo.UserVO;
 
 public class DoMatchRequest extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -32,16 +32,18 @@ public class DoMatchRequest extends HttpServlet {
 			throws ServletException, IOException {
 		
 		String teamId = Param.getStringParam(request, "teamId");
+		String matchId = Param.getStringParam(request, "matchId");
 		HttpSession session = request.getSession();
-		MatchVO matchVO = (MatchVO) session.getAttribute(Session.SEARCH_TEAM_INFO);
+		UserVO userVO = (UserVO) session.getAttribute(Session.USER_INFO);
+		String awayTeamId = userVO.getTeamId();
 		
-		boolean isSuccess = teamMatchBiz.teamMatchRequest(teamId, matchVO);
+		boolean isSuccess = teamMatchBiz.teamMatchRequest(teamId, awayTeamId,matchId);
 		
 		if ( isSuccess ) {
-			response.sendRedirect("/ShootBoy/teamBoard?teamId=" + teamId);
+			response.sendRedirect("/ShootBoy/matchBoard");
 		}
 		else{
-			response.sendRedirect("/ShootBoy/teamBoard?teamId="+teamId+"&&errorCode=1");
+			response.sendRedirect("/ShootBoy/matchBoard?errorCode=1");
 		}
 	}
 

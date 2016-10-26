@@ -1,8 +1,11 @@
 package net.Y5M2.teammatch.biz;
 
+import java.util.List;
+
 import net.Y5M2.match.vo.MatchVO;
 import net.Y5M2.teammatch.dao.TeamMatchDao;
 import net.Y5M2.teammatch.dao.TeamMatchDaoImpl;
+import net.Y5M2.teammatch.vo.TeamMatchVO;
 
 public class TeamMatchBizImpl implements TeamMatchBiz {
 
@@ -13,13 +16,19 @@ public class TeamMatchBizImpl implements TeamMatchBiz {
 	}
 	
 	@Override
-	public boolean teamMatchRequest(String teamId, MatchVO matchVO) {
-		return teamMatchDao.teamMatchRequest(teamId, matchVO) > 0;
+	public boolean teamMatchRequest(String teamId, String awayTeamId, String matchId) {
+		return teamMatchDao.teamMatchRequest(teamId, awayTeamId, matchId) > 0;
 	}
 	
 	@Override
-	public boolean isExistTeam(MatchVO matchVO) {
-		return teamMatchDao.isExistTeam(matchVO) > 0;
+	public boolean isExistTeam(String teamId) {
+		return teamMatchDao.isExistTeam(teamId) > 0;
 	}
 
+	@Override
+	public List<TeamMatchVO> getMatchApplyOf(String teamId) {
+
+		return teamMatchDao.getMatchApplyOf(teamId);
+	}
+	
 }

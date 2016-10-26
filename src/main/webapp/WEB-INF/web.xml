@@ -943,4 +943,14 @@
     <servlet-name>DoCheckMatchRequest</servlet-name>
     <url-pattern>/doCheckMatchRequest</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoMatch</display-name>
+    <servlet-name>DoMatch</servlet-name>
+    <servlet-class>net.Y5M2.match.web.DoMatch</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoMatch</servlet-name>
+    <url-pattern>/doMatch</url-pattern>
+  </servlet-mapping>
 </web-app>

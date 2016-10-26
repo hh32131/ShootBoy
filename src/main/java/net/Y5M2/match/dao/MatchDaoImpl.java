@@ -140,7 +140,7 @@ public class MatchDaoImpl extends DaoSupport implements MatchDao {
 
 				query.append(" SELECT	 M.MATCH_ID ");
 				query.append(" 			, M.TEAM_ID ");
-				query.append(" 			, M.SCDL ");
+				query.append(" 			, TO_CHAR(M.SCDL, 'YYYY-MM-DD') SCDL ");
 				query.append(" 			, M.LCTN_ID ");
 				query.append(" 			, M.CRT_DT ");
 				query.append(" 			, M.TEAM_POINT ");
@@ -199,6 +199,27 @@ public class MatchDaoImpl extends DaoSupport implements MatchDao {
 				}
 
 				return matchTeams;
+			}
+		});
+	}
+	
+	@Override
+	public int doMatch(String matchId, String awayTeamId) {
+
+		return insert(new Query() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				StringBuffer query = new StringBuffer();
+				query.append(" UPDATE	MATCH ");
+				query.append(" SET		ATEAM_ID = ? ");
+				query.append(" WHERE	MATCH_ID = ? ");
+				
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				pstmt.setString(1, awayTeamId);
+				pstmt.setString(2, matchId);
+				
+				return pstmt;
 			}
 		});
 	}

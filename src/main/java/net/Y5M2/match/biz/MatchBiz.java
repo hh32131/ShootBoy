@@ -11,4 +11,6 @@ public interface MatchBiz {
 	public List<MatchVO> getMatchApplyTeamsOf(String locationId, String beginDate, String endDate);
 
 	public List<MatchVO> getAllMatchTeam(String teamId);
+
+	public boolean doMatch(String matchId, String awayTeamId);
 }

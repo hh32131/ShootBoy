@@ -10,9 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import net.Y5M2.constants.Session;
-import net.Y5M2.match.vo.MatchVO;
+import net.Y5M2.support.Param;
 import net.Y5M2.teammatch.biz.TeamMatchBiz;
 import net.Y5M2.teammatch.biz.TeamMatchBizImpl;
+import net.Y5M2.user.vo.UserVO;
 
 public class DoCheckMatchRequest extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -30,11 +31,11 @@ public class DoCheckMatchRequest extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
 		HttpSession session = request.getSession();
-		MatchVO matchVO = (MatchVO) session.getAttribute(Session.SEARCH_TEAM_INFO);
+		UserVO userVO = (UserVO) session.getAttribute(Session.USER_INFO);
+		String teamId = userVO.getTeamId();
 		
-		boolean isSuccess = teamMatchBiz.isExistTeam(matchVO);
+		boolean isSuccess = teamMatchBiz.isExistTeam(teamId);
 		PrintWriter out = response.getWriter();
 		out.write(isSuccess+"");
 		out.flush();

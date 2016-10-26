@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <jsp:include page="/WEB-INF/view/commons/header.jsp"></jsp:include>
-
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/page.css">
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/match.css">
 <script type="text/javascript">
@@ -20,11 +19,14 @@
 			});
 		});
 	
-		$("#applyBtn").click(function() {
+		$("#matchList").on("click",".applyBtn",function() {
+			var teamId = $(this).data("teamid");
+			var matchId = $(this).data("matchid");
+			console.log(matchId);
 			$.post("/ShootBoy/doCheckMatchRequest", "", function(data) {
 				if (data =="false") {
 					if( confirm("신청하시겠습니까?") ) {
-						location.href="/ShootBoy/doMatchRequest?teamId=${teamId}";
+						location.href="/ShootBoy/doMatchRequest?teamId="+teamId+"&&matchId="+matchId;
 					}
 				}
 				else {
@@ -36,7 +38,6 @@
 	
 </script>
 <body>
-
 	<div id="myPageLeftMenu">
 		<div class="mplmTitle">My Page</div>
 		<div id="myPageLeftMenuTwo">
@@ -49,6 +50,7 @@
 	<div class="myInfoText" style="width:700px;"><h1>매치 보드</h1>
 		<hr class="myPageline" style="width: 680px; margin-right: 100px;">
 	<div id="locationNavi">
+	<a href="javascript:void(0);" id="matchEnroll">매치등록</a>
 		<ul>
 		  <li><a class="active" href="#">전체</a></li>
 		  <li><a class="location" href="javascript:void(0);" data-value="4">서울</a></li>
@@ -61,10 +63,8 @@
 		</ul>
 	</div>
 	<div id="matchList" ></div>
-		<input type="hidden" id="teamId" name="teamId" value="${teamId}">
 	</div>
 	
 	</form>
-	<a href="javascript:void(0);" id="matchEnroll">매치등록</a>
 </body>
 </html>
