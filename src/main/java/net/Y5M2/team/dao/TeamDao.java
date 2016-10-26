@@ -27,7 +27,7 @@ public interface TeamDao {
 
 	public int hitCountUpdate(String teamBoardId);
 	
-	public List<TeamBoardVO> getAllTeamBoards(SearchTeamVO searchTeam, String teamId);
+	public List<TeamBoardVO> getAllTeamBoards(SearchTeamVO searchTeam, TeamBoardVO teamBoardVO);
 	public TeamBoardVO getTeamBoardAt(String teamBoardId);
 	public int addTeamBoard(TeamBoardVO teamBoardVO);
 	
@@ -53,7 +53,7 @@ public interface TeamDao {
 
 	public int getCountOfTeamBoard(SearchTeamVO searchTeam);
 	
-	public int getCountOfTeamBoards(String teamBoardId);
+	public int getCountOfTeamBoards(TeamBoardVO teamBoardVO);
 
 
 

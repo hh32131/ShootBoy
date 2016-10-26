@@ -24,7 +24,7 @@ public interface TeamBiz {
 
 	
 	
-	public TeamBoardListVO getAllTeamBoards(SearchTeamVO searchTeam, String teamId);
+	public TeamBoardListVO getAllTeamBoards(SearchTeamVO searchTeam, TeamBoardVO teamBoardVO);
 	
 	
 	public TeamVO getTeamAt(String teamId);
@@ -55,7 +55,7 @@ public interface TeamBiz {
 	
 	public int getCountOfTeamBoard(SearchTeamVO searchTeam);
 	
-	public int getCountOfTeamBoards(String teamBoardId);
+	public int getCountOfTeamBoards(TeamBoardVO teamBoardVO);
 
 
 

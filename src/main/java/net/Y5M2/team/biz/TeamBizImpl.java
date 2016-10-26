@@ -194,8 +194,8 @@ public class TeamBizImpl implements TeamBiz {
 	}
 
 	@Override
-	public TeamBoardListVO getAllTeamBoards(SearchTeamVO searchTeam, String teamId) {
-		int totalCount = teamDao.getCountOfTeamBoard(searchTeam);
+	public TeamBoardListVO getAllTeamBoards(SearchTeamVO searchTeam, TeamBoardVO teamBoardVO) {
+		int totalCount = teamDao.getCountOfTeamBoards(teamBoardVO);
 		Pager pager = PagerFactory.getPager(true, 10, 5);
 		pager.setTotalArticleCount(totalCount);
 		pager.setPageNumber(searchTeam.getPageNo());
@@ -204,7 +204,7 @@ public class TeamBizImpl implements TeamBiz {
 		searchTeam.setStartRowNumber(pager.getStartArticleNumber());
 		searchTeam.setEndRowNumber(pager.getEndArticleNumber());
 		
-		List<TeamBoardVO> teams = teamDao.getAllTeamBoards(searchTeam, teamId);
+		List<TeamBoardVO> teams = teamDao.getAllTeamBoards(searchTeam, teamBoardVO);
 		
 		TeamBoardListVO teamList = new TeamBoardListVO();
 		teamList.setPager(pager);
@@ -275,8 +275,8 @@ public class TeamBizImpl implements TeamBiz {
 	}
 
 	@Override
-	public int getCountOfTeamBoards(String teamBoardId) {
-		return teamDao.getCountOfTeamBoards(teamBoardId);
+	public int getCountOfTeamBoards(TeamBoardVO teamBoardVO) {
+		return teamDao.getCountOfTeamBoards(teamBoardVO);
 
 	}
 

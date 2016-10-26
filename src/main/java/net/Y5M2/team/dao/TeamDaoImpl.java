@@ -504,7 +504,7 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 	}
 
 	@Override
-	public List<TeamBoardVO> getAllTeamBoards(SearchTeamVO searchTeam, String teamId) {
+	public List<TeamBoardVO> getAllTeamBoards(SearchTeamVO searchTeam, TeamBoardVO teamBoardVO) {
 		return selectList(new QueryAndResult() {
 			
 			@Override
@@ -547,7 +547,7 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 				
 				int index = 1;
 				
-				pstmt.setString(index++, teamId);
+				pstmt.setString(index++, teamBoardVO.getTeamId());
 				
 				if ( searchTeam.getSearchType() == 1 ) {
 					pstmt.setString(index++, searchTeam.getSearchKeyword());
@@ -905,8 +905,8 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 	}
 
 	@Override
-	public int getCountOfTeamBoards(String teamBoardId) {
-return (int) selectOne(new QueryAndResult() {
+	public int getCountOfTeamBoards(TeamBoardVO teamBoardVO) {
+			return (int) selectOne(new QueryAndResult() {
 			
 			@Override
 			public PreparedStatement query(Connection conn) throws SQLException {
@@ -914,9 +914,15 @@ return (int) selectOne(new QueryAndResult() {
 				StringBuffer query = new StringBuffer();
 				query.append(" SELECT	COUNT(1) CNT ");
 				query.append(" FROM		TBOARD TB ");
+				query.append(" WHERE	TEAM_ID = ? ");
 
+	
+				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
-			
+				
+				pstmt.setString(1, teamBoardVO.getTeamId());
+
+
 				return pstmt;
 			}
 			
