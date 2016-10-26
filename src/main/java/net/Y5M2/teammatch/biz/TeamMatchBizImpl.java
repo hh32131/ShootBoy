@@ -31,4 +31,14 @@ public class TeamMatchBizImpl implements TeamMatchBiz {
 		return teamMatchDao.getMatchApplyOf(teamId);
 	}
 	
+	@Override
+	public List<TeamMatchVO> getMyApply(String teamId) {
+		
+		return teamMatchDao.getMyApply(teamId);
+	}
+	
+	@Override
+	public boolean deleteMatchOf(String matchId) {
+		return teamMatchDao.deleteMatchOf(matchId) > 0;
+	}
 }

@@ -337,16 +337,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>ViewTeamMatchInfoPageServlet</display-name>
-    <servlet-name>ViewTeamMatchInfoPageServlet</servlet-name>
-    <servlet-class>net.Y5M2.user.web.ViewTeamMatchInfoPageServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ViewTeamMatchInfoPageServlet</servlet-name>
-    <url-pattern>/teamMatchInfo</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>ViewMessagePageServlet</display-name>
     <servlet-name>ViewMessagePageServlet</servlet-name>
     <servlet-class>net.Y5M2.user.web.ViewMessagePageServlet</servlet-class>
@@ -657,10 +647,6 @@
   </filter>
   <filter-mapping>
     <filter-name>SessionFilter</filter-name>
-    <url-pattern>/teamMatchInfo</url-pattern>
-  </filter-mapping>
-  <filter-mapping>
-    <filter-name>SessionFilter</filter-name>
     <url-pattern>/detailTeamInfo</url-pattern>
   </filter-mapping>
   <filter-mapping>
@@ -745,10 +731,6 @@
     <servlet-name>ViewMatchApplyManagement</servlet-name>
     <url-pattern>/matchApplyManagement</url-pattern>
   </servlet-mapping>
-  <filter-mapping>
-    <filter-name>SessionFilter</filter-name>
-    <url-pattern>/teamMatchInfo</url-pattern>
-  </filter-mapping>
   <filter-mapping>
     <filter-name>EncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
@@ -952,5 +934,25 @@
   <servlet-mapping>
     <servlet-name>DoMatch</servlet-name>
     <url-pattern>/doMatch</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewTeamMatchInfoServlet</display-name>
+    <servlet-name>ViewTeamMatchInfoServlet</servlet-name>
+    <servlet-class>net.Y5M2.team.web.ViewTeamMatchInfoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewTeamMatchInfoServlet</servlet-name>
+    <url-pattern>/teamMatchInfo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoCancelMatch</display-name>
+    <servlet-name>DoCancelMatch</servlet-name>
+    <servlet-class>net.Y5M2.match.web.DoCancelMatch</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoCancelMatch</servlet-name>
+    <url-pattern>/cancelMatch</url-pattern>
   </servlet-mapping>
 </web-app>

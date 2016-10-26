@@ -11,5 +11,9 @@ public interface TeamMatchBiz {
 	public boolean isExistTeam(String teamId);
 
 	public List<TeamMatchVO> getMatchApplyOf(String teamId);
-	
+
+	public List<TeamMatchVO> getMyApply(String teamId);
+
+	public boolean deleteMatchOf(String matchId);
+
 }
