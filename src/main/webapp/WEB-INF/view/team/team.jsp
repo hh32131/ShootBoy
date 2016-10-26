@@ -44,7 +44,11 @@
 	<table>
 		<tr>
 			<c:forEach items="${team}" var="team" varStatus="j" >
+<<<<<<< HEAD
 				<c:if test="${ j.index gt 0 && j.index % 5 eq 0 }">
+=======
+				<c:if test="${j.index gt 0 && j.index % 5 eq 0}">
+>>>>>>> 352b9f60c86e702ecf7097492920b1121fef193a
 					</tr><tr>
 				</c:if>
 

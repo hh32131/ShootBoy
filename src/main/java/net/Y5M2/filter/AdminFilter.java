@@ -15,34 +15,31 @@ import javax.servlet.http.HttpSession;
 import net.Y5M2.constants.Session;
 import net.Y5M2.user.vo.UserVO;
 
-public class SessionFilter implements Filter {
+public class AdminFilter implements Filter {
 
-    public SessionFilter() {
+    public AdminFilter() {
     }
 
 	public void destroy() {
 	}
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-
-		HttpSession session = ((HttpServletRequest)request).getSession();
 		
-		if(session.getAttribute(Session.USER_INFO) == null){
+		HttpSession session = ((HttpServletRequest)request).getSession();
+		UserVO userVO = (UserVO) session.getAttribute(Session.USER_INFO);
+		if(!userVO.getLevelId().equals("1")){
 			PrintWriter out = response.getWriter();
-			out.append("<script type='text/javascript'> alert('로그인이 필요한 서비스입니다.'); ");
+			out.append("<script type='text/javascript'> alert('관리자용 페이지입니다.'); ");
 			out.append("location.href='/ShootBoy/main'; ");
 			out.append("</script>");
 			out.flush();
 			out.close();
 			
 		}
-		
 		chain.doFilter(request, response);
 	}
-	
-	
+
 	public void init(FilterConfig fConfig) throws ServletException {
-	
 	}
 
 }

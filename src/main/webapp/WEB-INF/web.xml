@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 352b9f60c86e702ecf7097492920b1121fef193a
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>ShootBoy</display-name>
   <welcome-file-list>
@@ -388,6 +391,29 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+<<<<<<< HEAD
+=======
+    <display-name>DoWriteTeamBoardServlet</display-name>
+    <servlet-name>DoWriteTeamBoardServlet</servlet-name>
+    <servlet-class>net.Y5M2.team.web.DoWriteTeamBoardServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoWriteTeamBoardServlet</servlet-name>
+    <url-pattern>/doWriteTeamBoard</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewWriteTeamBoardPageServlet</display-name>
+    <servlet-name>ViewWriteTeamBoardPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.team.web.ViewWriteTeamBoardPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewWriteTeamBoardPageServlet</servlet-name>
+    <url-pattern>/teamBoardWrite</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+>>>>>>> 352b9f60c86e702ecf7097492920b1121fef193a
     <display-name>DoModifyReplayServlet</display-name>
     <servlet-name>DoModifyReplayServlet</servlet-name>
     <servlet-class>net.Y5M2.replay.web.DoModifyReplayServlet</servlet-class>
@@ -423,7 +449,11 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ViewAdminMemberPageServlet</servlet-name>
+<<<<<<< HEAD
     <url-pattern>/adminMember</url-pattern>
+=======
+    <url-pattern>/admin/adminMember</url-pattern>
+>>>>>>> 352b9f60c86e702ecf7097492920b1121fef193a
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -433,7 +463,11 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ViewAdminTeamPageServlet</servlet-name>
+<<<<<<< HEAD
     <url-pattern>/adminTeam</url-pattern>
+=======
+    <url-pattern>/admin/adminTeam</url-pattern>
+>>>>>>> 352b9f60c86e702ecf7097492920b1121fef193a
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -443,7 +477,11 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ViewAdminGamePageServlet</servlet-name>
+<<<<<<< HEAD
     <url-pattern>/adminGame</url-pattern>
+=======
+    <url-pattern>/admin/adminGame</url-pattern>
+>>>>>>> 352b9f60c86e702ecf7097492920b1121fef193a
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -453,7 +491,11 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ViewAdminArticlePageServlet</servlet-name>
+<<<<<<< HEAD
     <url-pattern>/adminArticle</url-pattern>
+=======
+    <url-pattern>/admin/adminArticle</url-pattern>
+>>>>>>> 352b9f60c86e702ecf7097492920b1121fef193a
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -483,7 +525,11 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>SearchAdminListInitiateServlet</servlet-name>
+<<<<<<< HEAD
     <url-pattern>/adminList/init</url-pattern>
+=======
+    <url-pattern>/admin/adminList/init</url-pattern>
+>>>>>>> 352b9f60c86e702ecf7097492920b1121fef193a
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -493,7 +539,11 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>SearchAdminUserInitateServlet</servlet-name>
+<<<<<<< HEAD
     <url-pattern>/adminUser/init</url-pattern>
+=======
+    <url-pattern>/admin/adminUser/init</url-pattern>
+>>>>>>> 352b9f60c86e702ecf7097492920b1121fef193a
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -542,7 +592,11 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ViewAdminSignUpPageServlet</servlet-name>
+<<<<<<< HEAD
     <url-pattern>/adminSignUp</url-pattern>
+=======
+    <url-pattern>/admin/adminSignUp</url-pattern>
+>>>>>>> 352b9f60c86e702ecf7097492920b1121fef193a
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -601,7 +655,11 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ViewAdminTeamModifyServlet</servlet-name>
+<<<<<<< HEAD
     <url-pattern>/adminTeamModify</url-pattern>
+=======
+    <url-pattern>/admin/adminTeamModify</url-pattern>
+>>>>>>> 352b9f60c86e702ecf7097492920b1121fef193a
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -744,7 +802,11 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ViewAdminMemberModifyPageServlet</servlet-name>
+<<<<<<< HEAD
     <url-pattern>/adminMemberModify</url-pattern>
+=======
+    <url-pattern>/admin/adminMemberModify</url-pattern>
+>>>>>>> 352b9f60c86e702ecf7097492920b1121fef193a
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -774,7 +836,11 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ViewAdminArticleModifyPageServlet</servlet-name>
+<<<<<<< HEAD
     <url-pattern>/adminArticleModify</url-pattern>
+=======
+    <url-pattern>/admin/adminArticleModify</url-pattern>
+>>>>>>> 352b9f60c86e702ecf7097492920b1121fef193a
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -804,7 +870,11 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ViewAdminArticleWritePageServlet</servlet-name>
+<<<<<<< HEAD
     <url-pattern>/adminArticleWrite</url-pattern>
+=======
+    <url-pattern>/admin/adminArticleWrite</url-pattern>
+>>>>>>> 352b9f60c86e702ecf7097492920b1121fef193a
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -814,7 +884,11 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ViewAdminArticleDetailPageServlet</servlet-name>
+<<<<<<< HEAD
     <url-pattern>/adminArticleDetail</url-pattern>
+=======
+    <url-pattern>/admin/adminArticleDetail</url-pattern>
+>>>>>>> 352b9f60c86e702ecf7097492920b1121fef193a
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -824,7 +898,11 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ViewTeamCreatePageServlet</servlet-name>
+<<<<<<< HEAD
     <url-pattern>/adminTeamCreate</url-pattern>
+=======
+    <url-pattern>/admin/adminTeamCreate</url-pattern>
+>>>>>>> 352b9f60c86e702ecf7097492920b1121fef193a
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -834,7 +912,11 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ViewAdminTeamBoardPageServlet</servlet-name>
+<<<<<<< HEAD
     <url-pattern>/adminTeamBoard</url-pattern>
+=======
+    <url-pattern>/admin/adminTeamBoard</url-pattern>
+>>>>>>> 352b9f60c86e702ecf7097492920b1121fef193a
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -898,6 +980,7 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+<<<<<<< HEAD
     <display-name>DoMatchRequerst</display-name>
     <servlet-name>DoMatchRequerst</servlet-name>
     <servlet-class>net.Y5M2.match.web.DoMatchRequerst</servlet-class>
@@ -908,6 +991,8 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+=======
+>>>>>>> 352b9f60c86e702ecf7097492920b1121fef193a
     <display-name>DoMatchRequest</display-name>
     <servlet-name>DoMatchRequest</servlet-name>
     <servlet-class>net.Y5M2.teammatch.web.DoMatchRequest</servlet-class>
@@ -966,6 +1051,7 @@
     <url-pattern>/teamBoardModify</url-pattern>
   </servlet-mapping>
   <servlet>
+<<<<<<< HEAD
     <description></description>
     <display-name>DoModifyTeamBoardServlet</display-name>
     <servlet-name>DoModifyTeamBoardServlet</servlet-name>
@@ -1024,4 +1110,61 @@
     <servlet-name>DoDeleteTeamMatch</servlet-name>
     <url-pattern>/doDeleteTeamMatch</url-pattern>
   </servlet-mapping>
+=======
+    <display-name>ViewTeamBoardPageServlet</display-name>
+    <servlet-name>ViewTeamBoardPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.team.web.ViewTeamBoardPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewTeamBoardPageServlet</servlet-name>
+    <url-pattern>/teamBoard</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <display-name>ViewDetailTeamBoardPageServlet</display-name>
+    <servlet-name>ViewDetailTeamBoardPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.team.web.ViewDetailTeamBoardPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewDetailTeamBoardPageServlet</servlet-name>
+    <url-pattern>/detailTeamBoard</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <display-name>DoDeleteTeamBoardServlet</display-name>
+    <servlet-name>DoDeleteTeamBoardServlet</servlet-name>
+    <servlet-class>net.Y5M2.team.web.DoDeleteTeamBoardServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoDeleteTeamBoardServlet</servlet-name>
+    <url-pattern>/doDeleteTeamBoard</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoModifyTeamBoardServlet</display-name>
+    <servlet-name>DoModifyTeamBoardServlet</servlet-name>
+    <servlet-class>net.Y5M2.team.web.DoModifyTeamBoardServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoModifyTeamBoardServlet</servlet-name>
+    <url-pattern>/doModifyTeamBoard</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoDownloadFileServlet</display-name>
+    <servlet-name>DoDownloadFileServlet</servlet-name>
+    <servlet-class>net.Y5M2.team.web.DoDownloadFileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoDownloadFileServlet</servlet-name>
+    <url-pattern>/doDownloadFile</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <display-name>AdminFilter</display-name>
+    <filter-name>AdminFilter</filter-name>
+    <filter-class>net.Y5M2.filter.AdminFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>AdminFilter</filter-name>
+    <url-pattern>/admin/*</url-pattern>
+  </filter-mapping>
+>>>>>>> 352b9f60c86e702ecf7097492920b1121fef193a
 </web-app>

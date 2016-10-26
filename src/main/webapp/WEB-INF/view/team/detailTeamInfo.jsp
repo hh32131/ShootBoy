@@ -117,13 +117,12 @@
 				<div class="teamInfo" style="font-size: 20px; padding-bottom: 10px">팀 설명 : ${userInfo.teamVO.teamInfo}</div>
 			</div>
 			<div id="teamModify" style=" float: right; margin-right:190px; width: 200px;">
-				<input type="button" id="modifyBtn" name="modifyBtn" value="수정" 
-						style="margin-top: 20px; width: 50px; display: inline-block;" />
-					<c:choose>
-						<c:when test="${userInfo.levelId eq '3'}">
-							<div id="deleteTeam"> <input type="button" id="deleteTeam" name="deleteTeam" value="팀 해체" /> </div>
-						</c:when>
-						<c:otherwise>
+				<c:choose>
+					<c:when test="${userInfo.levelId eq '3' or userInfo.levelId eq '1'}">
+						<input type="button" id="modifyBtn" name="modifyBtn" value="수정" style="margin-top: 20px; width: 50px; display: inline-block;" />
+						<div id="deleteTeam"> <input type="button" id="deleteTeam" name="deleteTeam" value="팀 해체" /> </div>
+					</c:when>
+				<c:otherwise>
 							<div id="dropTeam"> <input type="button" id="dropTeam" name="dropTeam" value="팀 탈퇴" /> </div>
 						</c:otherwise>
 					</c:choose>
@@ -139,7 +138,7 @@
 		</c:if>
 	</div>
 	
-		<c:if test="${sessionScope._USER_INFO_.levelId eq 3 and !empty joins}">
+		<c:if test="${!empty joins and sessionScope._USER_INFO_.levelId eq 3 or sessionScope._USER_INFO_.levelId eq 1}">
 			<div id="joinContainer">
 			<hr/>
 				<p style="font-size: 20px; margin-bottom: 20px; color: #000;">팀원</p>

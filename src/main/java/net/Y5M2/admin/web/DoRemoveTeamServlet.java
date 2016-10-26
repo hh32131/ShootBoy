@@ -25,7 +25,7 @@ public class DoRemoveTeamServlet extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		session.removeAttribute(Session.SEARCH_TEAM_INFO);
-		response.sendRedirect("/ShootBoy/adminTeam");
+		response.sendRedirect("/ShootBoy/admin/adminTeam");
 	}
 
 }

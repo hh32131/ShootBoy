@@ -111,7 +111,7 @@ public class DoAdminSignUpServlet extends HttpServlet {
 			out.close();
 		}
 		else{
-			response.sendRedirect("/ShootBoy/adminSignUp?errorCode=1");
+			response.sendRedirect("/ShootBoy/admin/adminSignUp?errorCode=1");
 		}
 	}
 

@@ -60,7 +60,7 @@ public class DoModifyAdminMemberServlet extends HttpServlet {
 			out.flush();
 			out.close();
 		} else {
-			response.sendRedirect("/ShootBoy/adminMemberModify?errorCode=1");
+			response.sendRedirect("/ShootBoy/admin/adminMemberModify?errorCode=1");
 		}
 	}
 }
