@@ -499,7 +499,7 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<TeamBoardVO> getAllTeamBoards(SearchTeamVO searchTeam, TeamBoardVO teamBoardVO) {
+	public List<TeamBoardVO> getAllTeamBoards(SearchTeamVO searchTeam, String teamId) {
 		return selectList(new QueryAndResult() {
 
 			@Override
@@ -521,9 +521,15 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao {
 				query.append(" FROM		TEAM T, TBOARD TB, USR U ");
 				query.append(" WHERE	U.USR_ID = TB.USR_ID ");
 				query.append(" AND		TB.TEAM_ID = T.TEAM_ID ");
+<<<<<<< HEAD
 				query.append(" AND 		TB.TEAM.ID = ? ");
 
 				if (searchTeam.getSearchType() == 1) {
+=======
+				query.append(" AND 		TB.TEAM_ID = ? ");
+				
+				if ( searchTeam.getSearchType() == 1 ) {
+>>>>>>> 0a99b633146f5b8a49ddb009310dff32a80ffedf
 					query.append(" AND	( TB.TBOARD_SUB LIKE '%'|| ?|| '%' ");
 					query.append(" OR	U.USR_NM LIKE '%' || ? || '%' ) ");
 				}
@@ -540,7 +546,14 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao {
 				PreparedStatement pstmt = conn.prepareStatement(pagingQuery);
 
 				int index = 1;
+<<<<<<< HEAD
 				if (searchTeam.getSearchType() == 1) {
+=======
+				
+				pstmt.setString(index++, teamId);
+				
+				if ( searchTeam.getSearchType() == 1 ) {
+>>>>>>> 0a99b633146f5b8a49ddb009310dff32a80ffedf
 					pstmt.setString(index++, searchTeam.getSearchKeyword());
 					pstmt.setString(index++, searchTeam.getSearchKeyword());
 				}
@@ -550,7 +563,11 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao {
 				if (searchTeam.getSearchType() == 3) {
 					pstmt.setString(index++, searchTeam.getSearchKeyword());
 				}
+<<<<<<< HEAD
 
+=======
+				
+>>>>>>> 0a99b633146f5b8a49ddb009310dff32a80ffedf
 				pstmt.setInt(index++, searchTeam.getEndRowNumber());
 				pstmt.setInt(index++, searchTeam.getStartRowNumber());
 

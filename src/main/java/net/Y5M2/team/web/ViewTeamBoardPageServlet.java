@@ -41,7 +41,13 @@ public class ViewTeamBoardPageServlet extends HttpServlet {
 		int pageNo = Param.getIntParam(request, "pageNo", -1);
 		int searchType = Param.getIntParam(request, "searchType");
 		String searchKeyword = Param.getStringParam(request, "searchKeyword");
+<<<<<<< HEAD
 		/* String teamId = Param.getStringParam(request, "teamId"); */
+=======
+		/*String teamId = Param.getStringParam(request, "teamId");*/
+		
+		/*String teamBoardId = Param.getStringParam(request, "teamBoardId");*/
+>>>>>>> 0a99b633146f5b8a49ddb009310dff32a80ffedf
 
 		String teamBoardId = Param.getStringParam(request, "teamBoardId");
 
@@ -61,10 +67,10 @@ public class ViewTeamBoardPageServlet extends HttpServlet {
 			searchTeamBoard.setSearchType(searchType);
 			searchTeamBoard.setSearchKeyword(searchKeyword);
 		}
-		TeamBoardVO teamBoardVO = new TeamBoardVO();
-		teamBoardVO.setTeamBoardId(teamBoardId);
+		/*TeamBoardVO teamBoardVO = new TeamBoardVO();
+		teamBoardVO.setTeamBoardId(teamId);*/
 		session.setAttribute(Session.SEARCH_TEAM_INFO, searchTeamBoard);
-		TeamBoardListVO teamBoards = teamBiz.getAllTeamBoards(searchTeamBoard, teamBoardVO);
+		TeamBoardListVO teamBoards = teamBiz.getAllTeamBoards(searchTeamBoard, teamId);
 
 		String viewPath = "/WEB-INF/view/team/teamBoard.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
