@@ -8,7 +8,7 @@ public interface TeamMatchDao {
 
 	public int teamMatchRequest(String teamId, String awayTeamId, String matchId);
 	
-	public int isExistTeam(String teamId);
+	public int isExistTeam(String teamId, String matchId);
 
 	public List<TeamMatchVO> getMatchApplyOf(String teamId);
 

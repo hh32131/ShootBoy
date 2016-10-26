@@ -22,20 +22,24 @@
 		$("#matchList").on("click",".applyBtn",function() {
 			var teamId = $(this).data("teamid");
 			var matchId = $(this).data("matchid");
-			console.log(matchId);
-			$.post("/ShootBoy/doCheckMatchRequest", "", function(data) {
-				if (data =="false") {
-					if( confirm("신청하시겠습니까?") ) {
-						location.href="/ShootBoy/doMatchRequest?teamId="+teamId+"&&matchId="+matchId;
-					}
+			var myTeamId = "${sessionScope._USER_INFO_.teamId}";
+				if(myTeamId==teamId){
+					alert("자신의 팀입니다.");
 				}
-				else {
-					alert("이미 신청한 팀이 있습니다.");
+				else{
+					$.post("/ShootBoy/doCheckMatchRequest", {"matchId":$(this).data("matchid")}, function(data) {
+						if (data =="false") {
+							if( confirm("신청하시겠습니까?") ) {
+								location.href="/ShootBoy/doMatchRequest?teamId="+teamId+"&&matchId="+matchId;
+							}
+						}
+						else {
+							alert("이미 신청하셨습니다.");
+						}
+					});
 				}
-			});
 		});
 	});
-	
 </script>
 <body>
 	<div id="myPageLeftMenu">

@@ -34,8 +34,9 @@ public class DoCheckMatchRequest extends HttpServlet {
 		HttpSession session = request.getSession();
 		UserVO userVO = (UserVO) session.getAttribute(Session.USER_INFO);
 		String teamId = userVO.getTeamId();
+		String matchId = Param.getStringParam(request, "matchId");
 		
-		boolean isSuccess = teamMatchBiz.isExistTeam(teamId);
+		boolean isSuccess = teamMatchBiz.isExistTeam(teamId, matchId);
 		PrintWriter out = response.getWriter();
 		out.write(isSuccess+"");
 		out.flush();

@@ -8,7 +8,7 @@ public interface TeamMatchBiz {
 
 	public boolean teamMatchRequest(String teamId, String awayTeamId, String matchId);
 	
-	public boolean isExistTeam(String teamId);
+	public boolean isExistTeam(String teamId, String matchId);
 
 	public List<TeamMatchVO> getMatchApplyOf(String teamId);
 	
