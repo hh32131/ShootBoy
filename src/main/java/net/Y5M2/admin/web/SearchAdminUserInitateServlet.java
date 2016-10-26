@@ -26,7 +26,7 @@ public class SearchAdminUserInitateServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.removeAttribute(Session.SEARCH_USER_INFO);
 
-		response.sendRedirect("/ShootBoy/adminMember");
+		response.sendRedirect("/ShootBoy/admin/adminMember");
 	}
 
 }

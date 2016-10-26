@@ -80,7 +80,7 @@ public class DoModifyAdminArticleServlet extends HttpServlet {
 			out.flush();
 			out.close();
 		} else {
-			response.sendRedirect("/ShootBoy/adminArticleModify?errorCode=1");
+			response.sendRedirect("/ShootBoy/admin/adminArticleModify?errorCode=1");
 		}
 	}
 

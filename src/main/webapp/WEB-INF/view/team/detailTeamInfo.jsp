@@ -138,7 +138,7 @@
 		</c:if>
 	</div>
 	
-		<c:if test="${sessionScope._USER_INFO_.levelId eq 3 or sessionScope._USER_INFO_.levelId eq 1 and !empty joins}">
+		<c:if test="${!empty joins and sessionScope._USER_INFO_.levelId eq 3 or sessionScope._USER_INFO_.levelId eq 1}">
 			<div id="joinContainer">
 			<hr/>
 				<p style="font-size: 20px; margin-bottom: 20px; color: #000;">팀원</p>
