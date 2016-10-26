@@ -19,7 +19,7 @@
 				
 				$.post("/ShootBoy/doCheckPassword", {"password" : $("#password").val()} ,function(data){
 					if(data == "true"){
-						window.open("/ShootBoy/teamModify","","width=800, height=800")
+						window.open("/ShootBoy/teamModify","","width=700, height=800")
 					}
 					else{
 						alert("비밀번호가 틀렸습니다.")
@@ -111,7 +111,7 @@
 				<div class="teamName" style="font-size: 20px; padding-bottom: 10px">팀명 : ${userInfo.teamVO.teamName}</div>
 				<div class="teamCount" style="font-size: 20px; padding-bottom: 10px">팀원수 : ${userInfo.teamVO.teamCount}</div>
 				<div class="teamPoints" style="font-size: 20px; padding-bottom: 10px">팀 포인트 : ${userInfo.teamVO.teamPoint}</div>
-				<div class="teamCreatedDate" style="font-size: 20px; padding-bottom: 10px">팀 생성일 : </br>${userInfo.teamVO.createDate}</div>
+				<div class="teamCreatedDate" style="font-size: 20px; padding-bottom: 10px">팀 생성일 :<br/>${userInfo.teamVO.createDate}</div>
 				<div class="teamLocation" style="font-size: 20px; padding-bottom: 10px">팀 지역 : ${teamInfo.locationVO.parentLocationName} - ${teamInfo.locationVO.locationName}</div>
 				<div class="teamInfo" style="font-size: 20px; padding-bottom: 10px">팀 설명 : ${userInfo.teamVO.teamInfo}</div>
 			</div>
@@ -126,10 +126,10 @@
 							<div id="dropTeam"> <input type="button" id="dropTeam" name="dropTeam" value="팀 탈퇴" /> </div>
 						</c:otherwise>
 					</c:choose>
-					
-			<div><input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요">
-				<input type="button" id="passwordConfirm" name="passwordConfirm" value="비밀번호 확인" style="margin-right:40px;">
-			</div>
+				<div>
+					<input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요">
+					<input type="button" id="passwordConfirm" name="passwordConfirm" value="비밀번호 확인" style="margin-right:40px;">
+				</div>
 			</div>
 		</c:if>
 		</div>

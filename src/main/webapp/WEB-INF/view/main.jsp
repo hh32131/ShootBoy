@@ -8,26 +8,6 @@
 <script type="text/javascript">
 	
 	jQuery(function($) {
-		// List Tab Navigation
-		var $tab_list = $('#naviList');
-		$tab_list.removeClass('jx').find('ul ul');
-		$tab_list.find('li li.active').parents('li').addClass('active');
-		$tab_list.find('li.active>ul').show();
-		$tab_list.each(function() {
-			var $this = $(this);
-			$this.height($this.find('li.active>ul').height() + 40);
-		});
-		function listTabMenuToggle(event) {
-			var $this = $(this);
-			$this.next('ul').show().parent('li').addClass('active').siblings(
-					'li').removeClass('active').find('>ul').hide();
-			$this.closest('#naviList').height($this.next('ul').height() + 40);
-			if ($this.attr('href') === '#') {
-				return false;
-			}
-		}
-		$tab_list.find('>ul>li>a').click(listTabMenuToggle).focus(
-				listTabMenuToggle);
 
 		$("#userEmail").keyup(function() {
 			if ($(this).val() == null) {
@@ -55,17 +35,12 @@
 				$("#passwordreturn").html(data);
 			});
 		
-		/* $("#signInBtn").click(function() {
-			$("#signInForm").attr({
-				"method" : "post",
-				"action" : "/ShootBoy/doSignIn"
-			}).submit(); */
 		}); 
 	});
 
 	function openWin() {
 		window.open("/ShootBoy/createTeam", "",
-				"width=900, height= 600");
+				"width=750, height= 600");
 	}
 </script>
 
@@ -73,6 +48,7 @@
 	<div id="wrapperOne">
 		<div class="tableOne">
 			<div class="textOne">RECENT MATCH SCHEDULE</div>
+				<a href="#" style="margin-left: 100px">▶ 일정 더보기</a>
 			<table class="grid">
 				<tr class="one">
 					<th colspan="4">최근 성사된 경기일정</th>
@@ -257,7 +233,7 @@
 							<div class="loginContent">
 								<div>${sessionScope._USER_INFO_.userName} 님</div>
 								<div>${sessionScope._USER_INFO_.age}</div>
-								<div>${sessionScope._USER_INFO_.position}</div>							
+								<div>${sessionScope._USER_INFO_.position}</div>						
 							</div>
 						</form>
 						<c:if test="${empty sessionScope._USER_INFO_.teamId}">
