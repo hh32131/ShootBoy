@@ -221,16 +221,6 @@
 	</servlet-mapping>
 	<servlet>
 		<description></description>
-		<display-name>ViewPasswordFindPageServletTwo</display-name>
-		<servlet-name>ViewPasswordFindPageServletTwo</servlet-name>
-		<servlet-class>net.Y5M2.user.web.ViewPasswordFindPageServletTwo</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>ViewPasswordFindPageServletTwo</servlet-name>
-		<url-pattern>/passwordFindTwo</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<description></description>
 		<display-name>ViewPasswordFindPageServlet</display-name>
 		<servlet-name>ViewPasswordFindPageServlet</servlet-name>
 		<servlet-class>net.Y5M2.user.web.ViewPasswordFindPageServlet</servlet-class>
@@ -961,16 +951,6 @@
 	<servlet-mapping>
 		<servlet-name>ViewMatchListPageServlet</servlet-name>
 		<url-pattern>/matchList</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<description></description>
-		<display-name>DoMatchRequerst</display-name>
-		<servlet-name>DoMatchRequerst</servlet-name>
-		<servlet-class>net.Y5M2.match.web.DoMatchRequerst</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>DoMatchRequerst</servlet-name>
-		<url-pattern>/doMatchRequerst</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<description></description>
