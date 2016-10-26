@@ -138,9 +138,10 @@
 		
 		<div class="boardCreateDate">${board.createDate}</div>
 	<hr/>
+	<a href="/ShootBoy/board/doDownload?boardId=${board.boardId}" style="float: right;">${board.fileName}</a>
+	
 	${board.boardContent}<br/><br/>
 	
-	<a href="/ShootBoy/board/doDownload?boardId=${board.boardId}">${board.fileName}</a>
 	<br/><br/>
 	조회수	${board.hitCount} 
 	<c:if test="${sessionScope._USER_INFO_.userId eq board.userId}">|
