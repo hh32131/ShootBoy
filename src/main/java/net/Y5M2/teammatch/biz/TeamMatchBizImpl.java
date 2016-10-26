@@ -21,8 +21,8 @@ public class TeamMatchBizImpl implements TeamMatchBiz {
 	}
 	
 	@Override
-	public boolean isExistTeam(String teamId) {
-		return teamMatchDao.isExistTeam(teamId) > 0;
+	public boolean isExistTeam(String teamId, String matchId) {
+		return teamMatchDao.isExistTeam(teamId, matchId) > 0;
 	}
 
 	@Override

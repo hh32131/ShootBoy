@@ -42,7 +42,7 @@ public class TeamMatchDaoImpl extends DaoSupport implements TeamMatchDao {
 	}
 
 	@Override
-	public int isExistTeam(String teamId) {
+	public int isExistTeam(String teamId, String matchId) {
 		return (int) selectOne(new QueryAndResult() {
 			
 			@Override
@@ -52,9 +52,11 @@ public class TeamMatchDaoImpl extends DaoSupport implements TeamMatchDao {
 				query.append(" SELECT	COUNT(1) CNT ");
 				query.append(" FROM		TMATCH ");
 				query.append(" WHERE	ATEAM_ID = ? ");
+				query.append(" AND		MATCH_ID = ? ");
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				pstmt.setString(1, teamId);
+				pstmt.setString(2, matchId);
 				return pstmt;
 				
 			}
