@@ -45,7 +45,7 @@
 		<tr>
 			<c:forEach items="${team}" var="team" varStatus="j" >
 				<c:if test="${ j.index gt 0 && j.index % 5 eq 0 }">
-					<tr></tr>
+					</tr><tr>
 				</c:if>
 
 				<td align="center" class="teamtd">
