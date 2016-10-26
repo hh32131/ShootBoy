@@ -1005,4 +1005,14 @@
     <servlet-name>ViewAdminTeamBoardWritePageServlet</servlet-name>
     <url-pattern>/adminTeamBoardWrite</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoDeleteAdminTeamBoardServlet</display-name>
+    <servlet-name>DoDeleteAdminTeamBoardServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.DoDeleteAdminTeamBoardServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoDeleteAdminTeamBoardServlet</servlet-name>
+    <url-pattern>/doDeleteAdminTeamBoard</url-pattern>
+  </servlet-mapping>
 </web-app>

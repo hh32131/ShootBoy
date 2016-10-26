@@ -198,15 +198,9 @@ public class TeamBizImpl implements TeamBiz {
 
 		searchTeam.setStartRowNumber(pager.getStartArticleNumber());
 		searchTeam.setEndRowNumber(pager.getEndArticleNumber());
-<<<<<<< HEAD
 
-		List<TeamBoardVO> teams = teamDao.getAllTeamBoards(searchTeam);
-
-=======
-		
 		List<TeamBoardVO> teams = teamDao.getAllTeamBoards(searchTeam, teamBoardVO);
 		
->>>>>>> 531864993b9e17f5cdd32798491cadcf55077735
 		TeamBoardListVO teamList = new TeamBoardListVO();
 		teamList.setPager(pager);
 		teamList.setTeams(teams);
