@@ -755,8 +755,6 @@
     <filter-name>EncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-
-  
   <servlet>
     <description></description>
     <display-name>DoModifyAdminMemberServlet</display-name>
@@ -927,7 +925,6 @@
     <servlet-name>DoJoinRefuse</servlet-name>
     <url-pattern>/doJoinRefuse</url-pattern>
   </servlet-mapping>
- 
   <servlet>
     <description></description>
     <display-name>DoMatchApply</display-name>
@@ -948,9 +945,6 @@
     <servlet-name>DoSelectMatch</servlet-name>
     <url-pattern>/doSelectMatch</url-pattern>
   </servlet-mapping>
-<<<<<<< HEAD
-
-=======
   <servlet>
     <description></description>
     <display-name>ViewTeamBoardModifyPageServlet</display-name>
@@ -981,5 +975,34 @@
     <servlet-name>DoDownloadFileServlet</servlet-name>
     <url-pattern>/doDownloadFile</url-pattern>
   </servlet-mapping>
->>>>>>> 31f1da4bc582b588455cb7ee809c53d5b361d358
+  <servlet>
+    <description></description>
+    <display-name>ViewAdminTeamBoardDetailPageServlet</display-name>
+    <servlet-name>ViewAdminTeamBoardDetailPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.ViewAdminTeamBoardDetailPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewAdminTeamBoardDetailPageServlet</servlet-name>
+    <url-pattern>/adminTeamBoardDetail</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoWriteAdminTeamBoardServlet</display-name>
+    <servlet-name>DoWriteAdminTeamBoardServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.DoWriteAdminTeamBoardServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoWriteAdminTeamBoardServlet</servlet-name>
+    <url-pattern>/doWriteAdminTeamBoard</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewAdminTeamBoardWritePageServlet</display-name>
+    <servlet-name>ViewAdminTeamBoardWritePageServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.ViewAdminTeamBoardWritePageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewAdminTeamBoardWritePageServlet</servlet-name>
+    <url-pattern>/adminTeamBoardWrite</url-pattern>
+  </servlet-mapping>
 </web-app>

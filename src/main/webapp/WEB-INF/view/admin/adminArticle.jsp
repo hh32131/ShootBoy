@@ -73,7 +73,6 @@
 	<div class="page-title">게시판 관리</div>
 
 	<div class="listAll">
-		<c:set var="list" value="boards" />
 		<p class="textAll">전체 목록 | 총 경기수 ${count}개</p>
 	</div>
 
@@ -85,9 +84,8 @@
 				<option value="3" ${ searchBoard.searchType eq 3 ? 'selected' : '' }>내용</option>
 				<option value="4" ${ searchBoard.searchType eq 4 ? 'selected' : '' }>작성자</option>
 			</select> <input type="text" class="searchKeyword" name="searchKeyword"
-				id="searchKeyword" value="${searchBoard.searchKeyword}" /> <input
-				type="button" id="searchBtn" value="검색" />
-			
+				id="searchKeyword" value="${searchBoard.searchKeyword}" /> 
+				<input type="button" id="searchBtn" value="검색" />
 			<div class="clear"></div>
 		</form>
 	</div>
@@ -121,7 +119,7 @@
 					<tbody>
 						<tr>
 							<td class="td_check">
-								<div class="checks check" id="checkBoard" neame="checkBoard">
+								<div class="checks check" id="checkBoard" name="checkBoard">
 									<input type="checkbox" class="select-check"
 										data-selectid="${boards.boardId }" name="select-check"
 										value="${boards.boardId }"> 
