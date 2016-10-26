@@ -40,6 +40,8 @@
 
 			});
 			
+			$("#categoryId").val("${board.categoryId}");
+			
 			$("#backBtn").click(function() {
 				window.close();
 			});

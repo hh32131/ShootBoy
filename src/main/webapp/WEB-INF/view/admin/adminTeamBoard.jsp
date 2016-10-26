@@ -91,8 +91,10 @@
 					</th>
 					<th>게시물 아이디</th>
 					<th>제 목</th>
+					<th>팀이름</th>
 					<th>작성자</th>
 					<th>작성일</th>
+					<th>추천수</th>
 				</tr>
 			</thead>
 			
@@ -123,6 +125,7 @@
 								<a href="javascript:void(0)" class="boardCode" data-boardid="${teamBoards.teamBoardId }"> ${teamBoards.teamBoardSubject} [${teamBoards.replayHitCount}] </a>
 							</span>
 						</th>
+						<th class="boardContent">${teamBoards.teamVO.teamName }</th>
 						<th class="boardContent">${teamBoards.userVO.userName}</th>
 						<th class="boardContent">${teamBoards.createDate}</th>
 						<th class="boardContent">${teamBoards.teamBoardRecommendCount}</th>
@@ -139,7 +142,7 @@
 			</form>
 		</div>
 		<div class="initBtn">
-			<input type="button" id="initBtn" value="전체 보기"  onclick="location='/ShootBoy/adminList/init'" />
+			<input type="button" id="initBtn" value="전체 보기"  onclick="location='/ShootBoy/doRemoveTeamBoard'" />
 		</div>
 		<div class="functionBtn">
 			<input type="button" id="writeBtn" value="등 록"  /> 
