@@ -10,22 +10,12 @@
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
 
-<<<<<<< HEAD
-	$(document).ready(function() {
-		
-		$("#locationId").change(function(){
-			$.post("/ShootBoy/checkLocation",{"locationId": $("#locationId").val()}, function(data) {
-				$("#leafLocation option").remove();
-				$("#leafLocation").html(data); 
-			});
-=======
 $(document).ready(function() {
 	
 	$("#locationId").change(function(){
 		$.post("/ShootBoy/checkLocation",{"locationId": $("#locationId").val()}, function(data) {
 			$("#leafLocation option").remove();
 			$("#leafLocation").html(data); 
->>>>>>> 44c13c38479b4ddf1c9de2f5f311fe6cb27cf56a
 		});
 	});
 	
@@ -57,7 +47,6 @@ $(document).ready(function() {
 			return;
 		}
 		
-<<<<<<< HEAD
 		$("#checkTeamName").click(function () {
 			$.post("/ShootBoy/doCheckTeamName", 
 				{ "teamName" : $("#teamName").val() }, function(data){
@@ -71,13 +60,11 @@ $(document).ready(function() {
 				}
 			});
 		});
-=======
 		else if ( $("#teamCount").val() == 0 ) {
 			alert("팀원수를 작성해주세요.");
 			$("#teamCount").focus();
 			return;
 		}
->>>>>>> 44c13c38479b4ddf1c9de2f5f311fe6cb27cf56a
 		
 		else if ( $("#teamInfo").val() == "" ) {
 			alert("소개글을 작성해주세요.");
@@ -104,26 +91,15 @@ $(document).ready(function() {
 				"action" : "/ShootBoy/doCreateTeam"
 				}).submit(); 
 			}
-<<<<<<< HEAD
 		});
 	});
 	
-	function closeWin() {
-		close();
-	}
 	
-=======
-		}
-		
-	});
-
-});
 
 function closeWin() {
 	close();
 }
 
->>>>>>> 44c13c38479b4ddf1c9de2f5f311fe6cb27cf56a
 </script>
 </head>
 <body>
@@ -165,10 +141,7 @@ function closeWin() {
 					<option> 상세 지역을 선택하세요 </option>
 				</select>
 			</div>
-			<div class="filebox">
-  				<label for="fileBtn">파일 업로드</label>
- 				 <input type="file" id="fileBtn" name="file"  /> 
-			</div>
+			<input type="file" id="file" name="file" />
 			<textarea id="teamInfo" name="teamInfo"	placeholder="소개글을 입력하세요."></textarea>
 			<div class="btn">
 				<input type="button" id="teamCreateBtn" name="teamCreateBtn" value="팀 생성"/>

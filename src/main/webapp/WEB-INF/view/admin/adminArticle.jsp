@@ -73,7 +73,7 @@
 	<div class="page-title">게시판 관리</div>
 
 	<div class="listAll">
-		<p class="textAll">전체 목록 | 총 경기수 ${count}개</p>
+		<p class="textAll">전체 목록 | 총 게시물수 ${count}개</p>
 	</div>
 
 	<div class="search-tool">

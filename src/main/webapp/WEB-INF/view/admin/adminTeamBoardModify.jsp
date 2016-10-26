@@ -61,13 +61,12 @@
 
 	<form id="modifyForm" name="modifyForm" enctype="multipart/form-data">
 		<input type="hidden" name="teamBoardId" value="${teamBoardVO.teamBoardId}" />
+		
 		<div>
-			<select name="teamId" id="teamId">
-				<option>팀명을 선택해주세요</option>
-				<c:forEach var="team" items="${team }">
-					<option value="${team.teamId }">${team.teamName }</option>
-				</c:forEach>
-			</select>
+			<input type="text" id="teamName" name="teamName" value="${teamBoardVO.teamVO.teamName }" readonly>
+		</div>
+	
+		<div>
 			<input type="text" id="boardSubject" name="boardSubject"
 				placeholder="제목을 입력하세요." value="${teamBoardVO.teamBoardSubject}" />
 		</div>
