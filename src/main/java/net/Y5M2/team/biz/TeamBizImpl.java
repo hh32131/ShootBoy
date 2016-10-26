@@ -24,25 +24,23 @@ public class TeamBizImpl implements TeamBiz {
 
 	private TeamDao teamDao;
 	private UserDao userDao;
-	
+
 	public TeamBizImpl() {
 		teamDao = new TeamDaoImpl();
 		userDao = new UserDaoImpl();
 	}
-	
+
 	@Override
 	public boolean addTeam(TeamVO teamVO, UserVO userInfo, ServletRequest request) {
-		
-		
-		boolean isSuccess =  teamDao.addTeam(teamVO)>0;
-		
-		
-		if(isSuccess) {
+
+		boolean isSuccess = teamDao.addTeam(teamVO) > 0;
+
+		if (isSuccess) {
 			TeamVO teamInfo = teamDao.getTeamInfoForUpdate(teamVO.getTeamName());
-			
-			boolean isUpdateSuccess = userDao.UserTemaIdUpdate(teamInfo.getTeamId(), userInfo.getUserId())>0;
-			if(isUpdateSuccess){
-				HttpSession session = ((HttpServletRequest)request).getSession();
+
+			boolean isUpdateSuccess = userDao.UserTemaIdUpdate(teamInfo.getTeamId(), userInfo.getUserId()) > 0;
+			if (isUpdateSuccess) {
+				HttpSession session = ((HttpServletRequest) request).getSession();
 				session.removeAttribute(Session.USER_INFO);
 				UserVO userVO = userDao.getUserBy(userInfo);
 				session.setAttribute(Session.USER_INFO, userVO);
@@ -54,22 +52,21 @@ public class TeamBizImpl implements TeamBiz {
 
 	@Override
 	public TeamListVO getAllTeam(SearchTeamVO searchTeam) {
-		
+
 		int totalCount = teamDao.getCountOfTeams(searchTeam);
 		Pager pager = PagerFactory.getPager(true, 20, 5);
 		pager.setTotalArticleCount(totalCount);
 		pager.setPageNumber(searchTeam.getPageNo());
-		
-		
+
 		searchTeam.setStartRowNumber(pager.getStartArticleNumber());
 		searchTeam.setEndRowNumber(pager.getEndArticleNumber());
-		
+
 		List<TeamVO> teams = teamDao.getAllTeam(searchTeam);
-		
+
 		TeamListVO teamList = new TeamListVO();
 		teamList.setPager(pager);
-		teamList.setTeams(teams);;
-		
+		teamList.setTeams(teams);
+
 		return teamList;
 	}
 
@@ -83,87 +80,87 @@ public class TeamBizImpl implements TeamBiz {
 		TeamVO team = teamDao.getTeamAt(teamId);
 		return team.getTeamPhoto();
 	}
-	
+
 	@Override
 	public String getFileNameOfTeam(String teamId) {
 		TeamVO teamInfo = teamDao.getTeamAt(teamId);
 		return teamInfo.getTeamPhoto();
 	}
+
 	@Override
 	public boolean updateTeamInfo(TeamVO teamVO, ServletRequest request, UserVO userInfo) {
 		TeamVO originalTeamInfo = teamDao.getTeamAt(teamVO.getTeamId());
-		
+
 		int teamModify = 5;
-		
-		if(originalTeamInfo.getTeamName().equals(teamVO.getTeamName())){
+
+		if (originalTeamInfo.getTeamName().equals(teamVO.getTeamName())) {
 			teamVO.setTeamName(null);
 			teamModify--;
 		}
-		if(originalTeamInfo.getTeamCount()==teamVO.getTeamCount()){
+		if (originalTeamInfo.getTeamCount() == teamVO.getTeamCount()) {
 			teamVO.setTeamCount(0);
 			teamModify--;
 		}
-		if(originalTeamInfo.getLocationId().equals(teamVO.getLocationId())){
+		if (originalTeamInfo.getLocationId().equals(teamVO.getLocationId())) {
 			teamVO.setLocationId(null);
 			teamModify--;
 		}
-		if(originalTeamInfo.getTeamInfo().equals(teamVO.getTeamInfo())){
+		if (originalTeamInfo.getTeamInfo().equals(teamVO.getTeamInfo())) {
 			teamVO.setTeamInfo(null);
 			teamModify--;
 		}
-		if(originalTeamInfo.getTeamPhoto()==null){
+		if (originalTeamInfo.getTeamPhoto() == null) {
 			originalTeamInfo.setTeamPhoto("");
 		}
-		if(originalTeamInfo.getTeamPhoto().equals(teamVO.getTeamPhoto())){
+		if (originalTeamInfo.getTeamPhoto().equals(teamVO.getTeamPhoto())) {
 			teamVO.setTeamPhoto(null);
 			teamModify--;
 		}
-		if(teamModify==0){
+		if (teamModify == 0) {
 			return true;
 		}
 		boolean isSuccess = teamDao.updateTeamInfo(teamVO) > 0;
-		if(isSuccess){
-			HttpSession session = ((HttpServletRequest)request).getSession();
+		if (isSuccess) {
+			HttpSession session = ((HttpServletRequest) request).getSession();
 			session.removeAttribute(Session.USER_INFO);
 			UserVO UserVO = userDao.getUserInfoForModify(userInfo);
 			session.setAttribute(Session.USER_INFO, UserVO);
-			
+
 			return true;
-		}
-		else{
+		} else {
 			return false;
-			
+
 		}
 	}
 
 	@Override
-	public boolean deleteTeam(String teamId,UserVO userVO, ServletRequest request) {
+	public boolean deleteTeam(String teamId, UserVO userVO, ServletRequest request) {
 
-		boolean isSuccess = userDao.UserTemaIdDelete(teamId)>0;
-		if(isSuccess){
-			HttpSession session = ((HttpServletRequest)request).getSession();
+		boolean isSuccess = userDao.UserTemaIdDelete(teamId) > 0;
+		if (isSuccess) {
+			HttpSession session = ((HttpServletRequest) request).getSession();
 			session.removeAttribute(Session.USER_INFO);
 			UserVO userInfo = userDao.getUserBy(userVO);
 			session.setAttribute(Session.USER_INFO, userInfo);
 			return teamDao.deleteTeam(teamId) > 0;
 		}
-		
+
 		return false;
 	}
-	
+
 	@Override
 	public boolean dropTeam(String teamId, UserVO userVO, HttpServletRequest request) {
-		
-		boolean isSuccess = userDao.UserTeamIdDrop(teamId, userVO)>0;
-		
-		if(isSuccess){
-			HttpSession session = ((HttpServletRequest)request).getSession();
+
+		boolean isSuccess = userDao.UserTeamIdDrop(teamId, userVO) > 0;
+
+		if (isSuccess) {
+			HttpSession session = ((HttpServletRequest) request).getSession();
 			session.removeAttribute(Session.USER_INFO);
 			UserVO userInfo = userDao.getUserBy(userVO);
 			session.setAttribute(Session.USER_INFO, userInfo);
 			return true;
 		}
-		
+
 		return false;
 	}
 
@@ -177,8 +174,6 @@ public class TeamBizImpl implements TeamBiz {
 		return teamDao.getCountOfTeam(teamId);
 	}
 
-	
-	
 	@Override
 	public boolean deleteTeam(String teamId) {
 		return teamDao.deleteTeam(teamId) > 0;
@@ -186,10 +181,8 @@ public class TeamBizImpl implements TeamBiz {
 
 	@Override
 	public boolean addTeamBoard(TeamBoardVO teamBoardVO) {
-		
-		return teamDao.addTeamBoard(teamBoardVO)>0;
-		
-		
+
+		return teamDao.addTeamBoard(teamBoardVO) > 0;
 
 	}
 
@@ -199,17 +192,16 @@ public class TeamBizImpl implements TeamBiz {
 		Pager pager = PagerFactory.getPager(true, 10, 5);
 		pager.setTotalArticleCount(totalCount);
 		pager.setPageNumber(searchTeam.getPageNo());
-		
-		
+
 		searchTeam.setStartRowNumber(pager.getStartArticleNumber());
 		searchTeam.setEndRowNumber(pager.getEndArticleNumber());
-		
+
 		List<TeamBoardVO> teams = teamDao.getAllTeamBoards(searchTeam, teamBoardVO);
-		
+
 		TeamBoardListVO teamList = new TeamBoardListVO();
 		teamList.setPager(pager);
 		teamList.setTeams(teams);
-		
+
 		return teamList;
 	}
 
@@ -231,29 +223,29 @@ public class TeamBizImpl implements TeamBiz {
 	public boolean modifyTeamBoard(TeamBoardVO teamBoardVO) {
 		TeamBoardVO originalBoard = teamDao.getTeamBoardAt(teamBoardVO.getTeamBoardId());
 		int modifyCount = 3;
-		if ( originalBoard.getTeamBoardSubject().equals(teamBoardVO.getTeamBoardSubject()) ) {
+		if (originalBoard.getTeamBoardSubject().equals(teamBoardVO.getTeamBoardSubject())) {
 			teamBoardVO.setTeamBoardSubject(null);
 			modifyCount--;
 		}
-		
-		if ( originalBoard.getTeamBoardContent().equals(teamBoardVO.getTeamBoardContent()) ) {
+
+		if (originalBoard.getTeamBoardContent().equals(teamBoardVO.getTeamBoardContent())) {
 			teamBoardVO.setTeamBoardContent(null);
 			modifyCount--;
 		}
-		
-		if ( originalBoard.getFileName() == null ) {
+
+		if (originalBoard.getFileName() == null) {
 			originalBoard.setFileName("");
 		}
-		
-		if ( originalBoard.getFileName().equals(teamBoardVO.getFileName()) ) {
+
+		if (originalBoard.getFileName().equals(teamBoardVO.getFileName())) {
 			teamBoardVO.setFileName(null);
 			modifyCount--;
 		}
-		
-		if ( modifyCount == 0 ) {
+
+		if (modifyCount == 0) {
 			return true;
 		}
-		
+
 		return teamDao.modifyTeamBoard(teamBoardVO) > 0;
 	}
 
@@ -262,7 +254,7 @@ public class TeamBizImpl implements TeamBiz {
 		return teamDao.getTeamBoardForModify(teamBoardId);
 
 	}
-	
+
 	@Override
 	public String getFileNameOfTeamBoardBy(String teamBoardId) {
 		TeamBoardVO teamBoardVO = teamDao.getTeamBoardAt(teamBoardId);
@@ -279,5 +271,4 @@ public class TeamBizImpl implements TeamBiz {
 		return teamDao.getCountOfTeamBoards(teamBoardVO);
 
 	}
-
 }

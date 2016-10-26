@@ -128,16 +128,16 @@ public class AdminBizImpl implements AdminBiz {
 	}
 
 	@Override
-	public TeamBoardListVO getAllTeamBoards(SearchTeamVO searchTeam, String teamId) {
-		int totalCount = adminDao.getCountOfTeamBoard(searchTeam);
-		Pager pager = PagerFactory.getPager(true);
+	public TeamBoardListVO getAllTeamBoards(SearchTeamVO searchTeam, TeamBoardVO teamBoardVO) {
+		int totalCount = teamDao.getCountOfTeamBoard(searchTeam);
+		Pager pager = PagerFactory.getPager(true, 10, 5);
 		pager.setTotalArticleCount(totalCount);
 		pager.setPageNumber(searchTeam.getPageNo());
 
 		searchTeam.setStartRowNumber(pager.getStartArticleNumber());
 		searchTeam.setEndRowNumber(pager.getEndArticleNumber());
 
-		List<TeamBoardVO> teams = adminDao.getAllTeamBoards(searchTeam, teamId);
+		List<TeamBoardVO> teams = adminDao.getAllTeamBoards(searchTeam, teamBoardVO);
 
 		TeamBoardListVO teamList = new TeamBoardListVO();
 		teamList.setPager(pager);
@@ -146,70 +146,4 @@ public class AdminBizImpl implements AdminBiz {
 		return teamList;
 	}
 
-	@Override
-	public int getCountOfTeamBoard(SearchTeamVO searchTeam) {
-		return adminDao.getCountOfTeamBoard(searchTeam);
-	}
-
-	@Override
-	public TeamBoardVO getTeamBoardAt(String teamBoardId) {
-		adminDao.hitCountUpdate(teamBoardId);
-		return adminDao.getTeamBoardAt(teamBoardId);
-	}
-
-	@Override
-	public boolean writeTeamBoard(TeamBoardVO teamBoardVO) {
-		return adminDao.writeTeamBoard(teamBoardVO) > 0;
-	}
-
-	@Override
-	public boolean deleteTeamBoard(String teamBoardId) {
-		return adminDao.deleteTeamBoard(teamBoardId) > 0;
-	}
-
-	@Override
-	public boolean modifyTeamBoard(TeamBoardVO teamBoardVO) {
-		TeamBoardVO originalBoard = adminDao.getTeamBoardAt(teamBoardVO.getTeamBoardId());
-		int modifyCount = 3;
-		if (originalBoard.getTeamBoardSubject().equals(teamBoardVO.getTeamBoardSubject())) {
-			teamBoardVO.setTeamBoardSubject(null);
-			modifyCount--;
-		}
-
-		if (originalBoard.getTeamBoardContent().equals(teamBoardVO.getTeamBoardContent())) {
-			teamBoardVO.setTeamBoardContent(null);
-			modifyCount--;
-		}
-
-		if (originalBoard.getFileName() == null) {
-			originalBoard.setFileName("");
-		}
-
-		if (originalBoard.getFileName().equals(teamBoardVO.getFileName())) {
-			teamBoardVO.setFileName(null);
-			modifyCount--;
-		}
-
-		if (modifyCount == 0) {
-			return true;
-		}
-
-		return adminDao.modifyTeamBoard(teamBoardVO) > 0;
-	}
-
-	@Override
-	public TeamBoardVO getTeamBoardForModify(String teamBoardId) {
-		return adminDao.getTeamBoardForModify(teamBoardId);
-	}
-
-	@Override
-	public String getFileNameOfTeamBoardBy(String teamBoardId) {
-		TeamBoardVO teamBoardVO = adminDao.getTeamBoardAt(teamBoardId);
-		return teamBoardVO.getFileName();
-	}
-
-	@Override
-	public int getCountOfTeamBoards(String teamBoardId) {
-		return adminDao.getCountOfTeamBoards(teamBoardId);
-	}
 }

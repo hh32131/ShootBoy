@@ -49,7 +49,6 @@ public interface TeamDao {
     
     public TeamBoardVO getTeamBoardForModify(String teamBoardId);
 
-
     public int getCountOfTeamBoard(SearchTeamVO searchTeam);
     
     public int getCountOfTeamBoards(TeamBoardVO teamBoardVO);

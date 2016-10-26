@@ -27,14 +27,14 @@
 			var select = $(".select-check:checked").val();
 			var checkBoard = $(".select-check:checked").length;
 			if (checkBoard == 1) {
-				window.open("/ShootBoy/adminArticleModify?boardId="+ select, "","width=600, height= 600");
+				window.open("/ShootBoy/adminTeamBoardModify?teamBoardId="+ select, "","width=600, height= 600");
 			} else {
 				alert(" 수정할 게시물을 선택해 주세요");
 			}
 		});
 
 		$("#deleteBtn").click(function() {
-			$.post("/ShootBoy/doAdminArticleDelete", $("#checkBoxForm").serialize(),function(data) {
+			$.post("/ShootBoy/doDeleteAdminTeamBoard", $("#checkBoxForm").serialize(),function(data) {
 				alert("" + data);
 				location.reload();
 			});

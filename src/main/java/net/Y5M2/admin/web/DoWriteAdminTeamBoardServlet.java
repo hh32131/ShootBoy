@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import net.Y5M2.admin.biz.AdminBiz;
+import net.Y5M2.admin.biz.AdminBizImpl;
 import net.Y5M2.constants.Session;
 import net.Y5M2.support.MultipartHttpServletRequest;
 import net.Y5M2.support.MultipartHttpServletRequest.MultipartFile;
@@ -20,11 +22,14 @@ import net.Y5M2.user.vo.UserVO;
 
 public class DoWriteAdminTeamBoardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
 	private TeamBiz teamBiz;
+	private AdminBiz adminBiz;
+
 	public DoWriteAdminTeamBoardServlet() {
 		super();
 		teamBiz = new TeamBizImpl();
+		adminBiz = new AdminBizImpl();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -35,27 +40,26 @@ public class DoWriteAdminTeamBoardServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		MultipartHttpServletRequest multipartRequest = new MultipartHttpServletRequest(request);
-		
+
 		String teamId = multipartRequest.getParameter("teamId");
-		String teamBoardSubject = multipartRequest.getParameter("teamBoardSubject");
-		String teamBoardContent = multipartRequest.getParameter("teamBoardContent");
+		String teamBoardSubject = multipartRequest.getParameter("boardSubject");
+		String teamBoardContent = multipartRequest.getParameter("boardContent");
 
 		String fileName = "";
 		MultipartFile uploadFile = multipartRequest.getFile("file");
-		
-		if ( uploadFile.getFileSize() > 0 ) {
+
+		if (uploadFile.getFileSize() > 0) {
 			File uploadFileDirectory = new File("D:\\board\\uploadfiles\\");
-			
-			if ( !uploadFileDirectory.exists() ) {
+
+			if (!uploadFileDirectory.exists()) {
 				uploadFileDirectory.mkdirs();
 			}
-			
-			uploadFile.write("D:\\board\\uploadfiles\\"+uploadFile.getFileName());
+
+			uploadFile.write("D:\\board\\uploadfiles\\" + uploadFile.getFileName());
 			fileName = uploadFile.getFileName();
 		}
 
 		teamBoardContent = teamBoardContent.replaceAll("\n", "<br/>").replaceAll("\r", "");
-		
 		TeamBoardVO teamBoardVO = new TeamBoardVO();
 		HttpSession session = request.getSession();
 		UserVO userVO = (UserVO) session.getAttribute(Session.USER_INFO);
@@ -65,17 +69,17 @@ public class DoWriteAdminTeamBoardServlet extends HttpServlet {
 		teamBoardVO.setUserId(userVO.getUserId());
 		teamBoardVO.setFileName(fileName);
 		teamBoardVO.setTeamId(teamId);
-		
-		if ( teamBoardSubject.length() == 0 ) {
+
+		if (teamBoardSubject.length() == 0) {
 			response.sendRedirect("/ShootBoy/team/teamBoardWrite?errorCode=1");
 			return;
 		}
-		
-		if ( teamBoardContent.length() == 0 ) {
+
+		if (teamBoardContent.length() == 0) {
 			response.sendRedirect("/ShootBoy/team/teamBoardWrite?errorCode=1");
 			return;
 		}
-		
+
 		PrintWriter out = response.getWriter();
 
 		boolean isSuccess = teamBiz.addTeamBoard(teamBoardVO);
@@ -89,7 +93,7 @@ public class DoWriteAdminTeamBoardServlet extends HttpServlet {
 		} else {
 			response.sendRedirect("/ShootBoy/teamBoard?errorCode=2");
 		}
-	
+
 	}
 
 }

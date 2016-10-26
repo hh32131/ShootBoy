@@ -1,7 +1,8 @@
-package net.Y5M2.team.web;
+package net.Y5M2.admin.web;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,12 +15,12 @@ import net.Y5M2.team.biz.TeamBiz;
 import net.Y5M2.team.biz.TeamBizImpl;
 import net.Y5M2.team.vo.TeamBoardVO;
 
-public class DoModifyTeamBoardServlet extends HttpServlet {
+public class DoModifyAdminTeamBoardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private TeamBiz teamBiz;
 
-	public DoModifyTeamBoardServlet() {
+	public DoModifyAdminTeamBoardServlet() {
 		super();
 		teamBiz = new TeamBizImpl();
 	}
@@ -38,6 +39,7 @@ public class DoModifyTeamBoardServlet extends HttpServlet {
 		String teamBoardSubject = multipartRequest.getParameter("teamBoardSubject");
 		String teamBoardContent = multipartRequest.getParameter("teamBoardContent");
 		String fileDeleteBtn = multipartRequest.getParameter("fileDeleteBtn");
+		String teamId = multipartRequest.getParameter("teamId");
 
 		teamBoardContent = teamBoardContent.replaceAll("\n", "<br/>").replaceAll("\r", "");
 
@@ -45,6 +47,7 @@ public class DoModifyTeamBoardServlet extends HttpServlet {
 		teamBoard.setTeamBoardId(teamBoardId);
 		teamBoard.setTeamBoardSubject(teamBoardSubject);
 		teamBoard.setTeamBoardContent(teamBoardContent);
+		teamBoard.setTeamId(teamId);
 
 		if (fileDeleteBtn != null && fileDeleteBtn.equals("delete")) {
 			String fileName = teamBiz.getFileNameOfTeamBoardBy(teamBoardId);
@@ -65,13 +68,19 @@ public class DoModifyTeamBoardServlet extends HttpServlet {
 			String fileName = uploadFile.getFileName();
 			teamBoard.setFileName(fileName);
 		}
+		
+		PrintWriter out = response.getWriter();
 
 		boolean isSuccess = teamBiz.modifyTeamBoard(teamBoard);
 		if (isSuccess) {
-			response.sendRedirect("/ShootBoy/detailTeamBoard?teamBoardId=" + teamBoardId);
+			out.print(" <script type='text/javascript'>   ");
+			out.print("  window.opener.location.reload();   ");
+			out.print("  window.close();   ");
+			out.print(" </script>  ");
+			out.flush();
+			out.close();
 		} else {
 			response.sendRedirect("/ShootBoy/detailTeamBoard?errorCode=1&&teamBoardId=" + teamBoardId);
 		}
 	}
-
 }

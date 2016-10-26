@@ -16,9 +16,8 @@ import net.Y5M2.user.vo.UserVO;
 
 public class AdminDaoImpl extends DaoSupport implements AdminDao{
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public List<TeamBoardVO> getAllTeamBoards(SearchTeamVO searchTeam, String teamId) {
+	public List<TeamBoardVO> getAllTeamBoards(SearchTeamVO searchTeam, TeamBoardVO teamBoardVO) {
 		return selectList(new QueryAndResult() {
 
 			@Override
@@ -40,12 +39,8 @@ public class AdminDaoImpl extends DaoSupport implements AdminDao{
 				query.append(" FROM		TEAM T, TBOARD TB, USR U ");
 				query.append(" WHERE	U.USR_ID = TB.USR_ID ");
 				query.append(" AND		TB.TEAM_ID = T.TEAM_ID ");
-				query.append(" AND 		TB.TEAM.ID = ? ");
 
 				if (searchTeam.getSearchType() == 1) {
-				query.append(" AND 		TB.TEAM_ID = ? ");
-				}
-				if ( searchTeam.getSearchType() == 1 ) {
 					query.append(" AND	( TB.TBOARD_SUB LIKE '%'|| ?|| '%' ");
 					query.append(" OR	U.USR_NM LIKE '%' || ? || '%' ) ");
 				}
@@ -59,13 +54,12 @@ public class AdminDaoImpl extends DaoSupport implements AdminDao{
 				query.append(" ORDER	BY	CRT_DT DESC ");
 
 				String pagingQuery = appendPagingQueryFormat(query.toString());
+
 				PreparedStatement pstmt = conn.prepareStatement(pagingQuery);
 
 				int index = 1;
+
 				if (searchTeam.getSearchType() == 1) {
-				pstmt.setString(index++, teamId);
-				}
-				if ( searchTeam.getSearchType() == 1 ) {
 					pstmt.setString(index++, searchTeam.getSearchKeyword());
 					pstmt.setString(index++, searchTeam.getSearchKeyword());
 				}
@@ -117,53 +111,5 @@ public class AdminDaoImpl extends DaoSupport implements AdminDao{
 			}
 		});
 	}
-
-	@Override
-	public int getCountOfTeamBoard(SearchTeamVO searchTeam) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public TeamBoardVO getTeamBoardAt(String teamBoardId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int writeTeamBoard(TeamBoardVO teamBoardVO) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int deleteTeamBoard(String teamBoardId) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int modifyTeamBoard(TeamBoardVO teamBoardVO) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public TeamBoardVO getTeamBoardForModify(String teamBoardId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int getCountOfTeamBoards(String teamBoardId) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void hitCountUpdate(String teamBoardId) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 }

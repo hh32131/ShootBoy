@@ -55,7 +55,7 @@ public class DoWriteAdminArticleServlet extends HttpServlet {
 			fileName = uploadFile.getFileName();
 		}
 
-		boardContent = boardContent.replaceAll("\n", "<br/>").replaceAll("/r", "");
+		boardContent = boardContent.replaceAll("\n", "<br/>").replaceAll("\r", "");
 		
 		BoardVO board = new BoardVO();
 		HttpSession session = request.getSession();

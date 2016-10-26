@@ -676,8 +676,7 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao {
 				query.append(" 					,FILE_NM ");
 				query.append(" 					,REPLY_HIT_CNT )");
 				query.append(" VALUES		 ( ");
-				query.append(
-						" 'TEAMBOARD-' || TO_CHAR(SYSDATE, 'YYYYMMDD') || '-' || LPAD(TBOARD_ID_SEQ.NEXTVAL,6,0) ");
+				query.append(" 'TEAMBOARD-' || TO_CHAR(SYSDATE, 'YYYYMMDD') || '-' || LPAD(TBOARD_ID_SEQ.NEXTVAL,6,0) ");
 				query.append(" , ?, ?, 0, ?, SYSDATE, SYSDATE, ?, ?, 0 ) ");
 
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());

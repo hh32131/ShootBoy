@@ -1015,4 +1015,24 @@
     <servlet-name>DoDeleteAdminTeamBoardServlet</servlet-name>
     <url-pattern>/doDeleteAdminTeamBoard</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewAdminTeamBoardModifyPageServlet</display-name>
+    <servlet-name>ViewAdminTeamBoardModifyPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.ViewAdminTeamBoardModifyPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewAdminTeamBoardModifyPageServlet</servlet-name>
+    <url-pattern>/adminTeamBoardModify</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoModifyAdminTeamBoardServlet</display-name>
+    <servlet-name>DoModifyAdminTeamBoardServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.DoModifyAdminTeamBoardServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoModifyAdminTeamBoardServlet</servlet-name>
+    <url-pattern>/doModifyAdminTeamBoard</url-pattern>
+  </servlet-mapping>
 </web-app>
