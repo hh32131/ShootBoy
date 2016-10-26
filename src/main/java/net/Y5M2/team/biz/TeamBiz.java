@@ -24,7 +24,7 @@ public interface TeamBiz {
 
 	
 	
-	public TeamBoardListVO getAllTeamBoards(SearchTeamVO searchTeam, TeamBoardVO teamBoardVO);
+	public TeamBoardListVO getAllTeamBoards(SearchTeamVO searchTeam, String teamId);
 	
 	
 	public TeamVO getTeamAt(String teamId);

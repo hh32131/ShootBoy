@@ -504,7 +504,7 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 	}
 
 	@Override
-	public List<TeamBoardVO> getAllTeamBoards(SearchTeamVO searchTeam, TeamBoardVO teamBoardVO) {
+	public List<TeamBoardVO> getAllTeamBoards(SearchTeamVO searchTeam, String teamId) {
 		return selectList(new QueryAndResult() {
 			
 			@Override
@@ -526,9 +526,7 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 				query.append(" FROM		TEAM T, TBOARD TB, USR U ");
 				query.append(" WHERE	U.USR_ID = TB.USR_ID ");
 				query.append(" AND		TB.TEAM_ID = T.TEAM_ID ");
-				query.append(" AND 		TB.TEAM.ID = ? ");
-
-				
+				query.append(" AND 		TB.TEAM_ID = ? ");
 				
 				if ( searchTeam.getSearchType() == 1 ) {
 					query.append(" AND	( TB.TBOARD_SUB LIKE '%'|| ?|| '%' ");
@@ -548,7 +546,8 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 				PreparedStatement pstmt = conn.prepareStatement(pagingQuery);
 				
 				int index = 1;
-				pstmt.setString(index++, teamBoardVO.getTeamId());
+				
+				pstmt.setString(index++, teamId);
 				
 				if ( searchTeam.getSearchType() == 1 ) {
 					pstmt.setString(index++, searchTeam.getSearchKeyword());
@@ -560,7 +559,6 @@ public class TeamDaoImpl extends DaoSupport implements TeamDao{
 				if ( searchTeam.getSearchType() == 3 ) {
 					pstmt.setString(index++, searchTeam.getSearchKeyword());
 				}
-		
 				
 				pstmt.setInt(index++, searchTeam.getEndRowNumber());
 				pstmt.setInt(index++, searchTeam.getStartRowNumber());
