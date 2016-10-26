@@ -31,6 +31,7 @@ body {
 	color: #ebebeb;
 	text-decoration: none;
 }
+
 .bottom {
 	text-align: center;
 	color: #ebebeb;
@@ -78,6 +79,7 @@ body {
 	text-decoration:none;
 	cursor:pointer;
 }
+
 #categoryId{
 	height: 25px;
 	margin-bottom: 5px;

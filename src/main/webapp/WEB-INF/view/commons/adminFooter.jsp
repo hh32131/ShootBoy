@@ -7,7 +7,7 @@
 		<div class="copyright">
 			<hr/>
 			ⓒ Copyright ShootBoy<br/>
-			ktds-univ 9th y5m2 <br/>
+			ktds-univ 9th Y5M2 <br/>
 			<a href="/ShootBoy/admin" class="home">Home</a>
 		</div>
 	</div>

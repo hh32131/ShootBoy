@@ -15,9 +15,9 @@
 }
 
 .teamCreate-shootboy-main {
-	
 	text-align: center;
 }
+
 .logo-text{
 	color: #ebebeb;
 	text-decoration: none;
@@ -27,6 +27,7 @@
 	color: #ebebeb;
 	text-decoration: none;
 }
+
 .bottom {
 	text-align: center;
 	color: #ebebeb;
@@ -43,6 +44,7 @@
 	margin-left: 115px;
 	
 }
+
 .team-name {
 	margin-bottom: 5px;
 }
@@ -51,6 +53,7 @@
 	margin-bottom: 5px;
 	margin-top: 5px;
 }
+
 #locationId, #leafLocation {
 	width: 170px;
 	height: 25px;
@@ -97,6 +100,7 @@
 	text-decoration:none;
 	cursor:pointer
 }
+
 #teamCreateBtn {
 	padding:10px;
 	border:1px solid #ccc;
@@ -104,6 +108,7 @@
 	text-decoration:none;
 	cursor:pointer
 }
+
 #backBtn {
 	padding:10px;
 	border:1px solid #ccc;
@@ -111,15 +116,12 @@
 	text-decoration:none;
 	cursor:pointer
 }
+
 .btn {
 	float: right;
 	margin-right: 115px;
 }
 
 #teamName, #checkTeamName{
-<<<<<<< HEAD
 	display: inline-block;
-=======
-    display: inline-block;
->>>>>>> 41a96881f55f62d9b4b86edd1841f739c86fdb56
 }

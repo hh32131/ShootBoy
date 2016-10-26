@@ -705,7 +705,7 @@
     <servlet-name>DoCheckTeamJoin</servlet-name>
     <url-pattern>/doCheckTeamJoin</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <description></description>
     <display-name>DoTeamJoin</display-name>
     <servlet-name>DoTeamJoin</servlet-name>
@@ -753,8 +753,6 @@
     <filter-name>EncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-
-  
   <servlet>
     <description></description>
     <display-name>ViewAdminMemberModifyPageServlet</display-name>
@@ -885,7 +883,6 @@
     <servlet-name>DoJoinRefuse</servlet-name>
     <url-pattern>/doJoinRefuse</url-pattern>
   </servlet-mapping>
- 
   <servlet>
     <description></description>
     <display-name>DoMatchApply</display-name>
@@ -906,5 +903,24 @@
     <servlet-name>DoSelectMatch</servlet-name>
     <url-pattern>/doSelectMatch</url-pattern>
   </servlet-mapping>
-
+  <servlet>
+    <description></description>
+    <display-name>ViewAdminSettingPageServlet</display-name>
+    <servlet-name>ViewAdminSettingPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.ViewAdminSettingPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewAdminSettingPageServlet</servlet-name>
+    <url-pattern>/adminSetting</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewAdminInfoPageServlet</display-name>
+    <servlet-name>ViewAdminInfoPageServlet</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.ViewAdminInfoPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewAdminInfoPageServlet</servlet-name>
+    <url-pattern>/adminInfo</url-pattern>
+  </servlet-mapping>
 </web-app>

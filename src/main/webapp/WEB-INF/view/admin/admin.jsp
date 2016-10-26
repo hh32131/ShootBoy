@@ -18,7 +18,7 @@
 		<div class="container">
 			
 			<div class="sub-title">
-			회원 5건 목록
+			최신 회원 목록
 			</div>
 			
 			<div class="list-table">
@@ -86,7 +86,7 @@
 			</div>
 			
 			<div class="sub-title">
-				최근 경기
+				최신 경기
 			</div>			
 			<div class="list-table">
 				<table>
@@ -125,7 +125,7 @@
 			</div>
 			
 			<div class="sub-title">
-				최근 게시물
+				최신 게시물
 			</div>
 			<div class="list-table">
 				<table>

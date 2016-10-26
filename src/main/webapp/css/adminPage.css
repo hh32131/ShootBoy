@@ -55,6 +55,7 @@
 	border-top: solid 1px lightgrey;
 }
 
+
 .notice {
 	font-size: 13px;
 	background-color: #f9f9f9;
@@ -123,6 +124,60 @@
 	cursor:pointer
 }
 
+
+.adminInfo-wrapper {
+	margin-top: 50px;
+	text-align: center;
+}
+
+.adminInfo-title {
+	font-size: 100px;
+	font-weight: bold;
+}
+.teamName{
+	font-size: 20px;
+	margin-top: 50px;
+	font-weight: lighter;  
+}
+.member{
+	margin-top: 160px;
+	font-weight: lighter;
+}
+
+.term {
+	margin-top: 10px;
+	font-weight: lighter;
+}
+
+.foot{
+	margin-top: 70px;
+}
+.setting-wrapper{
+	
+}
+
+.setting-title{
+	margin-top: 20px;
+	margin-left: 40px;
+	font-size: 40px;
+	font-weight: bold;	
+}
+
+.setting-line{
+	margin-top: 20px;
+	border-top: solid 1px lightgrey;
+}
+.data-list{
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+.data-list, .list-radio {
+	margin: 1%;
+	margin-left: 50px;
+}
+
 #pagingForm {
 	text-align:center;
 }
@@ -132,4 +187,6 @@
 	font-style: normal;
 	font-weight: lighter;
 }
+
+
 

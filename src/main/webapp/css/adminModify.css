@@ -18,6 +18,7 @@
 	
 	text-align: center;
 }
+
 .logo-text{
 	color: #ebebeb;
 	text-decoration: none;
@@ -42,6 +43,13 @@
 #userModifyForm {
 	margin-left: 20px;
 }
+
+#email {
+	margin-left: 39px;
+	background-color: #eeeeee;
+	width: 193px;
+}
+
 
 #userName {
 	margin-left: 40px;

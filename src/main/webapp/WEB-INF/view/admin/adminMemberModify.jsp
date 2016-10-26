@@ -86,7 +86,7 @@
 		
 		
 		<form id="userModifyForm" name="userModifyForm">
-			<input type="hidden" id="email" name="email" value="${userInfo.email}">
+			Email<input type="text" id="email" name="email" value="${userInfo.email}" readonly><br/><br/>
 			이름 <input type="text" id="userName" name="userName" value="${userInfo.userName}" style="font-size: 15px;"> <br /><br/>
 			비밀번호 <input type="text" id="password" name="password" value="${userInfo.password}" style="font-size: 15px;"> <br /><br/>
 			전화번호 <input type="text" id="phoneNumber" name="phoneNumber" value="${userInfo.phoneNumber}" style="font-size: 15px;"><br /> <br/>

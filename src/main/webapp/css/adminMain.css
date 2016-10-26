@@ -5,24 +5,19 @@ body {
 }
 
 .header .top {
-	
 	background-color: #282828;
-	
 }
 
 .top {
-	
 	padding-bottom: 25px;
-	
-	
 }
+
 .top-right {
 	color: #a1a1a1;
 	font-size: 12px;
 	float:right;
 	margin-right: 30px;
 	font-weight: lighter;
-	
 }
 
 .admin-logo {
@@ -93,7 +88,6 @@ li.dropdown {
     text-decoration: none;
     display: block;
     text-align: left;
-    
 }
 
 .dropdown-content a:hover {background-color: #f1f1f1}
@@ -106,13 +100,11 @@ li.dropdown {
 	margin-top: 10px;
 	margin-left: 10px;
 	font-size: 20px;
-		
 }
 .copyright {
 	margin-top: 100px;
 	font-size: 15px;
 	text-align: center;
-	
 }
 
 .member-table, .game-table, .article-table{
@@ -136,7 +128,6 @@ li.dropdown {
 	width: 97%;
 	text-align: center;
 	margin: auto;
-	
 }
 
 .list-table th {
@@ -148,7 +139,6 @@ li.dropdown {
 
 .list-table td  {
 	border: solid 1px lightgray;
-	
 }
 
 .viewbtn {
@@ -177,4 +167,3 @@ li.dropdown {
 	color: black;
 	text-decoration: none;
 }
-
