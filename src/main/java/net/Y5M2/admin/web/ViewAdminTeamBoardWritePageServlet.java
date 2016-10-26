@@ -11,18 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.Y5M2.admin.biz.AdminBiz;
 import net.Y5M2.admin.biz.AdminBizImpl;
-import net.Y5M2.article.vo.BoardVO;
-import net.Y5M2.support.Param;
+import net.Y5M2.team.biz.TeamBiz;
+import net.Y5M2.team.biz.TeamBizImpl;
 import net.Y5M2.team.vo.TeamVO;
-import net.Y5M2.user.vo.UserVO;
 
-public class ViewAdminPageServlet extends HttpServlet {
-
+public class ViewAdminTeamBoardWritePageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private AdminBiz adminBiz;
-
-	public ViewAdminPageServlet() {
+	
+	public ViewAdminTeamBoardWritePageServlet() {
 		super();
 		adminBiz = new AdminBizImpl();
 	}
@@ -34,19 +32,12 @@ public class ViewAdminPageServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-				
-		List<UserVO> users = adminBiz.getAllUser();
-		List<TeamVO> teams = adminBiz.getAllTeams();
-		List<BoardVO> boards = adminBiz.getAllBoard();
-			
+	
+		List<TeamVO> teamVO = adminBiz.getAllTeams();
 		
-		String viewPath = "/WEB-INF/view/admin/admin.jsp";
-		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
-		
-		request.setAttribute("users", users);
-		request.setAttribute("teams", teams);
-		request.setAttribute("boards", boards);
-
+		String viewpath = "/WEB-INF/view/admin/adminTeamBoardWrite.jsp";
+		RequestDispatcher rd = request.getRequestDispatcher(viewpath);
+		request.setAttribute("teamVO", teamVO);
 		rd.forward(request, response);
 	}
 

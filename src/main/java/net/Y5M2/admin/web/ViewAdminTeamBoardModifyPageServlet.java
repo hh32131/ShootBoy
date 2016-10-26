@@ -11,19 +11,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.Y5M2.admin.biz.AdminBiz;
 import net.Y5M2.admin.biz.AdminBizImpl;
-import net.Y5M2.article.vo.BoardVO;
 import net.Y5M2.support.Param;
+import net.Y5M2.team.biz.TeamBiz;
+import net.Y5M2.team.biz.TeamBizImpl;
+import net.Y5M2.team.vo.TeamBoardVO;
 import net.Y5M2.team.vo.TeamVO;
-import net.Y5M2.user.vo.UserVO;
 
-public class ViewAdminPageServlet extends HttpServlet {
-
+public class ViewAdminTeamBoardModifyPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	private TeamBiz teamBiz;
 	private AdminBiz adminBiz;
-
-	public ViewAdminPageServlet() {
+	
+	public ViewAdminTeamBoardModifyPageServlet() {
 		super();
+		teamBiz = new TeamBizImpl();
 		adminBiz = new AdminBizImpl();
 	}
 
@@ -34,19 +36,19 @@ public class ViewAdminPageServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-				
-		List<UserVO> users = adminBiz.getAllUser();
-		List<TeamVO> teams = adminBiz.getAllTeams();
-		List<BoardVO> boards = adminBiz.getAllBoard();
-			
 		
-		String viewPath = "/WEB-INF/view/admin/admin.jsp";
+		String teamBoardId = Param.getStringParam(request, "teamBoardId");
+		TeamBoardVO teamBoardVO = teamBiz.getTeamBoardForModify(teamBoardId);
+		List<TeamVO> team = adminBiz.getAllTeams();
+		
+		String content = teamBoardVO.getTeamBoardContent();
+		content = content.replaceAll("<br/>", "\n");
+		teamBoardVO.setTeamBoardContent(content);
+		
+		String viewPath = "/WEB-INF/view/admin/adminTeamBoardModify.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
-		
-		request.setAttribute("users", users);
-		request.setAttribute("teams", teams);
-		request.setAttribute("boards", boards);
-
+		request.setAttribute("teamBoardVO", teamBoardVO);
+		request.setAttribute("team", team);
 		rd.forward(request, response);
 	}
 

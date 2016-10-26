@@ -15,9 +15,9 @@
 }
 
 .articleWrite-shootboy-main {
-	
 	text-align: center;
 }
+
 .logo-text{
 	color: #ebebeb;
 	text-decoration: none;
@@ -27,6 +27,7 @@
 	color: #ebebeb;
 	text-decoration: none;
 }
+
 .bottom {
 	text-align: center;
 	color: #ebebeb;
@@ -61,4 +62,9 @@
 
 #backBtn{
 	margin-right: 46px;
+}
+
+#teamId {
+	height: 25px;
+	margin-bottom: 5px;
 }

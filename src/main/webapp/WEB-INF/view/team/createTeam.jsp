@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/layout.css">
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/page.css">
-
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
 
@@ -32,14 +31,13 @@
 					{ "teamName" : $("#teamName").val() }, function(data){
 				if(data=="false") {
 					$("#teamNameCheck").html("사용 가능한 팀 이름입니다.").css("color","blue");
-;					$("#teamCreateBtn").slideDown();
+					$("#teamCreateBtn").slideDown();
 				}
 				else {
 					$("#teamNameCheck").html("중복된 팀 이름입니다.").css("color","red");
 					$("#teamCreateBtn").hide();
 				}
 			});
-		
 		});
 		
 		$("#teamCreateBtn").click(function() {
@@ -81,10 +79,8 @@
 					"action" : "/ShootBoy/doCreateTeam"
 					}).submit(); 
 				}
-			}
-			
+			}			
 		});
-
 	});
 	
 	function closeWin() {
@@ -100,6 +96,8 @@
 		<form id="craeteTeamForm" name="createTeamForm"	enctype="multipart/form-data" >
 			<div>
 				<div class="inline-block" style="border-radius: 8px;">
+					<input type="text" style=" width: 255px; height: 25px; border-radius: 8px; margin-bottom: 20px;" id="teamName" name="teamName" placeholder="팀명" />
+					<div id="teamNameCheck"></div>
 					<input type="text"
 						style=" width: 255px; height: 25px; border-radius: 8px; margin-bottom: 5px;"
 						id="teamName" name="teamName" placeholder="팀명" />
@@ -107,7 +105,6 @@
 					<input type="button" id="checkTeamName" name="checkTeamName" value="중복체크"
 							style="background-color: #000; color: #fff; margin-bottom: 20px;" />
 				</div>
-	
 				<div class="inline-block" style="vertical-align: top;">
 					<input type="text"
 						style=" width: 75px; height: 30px; border-radius: 8px;"

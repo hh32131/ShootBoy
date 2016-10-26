@@ -13,7 +13,6 @@
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
 	$().ready(function() {
-		
 		$("#writeBtn").click(function() {
 			
 			if( $("#boardSubject").val() == "") {
@@ -27,7 +26,7 @@
 			
 			$("#writeForm").attr( {
 				"method": "post",
-				"action": "/ShootBoy/doWriteAdminArticle"
+				"action": "/ShootBoy/doWriteAdminTeamBoard"
 			}).submit();
 			
 		});
@@ -52,10 +51,10 @@
 		</div>
 	</div>
 	<form id="writeForm" name="writeForm" enctype="multipart/form-data">
-		<select name="categoryId" id="categoryId">
-			<option>카테고리를 선택해주세요</option>
-			<c:forEach var="cate" items="${category }">
-				<option value="${cate.categoryId }">${cate.categoryName }</option>
+		<select name="teamId" id="teamId">
+			<option>팀명을 선택해주세요</option>
+			<c:forEach var="teamVO" items="${teamVO}">
+				<option value="${teamVO.teamId}">${teamVO.teamName}</option>
 			</c:forEach>
 		</select>
 		<input type="text" id="boardSubject" name="boardSubject"

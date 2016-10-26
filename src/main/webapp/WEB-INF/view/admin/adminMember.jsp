@@ -4,9 +4,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <link rel="stylesheet" type="text/css" href="/ShootBoy/css/adminPage.css" />
-<link rel="stylesheet" type="text/css" href="/ShootBoy/css/checkbox.css" />
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<link rel="stylesheet" type="text/css"href="/ShootBoy/css/adminPage.css" />
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
 	$().ready(function() {
@@ -123,8 +120,8 @@
 								<td class="td_userPhone"> ${users.phoneNumber } </td>
 								<td class="td_userAge"> ${users.age } </td>
 								<td class="td_userPosition"> ${users.position } </td>
-								<td class="td_userLocation"> ${users.locationVO.locationName } </td>
-								<td class="td_userTeam"> ${users.teamVO.teamName } </td>
+								<td class="td_userLocation"> ${users.locationVO.locationName} </td>
+								<td class="td_userTeam"> ${users.teamVO.teamName} </td>
 								<td class="td_userGrade"> ${users.levelId } </td>
 								<td class="td_userJoindate"> ${users.createDate } </td>
 							</tr>

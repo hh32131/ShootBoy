@@ -1,6 +1,7 @@
 package net.Y5M2.admin.web;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -64,13 +65,18 @@ public class ViewAdminMemberPageServlet extends HttpServlet {
 
 		session.setAttribute(Session.SEARCH_USER_INFO, searchUser);
 		UserListVO users = userBiz.getAllUsers(searchUser);
+		
+		/*List<UserVO> userVO = adminBiz.getAllUser();*/
+		
 		int count = adminBiz.getCountOfUsers();
-
+		
 		String viewPath = "/WEB-INF/view/admin/adminMember.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
+		
 		request.setAttribute("users", users.getUsers());
 		request.setAttribute("pager", users.getPager());
 		request.setAttribute("count", count);
+		/*request.setAttribute("userVO", userVO);*/
 		
 		PageExplorer pageExplorer = new ClassicPageExplorer(users.getPager());
 		String pager = pageExplorer.getPagingList("pageNo", "[@]", "<<", ">>", "pagingForm");

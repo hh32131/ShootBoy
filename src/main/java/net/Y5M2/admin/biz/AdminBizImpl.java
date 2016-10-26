@@ -6,12 +6,19 @@ import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import net.Y5M2.admin.dao.AdminDao;
+import net.Y5M2.admin.dao.AdminDaoImpl;
 import net.Y5M2.article.dao.BoardDao;
 import net.Y5M2.article.dao.BoardDaoImpl;
 import net.Y5M2.article.vo.BoardVO;
 import net.Y5M2.constants.Session;
+import net.Y5M2.support.pager.Pager;
+import net.Y5M2.support.pager.PagerFactory;
 import net.Y5M2.team.dao.TeamDao;
 import net.Y5M2.team.dao.TeamDaoImpl;
+import net.Y5M2.team.vo.SearchTeamVO;
+import net.Y5M2.team.vo.TeamBoardListVO;
+import net.Y5M2.team.vo.TeamBoardVO;
 import net.Y5M2.team.vo.TeamVO;
 import net.Y5M2.user.dao.UserDao;
 import net.Y5M2.user.dao.UserDaoImpl;
@@ -22,11 +29,13 @@ public class AdminBizImpl implements AdminBiz {
 	private UserDao userDao;
 	private TeamDao teamDao;
 	private BoardDao boardDao;
+	private AdminDao adminDao;
 
 	public AdminBizImpl() {
 		userDao = new UserDaoImpl();
 		teamDao = new TeamDaoImpl();
 		boardDao = new BoardDaoImpl();
+		adminDao = new AdminDaoImpl();
 	}
 
 	@Override
@@ -107,8 +116,8 @@ public class AdminBizImpl implements AdminBiz {
 	public BoardVO getBoardOne(String boardId) {
 		return boardDao.getBoardAt(boardId);
 	}
-	
-  	@Override
+
+	@Override
 	public int getCountOfUsers() {
 		return userDao.getCountOfUsers();
 	}
@@ -117,4 +126,29 @@ public class AdminBizImpl implements AdminBiz {
 	public int getCountOfBoards() {
 		return boardDao.getCountOfBoards();
 	}
+
+	@Override
+	public TeamBoardListVO getAllTeamBoards(SearchTeamVO searchTeam, TeamBoardVO teamBoardVO) {
+		int totalCount = teamDao.getCountOfTeamBoard(searchTeam);
+		Pager pager = PagerFactory.getPager(true, 10, 5);
+		pager.setTotalArticleCount(totalCount);
+		pager.setPageNumber(searchTeam.getPageNo());
+
+		searchTeam.setStartRowNumber(pager.getStartArticleNumber());
+		searchTeam.setEndRowNumber(pager.getEndArticleNumber());
+
+		List<TeamBoardVO> teams = adminDao.getAllTeamBoards(searchTeam, teamBoardVO);
+
+		TeamBoardListVO teamList = new TeamBoardListVO();
+		teamList.setPager(pager);
+		teamList.setTeams(teams);
+
+		return teamList;
+	}
+
+	@Override
+	public int getCountOfTeamBoards() {
+		return adminDao.getCountOfTeamBoards();
+	}
+
 }

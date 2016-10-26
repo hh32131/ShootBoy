@@ -96,10 +96,7 @@
 					<input type="checkbox" id="fileDeleteBtn" name="fileDeleteBtn"
 						value="delete" style="margin-top: 30px;" />
 				</div>
-				<div class="filebox">
-	  				<label for="fileBtn">파일 업로드</label>
-	 				<input type="file" id="fileBtn" name="file" back /> 
-				</div>
+				<input type="file" id="file" name="file" />
 			</div>
 			<input type="hidden" id="teamId" name="teamId"
 				value="${teamInfo.teamId}"> <input type="hidden" id="email"

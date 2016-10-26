@@ -10,43 +10,39 @@
 <title>Administrator</title>
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
-		$(document).ready(function() {
+	$(document).ready(function() {
+		var errorCode = "${param.errorCode}";
 
-			var errorCode = "${param.errorCode}";
+		if (errorCode == "1") {
+			$("div.warning").html("<p> 글쓰기에 실패했습니다.</p>");
+			$("div.warning").slideDown();
+		} else if (errorCode == "2") {
+			$("div.warning").html("<p> 제목을 입력해주세요.</p>");
+			$("div.warning").slideDown();
+		}
 
-			if (errorCode == "1") {
-				$("div.warning").html("<p> 글쓰기에 실패했습니다.</p>");
-				$("div.warning").slideDown();
-			} else if (errorCode == "2") {
-				$("div.warning").html("<p> 제목을 입력해주세요.</p>");
-				$("div.warning").slideDown();
+		$("#modifyBtn").click(function() {
+			if ($("#boardSubject").val() == "") {
+				alert("제목을 입력해주세요.");
+				return;
 			}
-
-			$("#modifyBtn").click(function() {
-
-				if ($("#boardSubject").val() == "") {
-					alert("제목을 입력해주세요.");
-					return;
-				}
-				if ($("#boardContent").val() == "") {
-					alert("내용을 입력해주세요.");
-					return;
-				}
-
+			if ($("#boardContent").val() == "") {
+				alert("내용을 입력해주세요.");
+				return;
+			}
 				$("#modifyForm").attr({
-					"method" : "post",
-					"action" : "/ShootBoy/doAdminArticleModify"
-				}).submit();
-
-			});
-			
-			$("#categoryId").val("${board.categoryId}");
-			
-			$("#backBtn").click(function() {
-				window.close();
-			});
+				"method" : "post",
+				"action" : "/ShootBoy/doModifyAdminTeamBoard"
+			}).submit();
 		});
-	</script>
+		
+		$("#teamId").val("${teamBoardVO.teamId}");
+		
+		$("#backBtn").click(function() {
+			window.close();
+		});
+	});
+</script>
 </head>
 <body>
 	<div class="modify-header">
@@ -63,28 +59,26 @@
 		</div>
 	</div>
 
-
 	<form id="modifyForm" name="modifyForm" enctype="multipart/form-data">
-		<input type="hidden" name="boardId" value="${board.boardId}" />
+		<input type="hidden" name="teamBoardId" value="${teamBoardVO.teamBoardId}" />
+		
 		<div>
-			<select name="categoryId" id="categoryId">
-				<option>카테고리를 선택해주세요</option>
-				<c:forEach var="cate" items="${category }">
-					<option value="${cate.categoryId }">${cate.categoryName }</option>
-				</c:forEach>
-			</select>
+			<input type="text" id="teamName" name="teamName" value="${teamBoardVO.teamVO.teamName }" readonly>
+		</div>
+	
+		<div>
 			<input type="text" id="boardSubject" name="boardSubject"
-				placeholder="제목을 입력하세요." value="${board.boardSubject}" />
+				placeholder="제목을 입력하세요." value="${teamBoardVO.teamBoardSubject}" />
 		</div>
 		<div>
 			<textarea id="boardContent" name="boardContent"
-				placeholder="내용을 입력하세요.">${board.boardContent}	</textarea>
+				placeholder="내용을 입력하세요.">${teamBoardVO.teamBoardContent}	</textarea>
 		</div>
-		<c:if test="${not empty board.fileName }">
+		<c:if test="${not empty teamBoardVO.fileName }">
 			<div style="padding-top: 10px; padding-bottom: 10px;">
 				<input type="checkbox" id="fileDeleteBtn" name="fileDeleteBtn" value="delete" /> 
 				<img src="/Board/img/text-file-3-xxl.png" style="width: 12px;" /> 
-				${board.fileName}
+				${teamBoardVO.fileName}
 			</div>
 		</c:if>
 			<input type="file" id="file" name="file" />

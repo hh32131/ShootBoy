@@ -31,6 +31,7 @@ body {
 	color: #ebebeb;
 	text-decoration: none;
 }
+
 .bottom {
 	text-align: center;
 	color: #ebebeb;
@@ -77,4 +78,15 @@ body {
 	background:#fafafa;
 	text-decoration:none;
 	cursor:pointer;
+}
+
+#categoryId{
+	height: 25px;
+	margin-bottom: 5px;
+}
+
+#teamName {
+	height: 20px;
+	margin-bottom: 5px;
+	background-color: #eeeeee;
 }
