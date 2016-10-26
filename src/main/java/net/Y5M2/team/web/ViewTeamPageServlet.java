@@ -34,10 +34,6 @@ public class ViewTeamPageServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String viewPath = "/WEB-INF/view/team/team.jsp";
-		
-		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
-		rd.forward(request, response);
 		
 	
 		HttpSession session = request.getSession();
@@ -72,5 +68,9 @@ public class ViewTeamPageServlet extends HttpServlet {
 		request.setAttribute("paging", pager);
 		request.setAttribute("searchTeam", searchTeam);
 		
+		String viewPath = "/WEB-INF/view/team/team.jsp";
+		
+		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
+		rd.forward(request, response);
 	}
 }
