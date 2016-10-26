@@ -91,7 +91,7 @@ $(document).ready(function(){
 						</li>
 				</ul>
 			</div>
-			<div class="cycle-slideshow" data-cycle-timeout=2000>
+			<div class="cycle-slideshow" data-cycle-timeout=3000>
 				<img src="/ShootBoy/img/경기장.png">
 				<img src="/ShootBoy/img/호날두.jpg">
 				<img src="/ShootBoy/img/메시.jpg">				

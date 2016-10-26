@@ -84,3 +84,9 @@ body {
 	height: 25px;
 	margin-bottom: 5px;
 }
+
+#teamName {
+	height: 20px;
+	margin-bottom: 5px;
+	background-color: #eeeeee;
+}

@@ -3,6 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<link rel="stylesheet" type="text/css" href="/ShootBoy/css/adminPage.css" />
+
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
 	$().ready(function() {
@@ -16,7 +18,7 @@
 
 		$(".boardCode").click(function() {
 			var boardid = $(this).data("boardid");
-			window.open("/ShootBoy/adminTeamBoardDetail?teamBoardId=" + boardid, "", "width=500, height= 800");
+			window.open("/ShootBoy/adminTeamBoardDetail?teamBoardId=" + boardid, "", "width=700, height= 800");
 		});
 
 		$("#searchType").change(function() {
@@ -56,10 +58,10 @@
 <jsp:include page="/WEB-INF/view/commons/adminHeader.jsp" />
 
 <div class="wrapper">
-	<div class="page-title">게시판 관리</div>
+	<div class="page-title">팀 게시판 관리</div>
 
 	<div class="listAll">
-		<p class="textAll">전체 목록 | 총 경기수 ${count} 개</p>
+		<p class="textAll">전체 목록 | 총 게시물수 ${count} 개</p>
 	</div>
 
 	<div class="search-tool">
@@ -118,17 +120,17 @@
 							</td>
 						<c:set var="number" value="${fn:split(teamBoards.teamBoardId,'-')[2]}"/>
                         <fmt:parseNumber var="number" type="number" value="${number}" />
-                        <th class="boardContent">${number}</th>
-						<th class="boardContent">
+                        <td class="boardContent">${number}</td>
+						<td class="boardContent">
 							<input type="hidden" value="${teamBoards.teamBoardId }"> 
 							<span> 
 								<a href="javascript:void(0)" class="boardCode" data-boardid="${teamBoards.teamBoardId }"> ${teamBoards.teamBoardSubject} [${teamBoards.replayHitCount}] </a>
 							</span>
-						</th>
-						<th class="boardContent">${teamBoards.teamVO.teamName }</th>
-						<th class="boardContent">${teamBoards.userVO.userName}</th>
-						<th class="boardContent">${teamBoards.createDate}</th>
-						<th class="boardContent">${teamBoards.teamBoardRecommendCount}</th>
+						</td>
+						<td class="boardContent">${teamBoards.teamVO.teamName }</td>
+						<td class="boardContent">${teamBoards.userVO.userName}</td>
+						<td class="boardContent">${teamBoards.createDate}</td>
+						<td class="boardContent">${teamBoards.teamBoardRecommendCount}</td>
 						</tr>
 					</tbody>
 				</c:forEach>

@@ -141,9 +141,9 @@
 }
 
 #listModifyBtn {
-	background-color: #58b6e2;
+	background-color: orange;
 }
 
 #listModifyBtn:HOVER {
-	background-color: #2497ce;
+	background-color: #ffb428;
 }

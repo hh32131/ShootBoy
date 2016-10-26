@@ -14,13 +14,13 @@
 							var teamid = $(this).data("teamid");
 							window.open(
 									"/ShootBoy/teamDetail?teamId=" + teamid,
-									"", "width=500, height= 700");
+									"", "width=450, height= 700");
 						});
 
 			});
 
 	function openWin() {
-		window.open("/ShootBoy/createTeam", "", "width=900, height= 600");
+		window.open("/ShootBoy/createTeam", "", "width=750, height= 600");
 	}
 	
 </script>
@@ -39,13 +39,13 @@
 	<hr class="teamline" style="width: 680px; margin-right: 100px;">
 </div>
 
-<div id="allTeamWrapper" style="width: 700px; margin-left: 260px;">
+<div id="allTeamWrapper" style="width: 700px; margin-left: 255px;">
 
 	<table>
 		<tr>
 			<c:forEach items="${team}" var="team" varStatus="j" >
 				<c:if test="${ j.index gt 0 && j.index % 5 eq 0 }">
-					<tr></tr>
+					</tr><tr>
 				</c:if>
 
 				<td align="center" class="teamtd">
@@ -57,19 +57,18 @@
 					</div>
 					<div>${team.teamName}</div>
 					<div>${team.teamCount}</div>
-					<div>${team.locationVO.parentLocationName}-${team.locationVO.locationName}</div>
+					<div>${team.locationVO.parentLocationName} - ${team.locationVO.locationName}</div>
 				</td>
 			</c:forEach>
 		</tr>
 	</table>
 	<c:if test="${empty sessionScope._USER_INFO_.teamId && !empty sessionScope._USER_INFO_}">
-	<button id="teamCreateBtn" onclick="openWin()" style="float: right;">팀생성하기</button>
+	<button id="teamCreateBtn" onclick="openWin()" style="margin-left: 200px; width: 300px;">팀 생성</button>
 	</c:if>
-			<form id="searchForm" name="searchForm">
-			${paging}
-			<div style="padding-top: 5px;">
-				<div class="right">
-				
+			<form id="searchForm" name="searchForm" style="margin-top: 20px;">
+			<div style="margin-left: 330px;">${paging}</div>
+			<div style="margin-top: 20px;">
+				<div class="right" style="margin-left: 20px;">
 					<select id="searchType" name="searchType" style="font-size: 15px;">
 						<option value="1"
 							${ searchTeam.searchType eq 1 ? 'selected' : '' }>팀 이름+소개내용</option>
@@ -82,6 +81,8 @@
 					<input type="text" id="searchKeyword" name="searchKeyword"
 						value="${searchTeam.searchKeyword}" style="font-size: 15px;"/> 
 					<input type="button" id="searchBtn" value="검색" onclick="movePage(0)" style="font-size: 15px;"/> 
+					<a href="/ShootBoy/team" style="font-size: 15px;"><c:remove var="_SEARCH_TEAM_INFO_" scope="session" />
+					목록보기</a>
 				</div>
 				<div class="clear"></div>
 			</div>
@@ -91,5 +92,5 @@
 <div class="clear">
 	<div style="padding-top: 50px;">
 		<jsp:include page="/WEB-INF/view/commons/footer.jsp"></jsp:include>
-</div>
+	</div>
 </div>
