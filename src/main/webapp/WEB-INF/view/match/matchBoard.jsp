@@ -22,9 +22,18 @@
 		$("#matchList").on("click",".applyBtn",function() {
 			var teamId = $(this).data("teamid");
 			var matchId = $(this).data("matchid");
+<<<<<<< HEAD
 			var myTeamId = "${sessionScope._USER_INFO_.teamId}";
 				if(myTeamId==teamId){
 					alert("자신의 팀입니다.");
+=======
+			
+			$.post("/ShootBoy/doCheckMatchRequest", "", function(data) {
+				if (data =="false") {
+					if( confirm("신청하시겠습니까?") ) {
+						location.href="/ShootBoy/doMatchRequest?teamId="+teamId+"&&matchId="+matchId;
+					}
+>>>>>>> 286ce278e7d35436f3d0f8d2cef97e8a0a44076c
 				}
 				else{
 					$.post("/ShootBoy/doCheckMatchRequest", {"matchId":$(this).data("matchid")}, function(data) {
@@ -53,7 +62,9 @@
 	<div class="myInfoText" style="width:700px;"><h1>매치 보드</h1>
 		<hr class="myPageline" style="width: 680px; margin-right: 100px;">
 	<div id="locationNavi">
+	<c:if test="${!empty sessionScope._USER_INFO_.userId and !empty sessionScope._USER_INFO_.teamId }">
 	<a href="javascript:void(0);" id="matchEnroll">매치등록</a>
+	</c:if>
 		<ul>
 		  <li><a class="active" href="#">전체</a></li>
 		  <li><a class="location" href="javascript:void(0);" data-value="4">서울</a></li>

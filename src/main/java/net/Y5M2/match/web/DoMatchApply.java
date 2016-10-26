@@ -57,7 +57,8 @@ public class DoMatchApply extends HttpServlet {
 		}
 		else{
 			out.write(" <script type='text/javascript'> ");
-			out.write(" location.href='/ShootBoy/doMatchApply?errorCode=1'; ");
+			out.write(" alert('3번을 초과하여 더이상 등록할 수 없습니다.'); ");
+			out.write(" window.close(); ");
 			out.write(" </script> ");
 			out.flush();
 			out.close();

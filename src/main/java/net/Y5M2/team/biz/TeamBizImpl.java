@@ -6,14 +6,14 @@ import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-
-
 import net.Y5M2.constants.Session;
 import net.Y5M2.support.pager.Pager;
 import net.Y5M2.support.pager.PagerFactory;
 import net.Y5M2.team.dao.TeamDao;
 import net.Y5M2.team.dao.TeamDaoImpl;
 import net.Y5M2.team.vo.SearchTeamVO;
+import net.Y5M2.team.vo.TeamBoardListVO;
+import net.Y5M2.team.vo.TeamBoardVO;
 import net.Y5M2.team.vo.TeamListVO;
 import net.Y5M2.team.vo.TeamVO;
 import net.Y5M2.user.dao.UserDao;
@@ -177,9 +177,107 @@ public class TeamBizImpl implements TeamBiz {
 		return teamDao.getCountOfTeam(teamId);
 	}
 
+	
+	
 	@Override
 	public boolean deleteTeam(String teamId) {
 		return teamDao.deleteTeam(teamId) > 0;
+	}
+
+	@Override
+	public boolean addTeamBoard(TeamBoardVO teamBoardVO) {
+		
+		return teamDao.addTeamBoard(teamBoardVO)>0;
+		
+		
+
+	}
+
+	@Override
+	public TeamBoardListVO getAllTeamBoards(SearchTeamVO searchTeam, TeamBoardVO teamBoardVO) {
+		int totalCount = teamDao.getCountOfTeamBoards(teamBoardVO);
+		Pager pager = PagerFactory.getPager(true, 10, 5);
+		pager.setTotalArticleCount(totalCount);
+		pager.setPageNumber(searchTeam.getPageNo());
+		
+		
+		searchTeam.setStartRowNumber(pager.getStartArticleNumber());
+		searchTeam.setEndRowNumber(pager.getEndArticleNumber());
+		
+		List<TeamBoardVO> teams = teamDao.getAllTeamBoards(searchTeam, teamBoardVO);
+		
+		TeamBoardListVO teamList = new TeamBoardListVO();
+		teamList.setPager(pager);
+		teamList.setTeams(teams);
+		
+		return teamList;
+	}
+
+	@Override
+	public TeamBoardVO getTeamBoardAt(String teamBoardId) {
+		teamDao.hitCountUpdate(teamBoardId);
+
+		return teamDao.getTeamBoardAt(teamBoardId);
+
+	}
+
+	@Override
+	public boolean deleteTeamBoard(String teamBoardId) {
+		return teamDao.deleteTeamBoard(teamBoardId) > 0;
+
+	}
+
+	@Override
+	public boolean modifyTeamBoard(TeamBoardVO teamBoardVO) {
+		TeamBoardVO originalBoard = teamDao.getTeamBoardAt(teamBoardVO.getTeamBoardId());
+		int modifyCount = 3;
+		if ( originalBoard.getTeamBoardSubject().equals(teamBoardVO.getTeamBoardSubject()) ) {
+			teamBoardVO.setTeamBoardSubject(null);
+			modifyCount--;
+		}
+		
+		if ( originalBoard.getTeamBoardContent().equals(teamBoardVO.getTeamBoardContent()) ) {
+			teamBoardVO.setTeamBoardContent(null);
+			modifyCount--;
+		}
+		
+		if ( originalBoard.getFileName() == null ) {
+			originalBoard.setFileName("");
+		}
+		
+		if ( originalBoard.getFileName().equals(teamBoardVO.getFileName()) ) {
+			teamBoardVO.setFileName(null);
+			modifyCount--;
+		}
+		
+		if ( modifyCount == 0 ) {
+			return true;
+		}
+		
+		return teamDao.modifyTeamBoard(teamBoardVO) > 0;
+	}
+
+	@Override
+	public TeamBoardVO getTeamBoardForModify(String teamBoardId) {
+		return teamDao.getTeamBoardForModify(teamBoardId);
+
+	}
+	
+	@Override
+	public String getFileNameOfTeamBoardBy(String teamBoardId) {
+		TeamBoardVO teamBoardVO = teamDao.getTeamBoardAt(teamBoardId);
+		return teamBoardVO.getFileName();
+	}
+
+	@Override
+	public int getCountOfTeamBoard(SearchTeamVO searchTeam) {
+		return teamDao.getCountOfTeamBoard(searchTeam);
+	}
+
+	@Override
+	public int getCountOfTeamBoards(TeamBoardVO teamBoardVO) {
+		return teamDao.getCountOfTeamBoards(teamBoardVO);
+
 	}
 
 }
