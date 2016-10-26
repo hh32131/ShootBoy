@@ -66,6 +66,9 @@ $(document).ready(function () {
 				</div>
 			</c:if>
 			<div>
+			<div class="left">
+					<input type="file" id="file" name="file" />
+				</div>
 				<div class="listBtn" style="float: right; margin-right: 65px;">
 					<input type="button" id="goBackBtn" name="goBackBtn" value="뒤로가기" />
 					<input type="button" id="doModifyBtn" name="doModifyBtn" value="수정" />
