@@ -35,7 +35,7 @@
 		<div class="teamName" style="font-size: 30px; padding-bottom:10px; margin:0 auto;
 							font-weight: bold; color: #30b5ed;">${team.teamName}</div>
 		<div><img class="teamPhoto" src="/ShootBoy/showImage?teamId=${team.teamId}" 
-					style="width: 400px; height: 250px; padding-bottom: 10px; padding-left:20px;"/></div>
+					style="width: 400px; height: 250px; padding-bottom: 10px; padding-left:15px;"/></div>
 		<div style="padding-bottom: 10px;">인원수 : ${team.teamCount} 명</div>
 		<div style="padding-bottom: 10px;">팀 포인트 : ${team.teamPoint} 점</div>  
 		<div style="padding-bottom: 10px;">팀 생성일 : ${team.createDate}</div> 

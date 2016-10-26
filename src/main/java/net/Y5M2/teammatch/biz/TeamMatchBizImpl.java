@@ -21,8 +21,8 @@ public class TeamMatchBizImpl implements TeamMatchBiz {
 	}
 	
 	@Override
-	public boolean isExistTeam(String teamId) {
-		return teamMatchDao.isExistTeam(teamId) > 0;
+	public boolean isExistTeam(String teamId, String matchId) {
+		return teamMatchDao.isExistTeam(teamId, matchId) > 0;
 	}
 
 	@Override
@@ -31,4 +31,14 @@ public class TeamMatchBizImpl implements TeamMatchBiz {
 		return teamMatchDao.getMatchApplyOf(teamId);
 	}
 	
+	@Override
+	public List<TeamMatchVO> getMyApply(String teamId) {
+		
+		return teamMatchDao.getMyApply(teamId);
+	}
+	
+	@Override
+	public boolean deleteMatchOf(String matchId) {
+		return teamMatchDao.deleteMatchOf(matchId) > 0;
+	}
 }

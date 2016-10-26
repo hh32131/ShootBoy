@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.Y5M2.location.vo.LocationVO;
+import net.Y5M2.match.vo.MatchVO;
 import net.Y5M2.support.DaoSupport;
 import net.Y5M2.support.Query;
 import net.Y5M2.support.QueryAndResult;
@@ -41,7 +42,7 @@ public class TeamMatchDaoImpl extends DaoSupport implements TeamMatchDao {
 	}
 
 	@Override
-	public int isExistTeam(String teamId) {
+	public int isExistTeam(String teamId, String matchId) {
 		return (int) selectOne(new QueryAndResult() {
 			
 			@Override
@@ -51,9 +52,11 @@ public class TeamMatchDaoImpl extends DaoSupport implements TeamMatchDao {
 				query.append(" SELECT	COUNT(1) CNT ");
 				query.append(" FROM		TMATCH ");
 				query.append(" WHERE	ATEAM_ID = ? ");
+				query.append(" AND		MATCH_ID = ? ");
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				pstmt.setString(1, teamId);
+				pstmt.setString(2, matchId);
 				return pstmt;
 				
 			}
@@ -150,4 +153,90 @@ public class TeamMatchDaoImpl extends DaoSupport implements TeamMatchDao {
 		});
 	}
 
+	@Override
+	public List<TeamMatchVO> getMyApply(String teamId) {
+		
+		return selectList(new QueryAndResult() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				
+				StringBuffer query = new StringBuffer();
+				query.append(" SELECT	 T.TEAM_NM ");
+				query.append(" 			 ,L.LCTN_NM ");
+				query.append(" 			 ,L.PRNT_LCTN_NM ");
+				query.append(" 			 ,T.TEAM_ID ");
+				query.append(" 			 ,M.MATCH_ID ");
+				query.append(" 			 ,M.PLAYFIELD ");
+				query.append(" 			 ,TO_CHAR(M.SCDL,'YYYY-MM-DD') SCDL ");
+				query.append(" FROM		 TEAM T,");
+				query.append(" 		 	TMATCH TM,");
+				query.append(" 		 	LCTN L,");
+				query.append(" 		 	MATCH M ");
+				query.append(" WHERE	T.TEAM_ID = TM.TEAM_ID ");
+				query.append(" AND		T.LCTN_ID = L.LCTN_ID ");
+				query.append(" AND		M.MATCH_ID = TM.MATCH_ID ");
+				query.append(" AND		M.LCTN_ID = L.LCTN_ID ");
+				query.append(" AND		TM.ATEAM_ID = ? ");
+				
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				
+				pstmt.setString(1, teamId);
+				
+				return pstmt;
+			}
+			
+			@Override
+			public Object makeObject(ResultSet rs) throws SQLException {
+
+				List<TeamMatchVO> matchs = new ArrayList<TeamMatchVO>();
+				TeamVO teamVO = null;
+				MatchVO matchVO = null;
+				TeamMatchVO teamMatchVO = null;
+				LocationVO locationVO = null;
+				
+				while(rs.next()) {
+					teamMatchVO = new TeamMatchVO();
+					teamVO = teamMatchVO.getTeamVO();
+					teamVO.setTeamName(rs.getString("TEAM_NM"));
+					teamVO.setTeamId(rs.getString("TEAM_ID"));
+					locationVO = teamVO.getLocationVO();
+					locationVO.setLocationName(rs.getString("LCTN_NM"));
+					locationVO.setParentLocationName(rs.getString("PRNT_LCTN_NM"));
+					matchVO = teamMatchVO.getMatchVO();
+					matchVO.setMatchId(rs.getString("MATCH_ID"));
+					matchVO.setPlayField(rs.getString("PLAYFIELD"));
+					matchVO.setSchedule(rs.getString("SCDL"));
+					
+					locationVO = matchVO.getLocationVO();
+					locationVO.setLocationName(rs.getString("LCTN_NM"));
+					locationVO.setParentLocationName(rs.getString("PRNT_LCTN_NM"));
+					
+					matchs.add(teamMatchVO);
+					
+				}
+				return matchs;
+			}
+		});
+	}
+	
+	@Override
+	public int deleteMatchOf(String matchId) {
+		return insert(new Query() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				StringBuffer query = new StringBuffer();
+				query.append(" DELETE		   ");
+				query.append(" FROM		TMATCH ");
+				query.append(" WHERE	MATCH_ID = ? ");
+				
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				
+				pstmt.setString(1, matchId);
+				
+				return pstmt;
+			}
+		});
+	}
 }

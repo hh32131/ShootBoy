@@ -148,6 +148,12 @@
 										style="color: #fff; font-size: 15px;">글쓰기</a>
 								</div>
 							</c:if>
+							<c:if test="${sessionScope._USER_INFO_.levelId eq '1' and categoryId eq '11'}">
+								<div class="boardRight">
+									<a href="/ShootBoy/write?categoryId=${categoryId}"
+										style="color: #fff; font-size: 15px;">글쓰기</a>
+								</div>
+							</c:if>
 					</div>
 					<div class="boardLeft">
 						<select id="searchType" name="searchType">
@@ -159,12 +165,11 @@
 								${ searchBoard.searchType eq 3 ? 'selected' : '' }>내용</option>
 							<option value="4"
 								${ searchBoard.searchType eq 4 ? 'selected' : '' }>작성자</option>
-						</select> <input type="text" id="searchKeyword" name="searchKeyword"
-							value="${searchBoard.searchKeyword}" /> <input type="button"
-							id="searchBtn" value="검색" onclick="movePage(0)" /> <a
-							href="/ShootBoy/list?categoryId=${categoryId}"
-							style="font-size: 15px;"><c:remove var="_SEARCH_BOARD_INFO_"
-								scope="session" />목록보기</a>
+						</select> 
+							<input type="text" id="searchKeyword" name="searchKeyword" value="${searchBoard.searchKeyword}" /> 
+							<input type="button" id="searchBtn" value="검색" onclick="movePage(0)" /> 
+							<a href="/ShootBoy/list?categoryId=${categoryId}" style="font-size: 15px;">
+						<c:remove var="_SEARCH_BOARD_INFO_" scope="session" />목록보기</a>
 					</div>
 				</form>
 			</div>

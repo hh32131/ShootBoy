@@ -454,7 +454,7 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				query.append(" ORDER	BY BOARD_ID DESC ");
 
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
-
+	
 				return pstmt;
 			}
 
@@ -464,7 +464,6 @@ public class BoardDaoImpl extends DaoSupport implements BoardDao {
 				List<BoardVO> boards = new ArrayList<BoardVO>();
 
 				UserVO userVO = null;
-
 				while (rs.next()) {
 
 					boardVO = new BoardVO();

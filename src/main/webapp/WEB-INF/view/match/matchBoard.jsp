@@ -22,20 +22,24 @@
 		$("#matchList").on("click",".applyBtn",function() {
 			var teamId = $(this).data("teamid");
 			var matchId = $(this).data("matchid");
-			
-			$.post("/ShootBoy/doCheckMatchRequest", "", function(data) {
-				if (data =="false") {
-					if( confirm("신청하시겠습니까?") ) {
-						location.href="/ShootBoy/doMatchRequest?teamId="+teamId+"&&matchId="+matchId;
-					}
+			var myTeamId = "${sessionScope._USER_INFO_.teamId}";
+				if(myTeamId==teamId){
+					alert("자신의 팀입니다.");
 				}
-				else {
-					alert("이미 신청한 팀이 있습니다.");
+				else{
+					$.post("/ShootBoy/doCheckMatchRequest", {"matchId":$(this).data("matchid")}, function(data) {
+						if (data =="false") {
+							if( confirm("신청하시겠습니까?") ) {
+								location.href="/ShootBoy/doMatchRequest?teamId="+teamId+"&&matchId="+matchId;
+							}
+						}
+						else {
+							alert("이미 신청하셨습니다.");
+						}
+					});
 				}
-			});
 		});
 	});
-	
 </script>
 <body>
 	<div id="myPageLeftMenu">
@@ -46,7 +50,6 @@
 		</div>
 	</div>
 	
-	<form id="filter" name="filter">
 	<div class="myInfoText" style="width:700px;"><h1>매치 보드</h1>
 		<hr class="myPageline" style="width: 680px; margin-right: 100px;">
 	<div id="locationNavi">
@@ -67,6 +70,11 @@
 	<div id="matchList" ></div>
 	</div>
 	
-	</form>
-</body>
-</html>
+<div class="clear">
+	<div style="padding-top: 60px;">
+		<jsp:include page="/WEB-INF/view/commons/footer.jsp"></jsp:include>
+	</div>
+</div>
+
+	
+

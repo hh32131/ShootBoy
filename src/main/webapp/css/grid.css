@@ -51,12 +51,17 @@
 	color: #f6f6f6;
 }
 
-.containerOne, .containerTwo {
+.containerOne, .containerTwo{
+	
 	background-color: #d9f2ff;	
 }
 
+.containerThree {
+	background-color: #f7ebd0;
+}
 .textOne, .textTwo, .textThree {
 	font-size: 30px;
+	display: inline-block;
 }
 
 
@@ -68,6 +73,10 @@
 .tableTwo {
 	width: 800px;	
 	display: inline-block;
+}
+
+.tableThree {
+	width:700px;
 }
 
 #wrapperOne {

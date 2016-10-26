@@ -112,6 +112,9 @@
 				<div id="inline"><input type="button" id="passwordConfirm" name="passwordConfirm" value="비밀번호 확인"></div>
 				<div class="warning"></div>
 			</div>
+			<div id="inline" style= "width: 100px; float:right; margin-right:200px;">
+				<img src="/ShootBoy/img/호날두2.jpg">
+			</div>
 			</c:if>
 			<c:if test="${empty userInfo.userId}">
 				<p style="font-size: 20px; color: red;">로그인 하지 않았습니다! 로그인 후 접근하세요!</p>
