@@ -36,15 +36,11 @@ public class ViewTeamPageServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-<<<<<<< HEAD
+
 		String viewPath = "/WEB-INF/view/team/team.jsp";
 		
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
-		
-		
-=======
->>>>>>> 49af612399d1c309731bee11c53ef9e01a720fb8
-	
+
 		HttpSession session = request.getSession();
 		int pageNo = Param.getIntParam(request, "pageNo", -1);
 		int searchType = Param.getIntParam(request, "searchType");
@@ -68,26 +64,15 @@ public class ViewTeamPageServlet extends HttpServlet {
 		session.setAttribute(Session.SEARCH_TEAM_INFO, searchTeam);
 		TeamListVO teams = teamBiz.getAllTeam(searchTeam);
 
-		String viewPath = "/WEB-INF/view/team/team.jsp";
-		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 		request.setAttribute("team", teams.getTeams());
 		request.setAttribute("pager", teams.getPager());
-<<<<<<< HEAD
 
-		
-=======
-		
-	
->>>>>>> 49af612399d1c309731bee11c53ef9e01a720fb8
 		PageExplorer pageExplorer = new ClassicPageExplorer(teams.getPager());
 		String pager = pageExplorer.getPagingList("pageNo", "[@]", "<<", ">>", "searchForm");
 		
 		request.setAttribute("paging", pager);
 		request.setAttribute("searchTeam", searchTeam);
 		rd.forward(request, response);
-<<<<<<< HEAD
-=======
-		
->>>>>>> 49af612399d1c309731bee11c53ef9e01a720fb8
+
 	}
 }
