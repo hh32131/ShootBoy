@@ -338,7 +338,10 @@
 		<servlet-name>ViewTeamInfoPageServlet</servlet-name>
 		<url-pattern>/teamInfo</url-pattern>
 	</servlet-mapping>
+<<<<<<< HEAD
 	
+=======
+>>>>>>> 17fdfe4f5ca3d9e68a9142ed4d27268b27f5b354
 	<servlet>
 		<description></description>
 		<display-name>ViewMessagePageServlet</display-name>
@@ -620,6 +623,13 @@
 		<error-code>404</error-code>
 		<location>/WEB-INF/view/error/404.jsp</location>
 	</error-page>
+<<<<<<< HEAD
+=======
+	<error-page>
+		<error-code>500</error-code>
+		<location>/WEB-INF/view/error/500.jsp</location>
+	</error-page>
+>>>>>>> 17fdfe4f5ca3d9e68a9142ed4d27268b27f5b354
 	<servlet>
 		<description></description>
 		<display-name>DoCheckPasswordHint</display-name>
@@ -647,10 +657,13 @@
 	</filter>
 	<filter-mapping>
 		<filter-name>SessionFilter</filter-name>
+<<<<<<< HEAD
 		<url-pattern>/teamMatchInfo</url-pattern>
 	</filter-mapping>
 	<filter-mapping>
 		<filter-name>SessionFilter</filter-name>
+=======
+>>>>>>> 17fdfe4f5ca3d9e68a9142ed4d27268b27f5b354
 		<url-pattern>/detailTeamInfo</url-pattern>
 	</filter-mapping>
 	<filter-mapping>
@@ -687,6 +700,19 @@
 	</servlet-mapping>
 	<servlet>
 		<description></description>
+<<<<<<< HEAD
+=======
+		<display-name>DoCheckTeamJoin</display-name>
+		<servlet-name>DoCheckTeamJoin</servlet-name>
+		<servlet-class>net.Y5M2.teamjoin.web.ajax.DoCheckTeamJoin</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DoCheckTeamJoin</servlet-name>
+		<url-pattern>/doCheckTeamJoin</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+>>>>>>> 17fdfe4f5ca3d9e68a9142ed4d27268b27f5b354
 		<display-name>DoTeamJoin</display-name>
 		<servlet-name>DoTeamJoin</servlet-name>
 		<servlet-class>net.Y5M2.teamjoin.web.DoTeamJoin</servlet-class>
@@ -726,10 +752,13 @@
 		<url-pattern>/matchApplyManagement</url-pattern>
 	</servlet-mapping>
 	<filter-mapping>
+<<<<<<< HEAD
 		<filter-name>SessionFilter</filter-name>
 		<url-pattern>/teamMatchInfo</url-pattern>
 	</filter-mapping>
 	<filter-mapping>
+=======
+>>>>>>> 17fdfe4f5ca3d9e68a9142ed4d27268b27f5b354
 		<filter-name>EncodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
@@ -805,6 +834,7 @@
 	</servlet-mapping>
 	<servlet>
 		<description></description>
+<<<<<<< HEAD
 		<display-name>ViewTeamBoardPageServlet</display-name>
 		<servlet-name>ViewTeamBoardPageServlet</servlet-name>
 		<servlet-class>net.Y5M2.team.web.ViewTeamBoardPageServlet</servlet-class>
@@ -855,6 +885,8 @@
 	</servlet-mapping>
 	<servlet>
 		<description></description>
+=======
+>>>>>>> 17fdfe4f5ca3d9e68a9142ed4d27268b27f5b354
 		<display-name>ViewAdminArticleDetailPageServlet</display-name>
 		<servlet-name>ViewAdminArticleDetailPageServlet</servlet-name>
 		<servlet-class>net.Y5M2.admin.web.ViewAdminArticleDetailPageServlet</servlet-class>
@@ -935,6 +967,7 @@
 	</servlet-mapping>
 	<servlet>
 		<description></description>
+<<<<<<< HEAD
 		<display-name>ViewAdminSettingPageServlet</display-name>
 		<servlet-name>ViewAdminSettingPageServlet</servlet-name>
 		<servlet-class>net.Y5M2.admin.web.ViewAdminSettingPageServlet</servlet-class>
@@ -1147,4 +1180,112 @@
     <servlet-name>DoCancelMatch</servlet-name>
     <url-pattern>/cancelMatch</url-pattern>
   </servlet-mapping>
+=======
+		<display-name>ViewMatchListPageServlet</display-name>
+		<servlet-name>ViewMatchListPageServlet</servlet-name>
+		<servlet-class>net.Y5M2.match.web.ViewMatchListPageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ViewMatchListPageServlet</servlet-name>
+		<url-pattern>/matchList</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>DoMatchRequerst</display-name>
+		<servlet-name>DoMatchRequerst</servlet-name>
+		<servlet-class>net.Y5M2.match.web.DoMatchRequerst</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DoMatchRequerst</servlet-name>
+		<url-pattern>/doMatchRequerst</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>DoMatchRequest</display-name>
+		<servlet-name>DoMatchRequest</servlet-name>
+		<servlet-class>net.Y5M2.teammatch.web.DoMatchRequest</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DoMatchRequest</servlet-name>
+		<url-pattern>/doMatchRequest</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>DoCheckMatchRequest</display-name>
+		<servlet-name>DoCheckMatchRequest</servlet-name>
+		<servlet-class>net.Y5M2.teammatch.web.ajax.DoCheckMatchRequest</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DoCheckMatchRequest</servlet-name>
+		<url-pattern>/doCheckMatchRequest</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>DoMatch</display-name>
+		<servlet-name>DoMatch</servlet-name>
+		<servlet-class>net.Y5M2.match.web.DoMatch</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DoMatch</servlet-name>
+		<url-pattern>/doMatch</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>ViewTeamMatchInfoServlet</display-name>
+		<servlet-name>ViewTeamMatchInfoServlet</servlet-name>
+		<servlet-class>net.Y5M2.team.web.ViewTeamMatchInfoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ViewTeamMatchInfoServlet</servlet-name>
+		<url-pattern>/teamMatchInfo</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>DoCancelMatch</display-name>
+		<servlet-name>DoCancelMatch</servlet-name>
+		<servlet-class>net.Y5M2.match.web.DoCancelMatch</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DoCancelMatch</servlet-name>
+		<url-pattern>/cancelMatch</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<display-name>ViewTeamBoardModifyPageServlet</display-name>
+		<servlet-name>ViewTeamBoardModifyPageServlet</servlet-name>
+		<servlet-class>net.Y5M2.team.web.ViewTeamBoardModifyPageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ViewTeamBoardModifyPageServlet</servlet-name>
+		<url-pattern>/teamBoardModify</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>DoModifyTeamBoardServlet</display-name>
+		<servlet-name>DoModifyTeamBoardServlet</servlet-name>
+		<servlet-class>net.Y5M2.team.web.DoModifyTeamBoardServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DoModifyTeamBoardServlet</servlet-name>
+		<url-pattern>/doModifyTeamBoard</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>DoDownloadFileServlet</display-name>
+		<servlet-name>DoDownloadFileServlet</servlet-name>
+		<servlet-class>net.Y5M2.team.web.DoDownloadFileServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DoDownloadFileServlet</servlet-name>
+		<url-pattern>/doDownloadFile</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<display-name>ViewTeamBoardPageServlet</display-name>
+		<servlet-name>ViewTeamBoardPageServlet</servlet-name>
+		<servlet-class>net.Y5M2.team.web.ViewTeamBoardPageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ViewTeamBoardPageServlet</servlet-name>
+		<url-pattern>/teamBoard</url-pattern>
+	</servlet-mapping>
+>>>>>>> 17fdfe4f5ca3d9e68a9142ed4d27268b27f5b354
 </web-app>

@@ -33,13 +33,14 @@ public class ViewMatchBoardServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		String teamId = Param.getStringParam(request, "teamId");
 		
 		String viewPath = "/WEB-INF/view/match/matchBoard.jsp";
 		
-		
+		List<MatchVO> matchVO = matchBiz.getAllMatchTeam(teamId);
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 		
-		
+		request.setAttribute("matchVO", matchVO);
 		rd.forward(request, response);
 		
 	}
