@@ -33,9 +33,9 @@ public class MatchBizImpl implements MatchBiz {
 	}
 	
 	@Override
-	public List<MatchVO> getMatchApplyTeamsOf(String locationId, String beginDate, String endDate) {
+	public List<MatchVO> getMatchApplyTeamsOf(String locationId) {
 
-		return matchDao.getMatchApplyTeamsOf(locationId,beginDate,endDate);
+		return matchDao.getMatchApplyTeamsOf(locationId);
 	}
 
 	@Override
@@ -75,4 +75,8 @@ public class MatchBizImpl implements MatchBiz {
 		return matchDao.getCompleteMatch(teamId);
 	}
 	
+	@Override
+	public List<MatchVO> getAllMatchList() {
+		return matchDao.getAllMatchList();
+	}
 }

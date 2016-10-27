@@ -10,7 +10,7 @@ public interface MatchBiz {
 
 	public boolean applyMatch(MatchVO matchVO);
 
-	public List<MatchVO> getMatchApplyTeamsOf(String locationId, String beginDate, String endDate);
+	public List<MatchVO> getMatchApplyTeamsOf(String locationId);
 
 	public MatchListVO getAllMatchTeam(SearchMatchVO searchMatch);
 
@@ -19,5 +19,7 @@ public interface MatchBiz {
 	public List<MatchVO> getCompleteMatch(String teamId);
 
 	public boolean deleteTeamMatch(String teamId, String matchId);
+
+	public List<MatchVO> getAllMatchList();
 
 }

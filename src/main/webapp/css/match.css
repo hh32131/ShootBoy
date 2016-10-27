@@ -48,12 +48,48 @@
 	width: 300px;
 }
 
+#teamMatchInfoWrapper {
+	margin-left: 130px;	
+	width:400px;
+	padding: 5px;
+	margin-bottom: 20px;
+}
+
+.matchInfoImg, .matchInfoText{ 
+	vertical-align: top;
+	display: inline-block;
+}
+
+.matchCancelBtn {
+	float:right;
+	margin-top: 30px;	
+	background-color: #f74a7a;
+}
+
+.matchCancelBtn:HOVER {
+	background-color: #ff80c0;
+}
+
+.matchAgreementBtn {
+	float:right;
+	margin-top: 30px;	
+	background-color: #3c91f9;
+}
+
+.matchAgreementBtn:HOVER {
+	background-color: #75b1fb;
+}
+..matchInfoTeamName, .matchInfoTeamLocation, .matchField, .matchDate {
+	margin-bottom:20px;
+	font-size: 20px;
+}
+
 .matchApplyImg {
 	width: 200px; 
 	height: 200px;" 
 }
 
-.matchApplyTeamName, .matchApplyTeamCount, .matchApplyTeamLocation, .matchApplyTeamInfo, .matchBtn {
+.matchApplyTeamName, .matchApplyTeamCount, .matchApplyTeamLocation, .matchApplyTeamInfo, .matchBtn, .matchApplyField, .matchApplySchedule {
 	margin-bottom:10px;
 	font-size: 20px;
 }
@@ -70,8 +106,47 @@
 .teamOneImg, .teamTwoImg {
 	width:200px;
 	height: 200px;
+	border-radius: 500px;
 }
 
-#teamOne, #teamTwo {
+.teamTwoImg {
+	margin-left: 50px;
+}
+
+.teamOneName {
+	font-weight:bold;
+	margin-left: 65px;	
+	font-size: 20px;
+	color: #0080ff;
+}
+
+.teamTwoName {
+	font-weight:bold;
+	margin-left: 123px;	
+	font-size: 20px;
+	color: red;
+}
+
+#teamOne, #teamTwo, #matchFieldAndLocation, .vsImg {
 	display: inline-block;
+}
+
+.vsImg {
+	width: 80px;
+	height: 80px;
+	vertical-align: top;
+	padding-bottom:40px;
+	margin-left:20px;
+}
+#matchFieldAndLocation {
+	margin-left: 50px;
+	text-align: center;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+#teamMatchWrapper {
+	padding:10px;
+	margin-left: 30px;
+	margin-bottom: 15px;
 }
