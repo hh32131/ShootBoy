@@ -136,7 +136,7 @@
 	</div>
 		
 		
-		<div class="boardCreateDate">${board.createDate}</div>
+	<div class="boardCreateDate">${board.createDate}</div>
 	<hr/>
 	<a href="/ShootBoy/board/doDownload?boardId=${board.boardId}" style="float: right;">${board.fileName}</a>
 	

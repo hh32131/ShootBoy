@@ -39,9 +39,9 @@ public class DoSelectMatch extends HttpServlet {
 		for (MatchVO matchVO : matchTeams) {
 			list.append(" <table> ");
 			list.append(" <tr> ");
-			list.append(String.format(" <td rowspan='3'  ><img style='width:300px' src='/ShootBoy/showImage?teamId=%s'></td> ", matchVO.getTeamId()));
+			list.append(String.format(" <td rowspan='3'><img style='width:200px; border-radius:700px;' src='/ShootBoy/showImage?teamId=%s'></td> ", matchVO.getTeamId()));
 			list.append(String.format(" <td>%s</td> ",matchVO.getTeamVO().getTeamName()));
-			list.append(String.format(" <td>%s-%s</td> ",matchVO.getTeamVO().getLocationVO().getParentLocationName(), matchVO.getTeamVO().getLocationVO().getLocationName()));
+			list.append(String.format(" <td>%s - %s</td> ",matchVO.getTeamVO().getLocationVO().getParentLocationName(), matchVO.getTeamVO().getLocationVO().getLocationName()));
 			list.append(String.format(" <td rowspan='3'><a href='javascript:void(0);' class='applyBtn' data-teamid='%s' data-matchid='%s' >신청</a></td> ",matchVO.getTeamId(),matchVO.getMatchId()));
 			list.append(String.format(" <input type='button' class='cancelBtn' name='cancelBtn' data-teamid='%s' data-matchid='%s' value='취소' ", matchVO.getTeamId(), matchVO.getMatchId()));
 			list.append(" </tr> ");

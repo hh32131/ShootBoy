@@ -23,11 +23,11 @@ $().ready(function () {
 			<div class="mplmTwo"><a href="/ShootBoy/detailTeamInfo">팀 정보</a></div>
 			<div class="mplmThree"><a href="/ShootBoy/teamMatchInfo">팀 매치 정보</a></div>
 			<div class="mplmFour"><img src="/ShootBoy/img/화살표.jpg" class="arrow"><a href="/ShootBoy/teamBoard">팀 게시판</a></div>
-			
 		</div>
 	</div>
-	<div class="boardText">
-	<div id="boardList">
+	<div class="boardText" style="margin-top: 20px; width: 700px;"><h1>팀 게시판</h1>
+		<hr class="myPageline" style="width: 680px; margin-right: 100px;">
+		<div id="boardList">
 			<table class="boardGrid">
 				<tr>
 					<th class="boardSubject">번호</th>
@@ -59,33 +59,31 @@ $().ready(function () {
 				</c:forEach>
 			</table>
 			
-			<form id="searchForm" name="searchForm">
-			${paging} <br/>
-			<input type="hidden" id="teamId" name="teamId" value="${teamId}" />
-			<input type="button" id="writeBtn" name="writeBtn" value="글쓰기" />
-			
-			<div style="padding-top: 5px;">
-				
-				<div class="boardRight">
-
-					<select id="searchType" name="searchType">
-						<option value="1" ${ searchTeam.searchType eq 1 ? 'selected' : '' }>제목/작성자</option>
-						<option value="2" ${ searchTeam.searchType eq 2 ? 'selected' : '' }>제목</option>
-						<option value="3" ${ searchTeam.searchType eq 3 ? 'selected' : '' }>작성자</option>
-					</select>
-					<input type="text" id="searchKeyword" name="searchKeyword" value="${searchTeam.searchKeyword}"/>
-					<input type="button" id="searchBtn" value="검색" onclick="movePage(0)"/>
-					<a href="/ShootBoy/list/init">처음으로</a>
+				<form id="searchForm" name="searchForm">
+					<div id="paging" style="margin-bottom: 30px;">${paging}</div>
+					<div style="padding-top: 5px;">
+				<input type="hidden" id="teamId" name="teamId" value="${teamId}" />
+				<div class="boardRight"><input type="button" id="writeBtn" name="writeBtn" value="글쓰기" /></div>
 				</div>
+				
+					<div style="padding-top: 5px;">
+						<div class="boardLeft">
+							<select id="searchType" name="searchType">
+								<option value="1" ${ searchTeam.searchType eq 1 ? 'selected' : '' }>제목/작성자</option>
+								<option value="2" ${ searchTeam.searchType eq 2 ? 'selected' : '' }>제목</option>
+								<option value="3" ${ searchTeam.searchType eq 3 ? 'selected' : '' }>작성자</option>
+							</select>
+							<input type="text" id="searchKeyword" name="searchKeyword" value="${searchTeam.searchKeyword}"/>
+							<input type="button" id="searchBtn" value="검색" onclick="movePage(0)"/>
+							<a href="/ShootBoy/list/init">처음으로</a>
+						</div>
+					</div>
+				</form>
 			</div>
-			</form>
-			</div>
-				<div class="clear"></div>
-			</div>
-		<hr/>
-	
-	<div class="clear">
-	<div style="padding-top: 60px;">
-		<jsp:include page="/WEB-INF/view/commons/footer.jsp"></jsp:include>
-	</div>
-	</div>
+		</div>
+</body>
+<div class="clear">
+<div style="padding-top: 60px;">
+	<jsp:include page="/WEB-INF/view/commons/footer.jsp"></jsp:include>
+</div>
+</div>

@@ -30,3 +30,48 @@
     color: white;
     background-color: #0080ff;
 }
+
+#matchApplyManagement {
+	margin-left:80px;
+	padding:20px;
+	margin-bottom: 30px;
+}
+
+.matchApplyImg {
+	display: inline-block;
+}
+
+.matchApplyContent {
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 50px;
+	width: 300px;
+}
+
+.matchApplyImg {
+	width: 200px; 
+	height: 200px;" 
+}
+
+.matchApplyTeamName, .matchApplyTeamCount, .matchApplyTeamLocation, .matchApplyTeamInfo, .matchBtn {
+	margin-bottom:10px;
+	font-size: 20px;
+}
+
+.matchBtn {
+	background-color: #ff8000;
+	color: #fff;
+}
+
+.matchBtn:HOVER {
+	background-color: #ffb062;
+}
+
+.teamOneImg, .teamTwoImg {
+	width:200px;
+	height: 200px;
+}
+
+#teamOne, #teamTwo {
+	display: inline-block;
+}
