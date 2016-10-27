@@ -29,30 +29,25 @@ public class DoSelectMatch extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String locationId = Param.getStringParam(request, "locationId");
-		String beginDate = Param.getStringParam(request, "beginDate");
-		String endDate = Param.getStringParam(request, "endDate");
+	
 		
 		PrintWriter out = response.getWriter();
 		StringBuffer list = new StringBuffer();
-		List<MatchVO> matchTeams = matchBiz.getMatchApplyTeamsOf(locationId,beginDate,endDate);
+		List<MatchVO> matchTeams = matchBiz.getMatchApplyTeamsOf(locationId);
 		
 		for (MatchVO matchVO : matchTeams) {
-			list.append(" <table> ");
-			list.append(" <tr> ");
-			list.append(String.format(" <td rowspan='3'><img style='width:200px; border-radius:700px;' src='/ShootBoy/showImage?teamId=%s'></td> ", matchVO.getTeamId()));
-			list.append(String.format(" <td>%s</td> ",matchVO.getTeamVO().getTeamName()));
-			list.append(String.format(" <td>%s - %s</td> ",matchVO.getTeamVO().getLocationVO().getParentLocationName(), matchVO.getTeamVO().getLocationVO().getLocationName()));
-			list.append(String.format(" <td rowspan='3'><a href='javascript:void(0);' class='applyBtn' data-teamid='%s' data-matchid='%s' >신청</a></td> ",matchVO.getTeamId(),matchVO.getMatchId()));
-			list.append(String.format(" <input type='button' class='cancelBtn' name='cancelBtn' data-teamid='%s' data-matchid='%s' value='취소' ", matchVO.getTeamId(), matchVO.getMatchId()));
-			list.append(" </tr> ");
-			list.append(" <tr> ");
-			list.append(String.format(" <td>%s(%s-%s)</td> ",matchVO.getPlayField(),matchVO.getLocationVO().getParentLocationName(),matchVO.getLocationVO().getLocationName()));
-			list.append(String.format(" <td>%s</td> ", matchVO.getSchedule()));
-			list.append(" </tr> ");
-			list.append(" <tr> ");
-			list.append(String.format(" <td colspan='2'>%s</td> ", matchVO.getTeamVO().getTeamInfo()));
-			list.append(" </tr> ");
-			list.append(" </table> ");
+			list.append(" <div class='matchApplyManagement'> ");	
+			list.append(String.format(" <div class='matchApplyImg'><img class='matchApplyImg' src='/ShootBoy/showImage?teamId='%s' ></div> ",matchVO.getTeamId()));
+			list.append(" <div class='matchApplyContent'>");
+			list.append(String.format(" <div class='matchApplyTeamName'>팀명 : %s</div>", matchVO.getTeamVO().getTeamName()));
+			list.append(String.format(" <div class='matchApplyTeamLocation'>지역 : %s -%s </div>",matchVO.getTeamVO().getLocationVO().getParentLocationName(), matchVO.getTeamVO().getLocationVO().getLocationName()));
+			list.append(String.format(" <div class='matchApplyTeamName'>팀명 : %s</div>", matchVO.getTeamVO().getTeamName()));
+			list.append(String.format(" <div class='matchApplyField'>%s(%s-%s)</div> ",matchVO.getPlayField(),matchVO.getLocationVO().getParentLocationName(),matchVO.getLocationVO().getLocationName()));
+			list.append(String.format(" <div class='matchApplySchedule'>%s</div> ", matchVO.getSchedule()));
+			list.append(String.format(" <input type='button' class='matchAgreementBtn' name='matchAgreementBtn' data-teamid='%s' data-matchid='%s' value='신청'> ",matchVO.getTeamId(),matchVO.getMatchId()));
+			list.append(String.format(" <input type='button' class='matchCancelBtn' name='matchCancelBtn' data-teamid='%s' data-matchid='%s' value='취소' ", matchVO.getTeamId(), matchVO.getMatchId()));
+			list.append(" </div> ");
+			list.append(" </div> ");
 		}
 		
 		out.write(list.toString());

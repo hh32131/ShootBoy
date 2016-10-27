@@ -255,18 +255,3 @@
 #teamJoinBtn:HOVER {
 	background-color: #8d571b;
 }
-
-#teamMatchInfoWrapper {
-	width:400px;
-	border: 1px solid;
-	padding: 5px;
-}
-
-.matchInfoImg, .matchInfoText{ 
-	vertical-align: top;
-	display: inline-block;
-}
-
-..matchInfoTeamName, .matchInfoTeamLocation {
-	font-size: 20px;
-}

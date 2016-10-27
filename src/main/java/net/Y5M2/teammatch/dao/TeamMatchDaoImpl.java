@@ -165,6 +165,8 @@ public class TeamMatchDaoImpl extends DaoSupport implements TeamMatchDao {
 				query.append(" SELECT	 T.TEAM_NM ");
 				query.append(" 			 ,L.LCTN_NM ");
 				query.append(" 			 ,L.PRNT_LCTN_NM ");
+				query.append(" 			 ,L2.LCTN_NM MLCTN_NM ");
+				query.append(" 			 ,L2.PRNT_LCTN_NM MPRNT_LCTN_NM ");
 				query.append(" 			 ,T.TEAM_ID ");
 				query.append(" 			 ,M.MATCH_ID ");
 				query.append(" 			 ,M.PLAYFIELD ");
@@ -172,11 +174,12 @@ public class TeamMatchDaoImpl extends DaoSupport implements TeamMatchDao {
 				query.append(" FROM		 TEAM T,");
 				query.append(" 		 	TMATCH TM,");
 				query.append(" 		 	LCTN L,");
+				query.append(" 		 	LCTN L2,");
 				query.append(" 		 	MATCH M ");
 				query.append(" WHERE	T.TEAM_ID = TM.TEAM_ID ");
 				query.append(" AND		T.LCTN_ID = L.LCTN_ID ");
 				query.append(" AND		M.MATCH_ID = TM.MATCH_ID ");
-				query.append(" AND		M.LCTN_ID = L.LCTN_ID ");
+				query.append(" AND		M.LCTN_ID = L2.LCTN_ID ");
 				query.append(" AND		TM.ATEAM_ID = ? ");
 				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
@@ -209,8 +212,8 @@ public class TeamMatchDaoImpl extends DaoSupport implements TeamMatchDao {
 					matchVO.setSchedule(rs.getString("SCDL"));
 					
 					locationVO = matchVO.getLocationVO();
-					locationVO.setLocationName(rs.getString("LCTN_NM"));
-					locationVO.setParentLocationName(rs.getString("PRNT_LCTN_NM"));
+					locationVO.setLocationName(rs.getString("MLCTN_NM"));
+					locationVO.setParentLocationName(rs.getString("MPRNT_LCTN_NM"));
 					
 					matchs.add(teamMatchVO);
 					
