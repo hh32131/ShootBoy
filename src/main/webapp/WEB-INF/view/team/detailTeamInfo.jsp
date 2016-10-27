@@ -137,11 +137,10 @@
 		<p style="font-size: 20px; color: red;">팀에 가입하지 않았습니다!</p>
 		</c:if>
 	</div>
-	
 		<c:if test="${!empty joins and sessionScope._USER_INFO_.levelId eq 3 or sessionScope._USER_INFO_.levelId eq 1}">
 			<div id="joinContainer">
 			<hr/>
-				<p style="font-size: 20px; margin-bottom: 20px; color: #000;">팀원</p>
+				<p style="font-size: 20px; margin-bottom: 20px; color: #000;">팀원  승인/거절</p>
 				<c:forEach items="${joins}" var="join" >
 					<div id="join">
 						<input type="checkbox" class="joinApplyId" name="joinApplyId" value="${join.userVO.userId}" >
@@ -160,6 +159,25 @@
 				</c:forEach>
 			</div>
 		</c:if>
+		<br/>
+		<br/>
+		
+			<div id="joinContainer">
+			<hr/>
+				<p style="font-size: 20px; margin-bottom: 20px; color: #000;">팀원</p>
+				<c:forEach items="${users}" var="users" >
+					<div id="joinTwo" style="margin-bottom: 20px;">
+						이름 : ${users.userName} |
+						아이디 : ${users.email} |
+						전화번호 : ${users.phoneNumber} |
+						나이 : ${users.age} |
+						포지션 : ${users.position} |
+						지역 : ${users.locationVO.locationName}
+					</div>
+
+					<div class="clear"></div>
+				</c:forEach>
+			</div>
 
 	<div class="clear">
 	<div style="padding-top: 60px;">

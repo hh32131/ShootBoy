@@ -245,6 +245,13 @@
 	display: inline-block;
 }
 
+#joinTwo {
+	font-size:13px;
+	width: 700px;
+	float: left;
+	display: inline-block;	
+}
+
 #teamJoinBtn {
 	margin-top: 30px;
 	margin-right:20px;
