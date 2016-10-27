@@ -436,7 +436,7 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 				query.append(" 			, LCTN L ");
 				query.append(" 			, TEAM T ");
 				query.append(" WHERE	L.LCTN_ID = U.LCTN_ID ");
-				query.append(" AND		T.TEAM_ID = U.TEAM_ID ");
+				query.append(" AND		T.TEAM_ID(+) = U.TEAM_ID ");
 
 				if (searchUser.getSearchType() == 1) {
 					query.append(" AND	U.USR_EMAIL LIKE '%'|| ?|| '%' ");

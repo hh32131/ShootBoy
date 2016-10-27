@@ -46,7 +46,8 @@ public class ViewAdminMemberPageServlet extends HttpServlet {
 		int pageNo = Param.getIntParam(request, "pageNo", -1);
 		int searchType = Param.getIntParam(request, "searchType");
 		String searchKeyword = Param.getStringParam(request, "searchKeyword");
-
+		
+		
 		SearchUserVO searchUser = null;
 
 		if (pageNo == -1) {
@@ -66,7 +67,6 @@ public class ViewAdminMemberPageServlet extends HttpServlet {
 		session.setAttribute(Session.SEARCH_USER_INFO, searchUser);
 		UserListVO users = userBiz.getAllUsers(searchUser);
 		
-		/*List<UserVO> userVO = adminBiz.getAllUser();*/
 		
 		int count = adminBiz.getCountOfUsers();
 		
@@ -76,7 +76,6 @@ public class ViewAdminMemberPageServlet extends HttpServlet {
 		request.setAttribute("users", users.getUsers());
 		request.setAttribute("pager", users.getPager());
 		request.setAttribute("count", count);
-		/*request.setAttribute("userVO", userVO);*/
 		
 		PageExplorer pageExplorer = new ClassicPageExplorer(users.getPager());
 		String pager = pageExplorer.getPagingList("pageNo", "[@]", "<<", ">>", "pagingForm");

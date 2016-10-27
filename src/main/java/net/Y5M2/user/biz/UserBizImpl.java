@@ -6,6 +6,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import net.Y5M2.constants.PageSelector;
 import net.Y5M2.constants.Session;
 import net.Y5M2.support.pager.Pager;
 import net.Y5M2.support.pager.PagerFactory;
@@ -116,7 +117,7 @@ public class UserBizImpl implements UserBiz {
 	public UserListVO getAllUsers(SearchUserVO searchUser) {
 		
 		int totalCount = userDao.getCountOfUsers(searchUser);
-		Pager pager = PagerFactory.getPager(true);
+		Pager pager = PagerFactory.getPager(true, PageSelector.MEMBER_PAGE_SELECTOR, 5);
 		pager.setTotalArticleCount(totalCount);
 		pager.setPageNumber(searchUser.getPageNo());
 		
