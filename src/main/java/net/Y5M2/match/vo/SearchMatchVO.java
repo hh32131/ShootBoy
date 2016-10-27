@@ -48,9 +48,4 @@ public class SearchMatchVO {
 	public void setSearchKeyword(String searchKeyword) {
 		this.searchKeyword = searchKeyword;
 	}
-<<<<<<< HEAD
-
-=======
-	
->>>>>>> f6771235f953053a696507cd6c633a3f3dd5c9de
 }

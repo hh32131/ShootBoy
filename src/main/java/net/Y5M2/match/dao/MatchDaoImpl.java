@@ -157,13 +157,6 @@ public class MatchDaoImpl extends DaoSupport implements MatchDao {
 				query.append(" 			, LCTN L ");
 				query.append(" WHERE	M.TEAM_ID = T.TEAM_ID ");
 				query.append(" AND		M.LCTN_ID = L.LCTN_ID ");
-<<<<<<< HEAD
-				query.append(" AND		M.ATEAM_ID = '0' ");
-				query.append(" AND		T.TEAM_ID = ? ");
-
-				PreparedStatement pstmt = conn.prepareStatement(query.toString());
-				pstmt.setString(1, teamId);
-=======
 				query.append(" AND		M.ATEAM_ID = T2.TEAM_ID ");
 				query.append(" AND		M.ATEAM_ID != '0' ");
 				
@@ -175,7 +168,6 @@ public class MatchDaoImpl extends DaoSupport implements MatchDao {
 				pstmt.setInt(index++, searchMatch.getEndRowNumber());
 				pstmt.setInt(index++, searchMatch.getStartRowNumber());
 				
->>>>>>> f6771235f953053a696507cd6c633a3f3dd5c9de
 				return pstmt;
 			}
 
