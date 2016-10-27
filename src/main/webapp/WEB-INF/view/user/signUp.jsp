@@ -12,7 +12,7 @@
 <script type="text/javascript">
 	$().ready(function() {
 		
-		//isVisibleButton();
+		isVisibleButton();
 
 		$("#cancelBtn").click(function() {
 			location.href = "/ShootBoy/signUp";
@@ -160,11 +160,11 @@
 
  		$("#signBtn").click(function() {
 
-			if($("input:checkBox[id='checkboxOne']").is(":checked") == false) {
+			if($("#checkboxOne").is(":checked") == false) {
 				alert("회원가입약관에 동의하세요!");
 				return;
 			}
-			else if($("input:checkBox[id='checkboxTwo']").is(":checked") == false) {
+			else if($("#checkboxTwo").is(":checked") == false) {
 				alert("개인정보취급방침에 동의하세요!");
 				return;
 			}
@@ -212,7 +212,7 @@
 ⑤ 회원이 개정약관의 적용에 동의하지 않는 경우 회사는 개정 약관의 내용을 적용할 수 없으며, 이 경우 회원은 이용계약을 해지할 수 있습니다. 다만, 기존 약관을 적용할 수 없는 특별한 사정이 있는 경우에는 회사는 이용계약을 해지할 수 있습니다. 					
 </textarea>
 	<div id="checkbox">
-		<input type="checkbox">  위의 회원가입약관에 동의합니다.
+		<input type="checkbox" id="checkboxOne">  위의 회원가입약관에 동의합니다.
 	</div>
 
 	<div id="signUpClauseTwo">☞개인정보취급방침</div>
