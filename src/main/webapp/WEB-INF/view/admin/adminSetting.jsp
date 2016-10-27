@@ -22,7 +22,7 @@
 	
 	  confirm(memberSelect);
 		
-	  $(".list").click(function () {
+	  $(".memberList").click(function () {
 		  $.post("/ShootBoy/doCheckList", "", function(data) {
 			 $("#memberForm").html(data);
 		  });
