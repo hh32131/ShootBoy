@@ -131,6 +131,10 @@
 	display: inline-block;
 }
 
+#teamOne {
+	text-align: center;
+}
+
 .vsImg {
 	width: 80px;
 	height: 80px;

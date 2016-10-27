@@ -872,5 +872,97 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 				}
 		});
 	}
-	
+
+	@Override
+	public List<UserVO> getAllUsersOfTeam(String teamId) {
+		return selectList(new QueryAndResult() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+				StringBuffer query = new StringBuffer();
+				query.append(" SELECT	U.USR_ID ");
+				query.append(" 			, U.USR_EMAIL ");
+				query.append(" 			, U.USR_PWD ");
+				query.append(" 			, U.USR_NM ");
+				query.append(" 			, U.USR_PHN ");
+				query.append(" 			, U.USR_AGE ");
+				query.append(" 			, U.USR_POSIT ");
+				query.append(" 			, U.TEAM_ID ");
+				query.append(" 			, U.LV_ID ");
+				query.append(" 			, U.LCTN_ID ULCTN_ID ");
+				query.append(" 			, TO_CHAR(U.LTST_MODY_DT, 'YYYY-MM-DD HH24:MI:SS') ULTST_MODY_DT ");
+				query.append(" 			, TO_CHAR(U.CRT_DT, 'YYYY-MM-DD HH24:MI:SS') UCRT_DT ");
+				query.append(" 			, U.PWD_HINT ");
+				query.append(" 			, U.PWD_ANSER ");
+				query.append("          , T.TEAM_CNT ");
+				query.append("          , T.TEAM_NM ");
+				query.append("          , T.TEAM_PHOTO ");
+				query.append("          , T.CRT_DT ");
+				query.append("          , T.TEAM_POINT ");
+				query.append("          , T.LTST_MODY_DT ");
+				query.append("          , T.TEAM_INFO ");
+				query.append("          , T.LCTN_ID ");
+				query.append("          , L.PRNT_LCTN_ID ");
+				query.append("          , L.LCTN_NM ");
+				query.append("          , L.PRNT_LCTN_NM ");
+				query.append(" FROM		USR U ");
+				query.append(" 			, LCTN L ");
+				query.append(" 			, TEAM T ");
+				query.append(" WHERE	L.LCTN_ID = U.LCTN_ID ");
+				query.append(" AND		T.TEAM_ID(+) = U.TEAM_ID ");
+				query.append(" AND		U.TEAM_ID = ? ");
+				query.append(" AND		U.LV_ID = '2' ");
+				
+
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+				
+				pstmt.setString(1, teamId);
+				return pstmt;
+			}
+			
+			@Override
+			public Object makeObject(ResultSet rs) throws SQLException {
+				List<UserVO> users = new ArrayList<UserVO>();
+				UserVO userVO = null;
+				LocationVO locationVO = null;
+				TeamVO teamVO = null;
+				while (rs.next()) {
+					userVO = new UserVO();
+					userVO.setUserId(rs.getString("USR_ID"));
+					userVO.setEmail(rs.getString("USR_EMAIL"));
+					userVO.setPassword(rs.getString("USR_PWD"));
+					userVO.setUserName(rs.getString("USR_NM"));
+					userVO.setPhoneNumber(rs.getString("USR_PHN"));
+					userVO.setAge(rs.getString("USR_AGE"));
+					userVO.setPosition(rs.getString("USR_POSIT"));
+					userVO.setTeamId(rs.getString("TEAM_ID"));
+					userVO.setLevelId(rs.getString("LV_ID"));
+					userVO.setLocationId(rs.getString("ULCTN_ID"));
+					userVO.setLatestModifyDate(rs.getString("ULTST_MODY_DT"));
+					userVO.setCreateDate(rs.getString("UCRT_DT"));
+					userVO.setPasswordHint(rs.getString("PWD_HINT"));
+					userVO.setPasswordAnswer(rs.getString("PWD_ANSER"));
+
+					locationVO = userVO.getLocationVO();
+					locationVO.setLocationName(rs.getString("LCTN_NM"));
+					locationVO.setParentLocationId(rs.getString("PRNT_LCTN_ID"));
+					locationVO.setParentLocationName(rs.getString("PRNT_LCTN_NM"));
+
+					teamVO = userVO.getTeamVO();
+					teamVO.setTeamCount(rs.getInt("TEAM_CNT"));
+					teamVO.setTeamName(rs.getString("TEAM_NM"));
+					teamVO.setTeamPhoto(rs.getString("TEAM_PHOTO"));
+					teamVO.setCreateDate(rs.getString("CRT_DT"));
+					teamVO.setTeamPoint(rs.getInt("TEAM_POINT"));
+					teamVO.setLatestModifyDate(rs.getString("LTST_MODY_DT"));
+					teamVO.setTeamInfo(rs.getString("TEAM_INFO"));
+					teamVO.setLocationId(rs.getString("LCTN_ID"));
+
+					users.add(userVO);
+				}
+
+				return users;
+			}
+		});
+	}
 }

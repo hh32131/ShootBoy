@@ -144,5 +144,8 @@ public class UserBizImpl implements UserBiz {
 		return userDao.deleteUserTwo(userId)>0;
 	}
 	
-	
+	@Override
+	public List<UserVO> getAllUsersOfTeam(String teamId) {
+		return userDao.getAllUsersOfTeam(teamId);
+	}
 }
