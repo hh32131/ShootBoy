@@ -20,7 +20,7 @@
 			});
 		});
 	
-		$("#matchList").on("click",".applyBtn",function() {
+		$("#matchList").on("click",".matchAgreementBtn",function() {
 			var teamId = $(this).data("teamid");
 			var matchId = $(this).data("matchid");
 			var myTeamId = "${sessionScope._USER_INFO_.teamId}";
@@ -41,7 +41,7 @@
 				}
 		});
 
-		$("#matchList").on("click", ".cancelBtn", function() {
+		$("#matchList").on("click", ".matchCancelBtn", function() {
 			var teamId = $(this).data("teamid");
 			var matchId = $(this).data("matchid");
 			var myTeamId = "${sessionScope._USER_INFO_.teamId}";
@@ -97,7 +97,7 @@
 		</c:forEach>
 		
 		<form id="pagingForm" name="pagingForm">
-			${paging}
+			<div style="margin-left: 330px; margin-bottom: 20px;">${paging}</div>
 		</form>
 		
 	<div id="locationNavi" style="margin-bottom: 20px;">

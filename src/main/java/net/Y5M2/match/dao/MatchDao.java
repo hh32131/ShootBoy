@@ -10,7 +10,7 @@ public interface MatchDao {
 
 	public int applyMatch(MatchVO matchVO);
 
-	public List<MatchVO> getMatchApplyTeamsOf(String locationId, String beginDate, String endDate);
+	public List<MatchVO> getMatchApplyTeamsOf(String locationId);
 
 	public List<MatchVO> getAllMatchTeam(SearchMatchVO searchMatch);
 
@@ -33,4 +33,6 @@ public interface MatchDao {
 	public List<MatchVO> getAllTeamMatchs(SearchMatchVO searchTeamMatch);
 	
 	public int getCountOfTeamMatchs(SearchMatchVO searchTeamMatch);
+
+	public List<MatchVO> getAllMatchList();
 }

@@ -70,6 +70,15 @@
 	background-color: #ff80c0;
 }
 
+.matchAgreementBtn {
+	float:right;
+	margin-top: 30px;	
+	background-color: #3c91f9;
+}
+
+.matchAgreementBtn:HOVER {
+	background-color: #75b1fb;
+}
 ..matchInfoTeamName, .matchInfoTeamLocation, .matchField, .matchDate {
 	margin-bottom:20px;
 	font-size: 20px;
@@ -80,7 +89,7 @@
 	height: 200px;" 
 }
 
-.matchApplyTeamName, .matchApplyTeamCount, .matchApplyTeamLocation, .matchApplyTeamInfo, .matchBtn {
+.matchApplyTeamName, .matchApplyTeamCount, .matchApplyTeamLocation, .matchApplyTeamInfo, .matchBtn, .matchApplyField, .matchApplySchedule {
 	margin-bottom:10px;
 	font-size: 20px;
 }

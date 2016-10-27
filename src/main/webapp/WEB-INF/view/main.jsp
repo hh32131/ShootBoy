@@ -48,7 +48,7 @@
 	<div id="wrapperOne">
 		<div class="tableOne">
 			<div class="textOne">RECENT MATCH SCHEDULE</div>
-				<a href="#" style="margin-left: 100px">▶ 일정 더보기</a>
+				<a href="/ShootBoy/matchBoard" style="margin-left: 100px">▶ 일정 더보기</a>
 			<table class="grid">
 				<tr class="one">
 					<th colspan="4">최근 성사된 경기일정</th>
@@ -57,111 +57,37 @@
 					<td>팀이름</td>
 					<td>지역</td>
 					<td>날짜</td>
-					<td>시간</td>
 				</tr>
+				<c:forEach items="${matchList}" var="matchs">
 				<tr class="contents">
-					<td>팀이름팀이름</td>
-					<td>서울시 강남구</td>
-					<td>2016-10-10</td>
-					<td>13:10</td>
+					<td>${matchs.teamVO.teamName} vs ${matchs.awayTeamVO.teamName}</td>
+					<td>${matchs.playField} ( ${matchs.locationVO.parentLocationName} - ${matchs.locationVO.locationName} )</td>
+					<td>${matchs.schedule}</td>
 				</tr>
-				<tr class="contents">
-					<td>팀이름팀이름</td>
-					<td>서울시 강남구</td>
-					<td>2016-10-10</td>
-					<td>13:10</td>
-				</tr>
-				<tr class="contents">
-					<td>팀이름팀이름</td>
-					<td>서울시 강남구</td>
-					<td>2016-10-10</td>
-					<td>13:10</td>
-				</tr>
-				<tr class="contents">
-					<td>팀이름팀이름</td>
-					<td>서울시 강남구</td>
-					<td>2016-10-10</td>
-					<td>13:10</td>
-				</tr>
-				<tr class="contents">
-					<td>팀이름팀이름</td>
-					<td>서울시 강남구</td>
-					<td>2016-10-10</td>
-					<td>13:10</td>
-				</tr>
-				<tr class="contents">
-					<td>팀이름팀이름</td>
-					<td>서울시 강남구</td>
-					<td>2016-10-10</td>
-					<td>13:10</td>
-				</tr>
-				<tr class="contents">
-					<td>팀이름팀이름</td>
-					<td>서울시 강남구</td>
-					<td>2016-10-10</td>
-					<td>13:10</td>
-				</tr>
-				<tr class="contents">
-					<td>팀이름팀이름</td>
-					<td>서울시 강남구</td>
-					<td>2016-10-10</td>
-					<td>13:10</td>
-				</tr>
-				<tr class="contents">
-					<td>팀이름팀이름</td>
-					<td>서울시 강남구</td>
-					<td>2016-10-10</td>
-					<td>13:10</td>
-				</tr>
-				<tr class="contents">
-					<td>팀이름팀이름</td>
-					<td>서울시 강남구</td>
-					<td>2016-10-10</td>
-					<td>13:10</td>
-				</tr>
-				<tr class="contents">
-					<td>팀이름팀이름</td>
-					<td>서울시 강남구</td>
-					<td>2016-10-10</td>
-					<td>13:10</td>
-				</tr>
-				<tr class="contents">
-					<td>팀이름팀이름</td>
-					<td>서울시 강남구</td>
-					<td>2016-10-10</td>
-					<td>13:10</td>
-				</tr>
-				<tr class="contents">
-					<td>팀이름팀이름</td>
-					<td>서울시 강남구</td>
-					<td>2016-10-10</td>
-					<td>13:10</td>
-				</tr>
-				<tr class="contents">
-					<td>팀이름팀이름</td>
-					<td>서울시 강남구</td>
-					<td>2016-10-10</td>
-					<td>13:10</td>
-				</tr>
-				<tr class="contents">
-					<td>팀이름팀이름</td>
-					<td>서울시 강남구</td>
-					<td>2016-10-10</td>
-					<td>13:10</td>
-				</tr>
+				</c:forEach>
+				
 			</table>
 		</div>		
 		
 	
 	<div class="tableTwo">
-	<div class="textTwo">RECENT MATCH RESULT</div>
+	<div class="textTwo">ENROLLMENT  MATCH</div>
 		<table class="grid">
 			<tr class="two">
-				<th colspan="4">최근 경기 결과</th>
+				<th colspan="4">등록 매치</th>
 			</tr>
-			<tr class="containerTwo">
-				<td colspan="4">adfasdfasdfasdfsfda<br/>adfasdfasdfasdf</td>
+			<tr class="containerOne">
+					<td>팀이름</td>
+					<td>지역</td>
+					<td>날짜</td>
 			</tr>
+			<c:forEach items="${matchTeams}" var="matchTeam" >
+			<tr class="contents">
+				<td>${matchTeam.teamVO.teamName}</td>
+				<td>${matchTeam.playField} ( ${matchTeam.locationVO.parentLocationName} - ${matchTeam.locationVO.locationName} )</td>
+				<td>${matchTeam.schedule}</td>
+			</tr>
+			</c:forEach>
 		</table>
 	</div>
 	
