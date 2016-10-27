@@ -93,7 +93,6 @@
 			<a href="javascript:void(0);" id="matchEnroll" style="color: #fff;" >▷매치등록◁</a>
 	</div>
 	</c:if>
-	
 		<ul>
 		  <li><a class="active location" href="javascript:void(0);" data-value="0">전체</a></li>
 		  <li><a class="location" href="javascript:void(0);" data-value="4">서울</a></li>
@@ -104,6 +103,10 @@
 		  <li><a class="location" href="javascript:void(0);" data-value="9">제주</a></li>
 		  <li><a class="location" href="javascript:void(0);" data-value="10">경상</a></li>
 		</ul>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
 	</div>
 	<div id="matchList" style="margin-top: 20px;" ></div>
 	

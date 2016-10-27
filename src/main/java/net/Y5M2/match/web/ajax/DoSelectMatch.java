@@ -37,22 +37,18 @@ public class DoSelectMatch extends HttpServlet {
 		List<MatchVO> matchTeams = matchBiz.getMatchApplyTeamsOf(locationId,beginDate,endDate);
 		
 		for (MatchVO matchVO : matchTeams) {
-			list.append(" <table> ");
-			list.append(" <tr> ");
-			list.append(String.format(" <td rowspan='3'><img style='width:200px; border-radius:700px;' src='/ShootBoy/showImage?teamId=%s'></td> ", matchVO.getTeamId()));
-			list.append(String.format(" <td>%s</td> ",matchVO.getTeamVO().getTeamName()));
-			list.append(String.format(" <td>%s - %s</td> ",matchVO.getTeamVO().getLocationVO().getParentLocationName(), matchVO.getTeamVO().getLocationVO().getLocationName()));
-			list.append(String.format(" <td rowspan='3'><a href='javascript:void(0);' class='applyBtn' data-teamid='%s' data-matchid='%s' >신청</a></td> ",matchVO.getTeamId(),matchVO.getMatchId()));
+			list.append(" <div> ");
+			list.append(String.format(" <div style='display:inline-block;'><img class='matchApplyImg' src='/ShootBoy/showImage?teamId='%s' ></div> ",matchVO.getTeamId()));
+			list.append(String.format(" <div style='display:inline-block;'>"));
+			list.append(String.format(" <div class='matchApplyTeamName'>팀명 : %s</div>", matchVO.getTeamVO().getTeamName()));
+			list.append(String.format(" <div class='matchApplyTeamLocation'>지역 : %s -%s </div>",matchVO.getTeamVO().getLocationVO().getParentLocationName(), matchVO.getTeamVO().getLocationVO().getLocationName()));
+			list.append(String.format(" <div class='matchApplyTeamName'>팀명 : %s</div>", matchVO.getTeamVO().getTeamName()));
+			list.append(String.format(" <div class='matchApplyField'>%s(%s-%s)</div> ",matchVO.getPlayField(),matchVO.getLocationVO().getParentLocationName(),matchVO.getLocationVO().getLocationName()));
+			list.append(String.format(" <div class='matchApplySchedule'>%s</div> ", matchVO.getSchedule()));
+			list.append(String.format(" <input type='button' class='applyBtn' name='applyBtn' data-teamid='%s' data-matchid='%s' value='신청'> ",matchVO.getTeamId(),matchVO.getMatchId()));
 			list.append(String.format(" <input type='button' class='cancelBtn' name='cancelBtn' data-teamid='%s' data-matchid='%s' value='취소' ", matchVO.getTeamId(), matchVO.getMatchId()));
-			list.append(" </tr> ");
-			list.append(" <tr> ");
-			list.append(String.format(" <td>%s(%s-%s)</td> ",matchVO.getPlayField(),matchVO.getLocationVO().getParentLocationName(),matchVO.getLocationVO().getLocationName()));
-			list.append(String.format(" <td>%s</td> ", matchVO.getSchedule()));
-			list.append(" </tr> ");
-			list.append(" <tr> ");
-			list.append(String.format(" <td colspan='2'>%s</td> ", matchVO.getTeamVO().getTeamInfo()));
-			list.append(" </tr> ");
-			list.append(" </table> ");
+			list.append(" </div> ");
+			list.append(" </div> ");
 		}
 		
 		out.write(list.toString());
