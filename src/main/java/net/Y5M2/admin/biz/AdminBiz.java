@@ -5,6 +5,9 @@ import java.util.List;
 import javax.servlet.ServletRequest;
 
 import net.Y5M2.article.vo.BoardVO;
+import net.Y5M2.match.vo.MatchListVO;
+import net.Y5M2.match.vo.MatchVO;
+import net.Y5M2.match.vo.SearchMatchVO;
 import net.Y5M2.team.vo.SearchTeamVO;
 import net.Y5M2.team.vo.TeamBoardListVO;
 import net.Y5M2.team.vo.TeamBoardVO;
@@ -36,5 +39,12 @@ public interface AdminBiz {
 	public BoardVO getBoardOne(String boardId);
 	
 	public TeamBoardListVO getAllTeamBoards(SearchTeamVO searchTeam, TeamBoardVO teamBoardVO);
+	
+	public List<MatchVO> getAllMatchTeams();
+	
+	public boolean deleteAdminTeamMatchs( String matchId);
+	
+	public MatchListVO getAllTeamMatchs(SearchMatchVO searchTeamMatch);
 
+	public int getCountOfTeamMatchs();
 }

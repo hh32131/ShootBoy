@@ -10,7 +10,7 @@
 		var locationId = $(".location").data("");
 		
 		$("#matchEnroll").click(function(){
-			window.open("/ShootBoy/matchApply","","width=500, height=500");
+			window.open("/ShootBoy/matchApply","","width=600, height=500");
 		});
 		
 		$(".location").click(function(){
@@ -20,7 +20,7 @@
 			});
 		});
 	
-		$("#matchList").on("click",".applyBtn",function() {
+		$("#matchList").on("click",".matchAgreementBtn",function() {
 			var teamId = $(this).data("teamid");
 			var matchId = $(this).data("matchid");
 			var myTeamId = "${sessionScope._USER_INFO_.teamId}";
@@ -41,7 +41,7 @@
 				}
 		});
 
-		$("#matchList").on("click", ".cancelBtn", function() {
+		$("#matchList").on("click", ".matchCancelBtn", function() {
 			var teamId = $(this).data("teamid");
 			var matchId = $(this).data("matchid");
 			var myTeamId = "${sessionScope._USER_INFO_.teamId}";
@@ -76,11 +76,37 @@
 	<div class="myInfoText" style="width:700px;"><h1>매치 보드</h1>
 		<hr class="myPageline" style="width: 680px; margin-right: 100px;">
 	<div id="locationNavi">
-	
+		<c:forEach items="${matchs}" var="match" >
+			<div id="teamMatchWrapper">
+				<div id="teamOne">
+					<img class="teamOneImg" src="/ShootBoy/showImage?teamId=${match.teamVO.teamId}"/>
+					<div class="teamOneName">${match.teamVO.teamName}</div>
+				</div>
+				<div id="matchFieldAndLocation">
+					<img src="/ShootBoy/img/VS.png" class="vsImg">
+					<div class="matchPlayField">${match.playField}</div>
+					<div class="matchLocation">${match.locationVO.parentLocationName} 
+												- ${match.locationVO.locationName}</div>
+					<div class="matchShedule">${match.schedule}</div>
+				</div>
+				<div id="teamTwo">
+					<img class="teamTwoImg" src="/ShootBoy/showImage?teamId=${match.awayTeamVO.teamId}">
+					<div class="teamTwoName">${match.awayTeamVO.teamName}</div>
+				</div>
+			</div>			
+		</c:forEach>
+		
+		<form id="pagingForm" name="pagingForm">
+			<div style="margin-left: 330px; margin-bottom: 20px;">${paging}</div>
+		</form>
+		
+	<div id="locationNavi" style="margin-bottom: 20px;">
 	<c:if test="${!empty sessionScope._USER_INFO_.userId and !empty sessionScope._USER_INFO_.teamId }">
-	<a href="javascript:void(0);" id="matchEnroll">매치등록</a>
+	<div style="font-size: 30px; width: 180px; background-color: #987d2e;
+		margin-left: 250px; margin-top: 20px; margin-bottom: 20px; padding: 5px;">
+			<a href="javascript:void(0);" id="matchEnroll" style="color: #fff;" >▷매치등록◁</a>
+	</div>
 	</c:if>
-	
 		<ul>
 		  <li><a class="active location" href="javascript:void(0);" data-value="0">전체</a></li>
 		  <li><a class="location" href="javascript:void(0);" data-value="4">서울</a></li>
@@ -91,10 +117,15 @@
 		  <li><a class="location" href="javascript:void(0);" data-value="9">제주</a></li>
 		  <li><a class="location" href="javascript:void(0);" data-value="10">경상</a></li>
 		</ul>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
 	</div>
-	<div id="matchList" ></div>
+	<div id="matchList" style="margin-top: 20px;" ></div>
 	
 	</div>
+</div>
 	
 <div class="clear">
 	<div style="padding-top: 60px;">

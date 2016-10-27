@@ -13,6 +13,11 @@ import net.Y5M2.article.dao.BoardDaoImpl;
 import net.Y5M2.article.vo.BoardVO;
 import net.Y5M2.constants.PageSelector;
 import net.Y5M2.constants.Session;
+import net.Y5M2.match.dao.MatchDao;
+import net.Y5M2.match.dao.MatchDaoImpl;
+import net.Y5M2.match.vo.MatchListVO;
+import net.Y5M2.match.vo.MatchVO;
+import net.Y5M2.match.vo.SearchMatchVO;
 import net.Y5M2.support.pager.Pager;
 import net.Y5M2.support.pager.PagerFactory;
 import net.Y5M2.team.dao.TeamDao;
@@ -31,12 +36,14 @@ public class AdminBizImpl implements AdminBiz {
 	private TeamDao teamDao;
 	private BoardDao boardDao;
 	private AdminDao adminDao;
+	private MatchDao matchDao;
 
 	public AdminBizImpl() {
 		userDao = new UserDaoImpl();
 		teamDao = new TeamDaoImpl();
 		boardDao = new BoardDaoImpl();
 		adminDao = new AdminDaoImpl();
+		matchDao = new MatchDaoImpl();
 	}
 
 	@Override
@@ -148,8 +155,44 @@ public class AdminBizImpl implements AdminBiz {
 	}
 
 	@Override
+	public MatchListVO getAllTeamMatchs(SearchMatchVO searchTeamMatch) {
+		int totalCount = matchDao.getCountOfTeamMatchs(searchTeamMatch);
+		Pager pager = PagerFactory.getPager(true, 3, 5);
+		pager.setTotalArticleCount(totalCount);
+		pager.setPageNumber(searchTeamMatch.getPageNo());
+		
+		searchTeamMatch.setStartRowNumber(pager.getStartArticleNumber());
+		searchTeamMatch.setEndRowNumber(pager.getEndArticleNumber());
+		
+		List<MatchVO> matchs = matchDao.getAllTeamMatchs(searchTeamMatch);
+		
+		MatchListVO matchList = new MatchListVO();
+		matchList.setPager(pager);
+		matchList.setMatchs(matchs);
+		
+		return matchList;
+	}
+
+	@Override
 	public int getCountOfTeamBoards() {
 		return adminDao.getCountOfTeamBoards();
 	}
+
+	@Override
+	public List<MatchVO> getAllMatchTeams() {
+		return matchDao.getAllMatchTeams();
+	}
+
+	@Override
+	public boolean deleteAdminTeamMatchs(String matchId) {
+		return matchDao.deleteAdminTeamMatch(matchId) > 0;
+	}
+
+
+	@Override
+	public int getCountOfTeamMatchs() {
+		return adminDao.getCountOfTeamMatchs();
+	}
+
 
 }

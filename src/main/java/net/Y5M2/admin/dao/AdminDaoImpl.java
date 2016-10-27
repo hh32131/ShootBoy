@@ -135,4 +135,28 @@ public class AdminDaoImpl extends DaoSupport implements AdminDao{
 			}
 		});
 	}
+
+	@Override
+	public int getCountOfTeamMatchs() {
+		return (int) selectOne(new QueryAndResult() {
+			
+			@Override
+			public PreparedStatement query(Connection conn) throws SQLException {
+
+				StringBuffer query = new StringBuffer();
+				query.append(" SELECT	COUNT(1) CNT ");
+				query.append(" FROM		MATCH ");
+
+				PreparedStatement pstmt = conn.prepareStatement(query.toString());
+
+				return pstmt;
+			}
+			
+			@Override
+			public Object makeObject(ResultSet rs) throws SQLException {
+				rs.next();
+				return rs.getInt("CNT");
+			}
+		});
+	}
 }

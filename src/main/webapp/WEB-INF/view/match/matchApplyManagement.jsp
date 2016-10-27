@@ -30,20 +30,16 @@
 	<div class="myInfoText" style="width:700px;"><h1>매치 신청 관리</h1>
 		<hr class="myPageline" style="width: 680px; margin-right: 100px;">
 		<c:forEach items="${matchs}" var="match">
-		<table>
-			<tr>
-				<td rowspan="3"><img style="width: 200px; height: 200px;" src="/ShootBoy/showImage?teamId=${match.awayTeamId}" ></td>
-				<td>${match.teamVO.teamName}</td>
-				<td>${match.teamVO.teamCount}</td>
-				<td rowspan="3"><input type="button" class="matchBtn" name="matchBtn" data-matchid="${match.matchId}" data-awayteamid="${match.awayTeamId}" value="승인" ></td>
-			</tr>
-			<tr>
-				<td colspan="2">${match.teamVO.locationVO.locationName}-${match.teamVO.locationVO.parentLocationName}</td>
-			</tr>
-			<tr>
-				<td colspan="2">${match.teamVO.teamInfo}</td>
-			</tr>
-		</table>
+		<div id="matchApplyManagement">
+				<div class="matchApplyImg"><img class="matchApplyImg" src="/ShootBoy/showImage?teamId=${match.awayTeamId}" ></div>
+				<div class="matchApplyContent">
+					<div class="matchApplyTeamName">팀명 : ${match.teamVO.teamName}</div>
+					<div class="matchApplyTeamCount">인원 : ${match.teamVO.teamCount}</div>
+					<div class="matchApplyTeamLocation">지역 : ${match.teamVO.locationVO.locationName}-${match.teamVO.locationVO.parentLocationName}</div>
+					<div class="matchApplyTeamInfo">팀 소개 : ${match.teamVO.teamInfo}</div>
+					<input type="button" class="matchBtn" name="matchBtn" data-matchid="${match.matchId}" data-awayteamid="${match.awayTeamId}" value="승인" >
+				</div>
+		</div>
 		</c:forEach>
 	</div>
 

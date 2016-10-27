@@ -23,7 +23,8 @@ $(document).ready(function() {
 });
 	console.log("${teamBoards.teamId}");
 </script>
-<body>
+
+	<div id="listDetailWrapper">
 	<div id="myPageLeftMenu">
 		<div class="mplmTitle">My Page</div>
 		<div id="myPageLeftMenuTwo">
@@ -35,23 +36,26 @@ $(document).ready(function() {
 			
 		</div>
 	</div>
-	<h1>제목: ${teamBoards.teamBoardSubject}</h1>
-	<h2>팀 이름: ${teamBoards.teamVO.teamName}</h2>
-	<h2>작성자: ${teamBoards.userVO.userName}</h2>
-	<h2>조회수: ${teamBoards.teamBoardRecommendCount} <a href="/ShootBoy/doDownloadFile?teamBoards=${teamBoards.teamBoardId}" style="float: right;">${teamBoards.fileName}</a></h2>
-	<hr/>
-	<h3>${teamBoards.teamBoardContent}</h3>
 	
-	<div>	
-		<input type="button" id="deleteBtn" name="deleteBtn" value="삭제" />		
-		<input type="button" id="modyBtn" name="modyBtn" value="수정" />
-		
+	<div id="boardDetail">
+	<div class="boardTitle">${teamBoards.teamBoardSubject} | </div>
+	<div class="boardListText">
+		<a href="/ShootBoy/teamBoard">팀 게시판</a>
+			<div class="listUserName" style="display: inline-block; font-size: 15px;">( ${teamBoards.userVO.userName} )</div>
 	</div>
-
 	
-	
-	<input type="hidden" id="teamBoards" name="teamBoards" value="${teamBoards.teamBoardId}" />
-</body>
+	<div class="boardCreateDate">${teamBoards.createDate}</div>
+	<hr/>
+	<a href="/ShootBoy/doDownloadFile?teamBoards=${teamBoards.teamBoardId}" style="float: right;">${teamBoards.fileName}</a>
+	${teamBoards.teamBoardContent}
+	<br/><br/>
+	<hr/>
+	조회수 ${teamBoards.teamBoardRecommendCount}
+		<a href="javascript:void(0);" id="deleteBtn" style="color:#000;">삭제</a> |
+		<a href="/ShootBoy/teamBoardModify?teamBoardId=${teamBoards.teamBoardId}" style="color:#000;">수정 </a> 
+		<input type="hidden" id="teamBoards" name="teamBoards" value="${teamBoards.teamBoardId}" />
+	</div>
+</div>
 	<div class="clear">
 	<div style="padding-top: 60px;">
 		<jsp:include page="/WEB-INF/view/commons/footer.jsp"></jsp:include>

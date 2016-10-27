@@ -8,6 +8,8 @@ import javax.servlet.http.HttpSession;
 
 import net.Y5M2.constants.PageSelector;
 import net.Y5M2.constants.Session;
+import net.Y5M2.match.dao.MatchDao;
+import net.Y5M2.match.dao.MatchDaoImpl;
 import net.Y5M2.support.pager.Pager;
 import net.Y5M2.support.pager.PagerFactory;
 import net.Y5M2.team.dao.TeamDao;
@@ -22,10 +24,12 @@ public class UserBizImpl implements UserBiz {
 
 	private UserDao userDao;
 	private TeamDao teamDao;
+	private MatchDao matchDao;
 	
 	public UserBizImpl() {
 		userDao = new UserDaoImpl();
 		teamDao = new TeamDaoImpl();
+		matchDao = new MatchDaoImpl();
 	}
 	
 	@Override
@@ -110,6 +114,7 @@ public class UserBizImpl implements UserBiz {
 	public boolean deleteUser(UserVO userVO) {
 		
 		teamDao.deleteTeam(userVO.getTeamId());
+		matchDao.deleteTeamMatchs(userVO.getTeamId());
 		return userDao.deleteUser(userVO) > 0;
 	}
 

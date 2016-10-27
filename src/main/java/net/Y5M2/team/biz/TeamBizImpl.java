@@ -138,7 +138,7 @@ public class TeamBizImpl implements TeamBiz {
 		}
 	}
 
-	public boolean deleteTeam(String teamId,UserVO userVO, ServletRequest request, String matchId) {
+	public boolean deleteTeam(String teamId,UserVO userVO, ServletRequest request) {
 
 		boolean isSuccess = userDao.UserTemaIdDelete(teamId) > 0;
 		if (isSuccess) {
@@ -146,7 +146,7 @@ public class TeamBizImpl implements TeamBiz {
 			session.removeAttribute(Session.USER_INFO);
 			UserVO userInfo = userDao.getUserBy(userVO);
 			session.setAttribute(Session.USER_INFO, userInfo);
-			matchDao.deleteTeamMatch(teamId, matchId);
+			matchDao.deleteTeamMatchs(teamId);
 			return teamDao.deleteTeam(teamId) > 0;
 		}
 

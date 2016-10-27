@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +22,12 @@
 				<a href="/ShootBoy/adminInfo" style="color:#a1a1a1; text-decoration: none;"> 관리자 정보 </a>  |  
 				<a href="/ShootBoy/adminSetting" style="color:#a1a1a1; text-decoration: none;">환경 설정</a>  | 
 				<a href="/ShootBoy/main" style="color:#a1a1a1; text-decoration: none;">ShootBoy</a>  | 
+				<c:if test="${empty sessionScope._USER_INFO_.userId}">
 				<a href="/ShootBoy/signIn" style="color:red; text-decoration: none;">로그인</a>
+				</c:if>
+				<c:if test="${!empty sessionScope._USER_INFO_.userId}">
+				<a href="/ShootBoy/doAdminLogOut" style="color:red; text-decoration: none;">로그아웃</a>
+				</c:if>
 				
 			</div>
 		</div>
