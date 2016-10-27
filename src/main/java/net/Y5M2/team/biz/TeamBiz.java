@@ -19,15 +19,9 @@ public interface TeamBiz {
 	public TeamListVO getAllTeam(SearchTeamVO searchTeam);
 
 	public TeamBoardVO getTeamBoardAt(String teamBoardId);
-<<<<<<< HEAD
 	
 	public TeamBoardListVO getAllTeamBoards(SearchTeamVO searchTeam, TeamBoardVO teamBoardVO);
-	
-=======
 
-	public TeamBoardListVO getAllTeamBoards(SearchTeamVO searchTeam, TeamBoardVO teamBoardVO);
-
->>>>>>> 88e6890470dbf4371547c60dcbb7015408a3768d
 	public TeamVO getTeamAt(String teamId);
 
 	public String getFileNmaeOfTeamBy(String teamId);
@@ -35,13 +29,8 @@ public interface TeamBiz {
 	public boolean updateTeamInfo(TeamVO teamVO, ServletRequest request, UserVO userInfo);
 
 	public String getFileNameOfTeam(String teamId);
-<<<<<<< HEAD
 	
 	public boolean deleteTeam(String teamId, UserVO userVO, ServletRequest request, String matchId);
-=======
-
-	public boolean deleteTeam(String teamId, UserVO userVO, ServletRequest request);
->>>>>>> 88e6890470dbf4371547c60dcbb7015408a3768d
 
 	public boolean dropTeam(String teamId, UserVO userVO, HttpServletRequest request);
 

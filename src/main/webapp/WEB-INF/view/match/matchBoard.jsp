@@ -40,10 +40,7 @@
 					});
 				}
 		});
-		
-<<<<<<< HEAD
-		
-=======
+
 		$("#matchList").on("click", ".cancelBtn", function() {
 			var teamId = $(this).data("teamid");
 			var matchId = $(this).data("matchid");
@@ -65,7 +62,6 @@
 				alert("해당 팀이 아닙니다.");
 			}
 		});
->>>>>>> 49af612399d1c309731bee11c53ef9e01a720fb8
 	});
 </script>
 <body>

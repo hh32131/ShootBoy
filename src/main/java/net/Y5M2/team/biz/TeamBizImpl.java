@@ -26,12 +26,8 @@ public class TeamBizImpl implements TeamBiz {
 
 	private TeamDao teamDao;
 	private UserDao userDao;
-<<<<<<< HEAD
 	private MatchDao matchDao;
 	
-=======
-
->>>>>>> 88e6890470dbf4371547c60dcbb7015408a3768d
 	public TeamBizImpl() {
 		teamDao = new TeamDaoImpl();
 		userDao = new UserDaoImpl();
@@ -141,12 +137,7 @@ public class TeamBizImpl implements TeamBiz {
 		}
 	}
 
-	@Override
-<<<<<<< HEAD
 	public boolean deleteTeam(String teamId,UserVO userVO, ServletRequest request, String matchId) {
-=======
-	public boolean deleteTeam(String teamId, UserVO userVO, ServletRequest request) {
->>>>>>> 88e6890470dbf4371547c60dcbb7015408a3768d
 
 		boolean isSuccess = userDao.UserTemaIdDelete(teamId) > 0;
 		if (isSuccess) {

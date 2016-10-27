@@ -80,16 +80,15 @@ public class DoWriteAdminArticleServlet extends HttpServlet {
 		
 		boolean isSuccess = boardBiz.writeBoard(board);
 		if (isSuccess) {
-<<<<<<< HEAD
 			response.sendRedirect("/ShootBoy/admin/adminArticle");
-=======
+
 			out.write(" <script type='text/javascript'> ");
 			out.write(" window.opener.location.reload(); ");
 			out.write(" window.close(); ");
 			out.write(" </script> ");
 			out.flush();
 			out.close();
->>>>>>> 88e6890470dbf4371547c60dcbb7015408a3768d
+
 		} else {
 			response.sendRedirect("/ShootBoy/list?errorCode=2");
 		}
