@@ -8,11 +8,18 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import net.Y5M2.article.vo.SearchBoardVO;
+import net.Y5M2.constants.Session;
 import net.Y5M2.match.biz.MatchBiz;
 import net.Y5M2.match.biz.MatchBizImpl;
+import net.Y5M2.match.vo.MatchListVO;
 import net.Y5M2.match.vo.MatchVO;
+import net.Y5M2.match.vo.SearchMatchVO;
 import net.Y5M2.support.Param;
+import net.Y5M2.support.pager.ClassicPageExplorer;
+import net.Y5M2.support.pager.PageExplorer;
 
 
 
@@ -33,14 +40,42 @@ public class ViewMatchBoardServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String teamId = Param.getStringParam(request, "teamId");
+		HttpSession session = request.getSession();
+		int pageNo = Param.getIntParam(request, "pageNo", -1);
+		int searchType = Param.getIntParam(request, "searchType");
+		String searchKeyword = Param.getStringParam(request, "searchKeyword");
+		
+		
+		SearchMatchVO searchMatch = null;
+		
+		if (pageNo == -1) {
+			searchMatch = (SearchMatchVO) session.getAttribute(Session.SEARCH_MATCH_INFO);
+			if (searchMatch == null) {
+				searchMatch = new SearchMatchVO();
+				searchMatch.setPageNo(0);
+			}
+		} else {
+			searchMatch = new SearchMatchVO();
+			searchMatch.setPageNo(pageNo);
+			searchMatch.setSearchType(searchType);
+			searchMatch.setSearchKeyword(searchKeyword);
+		}
+		
+		session.setAttribute(Session.SEARCH_MATCH_INFO, searchMatch);
+		MatchListVO matchs = matchBiz.getAllMatchTeam(searchMatch);
 		
 		String viewPath = "/WEB-INF/view/match/matchBoard.jsp";
-		
-		List<MatchVO> matchVO = matchBiz.getAllMatchTeam(teamId);
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
+		request.setAttribute("matchs", matchs.getMatchs());
+		request.setAttribute("pager", matchs.getPager());
 		
-		request.setAttribute("matchVO", matchVO);
+		
+		PageExplorer pageExplorer = new ClassicPageExplorer(matchs.getPager());
+		String pager = pageExplorer.getPagingList("pageNo", "[@]", "<<", ">>", "pagingForm");
+
+		request.setAttribute("paging", pager);
+		request.setAttribute("searchMatch", searchMatch);
+
 		rd.forward(request, response);
 		
 	}

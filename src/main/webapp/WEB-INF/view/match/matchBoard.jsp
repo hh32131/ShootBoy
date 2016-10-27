@@ -77,6 +77,14 @@
 		<hr class="myPageline" style="width: 680px; margin-right: 100px;">
 	<div id="locationNavi">
 	
+		<c:forEach items="${matchs}" var="match" >
+			<div>${match.teamVO.teamName}</div>
+			<div>${match.awayTeamVO.teamName}</div>
+			
+		</c:forEach>
+		<form id="pagingForm" name="pagingForm">
+			${paging}
+		</form>
 	<c:if test="${!empty sessionScope._USER_INFO_.userId and !empty sessionScope._USER_INFO_.teamId }">
 	<a href="javascript:void(0);" id="matchEnroll">매치등록</a>
 	</c:if>

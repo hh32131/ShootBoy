@@ -2,7 +2,9 @@ package net.Y5M2.match.biz;
 
 import java.util.List;
 
+import net.Y5M2.match.vo.MatchListVO;
 import net.Y5M2.match.vo.MatchVO;
+import net.Y5M2.match.vo.SearchMatchVO;
 
 public interface MatchBiz {
 
@@ -10,7 +12,7 @@ public interface MatchBiz {
 
 	public List<MatchVO> getMatchApplyTeamsOf(String locationId, String beginDate, String endDate);
 
-	public List<MatchVO> getAllMatchTeam(String teamId);
+	public MatchListVO getAllMatchTeam(SearchMatchVO searchMatch);
 
 	public boolean doMatch(String matchId, String awayTeamId);
 
