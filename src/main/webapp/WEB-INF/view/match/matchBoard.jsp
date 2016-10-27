@@ -76,12 +76,26 @@
 	<div class="myInfoText" style="width:700px;"><h1>매치 보드</h1>
 		<hr class="myPageline" style="width: 680px; margin-right: 100px;">
 	<div id="locationNavi">
-	
 		<c:forEach items="${matchs}" var="match" >
-			<div>${match.teamVO.teamName}</div>
-			<div>${match.awayTeamVO.teamName}</div>
-			
+			<div id="teamMatchWrapper">
+				<div id="teamOne">
+					<img class="teamOneImg" src="/ShootBoy/showImage?teamId=${match.teamVO.teamId}"/>
+					<div class="teamOneName">${match.teamVO.teamName}</div>
+				</div>
+				<div id="matchFieldAndLocation">
+					<img src="/ShootBoy/img/VS.png" class="vsImg">
+					<div class="matchPlayField">${match.playField}</div>
+					<div class="matchLocation">${match.locationVO.parentLocationName} 
+												- ${match.locationVO.locationName}</div>
+					<div class="matchShedule">${match.schedule}</div>
+				</div>
+				<div id="teamTwo">
+					<img class="teamTwoImg" src="/ShootBoy/showImage?teamId=${match.awayTeamVO.teamId}">
+					<div class="teamTwoName">${match.awayTeamVO.teamName}</div>
+				</div>
+			</div>			
 		</c:forEach>
+		
 		<form id="pagingForm" name="pagingForm">
 			${paging}
 		</form>
@@ -108,6 +122,7 @@
 	<div id="matchList" style="margin-top: 20px;" ></div>
 	
 	</div>
+</div>
 	
 <div class="clear">
 	<div style="padding-top: 60px;">

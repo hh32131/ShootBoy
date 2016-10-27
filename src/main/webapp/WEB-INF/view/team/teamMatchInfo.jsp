@@ -12,7 +12,7 @@
 
 	$().ready(function() {
 		
-		$(".cancelBtn").click(function() {
+		$(".matchCancelBtn").click(function() {
 			if(confirm("취소하시겠습니까?")) {
 				var matchId = $(this).data("matchid");
 				location.href="/ShootBoy/cancelMatch?matchId="+matchId;
@@ -53,7 +53,7 @@
 							경기 일시 : ${match.matchVO.schedule}
 						</div>
 						<div>
-							<input type="button" class="cancelBtn" data-matchid="${match.matchVO.matchId}" name="cancelBtn" value="취소">
+							<input type="button" class="matchCancelBtn" data-matchid="${match.matchVO.matchId}" name="matchCancelBtn" value="신청 취소">
 						</div>
 					</div>
 				</div>
@@ -64,15 +64,20 @@
 		<c:forEach items="${completeMatch}" var="completeMatch">
 			<div id="teamMatchWrapper">
 				<div id="teamOne">
-			<img class="teamOneImg" src="/ShootBoy/showImage?teamId=${completeMatch.teamVO.teamId}"/>
-			${completeMatch.teamVO.teamName}
-			</div>
-			${completeMatch.playField}
-			${completeMatch.locationVO.parentLocationName} - ${completeMatch.locationVO.locationName}
-			<div id="teamTwo">
-			<img class="teamTwoImg" src="/ShootBoy/showImage?teamId=${completeMatch.awayTeamVO.teamId}">
-			${completeMatch.awayTeamVO.teamName}
-			</div>
+					<img class="teamOneImg" src="/ShootBoy/showImage?teamId=${completeMatch.teamVO.teamId}"/>
+					<div class="teamOneName">${completeMatch.teamVO.teamName}</div>
+				</div>
+				<div id="matchFieldAndLocation">
+					<img src="/ShootBoy/img/VS.png" class="vsImg">
+					<div class="matchPlayField">${completeMatch.playField}</div>
+					<div class="matchLocation">${completeMatch.locationVO.parentLocationName} 
+												- ${completeMatch.locationVO.locationName}</div>
+					<div class="matchShedule">${completeMatch.schedule}</div>
+				</div>
+				<div id="teamTwo">
+					<img class="teamTwoImg" src="/ShootBoy/showImage?teamId=${completeMatch.awayTeamVO.teamId}">
+					<div class="teamTwoName">${completeMatch.awayTeamVO.teamName}</div>
+				</div>
 			</div>		
 		</c:forEach>
 	</div>
