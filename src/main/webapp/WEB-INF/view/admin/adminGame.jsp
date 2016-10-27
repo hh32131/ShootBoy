@@ -25,7 +25,7 @@
 		</div>
 		
 		<div class="listAll">
-				<p class="textAll">전체 목록 | 총 경기수 00개</p>
+				<p class="textAll">전체 목록 | 총 경기수 ${count}개</p>
 		</div>
 		
 		<div class="container">
