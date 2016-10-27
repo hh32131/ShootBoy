@@ -75,7 +75,6 @@
 	
 	<div class="myInfoText" style="width:700px;"><h1>매치 보드</h1>
 		<hr class="myPageline" style="width: 680px; margin-right: 100px;">
-<<<<<<< HEAD
 	<div id="locationNavi">
 	
 		<c:forEach items="${matchs}" var="match" >
@@ -86,9 +85,8 @@
 		<form id="pagingForm" name="pagingForm">
 			${paging}
 		</form>
-=======
+		
 	<div id="locationNavi" style="margin-bottom: 20px;">
->>>>>>> 3412f280026cf561ac1fd5f103df6d8c526d6d64
 	<c:if test="${!empty sessionScope._USER_INFO_.userId and !empty sessionScope._USER_INFO_.teamId }">
 	<div style="font-size: 30px; width: 180px; background-color: #987d2e;
 		margin-left: 250px; margin-top: 20px; margin-bottom: 20px; padding: 5px;">

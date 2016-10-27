@@ -278,30 +278,18 @@ public class MatchDaoImpl extends DaoSupport implements MatchDao {
 				while (rs.next()) {
 					matchVO = new MatchVO();
 					matchVO.setSchedule(rs.getString("SCDL"));
-<<<<<<< HEAD
-
-=======
 					matchVO.setPlayField(rs.getString("PLAYFIELD"));
-					
->>>>>>> 3412f280026cf561ac1fd5f103df6d8c526d6d64
+
 					teamVO = matchVO.getTeamVO();
 					teamVO.setTeamId(rs.getString("TEAM_ID"));
 					teamVO.setTeamPhoto(rs.getString("TEAM_PHOTO"));
-<<<<<<< HEAD
-
-=======
 					teamVO.setTeamName(rs.getString("TEAM_NM"));
 					
->>>>>>> 3412f280026cf561ac1fd5f103df6d8c526d6d64
 					awayTeamVO = matchVO.getAwayTeamVO();
 					awayTeamVO.setTeamId(rs.getString("ATEAM_ID"));
 					awayTeamVO.setTeamPhoto(rs.getString("ATEAM_PHOTO"));
-<<<<<<< HEAD
-
-=======
 					awayTeamVO.setTeamName(rs.getString("ATEAM_NM"));
 					
->>>>>>> 3412f280026cf561ac1fd5f103df6d8c526d6d64
 					locationVO = matchVO.getLocationVO();
 					locationVO.setLocationName(rs.getString("LCTN_NM"));
 					locationVO.setParentLocationName(rs.getString("PRNT_LCTN_NM"));

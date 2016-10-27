@@ -164,12 +164,7 @@
 				alert("회원가입약관에 동의하세요!");
 				return;
 			}
-<<<<<<< HEAD
 			else if($("input:checkBox[id='checkboxTwo']").is(":checked") == false) {
-=======
-			
-			if($("input:checkBox[id='checkboxTwo']").is(":checked") == false) {
->>>>>>> 3412f280026cf561ac1fd5f103df6d8c526d6d64
 				alert("개인정보취급방침에 동의하세요!");
 				return;
 			}
