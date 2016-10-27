@@ -35,22 +35,6 @@
 	  
 	  
 	  
-<<<<<<< HEAD
-	  $('input:radio[name=memberList]:input[value=' + memberSelect + ']').attr("checked", true);
-	  $('input:radio[name=memberList]:input[value=' + teamSelect + ']').attr("checked", true);
-	  $('input:radio[name=memberList]:input[value=' + teamArticleSelect + ']').attr("checked", true);
-	  $('input:radio[name=memberList]:input[value=' + gameSelect + ']').attr("checked", true);
-	  $('input:radio[name=memberList]:input[value=' + articleSelect + ']').attr("checked", true);
-	
-	  confirm(memberSelect);
-		
-	  $(".memberList").click(function () {
-		  $.post("/ShootBoy/doCheckList", "", function(data) {
-			 $("#memberForm").html(data);
-		  });
-	  })
-=======
->>>>>>> eb39295a64b862e852c06f51619f70bb3638ce97
 	});
 
 </script>
@@ -70,7 +54,7 @@
 		</div>
 		<div class="list-radio">
 			<form id="memberForm" name="memberForm">
-				<input type="radio" class="list" name="memberList" value=10 checked="checked"  > 10개씩 보기 <br/>
+				<input type="radio" class="list" name="memberList" value=10  > 10개씩 보기 <br/>
 				<input type="radio" class="list" name="memberList" value=15  > 15개씩 보기 <br/>
 				<input type="radio" class="list" name="memberList" value=20  > 20개씩 보기 <br/>
 			</form>
@@ -82,7 +66,7 @@
 		</div>
 		<div class="list-radio">
 			<form id="teamForm" name="teamform">
-				<input type="radio" class="list" name="teamList" value="10" checked="checked"  > 10개씩 보기 <br/>
+				<input type="radio" class="list" name="teamList" value="10"  > 10개씩 보기 <br/>
 				<input type="radio" class="list" name="teamList" value="15"  > 15개씩 보기 <br/>
 				<input type="radio" class="list" name="teamList" value="20"  > 20개씩 보기 <br/>
 			</form>
@@ -94,7 +78,7 @@
 		</div>
 		<div class="list-radio">
 			<form id="teamArticleForm" name="teamArticleForm">
-				<input type="radio" class="list" name="teamArticleList" value="10" checked="checked"  > 10개씩 보기 <br/>
+				<input type="radio" class="list" name="teamArticleList" value="10"  > 10개씩 보기 <br/>
 				<input type="radio" class="list" name="teamArticleList" value="15"  > 15개씩 보기 <br/>
 				<input type="radio" class="list" name="teamArticleList" value="20"  > 20개씩 보기 <br/>
 			</form>
@@ -106,7 +90,7 @@
 		</div>
 		<div class="list-radio">
 			<form id="gameForm" name="gameForm">
-				<input type="radio" class="list" name="gameList" value="10" checked="checked" > 10개씩 보기 <br/>
+				<input type="radio" class="list" name="gameList" value="10"  > 10개씩 보기 <br/>
 				<input type="radio" class="list" name="gameList" value="15"  > 15개씩 보기 <br/>
 				<input type="radio" class="list" name="gameList" value="20"  > 20개씩 보기 <br/>
 			</form>
@@ -118,7 +102,7 @@
 		</div>
 		<div class="list-radio">
 			<form id="artcleForm" name="articleForm">
-				<input type="radio" class="list" name="articleList" value="10" checked="checked"> 10개씩 보기 <br/>
+				<input type="radio" class="list" name="articleList" value="10" > 10개씩 보기 <br/>
 				<input type="radio" class="list" name="articleList" value="15"  > 15개씩 보기 <br/>
 				<input type="radio" class="list" name="articleList" value="20"  > 20개씩 보기 <br/>
 			</form>
