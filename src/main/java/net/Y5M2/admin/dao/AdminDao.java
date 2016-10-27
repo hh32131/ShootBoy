@@ -11,4 +11,5 @@ public interface AdminDao {
 
 	public int getCountOfTeamBoards();
 
+	public int getCountOfTeamMatchs();
 }

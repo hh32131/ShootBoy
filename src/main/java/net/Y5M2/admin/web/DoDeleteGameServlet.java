@@ -1,6 +1,7 @@
-package net.Y5M2.team.web;
+package net.Y5M2.admin.web;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -8,19 +9,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import net.Y5M2.admin.biz.AdminBiz;
+import net.Y5M2.admin.biz.AdminBizImpl;
 import net.Y5M2.constants.Session;
-import net.Y5M2.match.vo.MatchVO;
 import net.Y5M2.support.Param;
-import net.Y5M2.team.biz.TeamBiz;
-import net.Y5M2.team.biz.TeamBizImpl;
 import net.Y5M2.user.vo.UserVO;
 
-public class DoDeleteTeamServlet extends HttpServlet {
+public class DoDeleteGameServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private TeamBiz teamBiz;
-	public DoDeleteTeamServlet() {
+
+	private AdminBiz adminBiz;
+	
+	public DoDeleteGameServlet() {
 		super();
-		teamBiz = new TeamBizImpl();
+		adminBiz = new AdminBizImpl();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -30,19 +32,23 @@ public class DoDeleteTeamServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		String teamId = Param.getStringParam(request, "teamId");
 
-		HttpSession session = request.getSession();
-		UserVO userVO = (UserVO) session.getAttribute(Session.USER_INFO);
-		
-		boolean isSuccess = teamBiz.deleteTeam(teamId, userVO, request);
-		if ( isSuccess ) {
-			response.sendRedirect("/ShootBoy/userInfo");
+		String[] checkbox = request.getParameterValues("select-check");
+
+		PrintWriter out = response.getWriter();
+
+		if (checkbox == null || checkbox.length == 0) {
+			out.print("다시선택하세요. ");
+			return;
+		} else {
+			for (int i = 0; i < checkbox.length; i++) {
+				adminBiz.deleteAdminTeamMatchs(checkbox[i]);
+			}
+			out.print("삭제했습니다.");
 		}
-		else{
-			response.sendRedirect("/ShootBoy/detailTeamInfo?errorCode=1");
-		}
+		out.flush();
+		out.close();
+
 	}
 
 }

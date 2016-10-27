@@ -30,7 +30,7 @@ public interface TeamBiz {
 
 	public String getFileNameOfTeam(String teamId);
 	
-	public boolean deleteTeam(String teamId, UserVO userVO, ServletRequest request, String matchId);
+	public boolean deleteTeam(String teamId, UserVO userVO, ServletRequest request);
 
 	public boolean dropTeam(String teamId, UserVO userVO, HttpServletRequest request);
 
