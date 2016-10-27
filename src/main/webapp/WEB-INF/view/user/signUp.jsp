@@ -11,8 +11,8 @@
 <script type="text/javascript" src="/ShootBoy/js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
 	$().ready(function() {
-		//moveToCenter();
-		isVisibleButton();
+		
+		//isVisibleButton();
 
 		$("#cancelBtn").click(function() {
 			location.href = "/ShootBoy/signUp";
@@ -162,13 +162,14 @@
 
 			if($("input:checkBox[id='checkboxOne']").is(":checked") == false) {
 				alert("회원가입약관에 동의하세요!");
-				return false;
+				return;
 			}
+			
 			if($("input:checkBox[id='checkboxTwo']").is(":checked") == false) {
 				alert("개인정보취급방침에 동의하세요!");
-				return false;
+				return;
 			}
-
+			
 			$("#signUpForm").attr({
 				"method" : "post",
 				"action" : "/ShootBoy/doSignUp"

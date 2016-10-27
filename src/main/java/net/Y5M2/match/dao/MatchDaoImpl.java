@@ -235,9 +235,14 @@ public class MatchDaoImpl extends DaoSupport implements MatchDao {
 				StringBuffer query = new StringBuffer();
 				query.append(" SELECT	T.TEAM_PHOTO TEAM_PHOTO ");
 				query.append(" 			,T2.TEAM_PHOTO ATEAM_PHOTO ");
+				query.append(" 			,T.TEAM_NM TEAM_NM ");
+				query.append(" 			,T2.TEAM_NM ATEAM_NM ");
 				query.append(" 			,L.LCTN_NM ");
 				query.append(" 			,L.PRNT_LCTN_NM ");
+				query.append(" 			, M.PLAYFIELD ");
 				query.append(" 			,TO_CHAR(M.SCDL, 'YYYY-MM-DD') SCDL ");
+				query.append(" 			,T.TEAM_ID TEAM_ID ");
+				query.append(" 			,T2.TEAM_ID ATEAM_ID ");
 				query.append(" FROM		TEAM T ");
 				query.append(" 			,TEAM T2 ");
 				query.append("			, MATCH M ");
@@ -269,12 +274,17 @@ public class MatchDaoImpl extends DaoSupport implements MatchDao {
 				while(rs.next()) {
 					matchVO = new MatchVO();
 					matchVO.setSchedule(rs.getString("SCDL"));
+					matchVO.setPlayField(rs.getString("PLAYFIELD"));
 					
 					teamVO = matchVO.getTeamVO();
+					teamVO.setTeamId(rs.getString("TEAM_ID"));
 					teamVO.setTeamPhoto(rs.getString("TEAM_PHOTO"));
+					teamVO.setTeamName(rs.getString("TEAM_NM"));
 					
 					awayTeamVO = matchVO.getAwayTeamVO();
+					awayTeamVO.setTeamId(rs.getString("ATEAM_ID"));
 					awayTeamVO.setTeamPhoto(rs.getString("ATEAM_PHOTO"));
+					awayTeamVO.setTeamName(rs.getString("ATEAM_NM"));
 					
 					locationVO = matchVO.getLocationVO();
 					locationVO.setLocationName(rs.getString("LCTN_NM"));
