@@ -157,11 +157,7 @@ public class AdminBizImpl implements AdminBiz {
 	@Override
 	public MatchListVO getAllTeamMatchs(SearchMatchVO searchTeamMatch) {
 		int totalCount = matchDao.getCountOfTeamMatchs(searchTeamMatch);
-<<<<<<< HEAD
-		Pager pager = PagerFactory.getPager(true, 10, 5);
-=======
 		Pager pager = PagerFactory.getPager(true, PageSelector.GAME_PAGE_SELECTOR, 5);
->>>>>>> be43d4321e0ea950bf11cf4503af0ec716b7bc9c
 		pager.setTotalArticleCount(totalCount);
 		pager.setPageNumber(searchTeamMatch.getPageNo());
 		

@@ -22,18 +22,10 @@ public class DoAdminLogOutServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String Referer = request.getHeader("referer");
-		System.out.println("Referer = " + Referer);
-		
 		HttpSession session = request.getSession();
 		session.invalidate();
 		
-		if(Referer.equals("")){
-			response.sendRedirect("/ShootBoy/main");
-		}
-		else {
-			response.sendRedirect(Referer);
-		}
+		response.sendRedirect("/ShootBoy/main");
 		
 	}
 }

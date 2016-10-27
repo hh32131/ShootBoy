@@ -83,10 +83,10 @@ $(document).ready(function(){
 							<li><a href="/ShootBoy/list?categoryId=13">자유게시판</a></li>
 							<li><a href="/ShootBoy/list?categoryId=14">국내축구소식</a></li>
 							<li><a href="/ShootBoy/list?categoryId=15">해외축구소식</a></li>
-							<li><a href="/ShootBoy/list?categoryId=16">축구동영상</a></li>
+							<li><a href="/ShootBoy/list?categoryId=16">용병모집</a></li>
 							<li><a href="/ShootBoy/list?categoryId=17">축구갤러리</a></li>
 							<li><a href="/ShootBoy/list?categoryId=18">매치경기후기</a></li>
-							<li><a href="/ShootBoy/list?categoryId=19">모집게시판</a></li>
+							<li><a href="/ShootBoy/list?categoryId=19">팀원모집</a></li>
 						</ul>
 						</li>
 				</ul>

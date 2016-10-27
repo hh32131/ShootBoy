@@ -75,7 +75,7 @@
 					<c:if test="${categoryId eq 16}">
 						<img src="/ShootBoy/img/화살표.jpg" class="arrow">
 					</c:if>
-					<a href="/ShootBoy/list?categoryId=16">축구동영상</a>
+					<a href="/ShootBoy/list?categoryId=16">용병모집</a>
 				</div>
 				<div class="mplmFour">
 					<c:if test="${categoryId eq 17}">
@@ -93,7 +93,7 @@
 					<c:if test="${categoryId eq 19}">
 						<img src="/ShootBoy/img/화살표.jpg" class="arrow">
 					</c:if>
-					<a href="/ShootBoy/list?categoryId=19">모집게시판</a>
+					<a href="/ShootBoy/list?categoryId=19">팀원모집</a>
 				</div>
 			</div>
 		</div>
@@ -121,7 +121,7 @@
 				<a href="/ShootBoy/list?categoryId=15">해외축구소식</a>
 			</c:if>
 			<c:if test="${categoryId eq 16}">
-				<a href="/ShootBoy/list?categoryId=16">축구동영상</a>
+				<a href="/ShootBoy/list?categoryId=16">용병모집</a>
 			</c:if>
 			<c:if test="${categoryId eq 17}">
 				<a href="/ShootBoy/list?categoryId=17">축구갤러리</a>
@@ -130,7 +130,7 @@
 				<a href="/ShootBoy/list?categoryId=18">매치경기후기</a>
 			</c:if>
 			<c:if test="${categoryId eq 19}">
-				<a href="/ShootBoy/list?categoryId=19">모집게시판</a>
+				<a href="/ShootBoy/list?categoryId=19">팀원모집</a>
 			</c:if>
 		<div class="listUserName" style="display: inline-block; font-size: 15px;">( ${board.userVO.userName} )</div>
 	</div>
