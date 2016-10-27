@@ -9,10 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 import net.Y5M2.constants.PageSelector;
 import net.Y5M2.support.Param;
 
-public class DoCheckList extends HttpServlet {
+public class DoCheckListFive extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public DoCheckList() {
+	public DoCheckListFive() {
 		super();
 	}
 
@@ -23,10 +23,9 @@ public class DoCheckList extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		int memberValue = Param.getIntParam(request, "memberValue");
 
-		PageSelector.MEMBER_PAGE_SELECTOR = memberValue;
-		
+		int articleValue = Param.getIntParam(request, "articleValue");
+
+		PageSelector.BOARD_PAGE_SELECTOR = articleValue;
 	}
 }

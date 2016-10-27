@@ -1180,4 +1180,44 @@
     <servlet-name>DoAdminLogOutServlet</servlet-name>
     <url-pattern>/doAdminLogOut</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoCheckListTwo</display-name>
+    <servlet-name>DoCheckListTwo</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.ajax.DoCheckListTwo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoCheckListTwo</servlet-name>
+    <url-pattern>/doCheckListTwo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoCheckListThree</display-name>
+    <servlet-name>DoCheckListThree</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.ajax.DoCheckListThree</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoCheckListThree</servlet-name>
+    <url-pattern>/doCheckListThree</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoCheckListFour</display-name>
+    <servlet-name>DoCheckListFour</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.ajax.DoCheckListFour</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoCheckListFour</servlet-name>
+    <url-pattern>/doCheckListFour</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoCheckListFive</display-name>
+    <servlet-name>DoCheckListFive</servlet-name>
+    <servlet-class>net.Y5M2.admin.web.ajax.DoCheckListFive</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoCheckListFive</servlet-name>
+    <url-pattern>/doCheckListFive</url-pattern>
+  </servlet-mapping>
 </web-app>
