@@ -6,6 +6,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import net.Y5M2.constants.PageSelector;
 import net.Y5M2.constants.Session;
 import net.Y5M2.match.dao.MatchDao;
 import net.Y5M2.match.dao.MatchDaoImpl;
@@ -58,7 +59,7 @@ public class TeamBizImpl implements TeamBiz {
 	public TeamListVO getAllTeam(SearchTeamVO searchTeam) {
 
 		int totalCount = teamDao.getCountOfTeams(searchTeam);
-		Pager pager = PagerFactory.getPager(true, 20, 5);
+		Pager pager = PagerFactory.getPager(true, PageSelector.TAEM_PAGE_SELECTOR, 5);
 		pager.setTotalArticleCount(totalCount);
 		pager.setPageNumber(searchTeam.getPageNo());
 

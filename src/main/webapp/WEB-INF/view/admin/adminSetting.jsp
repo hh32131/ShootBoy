@@ -8,12 +8,34 @@
 	
 	$(document).ready(function(){
 		
-	  var memberSelect = ($("input[type=radio][name=memberList]:checked").val());
-	  var teamSelect = ($("input[type=radio][name=teamList]:checked").val());
-	  var teamArticleSelect = ($("input[type=radio][name=teamArticleList]:checked").val());
-	  var gameSelect = ($("input[type=radio][name=gameList]:checked").val());
-	  var articleSelect = ($("input[type=radio][name=articleList]:checked").val());
+	  $("#memberForm >.list").click(function () {
+		  var memberValue = $("#memberForm >.list:checked").val();
+		  $.post("/ShootBoy/doCheckList", {"memberValue":memberValue});
+	  });
 	  
+	  $("#teamForm >.list").click(function () {
+		  var teamValue = $("#teamForm >.list:checked").val();
+		  $.post("/ShootBoy/doCheckList", {"teamValue":teamValue});
+	  });
+	  
+	  $("#teamArticleForm >.list").click(function () {
+		  var teamArticleValue = $("#teamArticleForm >.list:checked").val();
+		  $.post("/ShootBoy/doCheckList", {"teamArticleValue":teamArticleValue});
+	  });
+	  
+	  $("#gameForm >.list").click(function () {
+		  var gameValue = $("#gameForm >.list:checked").val();
+		  $.post("/ShootBoy/doCheckList", {"gameValue":gameValue});
+	  });
+	  
+	  $("#artcleForm >.list").click(function () {
+		  var articleValue = $("#artcleForm >.list:checked").val();
+		  $.post("/ShootBoy/doCheckList", {"articleValue":articleValue});
+	  });
+	  
+	  
+	  
+<<<<<<< HEAD
 	  $('input:radio[name=memberList]:input[value=' + memberSelect + ']').attr("checked", true);
 	  $('input:radio[name=memberList]:input[value=' + teamSelect + ']').attr("checked", true);
 	  $('input:radio[name=memberList]:input[value=' + teamArticleSelect + ']').attr("checked", true);
@@ -27,6 +49,8 @@
 			 $("#memberForm").html(data);
 		  });
 	  })
+=======
+>>>>>>> eb39295a64b862e852c06f51619f70bb3638ce97
 	});
 
 </script>

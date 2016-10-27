@@ -11,6 +11,7 @@ import net.Y5M2.admin.dao.AdminDaoImpl;
 import net.Y5M2.article.dao.BoardDao;
 import net.Y5M2.article.dao.BoardDaoImpl;
 import net.Y5M2.article.vo.BoardVO;
+import net.Y5M2.constants.PageSelector;
 import net.Y5M2.constants.Session;
 import net.Y5M2.support.pager.Pager;
 import net.Y5M2.support.pager.PagerFactory;
@@ -130,7 +131,7 @@ public class AdminBizImpl implements AdminBiz {
 	@Override
 	public TeamBoardListVO getAllTeamBoards(SearchTeamVO searchTeam, TeamBoardVO teamBoardVO) {
 		int totalCount = teamDao.getCountOfTeamBoard(searchTeam);
-		Pager pager = PagerFactory.getPager(true, 10, 5);
+		Pager pager = PagerFactory.getPager(true, PageSelector.TEAMBOARD_PAGE_SELECTOR, 5);
 		pager.setTotalArticleCount(totalCount);
 		pager.setPageNumber(searchTeam.getPageNo());
 
