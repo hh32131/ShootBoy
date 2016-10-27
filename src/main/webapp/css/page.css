@@ -80,6 +80,7 @@
 }
 
 #dropTeam {
+	float:right;
 	color:#fff;
 	font-size: 15px;
 	background-color:#ff4a4a;
