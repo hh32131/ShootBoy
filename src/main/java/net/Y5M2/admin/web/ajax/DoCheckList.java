@@ -24,11 +24,11 @@ public class DoCheckList extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		int memberValue = Param.getIntParam(request, "memberValue");
-		int teamValue = Param.getIntParam(request, "teamValue");
-		int teamArticleValue = Param.getIntParam(request, "teamArticleValue");
-		int gameValue = Param.getIntParam(request, "gameValue");
-		int articleValue = Param.getIntParam(request, "articleValue");
+		int memberValue = Param.getIntParam(request, "memberValue",10);
+		int teamValue = Param.getIntParam(request, "teamValue",20);
+		int teamArticleValue = Param.getIntParam(request, "teamArticleValue",10);
+		int gameValue = Param.getIntParam(request, "gameValue",10);
+		int articleValue = Param.getIntParam(request, "articleValue",10);
 		
 		
 		PageSelector.MEMBER_PAGE_SELECTOR = memberValue;
