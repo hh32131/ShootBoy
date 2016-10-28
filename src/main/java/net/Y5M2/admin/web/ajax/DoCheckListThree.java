@@ -1,16 +1,18 @@
-package net.Y5M2.admin.web;
+package net.Y5M2.admin.web.ajax;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-public class DoAdminLogOutServlet extends HttpServlet {
+import net.Y5M2.constants.PageSelector;
+import net.Y5M2.support.Param;
+
+public class DoCheckListThree extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public DoAdminLogOutServlet() {
+	public DoCheckListThree() {
 		super();
 	}
 
@@ -21,15 +23,10 @@ public class DoAdminLogOutServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
+		int teamArticleValue = Param.getIntParam(request, "teamArticleValue");
 		
-<<<<<<< HEAD
-		
-=======
->>>>>>> 7eaa7589338aa63aa31e07d3056704adf81f7eb4
-		HttpSession session = request.getSession();
-		session.invalidate();
-		
-		response.sendRedirect("/ShootBoy/main");
-		
+		PageSelector.TEAMBOARD_PAGE_SELECTOR = teamArticleValue;
+
 	}
 }

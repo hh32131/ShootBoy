@@ -25,7 +25,7 @@
 		</div>
 		
 		<div class="listAll">
-				<p class="textAll">전체 목록 | 총 경기수 00개</p>
+				<p class="textAll">전체 목록 | 총 경기수 ${count}개</p>
 		</div>
 		
 		<div class="container">
@@ -79,7 +79,7 @@
 								</td>
 								<td class="td_gameId"> ${matchs.matchId} </td>
 								<td class="td_homeTeam"> ${matchs.teamVO.teamName} </td>
-								<td class="td_awayTeam"> ${matchs.awayTeamId} </td>
+								<td class="td_awayTeam"> ${matchs.awayTeamVO.teamName} </td>
 								<td class="td_gamedate"> ${matchs.schedule} </td>
 								<td class="td_registerdate"> ${matchs.createDate} </td>
 								<td class="td_gameLocation"> ${matchs.locationVO.locationName}-${matchs.locationVO.parentLocationName} </td>

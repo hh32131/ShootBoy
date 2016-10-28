@@ -1,5 +1,7 @@
 package net.Y5M2.user.biz;
 
+import java.util.List;
+
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 
@@ -24,5 +26,7 @@ public interface UserBiz {
 	public UserListVO getAllUsers(SearchUserVO searchUser);
 
 	public boolean deleteUserTwo(String userId);
+
+	public List<UserVO> getAllUsersOfTeam(String teamId);
 	
 }

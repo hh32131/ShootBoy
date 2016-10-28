@@ -91,7 +91,6 @@
 				<table>
 					<thead>
 						<tr>
-							<th scope="col"> 경기 번호 </th>
 							<th scope="col"> 생성 팀 </th>
 							<th scope="col"> 신청 팀 </th>
 							<th scope="col"> 지역 </th>
@@ -100,21 +99,15 @@
 						</tr>
 					</thead>
 					<tbody>
+					<c:forEach items="${matchs}" var="matchs">
 						<tr>
-							<td class="td_gameId"> 1 </td>
-							<td class="td_homeTeam"> 홈팀 </td>
-							<td class="td_awayTeam"> 어웨이팀 </td>
-							<td class="td_location"> 서울-강남 </td>
-							<td class="td_date"> 2016-10-13 4:00 </td>
+							<td class="td_homeTeam"> ${matchs.teamVO.teamName} </td>
+							<td class="td_awayTeam"> ${matchs.awayTeamVO.teamName} </td>
+							<td class="td_location"> ${matchs.locationVO.locationName}-${matchs.locationVO.parentLocationName} </td>
+							<td class="td_date"> ${matchs.schedule} </td>
 						</tr>
-						<tr>
-							<td class="td_gameId"> 2 </td>
-							<td class="td_homeTeam"> y3 </td>
-							<td class="td_awayTeam"> m2 </td>
-							<td class="td_location"> 경기-이천 </td>
-							<td class="td_date"> 2016-10-14 21:00 </td>
-						</tr>
-					</tbody>	
+					</c:forEach>	
+					</tbody>
 				</table>
 				<div class="game-view">
 					<button class="viewbtn" onclick="location.href='/ShootBoy/adminGame'">경기 전체보기</button>

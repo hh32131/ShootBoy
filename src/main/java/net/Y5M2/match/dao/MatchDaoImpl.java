@@ -32,14 +32,15 @@ public class MatchDaoImpl extends DaoSupport implements MatchDao {
 				query.append(" CRT_DT, TEAM_POINT, ATEAM_ID, PLAYFIELD ) ");
 				query.append(" VALUES ( ");
 				query.append(" 'MA-' || TO_CHAR(SYSDATE, 'YYYYMMDD') || '-' || LPAD(MATCH_ID_SEQ.NEXTVAL,6,0), ");
-				query.append(" ?, TO_DATE(?,'YYYY-MM-DD'), ?, ?, SYSDATE, 0, 0, ? ) ");
+				query.append(" ?, TO_DATE(?,'YYYY-MM-DD'), ?, ?, SYSDATE, 0, ?, ? ) ");
 
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				pstmt.setString(1, matchVO.getTeamId());
 				pstmt.setString(2, matchVO.getSchedule());
 				pstmt.setString(3, matchVO.getLocationId());
 				pstmt.setString(4, matchVO.getParentLocaionId());
-				pstmt.setString(5, matchVO.getPlayField());
+				pstmt.setString(5, null);
+				pstmt.setString(6, matchVO.getPlayField());
 
 				return pstmt;
 			}
@@ -75,7 +76,7 @@ public class MatchDaoImpl extends DaoSupport implements MatchDao {
 				query.append(" 			, LCTN L ");
 				query.append(" WHERE	M.TEAM_ID = T.TEAM_ID ");
 				query.append(" AND		M.LCTN_ID = L.LCTN_ID ");
-				query.append(" AND		M.ATEAM_ID = '0' ");
+				query.append(" AND		M.ATEAM_ID = NULL ");
 
 				if (!locationId.equals("0")) {
 					query.append(" AND		PRNT_LCNT_ID = ? ");
@@ -157,8 +158,8 @@ public class MatchDaoImpl extends DaoSupport implements MatchDao {
 				query.append(" 			, LCTN L ");
 				query.append(" WHERE	M.TEAM_ID = T.TEAM_ID ");
 				query.append(" AND		M.LCTN_ID = L.LCTN_ID ");
-				query.append(" AND		M.ATEAM_ID = T2.TEAM_ID ");
-				query.append(" AND		M.ATEAM_ID != '0' ");
+				query.append(" AND		M.ATEAM_ID = T2.TEAM_ID(+) ");
+				query.append(" AND		M.ATEAM_ID NOT NULL ");
 				
 				String pagingQuery = appendPagingQueryFormat(query.toString());
 				
@@ -254,7 +255,7 @@ public class MatchDaoImpl extends DaoSupport implements MatchDao {
 				query.append(" WHERE	T.TEAM_ID = M.TEAM_ID ");
 				query.append(" AND		M.ATEAM_ID = T2.TEAM_ID ");
 				query.append(" AND		M.LCTN_ID = L.LCTN_ID ");
-				query.append(" AND		M.ATEAM_ID != '0' ");
+				query.append(" AND		M.ATEAM_ID NOT NULL ");
 				query.append(" AND		( M.TEAM_ID = ? ");
 				query.append(" OR		M.ATEAM_ID = ? ) ");
 
@@ -362,7 +363,7 @@ public class MatchDaoImpl extends DaoSupport implements MatchDao {
 				
 				query.append(" SELECT	 COUNT(1) CNT ");
 				query.append(" FROM		 MATCH ");
-				query.append(" WHERE	 ATEAM_ID != '0' ");
+				query.append(" WHERE	 ATEAM_ID NOT NULL ");
 
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				
@@ -409,64 +410,62 @@ public class MatchDaoImpl extends DaoSupport implements MatchDao {
 
 				StringBuffer query = new StringBuffer();
 
-				query.append(" SELECT	 M.MATCH_ID ");
-				query.append(" 			, M.TEAM_ID ");
-				query.append(" 			, TO_CHAR(M.SCDL, 'YYYY-MM-DD') SCDL ");
-				query.append(" 			, M.LCTN_ID ");
-				query.append(" 			, M.CRT_DT ");
-				query.append(" 			, M.TEAM_POINT ");
-				query.append(" 			, M.ATEAM_ID ");
+				query.append(" SELECT	TO_CHAR(M.SCDL,'YYYY-MM-DD') SCDL ");
 				query.append(" 			, M.PLAYFIELD ");
+				query.append(" 			, T.TEAM_ID ");
 				query.append(" 			, T.TEAM_NM ");
 				query.append(" 			, T.TEAM_PHOTO ");
-				query.append(" 			, T.LCTN_ID ");
-				query.append(" 			, T.TEAM_INFO ");
+				query.append(" 			, T2.TEAM_ID ATEAM_ID");
+				query.append(" 			, T2.TEAM_NM ATEAM_NM ");
+				query.append(" 			, T2.TEAM_PHOTO ATEAM_PHOTO ");
 				query.append(" 			, L.LCTN_NM ");
 				query.append(" 			, L.PRNT_LCTN_NM ");
 				query.append(" FROM		 MATCH M ");
 				query.append(" 			, TEAM T ");
+				query.append(" 			, TEAM T2 ");
 				query.append(" 			, LCTN L ");
 				query.append(" WHERE	M.TEAM_ID = T.TEAM_ID ");
 				query.append(" AND		M.LCTN_ID = L.LCTN_ID ");
-
+				query.append(" AND		M.ATEAM_ID = T2.TEAM_ID ");
+				query.append(" AND		M.ATEAM_ID != '0' ");
+				
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
-
 				return pstmt;
 			}
 
 			@Override
 			public Object makeObject(ResultSet rs) throws SQLException {
-
 				List<MatchVO> matchTeams = new ArrayList<MatchVO>();
 				MatchVO matchTeam = null;
 				TeamVO teamVO = null;
 				LocationVO locationVO = null;
-
+				AwayTeamVO awayTeamVO = null;
+				
 				while (rs.next()) {
 					matchTeam = new MatchVO();
-					matchTeam.setMatchId(rs.getString("MATCH_ID"));
-					matchTeam.setTeamId(rs.getString("TEAM_ID"));
 					matchTeam.setSchedule(rs.getString("SCDL"));
-					matchTeam.setLocationId(rs.getString("LCTN_ID"));
-					matchTeam.setCreateDate(rs.getString("CRT_DT"));
-					matchTeam.setMatchPoint(rs.getString("TEAM_POINT"));
-					matchTeam.setAwayTeamId(rs.getString("ATEAM_ID"));
 					matchTeam.setPlayField(rs.getString("PLAYFIELD"));
-
+	
 					teamVO = matchTeam.getTeamVO();
+					teamVO.setTeamId(rs.getString("TEAM_ID"));
 					teamVO.setTeamName(rs.getString("TEAM_NM"));
 					teamVO.setTeamPhoto(rs.getString("TEAM_PHOTO"));
-					teamVO.setLocationId(rs.getString("LCTN_ID"));
-					teamVO.setTeamInfo(rs.getString("TEAM_INFO"));
-
+					
+					awayTeamVO = matchTeam.getAwayTeamVO();
+					awayTeamVO.setTeamId(rs.getString("ATEAM_ID"));
+					awayTeamVO.setTeamName(rs.getString("ATEAM_NM"));
+					awayTeamVO.setTeamPhoto(rs.getString("ATEAM_PHOTO"));
+	
 					locationVO = matchTeam.getLocationVO();
 					locationVO.setLocationName(rs.getString("LCTN_NM"));
 					locationVO.setParentLocationName(rs.getString("PRNT_LCTN_NM"));
-
+	
 					matchTeams.add(matchTeam);
 
 				}
+
 				return matchTeams;
+
 			}
 		});
 	}
@@ -501,27 +500,26 @@ public class MatchDaoImpl extends DaoSupport implements MatchDao {
 
 				StringBuffer query = new StringBuffer();
 
-				query.append(" SELECT	 M.MATCH_ID ");
-				query.append(" 			, M.TEAM_ID ");
-				query.append(" 			, TO_CHAR(M.SCDL, 'YYYY-MM-DD') SCDL ");
-				query.append(" 			, M.LCTN_ID MLCTN_ID");
-				query.append(" 			, M.CRT_DT ");
-				query.append(" 			, M.TEAM_POINT ");
-				query.append(" 			, M.ATEAM_ID ");
+				query.append(" SELECT	TO_CHAR(M.SCDL,'YYYY-MM-DD') SCDL ");
 				query.append(" 			, M.PLAYFIELD ");
-				query.append(" 			, T.TEAM_NM ATEAM_NM");
+				query.append(" 			, M.MATCH_ID ");
+				query.append(" 			, M.CRT_DT ");
+				query.append(" 			, T.TEAM_ID ");
 				query.append(" 			, T.TEAM_NM ");
 				query.append(" 			, T.TEAM_PHOTO ");
-				query.append(" 			, T.LCTN_ID TLCTN_ID");
-				query.append(" 			, T.TEAM_INFO ");
+				query.append(" 			, T2.TEAM_ID ATEAM_ID");
+				query.append(" 			, T2.TEAM_NM ATEAM_NM ");
+				query.append(" 			, T2.TEAM_PHOTO ATEAM_PHOTO ");
 				query.append(" 			, L.LCTN_NM ");
 				query.append(" 			, L.PRNT_LCTN_NM ");
 				query.append(" FROM		 MATCH M ");
 				query.append(" 			, TEAM T ");
+				query.append(" 			, TEAM T2 ");
 				query.append(" 			, LCTN L ");
 				query.append(" WHERE	M.TEAM_ID = T.TEAM_ID ");
 				query.append(" AND		M.LCTN_ID = L.LCTN_ID ");
-
+				query.append(" AND		M.ATEAM_ID = T2.TEAM_ID(+) ");
+				
 				if (searchTeamMatch.getSearchType() == 1) {
 					query.append(" AND	( M.MATCH_ID LIKE '%'|| ?|| '%') ");
 				}
@@ -529,13 +527,14 @@ public class MatchDaoImpl extends DaoSupport implements MatchDao {
 					query.append(" AND	( T.TEAM_NM LIKE '%'|| ?|| '%') ");
 				}
 				if (searchTeamMatch.getSearchType() == 3) {
-					query.append(" AND	( SCDL LIKE '%'|| ?|| '%') ");
+					query.append(" AND	( M.SCDL LIKE '%'|| ?|| '%') ");
 				}
 				if (searchTeamMatch.getSearchType() == 4) {
 					query.append(" AND	( L.LCTN_NM LIKE '%'|| ?|| '%') ");
 				}
 				
 				query.append(" ORDER	BY	CRT_DT DESC ");
+				
 
 				String pagingQuery = appendPagingQueryFormat(query.toString());
 				PreparedStatement pstmt = conn.prepareStatement(pagingQuery);
@@ -567,33 +566,32 @@ public class MatchDaoImpl extends DaoSupport implements MatchDao {
 				MatchVO matchTeam = null;
 				TeamVO teamVO = null;
 				LocationVO locationVO = null;
-
+				AwayTeamVO awayTeamVO = null;
 				while (rs.next()) {
-					
 					matchTeam = new MatchVO();
-					matchTeam.setMatchId(rs.getString("MATCH_ID"));
-					matchTeam.setTeamId(rs.getString("TEAM_ID"));
 					matchTeam.setSchedule(rs.getString("SCDL"));
-					matchTeam.setLocationId(rs.getString("MLCTN_ID"));
-					matchTeam.setCreateDate(rs.getString("CRT_DT"));
-					matchTeam.setMatchPoint(rs.getString("TEAM_POINT"));
-					matchTeam.setAwayTeamId(rs.getString("ATEAM_ID"));
 					matchTeam.setPlayField(rs.getString("PLAYFIELD"));
+					matchTeam.setMatchId(rs.getString("MATCH_ID"));
+					matchTeam.setCreateDate(rs.getString("CRT_DT"));
 
 					teamVO = matchTeam.getTeamVO();
+					teamVO.setTeamId(rs.getString("TEAM_ID"));
 					teamVO.setTeamName(rs.getString("TEAM_NM"));
-					teamVO.setTeamName(rs.getString("ATEAM_NM"));
 					teamVO.setTeamPhoto(rs.getString("TEAM_PHOTO"));
-					teamVO.setLocationId(rs.getString("TLCTN_ID"));
-					teamVO.setTeamInfo(rs.getString("TEAM_INFO"));
+					
+					awayTeamVO = matchTeam.getAwayTeamVO();
+					awayTeamVO.setTeamId(rs.getString("ATEAM_ID"));
+					awayTeamVO.setTeamName(rs.getString("ATEAM_NM"));
+					awayTeamVO.setTeamPhoto(rs.getString("ATEAM_PHOTO"));
 
 					locationVO = matchTeam.getLocationVO();
 					locationVO.setLocationName(rs.getString("LCTN_NM"));
 					locationVO.setParentLocationName(rs.getString("PRNT_LCTN_NM"));
 
 					matchTeams.add(matchTeam);
-					
+
 				}
+
 				return matchTeams;
 			}
 		});
@@ -678,8 +676,8 @@ public class MatchDaoImpl extends DaoSupport implements MatchDao {
 				query.append(" 			, LCTN L ");
 				query.append(" WHERE	M.TEAM_ID = T.TEAM_ID ");
 				query.append(" AND		M.LCTN_ID = L.LCTN_ID ");
-				query.append(" AND		M.ATEAM_ID = T2.TEAM_ID ");
-				query.append(" AND		M.ATEAM_ID != '0' ");
+				query.append(" AND		M.ATEAM_ID = T2.TEAM_ID(+) ");
+				query.append(" AND		M.ATEAM_ID NOT NULL ");
 								
 				PreparedStatement pstmt = conn.prepareStatement(query.toString());
 				

@@ -14,7 +14,7 @@
 							var teamid = $(this).data("teamid");
 							window.open(
 									"/ShootBoy/teamDetail?teamId=" + teamid,
-									"", "width=450, height= 700");
+									"", "width=600, height= 700");
 						});
 
 			});

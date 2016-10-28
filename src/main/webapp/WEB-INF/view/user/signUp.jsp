@@ -12,7 +12,7 @@
 <script type="text/javascript">
 	$().ready(function() {
 		
-		//isVisibleButton();
+		isVisibleButton();
 
 		$("#cancelBtn").click(function() {
 			location.href = "/ShootBoy/signUp";

@@ -46,7 +46,7 @@ public class DoModifyTeamInfo extends HttpServlet {
 		
 		String email = multiparRequest.getParameter("email");
 		
-		teamInfo = teamInfo.replaceAll("\n", "<br/>").replaceAll("/r", "");
+		teamInfo = teamInfo.replaceAll("\n", "<br/>").replaceAll("\r", "");
 		
 		TeamVO teamVO = new TeamVO();
 		teamVO.setTeamId(teamId);

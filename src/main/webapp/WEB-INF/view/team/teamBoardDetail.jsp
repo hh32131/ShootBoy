@@ -51,8 +51,10 @@ $(document).ready(function() {
 	<br/><br/>
 	<hr/>
 	조회수 ${teamBoards.teamBoardRecommendCount}
+		<c:if test="${sessionScope._USER_INFO_.userId eq teamBoards.userVO.userId}">
 		<a href="javascript:void(0);" id="deleteBtn" style="color:#000;">삭제</a> |
 		<a href="/ShootBoy/teamBoardModify?teamBoardId=${teamBoards.teamBoardId}" style="color:#000;">수정 </a> 
+		</c:if>
 		<input type="hidden" id="teamBoards" name="teamBoards" value="${teamBoards.teamBoardId}" />
 	</div>
 </div>

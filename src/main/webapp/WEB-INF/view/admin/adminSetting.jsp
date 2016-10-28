@@ -15,22 +15,22 @@
 	  
 	  $("#teamForm >.list").click(function () {
 		  var teamValue = $("#teamForm >.list:checked").val();
-		  $.post("/ShootBoy/doCheckList", {"teamValue":teamValue});
+		  $.post("/ShootBoy/doCheckListTwo", {"teamValue":teamValue});
 	  });
 	  
 	  $("#teamArticleForm >.list").click(function () {
 		  var teamArticleValue = $("#teamArticleForm >.list:checked").val();
-		  $.post("/ShootBoy/doCheckList", {"teamArticleValue":teamArticleValue});
+		  $.post("/ShootBoy/doCheckListThree", {"teamArticleValue":teamArticleValue});
 	  });
 	  
 	  $("#gameForm >.list").click(function () {
 		  var gameValue = $("#gameForm >.list:checked").val();
-		  $.post("/ShootBoy/doCheckList", {"gameValue":gameValue});
+		  $.post("/ShootBoy/doCheckListFour", {"gameValue":gameValue});
 	  });
 	  
 	  $("#artcleForm >.list").click(function () {
 		  var articleValue = $("#artcleForm >.list:checked").val();
-		  $.post("/ShootBoy/doCheckList", {"articleValue":articleValue});
+		  $.post("/ShootBoy/doCheckListFive", {"articleValue":articleValue});
 	  });
 	  
 	  
