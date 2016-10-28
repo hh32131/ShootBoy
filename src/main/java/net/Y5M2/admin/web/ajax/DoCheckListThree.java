@@ -9,10 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 import net.Y5M2.constants.PageSelector;
 import net.Y5M2.support.Param;
 
-public class DoCheckList extends HttpServlet {
+public class DoCheckListThree extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public DoCheckList() {
+	public DoCheckListThree() {
 		super();
 	}
 
@@ -23,20 +23,10 @@ public class DoCheckList extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-<<<<<<< HEAD
-		int memberValue = Param.getIntParam(request, "memberValue",10);
-		int teamValue = Param.getIntParam(request, "teamValue",20);
-		int teamArticleValue = Param.getIntParam(request, "teamArticleValue",10);
-		int gameValue = Param.getIntParam(request, "gameValue",10);
-		int articleValue = Param.getIntParam(request, "articleValue",10);
-		
-		
-=======
-		int memberValue = Param.getIntParam(request, "memberValue");
 
->>>>>>> 7eaa7589338aa63aa31e07d3056704adf81f7eb4
-		PageSelector.MEMBER_PAGE_SELECTOR = memberValue;
+		int teamArticleValue = Param.getIntParam(request, "teamArticleValue");
 		
+		PageSelector.TEAMBOARD_PAGE_SELECTOR = teamArticleValue;
+
 	}
 }

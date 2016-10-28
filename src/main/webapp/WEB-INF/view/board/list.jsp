@@ -49,7 +49,7 @@
 					<c:if test="${categoryId eq 16}">
 						<img src="/ShootBoy/img/화살표.jpg" class="arrow">
 					</c:if>
-					<a href="/ShootBoy/list?categoryId=16">축구동영상</a>
+					<a href="/ShootBoy/list?categoryId=16">용병모집</a>
 				</div>
 				<div class="mplmFour">
 					<c:if test="${categoryId eq 17}">
@@ -67,7 +67,7 @@
 					<c:if test="${categoryId eq 19}">
 						<img src="/ShootBoy/img/화살표.jpg" class="arrow">
 					</c:if>
-					<a href="/ShootBoy/list?categoryId=19">모집게시판</a>
+					<a href="/ShootBoy/list?categoryId=19">팀원모집</a>
 				</div>
 			</div>
 		</div>
@@ -93,7 +93,7 @@
 					<h1>해외축구소식</h1>
 				</c:when>
 				<c:when test="${categoryId == '16'}">
-					<h1>축구동영상</h1>
+					<h1>용병모집</h1>
 				</c:when>
 				<c:when test="${categoryId == '17'}">
 					<h1>축구갤러리</h1>
@@ -102,7 +102,7 @@
 					<h1>매치경기후기</h1>
 				</c:when>
 				<c:when test="${categoryId == '19'}">
-					<h1>모집게시판</h1>
+					<h1>팀원모집</h1>
 				</c:when>
 			</c:choose>
 			<hr style="border: 1px solid; width: 700px;" />

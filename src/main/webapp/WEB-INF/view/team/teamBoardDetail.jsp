@@ -51,10 +51,17 @@ $(document).ready(function() {
 	<br/><br/>
 	<hr/>
 	조회수 ${teamBoards.teamBoardRecommendCount}
+<<<<<<< HEAD
 	<c:if test="${sessionScope._USER_INFO_.userId eq teamBoards.userVO.userId}">
 		<a href="javascript:void(0);" id="deleteBtn" style="color:#000;">삭제</a> |
 		<a href="/ShootBoy/teamBoardModify?teamBoardId=${teamBoards.teamBoardId}" style="color:#000;">수정 </a> 
 	</c:if>
+=======
+		<c:if test="${sessionScope._USER_INFO_.userId eq teamBoards.userVO.userId}">
+		<a href="javascript:void(0);" id="deleteBtn" style="color:#000;">삭제</a> |
+		<a href="/ShootBoy/teamBoardModify?teamBoardId=${teamBoards.teamBoardId}" style="color:#000;">수정 </a> 
+		</c:if>
+>>>>>>> 7eaa7589338aa63aa31e07d3056704adf81f7eb4
 		<input type="hidden" id="teamBoards" name="teamBoards" value="${teamBoards.teamBoardId}" />
 	</div>
 </div>

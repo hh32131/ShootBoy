@@ -39,7 +39,7 @@
 			<li class="dropdown">
 			  	<a href="/ShootBoy/adminMember" class="dropbtn">회원 관리</a>
 			  		<div class="dropdown-content">
-				  		<a href="/ShootBoy/adminUser/init">회원 관리 </a>
+				  		<a href="/ShootBoy/adminMember">회원 관리 </a>
 				  	</div>
 			</li>
 				

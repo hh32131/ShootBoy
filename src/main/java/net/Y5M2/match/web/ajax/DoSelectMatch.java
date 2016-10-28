@@ -37,7 +37,7 @@ public class DoSelectMatch extends HttpServlet {
 		
 		for (MatchVO matchVO : matchTeams) {
 			list.append(" <div class='matchApplyManagement'> ");	
-			list.append(String.format(" <div class='matchApplyImg'> <img class='matchApplyImg' src='/ShootBoy/showImage?teamId= %s' ></div>", matchVO.getTeamId()));
+			list.append(String.format(" <div class='matchApplyImg'> <img class='matchApplyImg' src='/ShootBoy/showImage?teamId=%s' ></div>", matchVO.getTeamId()));
 			list.append(" <div class='matchApplyContent'>");
 			list.append(String.format(" <div class='matchApplyTeamName'>팀명 : %s</div>", matchVO.getTeamVO().getTeamName()));
 			list.append(String.format(" <div class='matchApplyTeamLocation'>지역 : %s -%s </div>",matchVO.getTeamVO().getLocationVO().getParentLocationName(), matchVO.getTeamVO().getLocationVO().getLocationName()));

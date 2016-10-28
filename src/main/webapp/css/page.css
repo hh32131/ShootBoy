@@ -80,6 +80,7 @@
 }
 
 #dropTeam {
+	float:right;
 	color:#fff;
 	font-size: 15px;
 	background-color:#ff4a4a;
@@ -242,6 +243,13 @@
 	width: 550px;
 	float: left;
 	display: inline-block;
+}
+
+#joinTwo {
+	font-size:13px;
+	width: 700px;
+	float: left;
+	display: inline-block;	
 }
 
 #teamJoinBtn {

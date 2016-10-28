@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import net.Y5M2.admin.biz.AdminBiz;
 import net.Y5M2.admin.biz.AdminBizImpl;
 import net.Y5M2.article.vo.BoardVO;
-import net.Y5M2.support.Param;
+import net.Y5M2.match.vo.MatchVO;
 import net.Y5M2.team.vo.TeamVO;
 import net.Y5M2.user.vo.UserVO;
 
@@ -38,6 +38,7 @@ public class ViewAdminPageServlet extends HttpServlet {
 		List<UserVO> users = adminBiz.getAllUser();
 		List<TeamVO> teams = adminBiz.getAllTeams();
 		List<BoardVO> boards = adminBiz.getAllBoard();
+		List<MatchVO> matchs = adminBiz.getAllMatchTeams();
 			
 		
 		String viewPath = "/WEB-INF/view/admin/admin.jsp";
@@ -46,6 +47,7 @@ public class ViewAdminPageServlet extends HttpServlet {
 		request.setAttribute("users", users);
 		request.setAttribute("teams", teams);
 		request.setAttribute("boards", boards);
+		request.setAttribute("matchs", matchs);
 
 		rd.forward(request, response);
 	}
