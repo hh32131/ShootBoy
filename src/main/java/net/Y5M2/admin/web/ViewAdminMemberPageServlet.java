@@ -19,7 +19,6 @@ import net.Y5M2.user.biz.UserBiz;
 import net.Y5M2.user.biz.UserBizImpl;
 import net.Y5M2.user.vo.SearchUserVO;
 import net.Y5M2.user.vo.UserListVO;
-import net.Y5M2.user.vo.UserVO;
 
 public class ViewAdminMemberPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
